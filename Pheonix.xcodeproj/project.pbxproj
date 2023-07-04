@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A16CE4E72A546E6E006C75EF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16CE4E62A546E6E006C75EF /* XCTest.framework */; };
+		A16CE4ED2A5485B6006C75EF /* GestureRecognitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16CE4EC2A5485B6006C75EF /* GestureRecognitionDelegate.swift */; };
 		A17483152A51016F00978F0A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17483142A51016F00978F0A /* ContentView.swift */; };
 		A17483172A51017100978F0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A17483162A51017100978F0A /* Assets.xcassets */; };
 		A174831A2A51017100978F0A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A17483192A51017100978F0A /* Preview Assets.xcassets */; };
@@ -62,6 +63,7 @@
 
 /* Begin PBXFileReference section */
 		A16CE4E62A546E6E006C75EF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		A16CE4EC2A5485B6006C75EF /* GestureRecognitionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureRecognitionDelegate.swift; sourceTree = "<group>"; };
 		A174830F2A51016F00978F0A /* Pheonix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pheonix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A17483142A51016F00978F0A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A17483162A51017100978F0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				A1EC501E2A5373D6000E900B /* KeyboardInteractionDelegate.swift */,
 				A1F69EA42A520CCF00480362 /* WordSuggestionDelegate.swift */,
 				A184CE552A522AFD008FAEC3 /* SceneDelegate.swift */,
+				A16CE4EC2A5485B6006C75EF /* GestureRecognitionDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				A1F69EA12A511D4100480362 /* KeyboardView.swift in Sources */,
 				A1EC50112A536FB1000E900B /* KeyboardViewDelegate.swift in Sources */,
 				A184CE302A521DE5008FAEC3 /* GazeDetection.swift in Sources */,
+				A16CE4ED2A5485B6006C75EF /* GestureRecognitionDelegate.swift in Sources */,
 				A184CE362A522033008FAEC3 /* DynamicCalibration.swift in Sources */,
 				A184CE4C2A52293B008FAEC3 /* KeyboardInteraction.swift in Sources */,
 				A184CE3C2A5226C6008FAEC3 /* BlinkGestureHandler.swift in Sources */,

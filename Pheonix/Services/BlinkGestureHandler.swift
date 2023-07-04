@@ -1,5 +1,4 @@
 import Foundation
-import UIKit
 
 class BlinkGestureHandler {
     weak var delegate: BlinkGestureHandlerDelegate?

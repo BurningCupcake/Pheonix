@@ -2,9 +2,6 @@ import ARKit
 import simd
 import UIKit
 
-protocol GazeDetectionDelegate: AnyObject {
-    func gazeDetection(_ gazeDetection: GazeDetection, didDetectGazeAt point: CGPoint)
-}
 
 class GazeDetection: NSObject, ARSessionDelegate {
     weak var delegate: GazeDetectionDelegate?
