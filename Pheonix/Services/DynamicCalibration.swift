@@ -30,7 +30,8 @@ class DynamicCalibration {
         fractalLayer.masksToBounds = true
         
         // Add the fractal layer to the keyboard view
-        if let keyboardView = UIApplication.shared.windows.first?.rootViewController?.view {
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let keyboardView = windowScene.windows.first?.rootViewController?.view {
             keyboardView.layer.insertSublayer(fractalLayer, at: 0)
         }
         
@@ -48,9 +49,4 @@ class DynamicCalibration {
             completion(true)
         }
     }
-}
-
-struct CalibrationResult {
-    var calibrationPoints: [CGPoint]
-    // Add any other properties as needed
 }

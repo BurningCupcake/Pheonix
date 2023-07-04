@@ -1,4 +1,5 @@
 import UIKit
+import SwiftUI
 import Foundation
 
 class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractionDelegate, WordSuggestionDelegate, KeyboardViewDelegate {
@@ -19,7 +20,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout())
         textEntry = TextEntry()
         wordSuggestion = WordSuggestion()
-        eyeTrackingController = EyeTrackingController()
+        eyeTrackingController = EyeTrackingController(eyeTracker: EyeTracker(), wordSuggestion: wordSuggestion)
         
         // Setup delegates
         gazeDetection.delegate = self
@@ -27,7 +28,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         wordSuggestion.delegate = self
         
         // Create the SwiftUI keyboard view
-        let keyboardView = KeyboardView(keyboardInteraction: keyboardInteraction)
+        var keyboardView = KeyboardView(keyboardInteraction: keyboardInteraction)
         keyboardView.delegate = self // Set the delegate
         
         // Create a hosting controller to integrate SwiftUI view with UIKit
@@ -57,14 +58,14 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     // MARK: - KeyboardInteractionDelegate
     
     func keyboardInteraction(_ keyboardInteraction: KeyboardInteraction, didSelectKey key: String) {
-        textEntry.keyboardInteraction(keyboardInteraction, didSelectKey: key)
+        textEntry.didSelectKey(key)
         wordSuggestion.processTextEntry(textEntry)
     }
     
     // MARK: - WordSuggestionDelegate
     
-    func wordSuggestion(_ wordSuggestion: WordSuggestion, didSuggestWords words: [String]) {
-        keyboardHostingController.rootView.updateWordSuggestions(words)
+    func wordSuggestion(_ wordSuggestion: WordSuggestion, didSuggestWords suggestedWords: [String]) {
+        keyboardHostingController.rootView.updateWordSuggestions(suggestedWords)
     }
     
     // MARK: - KeyboardViewDelegate

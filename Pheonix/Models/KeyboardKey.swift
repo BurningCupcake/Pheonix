@@ -1,16 +1,16 @@
 import UIKit
 
-class KeyboardView: UIView {
-
+class KeyboardKey: UIView {
+    
     var gazeIndicator: UIView
     weak var delegate: KeyboardViewDelegate?
-
+    
     static let defaultLayout = [
         ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"],
         ["K", "L", "M", "N", "O", "P", "Q", "R", "S", "T"],
         ["U", "V", "W", "X", "Y", "Z", ".", ",", "?", "!"]
     ]
-
+    
     init() {
         self.gazeIndicator = UIView()
         super.init(frame: .zero)

@@ -11,3 +11,4 @@ class BlinkGestureHandler {
         previousEyeState = eyeState
     }
 }
+

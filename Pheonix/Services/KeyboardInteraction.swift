@@ -7,4 +7,8 @@ class KeyboardInteraction {
     init(layout: KeyboardLayout) {
         self.keyboardLayout = layout
     }
+    
+    func processKey(_ key: String) {
+        delegate?.didSelectKey(key)
+    }
 }
