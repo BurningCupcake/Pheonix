@@ -1,8 +1,7 @@
 import UIKit
-import Foundation
 
-class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractionDelegate, WordSuggestionDelegate, KeyboardViewDelegate {
-    private var keyboardHostingController: UIHostingController<KeyboardView>!
+class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractionDelegate, WordSuggestionDelegate {
+    private var keyboardView: KeyboardView!
     private var gazeDetection: GazeDetection!
     private var dynamicCalibration: DynamicCalibration!
     private var keyboardInteraction: KeyboardInteraction!
@@ -16,28 +15,24 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         // Create dependencies
         dynamicCalibration = DynamicCalibration()
         gazeDetection = GazeDetection(calibrationDelegate: dynamicCalibration)
-        keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout())
+        keyboardInteraction = KeyboardInteraction(layout: KeyboardView.defaultLayout)
         textEntry = TextEntry()
         wordSuggestion = WordSuggestion()
         eyeTrackingController = EyeTrackingController()
         
         // Setup delegates
         gazeDetection.delegate = self
+        dynamicCalibration.delegate = eyeTrackingController
         keyboardInteraction.delegate = self
-        wordSuggestion.delegate = self
+        wordSuggestion.delegate = eyeTrackingController
         
-        // Create the SwiftUI keyboard view
-        let keyboardView = KeyboardView(keyboardInteraction: keyboardInteraction)
-        keyboardView.delegate = self // Set the delegate
+        // Create and configure the keyboard view
+        keyboardView = KeyboardView()
+        keyboardView.delegate = keyboardInteraction
+        keyboardView.backgroundColor = .lightGray
         
-        // Create a hosting controller to integrate SwiftUI view with UIKit
-        keyboardHostingController = UIHostingController(rootView: keyboardView)
-        keyboardHostingController.view.translatesAutoresizingMaskIntoConstraints = false
-        
-        // Add the hosting controller's view to the input view
-        addChild(keyboardHostingController)
-        view.addSubview(keyboardHostingController.view)
-        keyboardHostingController.didMove(toParent: self)
+        // Add the keyboard view to the input view
+        view.addSubview(keyboardView)
         
         // Start gaze detection
         gazeDetection.start()
@@ -45,7 +40,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        keyboardHostingController.view.frame = view.bounds
+        keyboardView.frame = view.bounds
     }
     
     // MARK: - GazeDetectionDelegate
@@ -64,14 +59,6 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     // MARK: - WordSuggestionDelegate
     
     func wordSuggestion(_ wordSuggestion: WordSuggestion, didSuggestWords words: [String]) {
-        keyboardHostingController.rootView.updateWordSuggestions(words)
-    }
-    
-    // MARK: - KeyboardViewDelegate
-    
-    func didSelectKey(_ key: String) {
-        // Handle key selection event
-        // You can access the selected key here
+        keyboardView.updateWordSuggestions(words)
     }
 }
-
