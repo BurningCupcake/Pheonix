@@ -58,14 +58,14 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     // MARK: - KeyboardInteractionDelegate
     
     func keyboardInteraction(_ keyboardInteraction: KeyboardInteraction, didSelectKey key: String) {
-        textEntry.didSelectKey(key)
+        textEntry.appendText(key)
         wordSuggestion.processTextEntry(textEntry)
     }
     
     // MARK: - WordSuggestionDelegate
     
     func wordSuggestion(_ wordSuggestion: WordSuggestion, didSuggestWords suggestedWords: [String]) {
-        keyboardHostingController.rootView.updateWordSuggestions(suggestedWords)
+        keyboardView.updateWordSuggestions(suggestedWords)
     }
     
     // MARK: - KeyboardViewDelegate
