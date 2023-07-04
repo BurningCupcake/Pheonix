@@ -40,7 +40,7 @@ class DependencyInjection {
         if let gazeDetection = self.gazeDetection {
             return gazeDetection
         } else {
-            let calibrationDelegate = YourCalibrationDelegateImplementation() // Replace with your concrete implementation conforming to CalibrationDelegate
+            let calibrationDelegate = CalibrationDelegate() 
             let gazeDetection = GazeDetection(calibrationDelegate: calibrationDelegate)
             self.gazeDetection = gazeDetection
             return gazeDetection
