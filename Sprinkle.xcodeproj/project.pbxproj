@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A14D699A2A54B2AB00D67BFC /* CalibrationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D69992A54B2AB00D67BFC /* CalibrationDelegate.swift */; };
 		A16CE4E72A546E6E006C75EF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16CE4E62A546E6E006C75EF /* XCTest.framework */; };
 		A16CE4ED2A5485B6006C75EF /* GestureRecognitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16CE4EC2A5485B6006C75EF /* GestureRecognitionDelegate.swift */; };
 		A17483152A51016F00978F0A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17483142A51016F00978F0A /* ContentView.swift */; };
@@ -62,6 +63,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A14D69992A54B2AB00D67BFC /* CalibrationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationDelegate.swift; sourceTree = "<group>"; };
 		A16CE4E62A546E6E006C75EF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A16CE4EC2A5485B6006C75EF /* GestureRecognitionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureRecognitionDelegate.swift; sourceTree = "<group>"; };
 		A174830F2A51016F00978F0A /* Pheonix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pheonix.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +151,7 @@
 				A1F69EA42A520CCF00480362 /* WordSuggestionDelegate.swift */,
 				A184CE552A522AFD008FAEC3 /* SceneDelegate.swift */,
 				A16CE4EC2A5485B6006C75EF /* GestureRecognitionDelegate.swift */,
+				A14D69992A54B2AB00D67BFC /* CalibrationDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				A184CE462A522803008FAEC3 /* EyeGazeViewController.swift in Sources */,
 				A1F69EAB2A520DA500480362 /* WordSuggestion.swift in Sources */,
 				A184CE582A522B53008FAEC3 /* TextEntry.swift in Sources */,
+				A14D699A2A54B2AB00D67BFC /* CalibrationDelegate.swift in Sources */,
 				A184CE2C2A521BEE008FAEC3 /* CalibrationResult.swift in Sources */,
 				A184CE442A5227E0008FAEC3 /* DynamicCalibrationModel.swift in Sources */,
 				A1F69EA82A520CD000480362 /* GazeDetectionDelegate.swift in Sources */,
@@ -522,7 +526,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Phoenix/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Sprinkle/Preview Content\"";
 				DEVELOPMENT_TEAM = 8CUXCK3FDP;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_TESTABILITY = NO;
@@ -557,7 +561,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Phoenix/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Sprinkle/Preview Content\"";
 				DEVELOPMENT_TEAM = 8CUXCK3FDP;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

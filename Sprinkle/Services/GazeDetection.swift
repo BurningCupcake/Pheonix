@@ -2,14 +2,15 @@ import ARKit
 import simd
 import UIKit
 
-
 class GazeDetection: NSObject, ARSessionDelegate {
     weak var delegate: GazeDetectionDelegate?
     private var isCalibrating: Bool = false
     
     private var eyeTrackingSession: ARSession
+    private let calibrationDelegate: DynamicCalibration
     
-    override init() {
+    init(calibrationDelegate: DynamicCalibration) {
+        self.calibrationDelegate = calibrationDelegate
         eyeTrackingSession = ARSession()
         super.init()
         eyeTrackingSession.delegate = self
