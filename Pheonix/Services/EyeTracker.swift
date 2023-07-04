@@ -1,10 +1,6 @@
 import ARKit
 import simd
 
-protocol EyeTrackerDelegate: AnyObject {
-    func eyeTracker(_ eyeTracker: EyeTracker, didUpdateGazePoint gazePoint: CGPoint)
-}
-
 class EyeTracker: NSObject, ARSessionDelegate {
     weak var delegate: EyeTrackerDelegate?
     private var session: ARSession?
@@ -38,6 +34,6 @@ class EyeTracker: NSObject, ARSessionDelegate {
         let gazePoint = CGPoint(x: CGFloat(leftEyeTransform.columns.3.x), y: CGFloat(leftEyeTransform.columns.3.y))
         
         // Notify the delegate about the gaze point update
-        delegate?.eyeTracker(self, didUpdateGazePoint: gazePoint)
+        delegate?.eyeTracker(self, didTrackGazePoint: gazePoint)
     }
 }

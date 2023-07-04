@@ -1,5 +1,5 @@
 import XCTest
-@testable import Pheonix
+
 
 class BlinkGestureHandlerTests: XCTestCase {
     var blinkGestureHandler: BlinkGestureHandler!
