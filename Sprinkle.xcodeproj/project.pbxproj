@@ -156,7 +156,7 @@
 		A17483062A51016F00978F0A = {
 			isa = PBXGroup;
 			children = (
-				A17483112A51016F00978F0A /* Phoenix */,
+				A17483112A51016F00978F0A /* Sprinkle */,
 				A17483102A51016F00978F0A /* Products */,
 				A184CE5D2A5258BF008FAEC3 /* Frameworks */,
 			);
@@ -170,7 +170,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A17483112A51016F00978F0A /* Phoenix */ = {
+		A17483112A51016F00978F0A /* Sprinkle */ = {
 			isa = PBXGroup;
 			children = (
 				A16CE4E82A546FFD006C75EF /* Delegates */,
@@ -183,7 +183,7 @@
 				A1EC50122A537245000E900B /* Controllers */,
 				A17483182A51017100978F0A /* Preview Content */,
 			);
-			path = Phoenix;
+			path = Sprinkle;
 			sourceTree = "<group>";
 		};
 		A17483182A51017100978F0A /* Preview Content */ = {
@@ -320,7 +320,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A174830A2A51016F00978F0A /* Build configuration list for PBXProject "Phoenix" */;
+			buildConfigurationList = A174830A2A51016F00978F0A /* Build configuration list for PBXProject "Sprinkle" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -587,7 +587,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A174830A2A51016F00978F0A /* Build configuration list for PBXProject "Phoenix" */ = {
+		A174830A2A51016F00978F0A /* Build configuration list for PBXProject "Sprinkle" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A174831B2A51017100978F0A /* Debug */,
