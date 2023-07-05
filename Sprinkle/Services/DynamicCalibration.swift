@@ -12,6 +12,10 @@ class DynamicCalibration {
     }
     
     func calculateCalibrationResult() -> CalibrationResult? {
+        guard !calibrationPoints.isEmpty else {
+            return nil
+        }
+        
         // Perform calibration calculation based on calibration points
         // Return the calibration result
         
@@ -21,7 +25,6 @@ class DynamicCalibration {
     }
     
     func performCalibration(completion: @escaping (Bool) -> Void) {
-        // Create a fractal layer as the background of the keyboard view
         let fractalLayer = CALayer()
         fractalLayer.frame = UIScreen.main.bounds
         fractalLayer.backgroundColor = UIColor.white.cgColor
@@ -29,23 +32,15 @@ class DynamicCalibration {
         fractalLayer.contentsScale = UIScreen.main.scale
         fractalLayer.masksToBounds = true
         
-        // Add the fractal layer to the keyboard view
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
            let keyboardView = windowScene.windows.first?.rootViewController?.view {
             keyboardView.layer.insertSublayer(fractalLayer, at: 0)
         }
         
-        // Animate the fractal growth and color shifting
         UIView.animate(withDuration: 3.0, animations: {
-            // Update the fractal layer to reflect the growing and shifting fractal pattern
             fractalLayer.backgroundColor = UIColor.red.cgColor
-            // ... Perform additional fractal animation updates
-            
         }) { (_) in
-            // Remove the fractal layer from the keyboard view
             fractalLayer.removeFromSuperlayer()
-            
-            // Call the completion handler to indicate the calibration is finished
             completion(true)
         }
     }

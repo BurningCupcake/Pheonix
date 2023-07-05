@@ -39,22 +39,15 @@ class CalibrationDelegateImplementation: DynamicCalibration, CalibrationDelegate
         
         // Simulating the completion of calibration after a delay
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            let success = true // Simulated success
-            
-            if success {
-                let calibrationResult = self.calculateCalibrationResult()
-                if let result = calibrationResult {
-                    self.didCompleteCalibration(withResult: result)
-                } else {
-                    let error = NSError(domain: "CalibrationError", code: 0, userInfo: nil) // Simulated error
-                    self.didFailCalibration(withError: error)
-                }
+            let calibrationResult = self.calculateCalibrationResult()
+            if let result = calibrationResult {
+                self.didCompleteCalibration(withResult: result)
             } else {
                 let error = NSError(domain: "CalibrationError", code: 0, userInfo: nil) // Simulated error
                 self.didFailCalibration(withError: error)
             }
             
-            completion(success)
+            completion(true)
         }
     }
     

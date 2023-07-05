@@ -11,7 +11,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     private var wordSuggestion: WordSuggestion!
     private var eyeTrackingController: EyeTrackingController!
     
-    var keyboardView: KeyboardView? // Add the required property
+    var keyboardView: KeyboardView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         
         // Create the SwiftUI keyboard view
         let keyboardView = KeyboardView(keyboardInteraction: keyboardInteraction)
-        self.keyboardView = keyboardView // Set the keyboardView property
+        self.keyboardView = keyboardView
         
         // Create a hosting controller to integrate SwiftUI view with UIKit
         keyboardHostingController = UIHostingController(rootView: keyboardView)
@@ -67,7 +67,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     // MARK: - WordSuggestionDelegate
     
     func wordSuggestion(_ wordSuggestion: WordSuggestion, didSuggestWords suggestedWords: [String]) {
-        keyboardView?.updateWordSuggestions(suggestedWords) // Add optional chaining
+        keyboardView?.updateWordSuggestions(suggestedWords)
     }
     
     // MARK: - KeyboardViewDelegate
@@ -78,7 +78,6 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     }
     
     func updateWordSuggestions(_ suggestions: [String]) {
-        // Update word suggestions in the keyboard view
         keyboardView?.updateWordSuggestions(suggestions)
     }
 }
