@@ -1,8 +1,20 @@
 import SwiftUI
 
+class KeyboardViewDelegateWrapper: ObservableObject, KeyboardViewDelegate {
+    @Published var wordSuggestions: [String] = []
+    
+    func didSelectKey(_ key: String) {
+        // Handle key selection event
+    }
+    
+    func updateWordSuggestions(_ suggestions: [String]) {
+        wordSuggestions = suggestions
+    }
+}
+
 struct KeyboardView: View {
     var keyboardInteraction: KeyboardInteraction
-    weak var delegate: KeyboardViewDelegate?
+    @StateObject var delegateWrapper = KeyboardViewDelegateWrapper()
     
     var keyboardLayout: KeyboardLayout = KeyboardLayout.defaultLayout()
     
@@ -20,20 +32,25 @@ struct KeyboardView: View {
                             .tag(rowIndex * keyboardLayout.layout[rowIndex].count + columnIndex)
                             .onTapGesture {
                                 let key = keyboardLayout.layout[rowIndex][columnIndex]
-                                delegate?.didSelectKey(key)
+                                delegateWrapper.didSelectKey(key)
                             }
                     }
                 }
             }
         }
         .onAppear {
-            delegate?.keyboardView = self
+            delegateWrapper.updateWordSuggestions([])
         }
+        .environmentObject(delegateWrapper)
+    }
+    
+    func updateWordSuggestions(_ suggestions: [String]) {
+        delegateWrapper.updateWordSuggestions(suggestions)
     }
 }
 
 struct KeyboardView_Previews: PreviewProvider {
     static var previews: some View {
-        KeyboardView(keyboardInteraction: KeyboardInteraction(layout: KeyboardLayout.defaultLayout()), delegate: nil)
+        KeyboardView(keyboardInteraction: KeyboardInteraction(layout: KeyboardLayout.defaultLayout()))
     }
 }

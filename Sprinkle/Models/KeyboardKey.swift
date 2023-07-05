@@ -37,26 +37,30 @@ class KeyboardKey: UIView {
     let keyPadding: CGFloat = 5
     
     func setupKeyboardLayout() {
-        for (i, row) in KeyboardView.defaultLayout.enumerated() {
+        for (i, row) in KeyboardKey.defaultLayout.enumerated() {
             for (j, key) in row.enumerated() {
-                let keyButton = KeyboardKey()
-                keyButton.setTitle(key, for: .normal)
-                keyButton.backgroundColor = UIColor(white: 0.95, alpha: 1)
-                keyButton.layer.cornerRadius = 8
-                keyButton.addTarget(self, action: #selector(didSelectKey(_:)), for: .touchUpInside)
+                let keyLabel = UILabel()
+                keyLabel.text = key
+                keyLabel.textAlignment = .center
+                keyLabel.backgroundColor = UIColor(white: 0.95, alpha: 1)
+                keyLabel.layer.cornerRadius = 8
+                keyLabel.isUserInteractionEnabled = true
+                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didSelectKey(_:)))
+                keyLabel.addGestureRecognizer(tapGesture)
                 
                 let xPos = keyPadding + CGFloat(j) * (keySize.width + keyPadding)
                 let yPos = keyPadding + CGFloat(i) * (keySize.height + keyPadding)
-                keyButton.frame = CGRect(x: xPos, y: yPos, width: keySize.width, height: keySize.height)
+                keyLabel.frame = CGRect(x: xPos, y: yPos, width: keySize.width, height: keySize.height)
                 
-                addSubview(keyButton)
+                addSubview(keyLabel)
             }
         }
     }
     
-    @objc func didSelectKey(_ sender: UIButton) {
-        if let key = sender.titleLabel?.text {
-            delegate?.keyboardView(self, didSelectKey: key)
+    @objc func didSelectKey(_ sender: UITapGestureRecognizer) {
+        if let keyLabel = sender.view as? UILabel, let key = keyLabel.text {
+            delegate?.didSelectKey(key)
         }
     }
 }
+

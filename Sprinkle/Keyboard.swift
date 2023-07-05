@@ -30,8 +30,8 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         wordSuggestion.delegate = self
         
         // Create the SwiftUI keyboard view
-        var keyboardView = KeyboardView(keyboardInteraction: keyboardInteraction)
-        keyboardView.delegate = self // Set the delegate
+        let keyboardView = KeyboardView(keyboardInteraction: keyboardInteraction)
+        self.keyboardView = keyboardView // Set the keyboardView property
         
         // Create a hosting controller to integrate SwiftUI view with UIKit
         keyboardHostingController = UIHostingController(rootView: keyboardView)
