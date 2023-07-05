@@ -58,4 +58,4 @@ func session(_ session: ARSession, didUpdate frame: ARFrame) {
     let gazePoint = CGPoint(x: CGFloat(projectedPoint.x), y: CGFloat(projectedPoint.y))
     delegate?.gazeDetection(self, didDetectGazeAt: gazePoint)
 }
-}
+

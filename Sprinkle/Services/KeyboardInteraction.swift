@@ -20,7 +20,7 @@ class KeyboardInteraction {
         let keyPadding = layout.keyPadding
         
         let row = Int(point.y / (keySize.height + keyPadding))
-        let column = Int(pointApologies for the incomplete response earlier. Here are the remaining
+        let column = Int(point.x / (keySize.width + keyPadding))
         let column = Int(point.x / (keySize.width + keyPadding))
                          
             return row * layout.layout[row].count + column

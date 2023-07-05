@@ -6,14 +6,14 @@ protocol GestureRecognitionDelegate: AnyObject {
 
 class GestureRecognition {
     weak var delegate: GestureRecognitionDelegate?
+    private var previousEyeState: EyeState = .open
     
     func processEyeState(_ eyeState: EyeState) {
-        // Implement your logic to recognize gestures based on eye state
-        // You can use the eye state to detect blinks, winks, or other gestures
-        
-        // Example: Detect a blink gesture when the eye state transitions from open to closed
-        if eyeState == .closed {
+        if previousEyeState == .open && eyeState == .closed {
             delegate?.gestureRecognition(self, didRecognizeGesture: .blink)
         }
+        previousEyeState = eyeState
     }
 }
+
+
