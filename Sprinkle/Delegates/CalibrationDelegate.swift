@@ -6,19 +6,28 @@ protocol CalibrationDelegate: AnyObject {
     func didFailCalibration(withError error: Error)
 }
 
-class YourCalibrationDelegateImplementation: CalibrationDelegate {
-    func didStartCalibration() {
-        print("Calibration started")
-        // Implement your specific logic for when calibration starts
+class CalibrationDelegateImplementation: DynamicCalibration {
+    private var calibrationPoints: [CGPoint] = []
+    
+    override func addCalibrationPoint(_ point: CGPoint) {
+        calibrationPoints.append(point)
     }
     
-    func didCompleteCalibration(withResult result: CalibrationResult) {
-        print("Calibration completed with result: \(result)")
-        // Implement your specific logic for when calibration completes
+    override func clearCalibrationPoints() {
+        calibrationPoints.removeAll()
     }
     
-    func didFailCalibration(withError error: Error) {
-        print("Calibration failed with error: \(error)")
-        // Implement your specific logic for when calibration fails
+    override func calculateCalibrationResult() -> CalibrationResult? {
+        // Perform calibration calculation based on calibration points
+        // Return the calibration result
+        
+        // Example implementation:
+        let result = CalibrationResult(calibrationPoints: calibrationPoints)
+        return result
+    }
+    
+    override func performCalibration(completion: @escaping (Bool) -> Void) {
+        // Implement the calibration process
+        // ...
     }
 }
