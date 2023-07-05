@@ -38,7 +38,7 @@ class DependencyInjection {
             self.gazeDetection = gazeDetection
             self.wordSuggestion = wordSuggestion
             return eyeTrackingController
-
+            
         }
     }
     
@@ -46,7 +46,7 @@ class DependencyInjection {
         if let gazeDetection = self.gazeDetection {
             return gazeDetection
         } else {
-            let calibrationDelegate = CalibrationDelegate() 
+            let calibrationDelegate = CalibrationDelegateImplementation()
             let gazeDetection = GazeDetection(calibrationDelegate: calibrationDelegate)
             self.gazeDetection = gazeDetection
             return gazeDetection
@@ -83,4 +83,3 @@ class DependencyInjection {
         }
     }
 }
-

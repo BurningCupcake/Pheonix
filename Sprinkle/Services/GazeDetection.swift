@@ -28,7 +28,7 @@ class GazeDetection: NSObject, ARSessionDelegate {
     // MARK: - ARSessionDelegate
     
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
-        guard let faceAnchor = frame.anchors.compactMap({ $0 as? ARFaceAnchor }).first else {
+                guard let faceAnchor = frame.anchors.compactMap({ $0 as? ARFaceAnchor }).first else {
             return
         }
         

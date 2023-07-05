@@ -1,6 +1,5 @@
 import SwiftUI
 
-
 struct KeyboardView: View {
     var keyboardInteraction: KeyboardInteraction
     weak var delegate: KeyboardViewDelegate?
@@ -32,7 +31,6 @@ struct KeyboardView: View {
         }
     }
 }
-
 
 struct KeyboardView_Previews: PreviewProvider {
     static var previews: some View {

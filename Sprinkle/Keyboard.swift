@@ -11,6 +11,8 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     private var wordSuggestion: WordSuggestion!
     private var eyeTrackingController: EyeTrackingController!
     
+    var keyboardView: KeyboardView? // Add the required property
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,7 +67,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     // MARK: - WordSuggestionDelegate
     
     func wordSuggestion(_ wordSuggestion: WordSuggestion, didSuggestWords suggestedWords: [String]) {
-        keyboardView.updateWordSuggestions(suggestedWords)
+        keyboardView?.updateWordSuggestions(suggestedWords) // Add optional chaining
     }
     
     // MARK: - KeyboardViewDelegate
@@ -74,5 +76,9 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         // Handle key selection event
         // You can access the selected key here
     }
+    
+    func updateWordSuggestions(_ suggestions: [String]) {
+        // Update word suggestions in the keyboard view
+        keyboardView?.updateWordSuggestions(suggestions)
+    }
 }
-
