@@ -27,8 +27,12 @@ struct KeyboardView: View {
                 }
             }
         }
+        .onAppear {
+            delegate?.keyboardView = self
+        }
     }
 }
+
 
 struct KeyboardView_Previews: PreviewProvider {
     static var previews: some View {
