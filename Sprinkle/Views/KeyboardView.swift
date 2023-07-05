@@ -28,3 +28,28 @@ struct KeyboardView: View {
         }
     }
 }
+
+struct KeyboardView_Previews: PreviewProvider {
+    static var previews: some View {
+        KeyboardView(keyboardInteraction: KeyboardInteraction(layout: KeyboardLayout.defaultLayout()), delegate: nil)
+    }
+}
+
+struct KeyboardLayout {
+    let layout: [[String]]
+    
+    static func defaultLayout() -> KeyboardLayout {
+        // Create and return the default keyboard layout here
+        let layout = [
+            ["A", "B", "C"],
+            ["D", "E", "F"],
+            ["G", "H", "I"]
+        ]
+        
+        return KeyboardLayout(layout: layout)
+    }
+}
+
+protocol KeyboardViewDelegate: AnyObject {
+    func didSelectKey(_ key: String)
+}
