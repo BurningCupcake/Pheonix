@@ -1,5 +1,5 @@
 import XCTest
-
+@testable import Pheonix
 
 class TextEntryTests: XCTestCase {
     var textEntry: TextEntry!

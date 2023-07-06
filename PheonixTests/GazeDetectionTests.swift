@@ -1,5 +1,5 @@
 import XCTest
-
+@testable import Pheonix
 
 class GazeDetectionTests: XCTestCase {
     var gazeDetection: GazeDetection!

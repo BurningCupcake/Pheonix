@@ -1,5 +1,5 @@
 import XCTest
-
+@testable import Pheonix
 
 class DynamicCalibrationTests: XCTestCase {
     var dynamicCalibration: DynamicCalibration!

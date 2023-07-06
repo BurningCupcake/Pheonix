@@ -11,3 +11,4 @@ class TextEntry {
         _ = currentText.popLast()
     }
 }
+
