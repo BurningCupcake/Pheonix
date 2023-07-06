@@ -1,5 +1,5 @@
 import XCTest
-
+@testable import Pheonix
 
 class WordSuggestionTests: XCTestCase {
     var wordSuggestion: WordSuggestion!

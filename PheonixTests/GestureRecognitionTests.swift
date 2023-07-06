@@ -1,5 +1,5 @@
 import XCTest
-
+@testable import Pheonix
 
 class GestureRecognitionTests: XCTestCase {
     var gestureRecognition: GestureRecognition!

@@ -1,5 +1,5 @@
 import XCTest
-
+@testable import Pheonix
 
 class EyeTrackerTests: XCTestCase {
     var eyeTracker: EyeTracker!

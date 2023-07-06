@@ -1,5 +1,5 @@
 import XCTest
-
+@testable import Pheonix
 
 class SwipeToTypeControllerTests: XCTestCase {
     var swipeToTypeController: SwipeToTypeController!

@@ -1,5 +1,5 @@
 import XCTest
-
+@testable import Pheonix
 
 class KeyboardInteractionTests: XCTestCase {
     var keyboardInteraction: KeyboardInteraction!

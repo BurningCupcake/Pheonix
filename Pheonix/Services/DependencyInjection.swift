@@ -20,8 +20,7 @@ class DependencyInjection {
         if let keyboardInteraction = self.keyboardInteraction {
             return keyboardInteraction
         } else {
-            let keyboardLayout: KeyboardLayout = KeyboardLayout.defaultLayout()
-            let keyboardInteraction = KeyboardInteraction(layout: keyboardLayout)
+            let keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout())
             self.keyboardInteraction = keyboardInteraction
             return keyboardInteraction
         }
@@ -31,14 +30,9 @@ class DependencyInjection {
         if let eyeTrackingController = self.eyeTrackingController {
             return eyeTrackingController
         } else {
-            let gazeDetection = GazeDetection(calibrationDelegate: CalibrationDelegateImplementation())
-            let wordSuggestion = WordSuggestion()
-            let eyeTrackingController = EyeTrackingController(eyeTracker: EyeTracker(), wordSuggestion: wordSuggestion)
+            let eyeTrackingController = EyeTrackingController(eyeTracker: EyeTracker(), wordSuggestion: WordSuggestion())
             self.eyeTrackingController = eyeTrackingController
-            self.gazeDetection = gazeDetection
-            self.wordSuggestion = wordSuggestion
             return eyeTrackingController
-            
         }
     }
     
@@ -46,8 +40,7 @@ class DependencyInjection {
         if let gazeDetection = self.gazeDetection {
             return gazeDetection
         } else {
-            let calibrationDelegate = CalibrationDelegateImplementation()
-            let gazeDetection = GazeDetection(calibrationDelegate: calibrationDelegate)
+            let gazeDetection = GazeDetection()
             self.gazeDetection = gazeDetection
             return gazeDetection
         }

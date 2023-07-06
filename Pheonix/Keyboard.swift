@@ -1,7 +1,4 @@
 import UIKit
-import SwiftUI
-import Foundation
-
 
 class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractionDelegate, WordSuggestionDelegate {
     private var keyboardView: KeyboardView!
@@ -12,8 +9,6 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     private var wordSuggestion: WordSuggestion!
     private var eyeTrackingController: EyeTrackingController!
     
-    var keyboardView: KeyboardView?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,7 +18,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         keyboardInteraction = KeyboardInteraction(layout: KeyboardView.defaultLayout)
         textEntry = TextEntry()
         wordSuggestion = WordSuggestion()
-        eyeTrackingController = EyeTrackingController(eyeTracker: EyeTracker(), wordSuggestion: wordSuggestion)
+        eyeTrackingController = EyeTrackingController()
         
         // Setup delegates
         gazeDetection.delegate = self
@@ -31,11 +26,10 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         keyboardInteraction.delegate = self
         wordSuggestion.delegate = eyeTrackingController
         
-
-        // Create the SwiftUI keyboard view
-        let keyboardView = KeyboardView(keyboardInteraction: keyboardInteraction)
-        self.keyboardView = keyboardView
-
+        // Create and configure the keyboard view
+        keyboardView = KeyboardView()
+        keyboardView.delegate = keyboardInteraction
+        keyboardView.backgroundColor = .lightGray
         
         // Add the keyboard view to the input view
         view.addSubview(keyboardView)
@@ -58,26 +52,13 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     // MARK: - KeyboardInteractionDelegate
     
     func keyboardInteraction(_ keyboardInteraction: KeyboardInteraction, didSelectKey key: String) {
-        textEntry.appendText(key)
+        textEntry.keyboardInteraction(keyboardInteraction, didSelectKey: key)
         wordSuggestion.processTextEntry(textEntry)
     }
     
     // MARK: - WordSuggestionDelegate
     
-
-    func wordSuggestion(_ wordSuggestion: WordSuggestion, didSuggestWords suggestedWords: [String]) {
-        keyboardView?.updateWordSuggestions(suggestedWords)
-    }
-    
-    // MARK: - KeyboardViewDelegate
-    
-    func didSelectKey(_ key: String) {
-        // Handle key selection event
-        // You can access the selected key here
-
-   
-    
-    func updateWordSuggestions(_ suggestions: [String]) {
-        keyboardView?.updateWordSuggestions(suggestions)
+    func wordSuggestion(_ wordSuggestion: WordSuggestion, didSuggestWords words: [String]) {
+        keyboardView.updateWordSuggestions(words)
     }
 }
