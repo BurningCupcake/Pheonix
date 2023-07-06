@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A14D699A2A54B2AB00D67BFC /* CalibrationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D69992A54B2AB00D67BFC /* CalibrationDelegate.swift */; };
+		A16993042A57345800FA305D /* info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A16993032A57345800FA305D /* info.plist */; };
 		A16CE4ED2A5485B6006C75EF /* GestureRecognitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16CE4EC2A5485B6006C75EF /* GestureRecognitionDelegate.swift */; };
 		A17483152A51016F00978F0A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17483142A51016F00978F0A /* ContentView.swift */; };
 		A17483172A51017100978F0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A17483162A51017100978F0A /* Assets.xcassets */; };
@@ -34,7 +35,6 @@
 		A184CE542A522AC2008FAEC3 /* PredictiveTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE532A522AC2008FAEC3 /* PredictiveTextView.swift */; };
 		A184CE562A522AFD008FAEC3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE552A522AFD008FAEC3 /* SceneDelegate.swift */; };
 		A184CE582A522B53008FAEC3 /* TextEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE572A522B53008FAEC3 /* TextEntry.swift */; };
-		A184CE5A2A5232D5008FAEC3 /* info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A184CE592A5232D5008FAEC3 /* info.plist */; };
 		A184CE5C2A52588D008FAEC3 /* KeyboardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE5B2A52588D008FAEC3 /* KeyboardLayout.swift */; };
 		A184CE612A5258C0008FAEC3 /* libswiftUIKit.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE5F2A5258C0008FAEC3 /* libswiftUIKit.tbd */; };
 		A184CE6B2A5258DD008FAEC3 /* libswiftCoreFoundation.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE652A5258DC008FAEC3 /* libswiftCoreFoundation.tbd */; };
@@ -85,6 +85,7 @@
 
 /* Begin PBXFileReference section */
 		A14D69992A54B2AB00D67BFC /* CalibrationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationDelegate.swift; sourceTree = "<group>"; };
+		A16993032A57345800FA305D /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
 		A16CE4E62A546E6E006C75EF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A16CE4EC2A5485B6006C75EF /* GestureRecognitionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureRecognitionDelegate.swift; sourceTree = "<group>"; };
 		A174830F2A51016F00978F0A /* Pheonix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pheonix.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,7 +114,6 @@
 		A184CE532A522AC2008FAEC3 /* PredictiveTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictiveTextView.swift; sourceTree = "<group>"; };
 		A184CE552A522AFD008FAEC3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A184CE572A522B53008FAEC3 /* TextEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntry.swift; sourceTree = "<group>"; };
-		A184CE592A5232D5008FAEC3 /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
 		A184CE5B2A52588D008FAEC3 /* KeyboardLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayout.swift; sourceTree = "<group>"; };
 		A184CE5E2A5258C0008FAEC3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A184CE5F2A5258C0008FAEC3 /* libswiftUIKit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftUIKit.tbd; path = usr/lib/swift/libswiftUIKit.tbd; sourceTree = SDKROOT; };
@@ -197,7 +197,6 @@
 		A17483112A51016F00978F0A /* Pheonix */ = {
 			isa = PBXGroup;
 			children = (
-				A184CE592A5232D5008FAEC3 /* info.plist */,
 				A16CE4E82A546FFD006C75EF /* Delegates */,
 				A1F69EA22A511D7700480362 /* Keyboard.swift */,
 				A1EC50172A53728E000E900B /* Resources */,
@@ -207,6 +206,7 @@
 				A1EC50132A537254000E900B /* Models */,
 				A1EC50122A537245000E900B /* Controllers */,
 				A17483182A51017100978F0A /* Preview Content */,
+				A16993032A57345800FA305D /* info.plist */,
 			);
 			path = Pheonix;
 			sourceTree = "<group>";
@@ -368,10 +368,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A16993042A57345800FA305D /* info.plist in Resources */,
 				A174831A2A51017100978F0A /* Preview Assets.xcassets in Resources */,
 				A17483172A51017100978F0A /* Assets.xcassets in Resources */,
 				A1EC50212A537463000E900B /* Keyboard.xib in Resources */,
-				A184CE5A2A5232D5008FAEC3 /* info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +549,8 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
+				COPYING_PRESERVES_HFS_DATA = NO;
+				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "Pheonix/Preview\\ Content/Preview\\ Assets.xcassets Pheonix/Preview\\ Content";
 				DEVELOPMENT_TEAM = 8CUXCK3FDP;
@@ -560,13 +562,16 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Pheonix;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = Keyboard.xib;
+				INFOPLIST_KEY_UIMainStoryboardFile = Keyboard.swift;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				INFOPLIST_PREPROCESS = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -593,6 +598,8 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
+				COPYING_PRESERVES_HFS_DATA = NO;
+				CREATE_INFOPLIST_SECTION_IN_BINARY = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "Pheonix/Preview\\ Content/Preview\\ Assets.xcassets Pheonix/Preview\\ Content";
 				DEVELOPMENT_TEAM = 8CUXCK3FDP;
@@ -603,13 +610,16 @@
 				INFOPLIST_KEY_CFBundleDisplayName = Pheonix;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = Keyboard.xib;
+				INFOPLIST_KEY_UIMainStoryboardFile = Keyboard.swift;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				INFOPLIST_PREPROCESS = NO;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
