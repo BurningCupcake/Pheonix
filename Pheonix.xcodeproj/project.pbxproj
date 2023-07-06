@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A14D699A2A54B2AB00D67BFC /* CalibrationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D69992A54B2AB00D67BFC /* CalibrationDelegate.swift */; };
-		A16CE4E72A546E6E006C75EF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16CE4E62A546E6E006C75EF /* XCTest.framework */; };
 		A16CE4ED2A5485B6006C75EF /* GestureRecognitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16CE4EC2A5485B6006C75EF /* GestureRecognitionDelegate.swift */; };
 		A17483152A51016F00978F0A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17483142A51016F00978F0A /* ContentView.swift */; };
 		A17483172A51017100978F0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A17483162A51017100978F0A /* Assets.xcassets */; };
@@ -37,10 +36,7 @@
 		A184CE582A522B53008FAEC3 /* TextEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE572A522B53008FAEC3 /* TextEntry.swift */; };
 		A184CE5A2A5232D5008FAEC3 /* info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A184CE592A5232D5008FAEC3 /* info.plist */; };
 		A184CE5C2A52588D008FAEC3 /* KeyboardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE5B2A52588D008FAEC3 /* KeyboardLayout.swift */; };
-		A184CE602A5258C0008FAEC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE5E2A5258C0008FAEC3 /* UIKit.framework */; };
 		A184CE612A5258C0008FAEC3 /* libswiftUIKit.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE5F2A5258C0008FAEC3 /* libswiftUIKit.tbd */; };
-		A184CE632A5258C9008FAEC3 /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE622A5258C9008FAEC3 /* ARKit.framework */; };
-		A184CE6A2A5258DD008FAEC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE642A5258DC008FAEC3 /* Foundation.framework */; };
 		A184CE6B2A5258DD008FAEC3 /* libswiftCoreFoundation.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE652A5258DC008FAEC3 /* libswiftCoreFoundation.tbd */; };
 		A184CE6C2A5258DD008FAEC3 /* libswiftFoundation.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE662A5258DC008FAEC3 /* libswiftFoundation.tbd */; };
 		A184CE6D2A5258DD008FAEC3 /* libswiftSystem_Foundation.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE672A5258DC008FAEC3 /* libswiftSystem_Foundation.tbd */; };
@@ -52,6 +48,14 @@
 		A1EC501F2A5373D6000E900B /* KeyboardInteractionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC501E2A5373D6000E900B /* KeyboardInteractionDelegate.swift */; };
 		A1EC50212A537463000E900B /* Keyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1EC50202A537463000E900B /* Keyboard.xib */; };
 		A1EC50372A537815000E900B /* CalibrationProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC50362A537815000E900B /* CalibrationProgressView.swift */; };
+		A1ED01472A565DA0008B32C9 /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE622A5258C9008FAEC3 /* ARKit.framework */; };
+		A1ED01482A565DA0008B32C9 /* ARKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE622A5258C9008FAEC3 /* ARKit.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A1ED014A2A565DA2008B32C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE642A5258DC008FAEC3 /* Foundation.framework */; };
+		A1ED014B2A565DA2008B32C9 /* Foundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE642A5258DC008FAEC3 /* Foundation.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A1ED014C2A565DA3008B32C9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE5E2A5258C0008FAEC3 /* UIKit.framework */; };
+		A1ED014D2A565DA4008B32C9 /* UIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE5E2A5258C0008FAEC3 /* UIKit.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A1ED014E2A565DA5008B32C9 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16CE4E62A546E6E006C75EF /* XCTest.framework */; };
+		A1ED014F2A565DA5008B32C9 /* XCTest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A16CE4E62A546E6E006C75EF /* XCTest.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A1F69E9F2A511B1600480362 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69E9E2A511B1600480362 /* AppDelegate.swift */; };
 		A1F69EA12A511D4100480362 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA02A511D4100480362 /* KeyboardView.swift */; };
 		A1F69EA32A511D7700480362 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA22A511D7700480362 /* Keyboard.swift */; };
@@ -61,6 +65,23 @@
 		A1F69EAD2A520DEF00480362 /* KeyboardKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EAC2A520DEF00480362 /* KeyboardKey.swift */; };
 		A1F69EAF2A520FB700480362 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EAE2A520FB700480362 /* KeyboardViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A1ED01492A565DA0008B32C9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A1ED01482A565DA0008B32C9 /* ARKit.framework in Embed Frameworks */,
+				A1ED014D2A565DA4008B32C9 /* UIKit.framework in Embed Frameworks */,
+				A1ED014B2A565DA2008B32C9 /* Foundation.framework in Embed Frameworks */,
+				A1ED014F2A565DA5008B32C9 /* XCTest.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A14D69992A54B2AB00D67BFC /* CalibrationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationDelegate.swift; sourceTree = "<group>"; };
@@ -124,16 +145,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A16CE4E72A546E6E006C75EF /* XCTest.framework in Frameworks */,
-				A184CE6A2A5258DD008FAEC3 /* Foundation.framework in Frameworks */,
 				A184CE6B2A5258DD008FAEC3 /* libswiftCoreFoundation.tbd in Frameworks */,
 				A184CE6C2A5258DD008FAEC3 /* libswiftFoundation.tbd in Frameworks */,
 				A184CE6D2A5258DD008FAEC3 /* libswiftSystem_Foundation.tbd in Frameworks */,
 				A184CE6E2A5258DD008FAEC3 /* libswiftExtensionFoundation.tbd in Frameworks */,
+				A1ED014A2A565DA2008B32C9 /* Foundation.framework in Frameworks */,
 				A184CE6F2A5258DD008FAEC3 /* libswiftAVFoundation.tbd in Frameworks */,
-				A184CE632A5258C9008FAEC3 /* ARKit.framework in Frameworks */,
-				A184CE602A5258C0008FAEC3 /* UIKit.framework in Frameworks */,
+				A1ED01472A565DA0008B32C9 /* ARKit.framework in Frameworks */,
+				A1ED014E2A565DA5008B32C9 /* XCTest.framework in Frameworks */,
 				A184CE612A5258C0008FAEC3 /* libswiftUIKit.tbd in Frameworks */,
+				A1ED014C2A565DA3008B32C9 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,7 +180,7 @@
 		A17483062A51016F00978F0A = {
 			isa = PBXGroup;
 			children = (
-				A17483112A51016F00978F0A /* Sprinkle */,
+				A17483112A51016F00978F0A /* Pheonix */,
 				A17483102A51016F00978F0A /* Products */,
 				A184CE5D2A5258BF008FAEC3 /* Frameworks */,
 			);
@@ -173,9 +194,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A17483112A51016F00978F0A /* Sprinkle */ = {
+		A17483112A51016F00978F0A /* Pheonix */ = {
 			isa = PBXGroup;
 			children = (
+				A184CE592A5232D5008FAEC3 /* info.plist */,
 				A16CE4E82A546FFD006C75EF /* Delegates */,
 				A1F69EA22A511D7700480362 /* Keyboard.swift */,
 				A1EC50172A53728E000E900B /* Resources */,
@@ -186,7 +208,7 @@
 				A1EC50122A537245000E900B /* Controllers */,
 				A17483182A51017100978F0A /* Preview Content */,
 			);
-			path = Sprinkle;
+			path = Pheonix;
 			sourceTree = "<group>";
 		};
 		A17483182A51017100978F0A /* Preview Content */ = {
@@ -275,7 +297,6 @@
 			isa = PBXGroup;
 			children = (
 				A17483162A51017100978F0A /* Assets.xcassets */,
-				A184CE592A5232D5008FAEC3 /* info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -298,6 +319,7 @@
 				A174830B2A51016F00978F0A /* Sources */,
 				A174830C2A51016F00978F0A /* Frameworks */,
 				A174830D2A51016F00978F0A /* Resources */,
+				A1ED01492A565DA0008B32C9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -323,7 +345,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A174830A2A51016F00978F0A /* Build configuration list for PBXProject "Sprinkle" */;
+			buildConfigurationList = A174830A2A51016F00978F0A /* Build configuration list for PBXProject "Pheonix" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -524,18 +546,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Sprinkle/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "Pheonix/Preview\\ Content/Preview\\ Assets.xcassets Pheonix/Preview\\ Content";
 				DEVELOPMENT_TEAM = 8CUXCK3FDP;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_TESTABILITY = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Pheonix/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Pheonix;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = Keyboard.xib;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -547,7 +574,7 @@
 					"$(SDKROOT)/usr/lib/swift",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Cuptastrophe.Phoenix;
+				PRODUCT_BUNDLE_IDENTIFIER = Cuptastrophe.Pheonix;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -560,17 +587,22 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Sprinkle/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "Pheonix/Preview\\ Content/Preview\\ Assets.xcassets Pheonix/Preview\\ Content";
 				DEVELOPMENT_TEAM = 8CUXCK3FDP;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Pheonix/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Pheonix;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = Keyboard.xib;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -582,7 +614,8 @@
 					"$(SDKROOT)/usr/lib/swift",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Cuptastrophe.Phoenix;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = Cuptastrophe.Pheonix;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -593,7 +626,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A174830A2A51016F00978F0A /* Build configuration list for PBXProject "Sprinkle" */ = {
+		A174830A2A51016F00978F0A /* Build configuration list for PBXProject "Pheonix" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A174831B2A51017100978F0A /* Debug */,
