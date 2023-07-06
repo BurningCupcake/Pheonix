@@ -21,7 +21,7 @@
 		<string>iPhoneOS</string>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.1</string>
+	<string>1.0.1</string>
 	<key>NSCameraUsageDescription</key>
 	<string>Your app needs access to the camera for eye-tracking functionality.</string>
 	<key>UIBackgroundModes</key>
