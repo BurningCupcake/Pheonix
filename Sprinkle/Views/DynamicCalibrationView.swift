@@ -20,7 +20,7 @@ struct DynamicCalibrationView: View {
                 .stroke(Color.blue, lineWidth: 5)
                 .frame(width: 100, height: 100)
                 .rotationEffect(.degrees(-90))
-                .animation(.easeInOut(duration: 2))
+                .animation(.easeInOut, value: calibrationProgress)
             
             // Add logic to guide the user's eye movement during calibration
             // Utilize eye tracking functionality to track the user's gaze
@@ -51,7 +51,7 @@ struct DynamicCalibrationView: View {
         // Update calibrationProgress based on the progress of calibration
         
         // Simulating the calibration progress with a timer
-        let timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
             // Update the calibrationProgress based on the accuracy of the user's gaze
             
             // Simulated completion of calibration
@@ -60,8 +60,9 @@ struct DynamicCalibrationView: View {
                 withAnimation {
                     isCalibrating = false
                 }
+            } else {
+                calibrationProgress += 0.1
             }
         }
-        timer.fire()
     }
 }
