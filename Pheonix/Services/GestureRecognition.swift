@@ -1,4 +1,8 @@
-import UIKit
+import Foundation
+
+protocol GestureRecognitionDelegate: AnyObject {
+    func gestureRecognition(_ gestureRecognition: GestureRecognition, didRecognizeGesture gesture: GestureType)
+}
 
 class GestureRecognition {
     weak var delegate: GestureRecognitionDelegate?
@@ -6,13 +10,10 @@ class GestureRecognition {
     
     func processEyeState(_ eyeState: EyeState) {
         if previousEyeState == .open && eyeState == .closed {
-            delegate?.didDetectBlink()
+            delegate?.gestureRecognition(self, didRecognizeGesture: .blink)
         }
         previousEyeState = eyeState
     }
 }
 
-enum EyeState {
-    case open
-    case closed
-}
+

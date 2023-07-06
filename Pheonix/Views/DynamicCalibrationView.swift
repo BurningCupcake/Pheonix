@@ -11,13 +11,16 @@ struct DynamicCalibrationView: View {
                 .padding()
             
             // Display instructions or visual cues for calibration
+            Text("Move your eyes to the center of the circle")
+                .font(.headline)
+                .padding()
             
             Circle()
                 .trim(from: 0.0, to: calibrationProgress)
                 .stroke(Color.blue, lineWidth: 5)
                 .frame(width: 100, height: 100)
                 .rotationEffect(.degrees(-90))
-                .animation(.easeInOut(duration: 2))
+                .animation(.easeInOut, value: calibrationProgress)
             
             // Add logic to guide the user's eye movement during calibration
             // Utilize eye tracking functionality to track the user's gaze
@@ -26,7 +29,9 @@ struct DynamicCalibrationView: View {
             
             // Add a button to finish calibration and dismiss the view
             Button(action: {
-                isCalibrating = false
+                withAnimation {
+                    isCalibrating = false
+                }
             }) {
                 Text("Finish Calibration")
                     .padding()
@@ -44,7 +49,20 @@ struct DynamicCalibrationView: View {
     private func startCalibration() {
         // Perform calibration logic here
         // Update calibrationProgress based on the progress of calibration
-        calibrationProgress = 1.0
+        
+        // Simulating the calibration progress with a timer
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
+            // Update the calibrationProgress based on the accuracy of the user's gaze
+            
+            // Simulated completion of calibration
+            if calibrationProgress >= 1.0 {
+                timer.invalidate()
+                withAnimation {
+                    isCalibrating = false
+                }
+            } else {
+                calibrationProgress += 0.1
+            }
+        }
     }
 }
-

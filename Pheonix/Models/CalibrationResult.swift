@@ -1,6 +1,6 @@
 import Foundation
 
 struct CalibrationResult {
-    let calibrationPoints: [CGPoint]
-    let calibrationError: Double
+    var calibrationPoints: [CGPoint]
+    // Add any other properties as needed
 }
