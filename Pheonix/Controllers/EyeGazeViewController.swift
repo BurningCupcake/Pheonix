@@ -1,3 +1,6 @@
+import UIKit
+import ARKit
+
 class EyeGazeViewController: UIViewController, GazeDetectionDelegate, KeyboardInteractionDelegate, WordSuggestionDelegate {
     private var gazeDetection: GazeDetection!
     private var dynamicCalibration: DynamicCalibration!
