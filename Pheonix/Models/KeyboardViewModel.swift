@@ -3,8 +3,8 @@ import Combine
 
 class KeyboardViewModel: ObservableObject {
     @Published var appState = AppState(
-        textEntryState: .empty,
-        predictiveTextState: .empty
+        textEntryState: TextEntryState(text: ""),
+        predictiveTextState: PredictiveTextState(suggestions: [])
     )
     
     let textEntryService: TextEntryService
@@ -18,7 +18,12 @@ class KeyboardViewModel: ObservableObject {
         
         textEntryService.textEntryStatePublisher
             .combineLatest(predictiveTextService.predictiveTextStatePublisher)
-            .map { AppState(textEntryState: $0, predictiveTextState: $1) }
+            .map { textEntryState, predictiveTextState in
+                return AppState(
+                    textEntryState: textEntryState,
+                    predictiveTextState: predictiveTextState
+                )
+            }
             .sink { [weak self] appState in
                 self?.appState = appState
             }

@@ -21,12 +21,12 @@ class EyeGazeViewController: UIViewController {
         eyeTrackingController = EyeTrackingController()
         
         gazeDetection.delegate = eyeTrackingController
-        keyboardInteraction.delegate = eyeTrackingController
-        wordSuggestion.delegate = eyeTrackingController
+        keyboardInteraction.delegate = self
+        wordSuggestion.delegate = self
         
         keyboardView = KeyboardView()
-        keyboardView.delegate = keyboardInteraction
-        keyboardView.backgroundColor = .lightGray
+        keyboardView.keyboardDelegate = self
+        keyboardView.backgroundColor = UIColor.lightGray
         
         view.addSubview(keyboardView)
         
@@ -37,18 +37,23 @@ class EyeGazeViewController: UIViewController {
         super.viewWillLayoutSubviews()
         keyboardView.frame = view.bounds
     }
-    
+}
+
+extension EyeGazeViewController: GazeDetectionDelegate {
     func gazeDetection(_ gazeDetection: GazeDetection, didDetectGazeAt point: CGPoint) {
         keyboardInteraction.processGazePoint(point)
     }
-    
-    func keyboardInteraction(_ keyboardInteraction: KeyboardInteraction, didSelectKey key: String) {
-        textEntry.keyboardInteraction(keyboardInteraction, didSelectKey: key)
+}
+
+extension EyeGazeViewController: KeyboardInteractionDelegate {
+    func didSelectKey(_ key: String) {
+        textEntry.keyboardInteraction(self, didSelectKey: key)
         wordSuggestion.processTextEntry(textEntry)
     }
-    
+}
+
+extension EyeGazeViewController: WordSuggestionDelegate {
     func wordSuggestion(_ wordSuggestion: WordSuggestion, didSuggestWords words: [String]) {
         keyboardView.updateWordSuggestions(words)
     }
 }
-

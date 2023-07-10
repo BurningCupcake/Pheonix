@@ -4,6 +4,7 @@ class KeyboardKey: UIView {
     
     var gazeIndicator: UIView
     weak var delegate: KeyboardViewDelegate?
+    let textEntryService: TextEntryService  // Add a property for the text entry service
     
     static let defaultLayout = [
         ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"],
@@ -11,7 +12,8 @@ class KeyboardKey: UIView {
         ["U", "V", "W", "X", "Y", "Z", ".", ",", "?", "!"]
     ]
     
-    init() {
+    init(textEntryService: TextEntryService) {  // Add the textEntryService parameter to the initializer
+        self.textEntryService = textEntryService
         self.gazeIndicator = UIView()
         super.init(frame: .zero)
         setupGazeIndicator()
@@ -21,6 +23,7 @@ class KeyboardKey: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     func setupGazeIndicator() {
         gazeIndicator.backgroundColor = UIColor.red
@@ -59,7 +62,7 @@ class KeyboardKey: UIView {
     
     @objc func didSelectKey(_ sender: UITapGestureRecognizer) {
         if let keyLabel = sender.view as? UILabel, let key = keyLabel.text {
-            delegate?.didSelectKey(key)
+            delegate?.didSelectKey(key, textEntryService: textEntryService)  // Pass the textEntryService argument
         }
     }
 }
