@@ -191,16 +191,16 @@
 		A17483112A51016F00978F0A /* Pheonix */ = {
 			isa = PBXGroup;
 			children = (
+				A1EC50122A537245000E900B /* Controllers */,
 				A16CE4E82A546FFD006C75EF /* Delegates */,
+				A10125792A573D35005C1E12 /* info.plist */,
 				A1F69EA22A511D7700480362 /* Keyboard.swift */,
+				A1EC50132A537254000E900B /* Models */,
+				A17483182A51017100978F0A /* Preview Content */,
 				A1EC50172A53728E000E900B /* Resources */,
+				A1EC50142A53726B000E900B /* Services */,
 				A1EC50162A537284000E900B /* Supporting Files */,
 				A1EC50152A537279000E900B /* Views */,
-				A1EC50142A53726B000E900B /* Services */,
-				A1EC50132A537254000E900B /* Models */,
-				A1EC50122A537245000E900B /* Controllers */,
-				A17483182A51017100978F0A /* Preview Content */,
-				A10125792A573D35005C1E12 /* info.plist */,
 			);
 			path = Pheonix;
 			sourceTree = "<group>";

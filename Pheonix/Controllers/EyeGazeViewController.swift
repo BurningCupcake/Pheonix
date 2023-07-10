@@ -20,9 +20,8 @@ class EyeGazeViewController: UIViewController, GazeDetectionDelegate, KeyboardIn
         wordSuggestion = WordSuggestion()
         eyeTrackingController = EyeTrackingController()
         
-        gazeDetection.delegate = self
-        dynamicCalibration.delegate = eyeTrackingController
-        keyboardInteraction.delegate = textEntry
+        gazeDetection.delegate = eyeTrackingController
+        keyboardInteraction.delegate = eyeTrackingController
         wordSuggestion.delegate = eyeTrackingController
         
         keyboardView = KeyboardView()
