@@ -24,7 +24,13 @@ class EyeTrackingController: NSObject, ARSessionDelegate {
         let leftEyeTransform = faceAnchor.leftEyeTransform
         let rightEyeTransform = faceAnchor.rightEyeTransform
         
-        // Here you can calculate the gaze direction based on the eye transforms
-        // You'll need to implement this logic
+        // Calculate the gaze direction
+        let leftEyeDirection = SCNVector3(leftEyeTransform.columns.3.x, leftEyeTransform.columns.3.y, leftEyeTransform.columns.3.z)
+        let rightEyeDirection = SCNVector3(rightEyeTransform.columns.3.x, rightEyeTransform.columns.3.y, rightEyeTransform.columns.3.z)
+        
+        // Average the two vectors to get the overall gaze direction
+        let gazeDirection = SCNVector3((leftEyeDirection.x + rightEyeDirection.x) / 2, (leftEyeDirection.y + rightEyeDirection.y) / 2, (leftEyeDirection.z + rightEyeDirection.z) / 2)
+        
+        // Now you can use the gazeDirection vector for your gaze detection logic
     }
 }
