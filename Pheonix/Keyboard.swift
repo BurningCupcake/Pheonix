@@ -1,8 +1,7 @@
 import UIKit
 import SwiftUI
-import Foundation
 
-class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractionDelegate, WordSuggestionDelegate, KeyboardViewDelegate {
+class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractionDelegate, WordSuggestionDelegate, KeyboardViewDelegate, SwipeToTypeControllerDelegate {
     private var keyboardHostingController: UIHostingController<KeyboardView>!
     private var gazeDetection: GazeDetection!
     private var dynamicCalibration: DynamicCalibration!
@@ -10,6 +9,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     private var textEntry: TextEntry!
     private var wordSuggestion: WordSuggestion!
     private var eyeTrackingController: EyeTrackingController!
+    private var swipeToTypeController: SwipeToTypeController!
     private let textEntryService = TextEntryService()
     private var keyboardView: KeyboardView!
     
@@ -22,13 +22,15 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout())
         textEntry = TextEntry()
         wordSuggestion = WordSuggestion()
-        eyeTrackingController = EyeTrackingController()
+        eyeTrackingController = EyeTrackingController(eyeTracker: EyeTracker(), wordSuggestion: wordSuggestion)
+        swipeToTypeController = SwipeToTypeController()
         
         // Setup delegates
         gazeDetection.delegate = self
         keyboardInteraction.delegate = self
         wordSuggestion.delegate = self
         keyboardView.delegate = self
+        swipeToTypeController.delegate = self
         
         // Create the SwiftUI keyboard view
         let keyboardView = KeyboardView(keyboardInteraction: keyboardInteraction)
@@ -42,6 +44,11 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         addChild(keyboardHostingController)
         view.addSubview(keyboardHostingController.view)
         keyboardHostingController.didMove(toParent: self)
+        
+        // Attach swipe gesture recognizer to the keyboard view
+        if let keyboardContentView = keyboardHostingController.view.subviews.first?.subviews.first {
+            swipeToTypeController.attach(to: keyboardContentView)
+        }
         
         // Start gaze detection
         gazeDetection.start()
@@ -74,24 +81,18 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     // MARK: - KeyboardViewDelegate
     
     func didSelectKey(_ key: String) {
-        // Handle the selection of a key when the user blinks while gazing at it
-        if key.count == 1 && key.rangeOfCharacter(from: CharacterSet.letters) != nil {
-            // If the key is a letter, add the letter to the text entry state
-            textEntry.appendText(key)
-            wordSuggestion.processTextEntry(textEntry)
-        } else if key == " " {
-            // If the key is a space, add a space to the text entry state
-            textEntry.appendText(" ")
-            wordSuggestion.processTextEntry(textEntry)
-        } else if key == "<" {
-            // If the key is a delete key, delete the last character from the text entry state
-            textEntry.deleteLastCharacter()
-            wordSuggestion.processTextEntry(textEntry)
-        }
-        // Add other cases as necessary
+        // Handle key selection event
+        // You can access the selected key here
     }
     
     func updateWordSuggestions(_ suggestions: [String]) {
         keyboardView?.updateWordSuggestions(suggestions)
+    }
+    
+    // MARK: - SwipeToTypeControllerDelegate
+    
+    func didSwipeLeft() {
+        // Handle the swipe left event
+        // You can perform the swipe-to-type action here
     }
 }

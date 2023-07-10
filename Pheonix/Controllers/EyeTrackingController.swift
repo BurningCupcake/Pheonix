@@ -1,6 +1,6 @@
 import ARKit
 
-class EyeTrackingController: NSObject, ARSessionDelegate {
+class EyeTrackingController: NSObject, ARSessionDelegate, GazeDetectionDelegate, KeyboardInteractionDelegate, WordSuggestionDelegate {
     var session: ARSession
     
     override init() {
@@ -32,5 +32,20 @@ class EyeTrackingController: NSObject, ARSessionDelegate {
         let gazeDirection = SCNVector3((leftEyeDirection.x + rightEyeDirection.x) / 2, (leftEyeDirection.y + rightEyeDirection.y) / 2, (leftEyeDirection.z + rightEyeDirection.z) / 2)
         
         // Now you can use the gazeDirection vector for your gaze detection logic
+    }
+    
+    // GazeDetectionDelegate method
+    func gazeDetection(_ gazeDetection: GazeDetection, didDetectGazeAt point: CGPoint) {
+        // Implement this method based on your gaze detection logic
+    }
+    
+    // KeyboardInteractionDelegate method
+    func keyboardInteraction(_ keyboardInteraction: KeyboardInteraction, didSelectKey key: String) {
+        // Implement this method based on your keyboard interaction logic
+    }
+    
+    // WordSuggestionDelegate method
+    func wordSuggestion(_ wordSuggestion: WordSuggestion, didSuggestWords words: [String]) {
+        // Implement this method based on your word suggestion logic
     }
 }

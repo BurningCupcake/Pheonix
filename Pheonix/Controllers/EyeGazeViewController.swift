@@ -1,7 +1,7 @@
 import UIKit
 import ARKit
 
-class EyeGazeViewController: UIViewController, GazeDetectionDelegate, KeyboardInteractionDelegate, WordSuggestionDelegate {
+class EyeGazeViewController: UIViewController {
     private var gazeDetection: GazeDetection!
     private var dynamicCalibration: DynamicCalibration!
     private var keyboardInteraction: KeyboardInteraction!
@@ -15,7 +15,7 @@ class EyeGazeViewController: UIViewController, GazeDetectionDelegate, KeyboardIn
         
         dynamicCalibration = DynamicCalibration()
         gazeDetection = GazeDetection(calibrationDelegate: dynamicCalibration)
-        keyboardInteraction = KeyboardInteraction(layout: KeyboardView.defaultLayout)
+        keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout())
         textEntry = TextEntry()
         wordSuggestion = WordSuggestion()
         eyeTrackingController = EyeTrackingController()
@@ -51,3 +51,4 @@ class EyeGazeViewController: UIViewController, GazeDetectionDelegate, KeyboardIn
         keyboardView.updateWordSuggestions(words)
     }
 }
+

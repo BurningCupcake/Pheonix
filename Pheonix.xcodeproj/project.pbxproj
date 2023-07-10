@@ -49,6 +49,7 @@
 		A1AB861E2A5B6C4B0084F93C /* PredictiveTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB861D2A5B6C4B0084F93C /* PredictiveTextViewModel.swift */; };
 		A1AB86202A5B6C9C0084F93C /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB861F2A5B6C9C0084F93C /* AppState.swift */; };
 		A1C70CD52A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C70CD42A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift */; };
+		A1C70CD92A5CBC9200D8F9E3 /* SwipeToTypeControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C70CD82A5CBC9200D8F9E3 /* SwipeToTypeControllerDelegate.swift */; };
 		A1EC50112A536FB1000E900B /* KeyboardViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC50102A536FB1000E900B /* KeyboardViewDelegate.swift */; };
 		A1EC501B2A53734F000E900B /* EyeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC501A2A53734F000E900B /* EyeState.swift */; };
 		A1EC501D2A53739B000E900B /* EyeTrackerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC501C2A53739B000E900B /* EyeTrackerDelegate.swift */; };
@@ -117,6 +118,7 @@
 		A1AB861D2A5B6C4B0084F93C /* PredictiveTextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictiveTextViewModel.swift; sourceTree = "<group>"; };
 		A1AB861F2A5B6C9C0084F93C /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		A1C70CD42A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewDelegateWrapper.swift; sourceTree = "<group>"; };
+		A1C70CD82A5CBC9200D8F9E3 /* SwipeToTypeControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToTypeControllerDelegate.swift; sourceTree = "<group>"; };
 		A1EC50102A536FB1000E900B /* KeyboardViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewDelegate.swift; sourceTree = "<group>"; };
 		A1EC501A2A53734F000E900B /* EyeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeState.swift; sourceTree = "<group>"; };
 		A1EC501C2A53739B000E900B /* EyeTrackerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTrackerDelegate.swift; sourceTree = "<group>"; };
@@ -157,16 +159,17 @@
 		A16CE4E82A546FFD006C75EF /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
-				A1EC50102A536FB1000E900B /* KeyboardViewDelegate.swift */,
 				A184CE3D2A5226DF008FAEC3 /* BlinkGestureHandlerDelegate.swift */,
+				A14D69992A54B2AB00D67BFC /* CalibrationDelegate.swift */,
 				A1EC501C2A53739B000E900B /* EyeTrackerDelegate.swift */,
 				A1F69EA52A520CCF00480362 /* GazeDetectionDelegate.swift */,
-				A1EC501E2A5373D6000E900B /* KeyboardInteractionDelegate.swift */,
-				A1F69EA42A520CCF00480362 /* WordSuggestionDelegate.swift */,
-				A184CE552A522AFD008FAEC3 /* SceneDelegate.swift */,
 				A16CE4EC2A5485B6006C75EF /* GestureRecognitionDelegate.swift */,
-				A14D69992A54B2AB00D67BFC /* CalibrationDelegate.swift */,
+				A1EC501E2A5373D6000E900B /* KeyboardInteractionDelegate.swift */,
+				A1EC50102A536FB1000E900B /* KeyboardViewDelegate.swift */,
 				A1C70CD42A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift */,
+				A184CE552A522AFD008FAEC3 /* SceneDelegate.swift */,
+				A1F69EA42A520CCF00480362 /* WordSuggestionDelegate.swift */,
+				A1C70CD82A5CBC9200D8F9E3 /* SwipeToTypeControllerDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -233,11 +236,11 @@
 		A1EC50122A537245000E900B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A184CE472A52284B008FAEC3 /* EyeTrackingController.swift */,
-				A184CE452A522803008FAEC3 /* EyeGazeViewController.swift */,
-				A184CE392A52221A008FAEC3 /* SwipeToTypeController.swift */,
 				A1F69E9E2A511B1600480362 /* AppDelegate.swift */,
+				A184CE452A522803008FAEC3 /* EyeGazeViewController.swift */,
+				A184CE472A52284B008FAEC3 /* EyeTrackingController.swift */,
 				A1F69EAE2A520FB700480362 /* KeyboardViewController.swift */,
+				A184CE392A52221A008FAEC3 /* SwipeToTypeController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -245,18 +248,18 @@
 		A1EC50132A537254000E900B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A1F69EAC2A520DEF00480362 /* KeyboardKey.swift */,
-				A184CE4F2A5229F5008FAEC3 /* KeyboardViewModel.swift */,
-				A184CE5B2A52588D008FAEC3 /* KeyboardLayout.swift */,
+				A1AB861F2A5B6C9C0084F93C /* AppState.swift */,
 				A184CE2B2A521BEE008FAEC3 /* CalibrationResult.swift */,
 				A184CE432A5227E0008FAEC3 /* DynamicCalibrationModel.swift */,
 				A1EC501A2A53734F000E900B /* EyeState.swift */,
 				A184CE492A52289C008FAEC3 /* Key.swift */,
+				A1F69EAC2A520DEF00480362 /* KeyboardKey.swift */,
+				A184CE5B2A52588D008FAEC3 /* KeyboardLayout.swift */,
 				A184CE4D2A52299A008FAEC3 /* KeyboardLayoutStyle.swift */,
+				A184CE4F2A5229F5008FAEC3 /* KeyboardViewModel.swift */,
 				A184CE252A521B91008FAEC3 /* Language.swift */,
-				A1AB86172A5B6B4B0084F93C /* TextEntryViewModel.swift */,
 				A1AB861D2A5B6C4B0084F93C /* PredictiveTextViewModel.swift */,
-				A1AB861F2A5B6C9C0084F93C /* AppState.swift */,
+				A1AB86172A5B6B4B0084F93C /* TextEntryViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -264,18 +267,18 @@
 		A1EC50142A53726B000E900B /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				A184CE372A5221E9008FAEC3 /* Settings.swift */,
+				A184CE3B2A5226C6008FAEC3 /* BlinkGestureHandler.swift */,
 				A184CE3F2A52276B008FAEC3 /* DependencyInjection.swift */,
 				A184CE352A522033008FAEC3 /* DynamicCalibration.swift */,
 				A184CE312A521E7A008FAEC3 /* EyeTracker.swift */,
 				A184CE2F2A521DE5008FAEC3 /* GazeDetection.swift */,
 				A184CE232A521B4D008FAEC3 /* GestureRecognition.swift */,
 				A184CE4B2A52293B008FAEC3 /* KeyboardInteraction.swift */,
+				A1AB86192A5B6B8E0084F93C /* PredictiveTextServerice.swift */,
+				A184CE372A5221E9008FAEC3 /* Settings.swift */,
 				A184CE572A522B53008FAEC3 /* TextEntry.swift */,
 				A1AB861B2A5B6C140084F93C /* TextEntryService.swift */,
 				A1F69EAA2A520DA500480362 /* WordSuggestion.swift */,
-				A184CE3B2A5226C6008FAEC3 /* BlinkGestureHandler.swift */,
-				A1AB86192A5B6B8E0084F93C /* PredictiveTextServerice.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -283,11 +286,11 @@
 		A1EC50152A537279000E900B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A1EC50362A537815000E900B /* CalibrationProgressView.swift */,
 				A17483142A51016F00978F0A /* ContentView.swift */,
 				A184CE292A521BCC008FAEC3 /* DynamicCalibrationView.swift */,
 				A1F69EA02A511D4100480362 /* KeyboardView.swift */,
 				A184CE532A522AC2008FAEC3 /* PredictiveTextView.swift */,
-				A1EC50362A537815000E900B /* CalibrationProgressView.swift */,
 				A1AB86152A5B6B0E0084F93C /* TextEntryView.swift */,
 			);
 			path = Views;
@@ -413,6 +416,7 @@
 				A184CE442A5227E0008FAEC3 /* DynamicCalibrationModel.swift in Sources */,
 				A1F69EA82A520CD000480362 /* GazeDetectionDelegate.swift in Sources */,
 				A1AB86162A5B6B0E0084F93C /* TextEntryView.swift in Sources */,
+				A1C70CD92A5CBC9200D8F9E3 /* SwipeToTypeControllerDelegate.swift in Sources */,
 				A184CE2A2A521BCC008FAEC3 /* DynamicCalibrationView.swift in Sources */,
 				A184CE5C2A52588D008FAEC3 /* KeyboardLayout.swift in Sources */,
 				A1EC501D2A53739B000E900B /* EyeTrackerDelegate.swift in Sources */,
@@ -490,7 +494,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "";
+				PRODUCT_BUNDLE_IDENTIFIER = Cuptastrophe.Pheonix;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -547,7 +551,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "";
+				PRODUCT_BUNDLE_IDENTIFIER = Cuptastrophe.Pheonix;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
