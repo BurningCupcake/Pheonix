@@ -1,20 +1,13 @@
 import SwiftUI
 
 struct PredictiveTextView: View {
-    var suggestions: [String]
+    @ObservedObject var viewModel: PredictiveTextViewModel
     
     var body: some View {
-        // Predictive text view UI code goes here
-        HStack {
-            ForEach(suggestions, id: \.self) { suggestion in
+        VStack {
+            ForEach(viewModel.predictiveTextState.suggestions, id: \.self) { suggestion in
                 Text(suggestion)
-                    .font(.subheadline)
-                    .padding()
-                    .background(Color.gray)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
             }
         }
     }
 }
-
