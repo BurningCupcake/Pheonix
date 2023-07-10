@@ -1,6 +1,5 @@
 import Foundation
 
-protocol GazeDetectionDelegate: GazeDetectionSessionDelegate {
+protocol GazeDetectionDelegate: AnyObject {
     func gazeDetection(_ gazeDetection: GazeDetection, didDetectGazeAt point: CGPoint)
 }
-

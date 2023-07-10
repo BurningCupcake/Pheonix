@@ -16,6 +16,7 @@ class DependencyInjection {
     private init() {}
     
     // Functions to provide dependencies
+    
     func getKeyboardInteraction() -> KeyboardInteraction {
         if let keyboardInteraction = self.keyboardInteraction {
             return keyboardInteraction
@@ -31,14 +32,9 @@ class DependencyInjection {
         if let eyeTrackingController = self.eyeTrackingController {
             return eyeTrackingController
         } else {
-            let gazeDetection = GazeDetection(calibrationDelegate: CalibrationDelegateImplementation())
-            let wordSuggestion = WordSuggestion()
-            let eyeTrackingController = EyeTrackingController(eyeTracker: EyeTracker(), wordSuggestion: wordSuggestion)
+            let eyeTrackingController = EyeTrackingController()
             self.eyeTrackingController = eyeTrackingController
-            self.gazeDetection = gazeDetection
-            self.wordSuggestion = wordSuggestion
             return eyeTrackingController
-            
         }
     }
     

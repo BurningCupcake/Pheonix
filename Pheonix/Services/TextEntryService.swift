@@ -2,29 +2,31 @@ import Foundation
 import Combine
 
 class TextEntryService {
-    private let textEntryStateSubject = CurrentValueSubject<TextEntryState, Never>(.empty)
+    private let textEntryStateSubject = CurrentValueSubject<AppState, Never>(AppState(textEntryState: TextEntryState(text: ""), predictiveTextState: PredictiveTextState(suggestions: [])))
     
-    var textEntryStatePublisher: AnyPublisher<TextEntryState, Never> {
+    var textEntryStatePublisher: AnyPublisher<AppState, Never> {
         return textEntryStateSubject.eraseToAnyPublisher()
     }
     
-    func addCharacter(_ character: String) -> Result<TextEntryState, TextEntryError> {
+    func addCharacter(_ character: String) -> Result<AppState, TextEntryError> {
         // Add character to text entry state
-        textEntryState.text.append(character)
+        var updatedAppState = textEntryStateSubject.value
+        updatedAppState.textEntryState.text.append(character)
         
-        if textEntryState.text.count > 10 {
+        if updatedAppState.textEntryState.text.count > 10 {
             return .failure(.textTooLong)
         }
         
-        textEntryStateSubject.send(textEntryState)
-        return .success(textEntryState)
+        textEntryStateSubject.send(updatedAppState)
+        return .success(updatedAppState)
     }
     
     func deleteLastCharacter() {
         // Delete the last character from the text entry state
-        textEntryState.text = String(textEntryState.text.dropLast())
+        var updatedAppState = textEntryStateSubject.value
+        updatedAppState.textEntryState.text = String(updatedAppState.textEntryState.text.dropLast())
         
-        textEntryStateSubject.send(textEntryState)
+        textEntryStateSubject.send(updatedAppState)
     }
 }
 

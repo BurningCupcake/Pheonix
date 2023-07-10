@@ -1,8 +1,12 @@
 import Foundation
 
 protocol KeyboardViewDelegate: AnyObject {
-    func didSelectKey(_ key: String)
-    
+    func didSelectKey(_ key: String, textEntryService: TextEntryService)
+    func updateWordSuggestions(_ suggestions: [String])
+}
+
+extension KeyboardViewDelegate {
+    func didSelectKey(_ key: String, textEntryService: TextEntryService) {
         // Handle the selection of a key when the user blinks while gazing at it
         if key.count == 1 && key.rangeOfCharacter(from: CharacterSet.letters) != nil {
             // If the key is a letter, add the letter to the text entry state
@@ -34,5 +38,4 @@ protocol KeyboardViewDelegate: AnyObject {
         }
         // Add other cases as necessary
     }
-    func updateWordSuggestions(_ suggestions: [String])
-
+}
