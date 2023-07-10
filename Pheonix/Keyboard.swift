@@ -74,8 +74,21 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     // MARK: - KeyboardViewDelegate
     
     func didSelectKey(_ key: String) {
-        // Handle key selection event
-        // You can access the selected key here
+        // Handle the selection of a key when the user blinks while gazing at it
+        if key.count == 1 && key.rangeOfCharacter(from: CharacterSet.letters) != nil {
+            // If the key is a letter, add the letter to the text entry state
+            textEntry.appendText(key)
+            wordSuggestion.processTextEntry(textEntry)
+        } else if key == " " {
+            // If the key is a space, add a space to the text entry state
+            textEntry.appendText(" ")
+            wordSuggestion.processTextEntry(textEntry)
+        } else if key == "<" {
+            // If the key is a delete key, delete the last character from the text entry state
+            textEntry.deleteLastCharacter()
+            wordSuggestion.processTextEntry(textEntry)
+        }
+        // Add other cases as necessary
     }
     
     func updateWordSuggestions(_ suggestions: [String]) {
