@@ -48,6 +48,7 @@
 		A1AB861C2A5B6C140084F93C /* TextEntryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB861B2A5B6C140084F93C /* TextEntryService.swift */; };
 		A1AB861E2A5B6C4B0084F93C /* PredictiveTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB861D2A5B6C4B0084F93C /* PredictiveTextViewModel.swift */; };
 		A1AB86202A5B6C9C0084F93C /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB861F2A5B6C9C0084F93C /* AppState.swift */; };
+		A1C70CD52A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C70CD42A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift */; };
 		A1EC50112A536FB1000E900B /* KeyboardViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC50102A536FB1000E900B /* KeyboardViewDelegate.swift */; };
 		A1EC501B2A53734F000E900B /* EyeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC501A2A53734F000E900B /* EyeState.swift */; };
 		A1EC501D2A53739B000E900B /* EyeTrackerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC501C2A53739B000E900B /* EyeTrackerDelegate.swift */; };
@@ -115,6 +116,7 @@
 		A1AB861B2A5B6C140084F93C /* TextEntryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntryService.swift; sourceTree = "<group>"; };
 		A1AB861D2A5B6C4B0084F93C /* PredictiveTextViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictiveTextViewModel.swift; sourceTree = "<group>"; };
 		A1AB861F2A5B6C9C0084F93C /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		A1C70CD42A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewDelegateWrapper.swift; sourceTree = "<group>"; };
 		A1EC50102A536FB1000E900B /* KeyboardViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewDelegate.swift; sourceTree = "<group>"; };
 		A1EC501A2A53734F000E900B /* EyeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeState.swift; sourceTree = "<group>"; };
 		A1EC501C2A53739B000E900B /* EyeTrackerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTrackerDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				A184CE552A522AFD008FAEC3 /* SceneDelegate.swift */,
 				A16CE4EC2A5485B6006C75EF /* GestureRecognitionDelegate.swift */,
 				A14D69992A54B2AB00D67BFC /* CalibrationDelegate.swift */,
+				A1C70CD42A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				A184CE562A522AFD008FAEC3 /* SceneDelegate.swift in Sources */,
 				A184CE262A521B91008FAEC3 /* Language.swift in Sources */,
 				A1F69EAD2A520DEF00480362 /* KeyboardKey.swift in Sources */,
+				A1C70CD52A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

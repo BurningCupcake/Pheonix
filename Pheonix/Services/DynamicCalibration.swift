@@ -1,4 +1,5 @@
 import UIKit
+
 class DynamicCalibration {
     private var calibrationPoints: [CGPoint] = []
     

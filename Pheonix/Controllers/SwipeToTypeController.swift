@@ -1,16 +1,26 @@
 import UIKit
 
-class SwipeToTypeController: NSObject {
+class SwipeToTypeController {
+    weak var delegate: SwipeToTypeControllerDelegate?
     
-    var currentPath: UIBezierPath?
-    var currentWord: String?
+    private var swipeGesture: UISwipeGestureRecognizer!
     
-    func addPointToCurrentPath(_ point: CGPoint) {
-        if currentPath == nil {
-            currentPath = UIBezierPath()
-            currentPath?.move(to: point)
-        } else {
-            currentPath?.addLine(to: point)
+    init() {
+        swipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeGesture(_:)))
+        swipeGesture.direction = .left
+    }
+    
+    func attach(to view: UIView) {
+        view.addGestureRecognizer(swipeGesture)
+    }
+    
+    func detach(from view: UIView) {
+        view.removeGestureRecognizer(swipeGesture)
+    }
+    
+    @objc private func handleSwipeGesture(_ gesture: UISwipeGestureRecognizer) {
+        if gesture.state == .ended {
+            delegate?.didSwipeLeft()
         }
     }
 }

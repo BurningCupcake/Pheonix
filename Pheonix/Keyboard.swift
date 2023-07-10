@@ -10,8 +10,8 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     private var textEntry: TextEntry!
     private var wordSuggestion: WordSuggestion!
     private var eyeTrackingController: EyeTrackingController!
-    
-    var keyboardView: KeyboardView?
+    private let textEntryService = TextEntryService()
+    private var keyboardView: KeyboardView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +22,13 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout())
         textEntry = TextEntry()
         wordSuggestion = WordSuggestion()
-        eyeTrackingController = EyeTrackingController(eyeTracker: EyeTracker(), wordSuggestion: wordSuggestion)
+        eyeTrackingController = EyeTrackingController()
         
         // Setup delegates
         gazeDetection.delegate = self
         keyboardInteraction.delegate = self
         wordSuggestion.delegate = self
+        keyboardView.delegate = self
         
         // Create the SwiftUI keyboard view
         let keyboardView = KeyboardView(keyboardInteraction: keyboardInteraction)

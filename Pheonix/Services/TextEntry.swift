@@ -1,13 +1,17 @@
 import Foundation
 
 class TextEntry {
-    var currentText: String = ""
+    private(set) var currentText: String = ""
     
     func appendText(_ text: String) {
-        currentText += text
+        currentText.append(text)
     }
     
     func deleteLastCharacter() {
         _ = currentText.popLast()
+    }
+    
+    func clearText() {
+        currentText = ""
     }
 }

@@ -19,6 +19,13 @@ class TextEntryService {
         textEntryStateSubject.send(textEntryState)
         return .success(textEntryState)
     }
+    
+    func deleteLastCharacter() {
+        // Delete the last character from the text entry state
+        // ...
+        
+        textEntryStateSubject.send(textEntryState)
+    }
 }
 
 enum TextEntryError: Error {
