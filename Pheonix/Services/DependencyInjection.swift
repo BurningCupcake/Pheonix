@@ -32,7 +32,10 @@ class DependencyInjection {
         if let eyeTrackingController = self.eyeTrackingController {
             return eyeTrackingController
         } else {
-            let eyeTrackingController = EyeTrackingController()
+            let eyeTracker = EyeTracker() // Get the eye tracker dependency
+            let wordSuggestion = getWordSuggestion() // Get the word suggestion dependency
+            
+            let eyeTrackingController = EyeTrackingController(eyeTracker: eyeTracker, wordSuggestion: wordSuggestion)
             self.eyeTrackingController = eyeTrackingController
             return eyeTrackingController
         }

@@ -6,7 +6,7 @@ protocol KeyboardViewDelegate: AnyObject {
 }
 
 extension KeyboardViewDelegate {
-    func didSelectKey(_ key: String, textEntryService: TextEntryService) {
+    func didSelectKey(_ key: String) {
         // Handle the selection of a key when the user blinks while gazing at it
         if key.count == 1 && key.rangeOfCharacter(from: CharacterSet.letters) != nil {
             // If the key is a letter, add the letter to the text entry state

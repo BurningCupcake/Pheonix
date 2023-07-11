@@ -32,4 +32,10 @@ class EyeTracker: NSObject, ARSessionDelegate {
         
         delegate?.eyeTracker(self, didTrackGazePoint: gazePoint)
     }
+    
+    func session(_ session: ARSession, didFailWithError error: Error) {
+        // Handle the AR session failure here
+        // You can implement custom error handling logic based on the error provided
+        print("AR session failed with error: \(error)")
+    }
 }

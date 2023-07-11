@@ -2,9 +2,13 @@ import ARKit
 
 class EyeTrackingController: NSObject, ARSessionDelegate, GazeDetectionDelegate, KeyboardInteractionDelegate, WordSuggestionDelegate {
     var session: ARSession
+    var eyeTracker: EyeTracker
+    var wordSuggestion: WordSuggestion
     
-    override init() {
+    init(eyeTracker: EyeTracker, wordSuggestion: WordSuggestion) {
         self.session = ARSession()
+        self.eyeTracker = eyeTracker
+        self.wordSuggestion = wordSuggestion
         super.init()
         self.session.delegate = self
     }

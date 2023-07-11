@@ -8,10 +8,21 @@ class TextEntryService {
         return textEntryStateSubject.eraseToAnyPublisher()
     }
     
+    private var textEntry: TextEntry
+    private var predictiveTextState: PredictiveTextState
+    
+    init() {
+        textEntry = TextEntry()
+        predictiveTextState = PredictiveTextState(suggestions: [])
+    }
+    
     func addCharacter(_ character: String) -> Result<AppState, TextEntryError> {
-        // Add character to text entry state
-        var updatedAppState = textEntryStateSubject.value
-        updatedAppState.textEntryState.text.append(character)
+        textEntry.appendText(character)
+        
+        let updatedAppState = AppState(
+            textEntryState: TextEntryState(text: textEntry.currentText),
+            predictiveTextState: predictiveTextState
+        )
         
         if updatedAppState.textEntryState.text.count > 10 {
             return .failure(.textTooLong)
@@ -22,9 +33,12 @@ class TextEntryService {
     }
     
     func deleteLastCharacter() {
-        // Delete the last character from the text entry state
-        var updatedAppState = textEntryStateSubject.value
-        updatedAppState.textEntryState.text = String(updatedAppState.textEntryState.text.dropLast())
+        textEntry.deleteLastCharacter()
+        
+        let updatedAppState = AppState(
+            textEntryState: TextEntryState(text: textEntry.currentText),
+            predictiveTextState: predictiveTextState
+        )
         
         textEntryStateSubject.send(updatedAppState)
     }

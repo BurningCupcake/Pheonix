@@ -1,6 +1,7 @@
 import Foundation
 import Combine
 
+
 class PredictiveTextService {
     private let predictiveTextStateSubject = CurrentValueSubject<PredictiveTextState, Never>(.empty)
     
