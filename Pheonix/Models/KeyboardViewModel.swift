@@ -21,20 +21,12 @@ class KeyboardViewModel: ObservableObject {
         predictiveTextService = PredictiveTextService()
         
         textEntryService.textEntryStatePublisher
-            .combineLatest(predictiveTextService.predictiveTextStatePublisher)
-            .map { textEntryState, predictiveTextState in
-                AppState(
-                    textEntryState: textEntryState,
-                    predictiveTextState: predictiveTextState
-                )
-            }
-            .map { appState in
-                appState.textEntryState
-            }
             .sink { [weak self] textEntryState in
-                self?.appState.textEntryState = textEntryState
+                self?.appState = AppState(
+                    textEntryState: textEntryState,
+                    predictiveTextState: self?.appState.predictiveTextState ?? initialPredictiveTextState
+                )
             }
             .store(in: &cancellables)
     }
 }
-

@@ -2,28 +2,28 @@ import Foundation
 import Combine
 
 class TextEntryViewModel: ObservableObject {
-    private let textEntryService: TextEntryService
-    private var cancellables = Set<AnyCancellable>()
+    @Published var textEntryState: TextEntryState
     
-    @Published var textEntryState: TextEntryState = .empty
+    private let textEntryService: TextEntryService
     
     init(textEntryService: TextEntryService) {
         self.textEntryService = textEntryService
+        self.textEntryState = textEntryService.textEntryStateSubject.value.textEntryState
         
-        textEntryService.textEntryStatePublisher
-            .sink { [weak self] state in
-                self?.textEntryState = state
-            }
-            .store(in: &cancellables)
+        // Additional setup or subscriptions if needed
     }
     
     func addCharacter(_ character: String) -> Result<TextEntryState, TextEntryError> {
-        return textEntryService.addCharacter(character)
+        let result = textEntryService.addCharacter(character)
+        switch result {
+            case .success(let appState):
+                return .success(appState.textEntryState)
+            case .failure(let error):
+                return .failure(error)
+        }
     }
-}
-
-struct TextEntryState: Equatable {
-    var text: String
     
-    static let empty = TextEntryState(text: "")
+    func deleteLastCharacter() {
+        textEntryService.deleteLastCharacter()
+    }
 }

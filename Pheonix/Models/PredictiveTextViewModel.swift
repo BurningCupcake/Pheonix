@@ -5,7 +5,7 @@ class PredictiveTextViewModel: ObservableObject {
     private let predictiveTextService: PredictiveTextService
     private var cancellables = Set<AnyCancellable>()
     
-    @Published var predictiveTextState: PredictiveTextState = .empty
+    @Published var predictiveTextState: PredictiveTextState = PredictiveTextState.empty
     
     init(predictiveTextService: PredictiveTextService) {
         self.predictiveTextService = predictiveTextService
