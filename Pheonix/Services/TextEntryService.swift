@@ -2,9 +2,9 @@ import Foundation
 import Combine
 
 class TextEntryService {
-    private let textEntryStateSubject = CurrentValueSubject<AppState, Never>(AppState(textEntryState: TextEntryState(text: ""), predictiveTextState: PredictiveTextState(suggestions: [])))
+    private let textEntryStateSubject = CurrentValueSubject<TextEntryState, Never>(TextEntryState(text: ""))
     
-    var textEntryStatePublisher: AnyPublisher<AppState, Never> {
+    var textEntryStatePublisher: AnyPublisher<TextEntryState, Never> {
         return textEntryStateSubject.eraseToAnyPublisher()
     }
     
@@ -16,31 +16,25 @@ class TextEntryService {
         predictiveTextState = PredictiveTextState(suggestions: [])
     }
     
-    func addCharacter(_ character: String) -> Result<AppState, TextEntryError> {
+    func addCharacter(_ character: String) -> Result<TextEntryState, TextEntryError> {
         textEntry.appendText(character)
         
-        let updatedAppState = AppState(
-            textEntryState: TextEntryState(text: textEntry.currentText),
-            predictiveTextState: predictiveTextState
-        )
+        let updatedTextEntryState = TextEntryState(text: textEntry.currentText)
         
-        if updatedAppState.textEntryState.text.count > 10 {
+        if updatedTextEntryState.text.count > 10 {
             return .failure(.textTooLong)
         }
         
-        textEntryStateSubject.send(updatedAppState)
-        return .success(updatedAppState)
+        textEntryStateSubject.send(updatedTextEntryState)
+        return .success(updatedTextEntryState)
     }
     
     func deleteLastCharacter() {
         textEntry.deleteLastCharacter()
         
-        let updatedAppState = AppState(
-            textEntryState: TextEntryState(text: textEntry.currentText),
-            predictiveTextState: predictiveTextState
-        )
+        let updatedTextEntryState = TextEntryState(text: textEntry.currentText)
         
-        textEntryStateSubject.send(updatedAppState)
+        textEntryStateSubject.send(updatedTextEntryState)
     }
 }
 

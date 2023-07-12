@@ -6,7 +6,10 @@ struct SwipeToTypeView: View {
     var body: some View {
         TextEditor(text: $swipeToTypeController.text)
             .gesture(DragGesture().onChanged { value in
-                swipeToTypeController.handleSwipeGesture(value)
+                if value.startLocation.x > value.location.x {
+                    // Swipe left detected
+                    self.swipeToTypeController.handleSwipeGesture(UISwipeGestureRecognizer())
+                }
             })
     }
 }

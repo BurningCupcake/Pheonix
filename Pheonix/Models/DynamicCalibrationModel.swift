@@ -1,6 +1,6 @@
-import Foundation
+import Combine
+import SwiftUI
 
-struct DynamicCalibrationModel {
-    var calibrationPoints: [CGPoint]
+class DynamicCalibrationModel: ObservableObject {
+    @Published var calibrationPoints: [CGPoint] = []
 }
-

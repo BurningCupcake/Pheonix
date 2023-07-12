@@ -1,7 +1,10 @@
 import UIKit
+import Combine
 
-class SwipeToTypeController {
+class SwipeToTypeController: ObservableObject {
     weak var delegate: SwipeToTypeControllerDelegate?
+    
+    @Published var text: String = ""
     
     private var swipeGesture: UISwipeGestureRecognizer!
     
@@ -18,7 +21,7 @@ class SwipeToTypeController {
         view.removeGestureRecognizer(swipeGesture)
     }
     
-    @objc private func handleSwipeGesture(_ gesture: UISwipeGestureRecognizer) {
+    @objc func handleSwipeGesture(_ gesture: UISwipeGestureRecognizer) {
         if gesture.state == .ended {
             delegate?.didSwipeLeft()
         }
