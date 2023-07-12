@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		A101257A2A573D35005C1E12 /* info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A10125792A573D35005C1E12 /* info.plist */; };
+		A11153BA2A5E97EA00524D65 /* CalibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11153B92A5E97EA00524D65 /* CalibrationView.swift */; };
+		A11153BC2A5E981E00524D65 /* LanguagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11153BB2A5E981E00524D65 /* LanguagePickerView.swift */; };
+		A11153BE2A5E985000524D65 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11153BD2A5E985000524D65 /* SettingsView.swift */; };
+		A11153C02A5E987B00524D65 /* SwipeToTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11153BF2A5E987B00524D65 /* SwipeToTypeView.swift */; };
 		A14D699A2A54B2AB00D67BFC /* CalibrationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D69992A54B2AB00D67BFC /* CalibrationDelegate.swift */; };
 		A16CE4ED2A5485B6006C75EF /* GestureRecognitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16CE4EC2A5485B6006C75EF /* GestureRecognitionDelegate.swift */; };
 		A17483152A51016F00978F0A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17483142A51016F00978F0A /* ContentView.swift */; };
@@ -72,6 +76,10 @@
 
 /* Begin PBXFileReference section */
 		A10125792A573D35005C1E12 /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
+		A11153B92A5E97EA00524D65 /* CalibrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationView.swift; sourceTree = "<group>"; };
+		A11153BB2A5E981E00524D65 /* LanguagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagePickerView.swift; sourceTree = "<group>"; };
+		A11153BD2A5E985000524D65 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A11153BF2A5E987B00524D65 /* SwipeToTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToTypeView.swift; sourceTree = "<group>"; };
 		A14D69992A54B2AB00D67BFC /* CalibrationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationDelegate.swift; sourceTree = "<group>"; };
 		A16CE4E62A546E6E006C75EF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A16CE4EC2A5485B6006C75EF /* GestureRecognitionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureRecognitionDelegate.swift; sourceTree = "<group>"; };
@@ -292,6 +300,10 @@
 				A1F69EA02A511D4100480362 /* KeyboardView.swift */,
 				A184CE532A522AC2008FAEC3 /* PredictiveTextView.swift */,
 				A1AB86152A5B6B0E0084F93C /* TextEntryView.swift */,
+				A11153B92A5E97EA00524D65 /* CalibrationView.swift */,
+				A11153BB2A5E981E00524D65 /* LanguagePickerView.swift */,
+				A11153BD2A5E985000524D65 /* SettingsView.swift */,
+				A11153BF2A5E987B00524D65 /* SwipeToTypeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -399,6 +411,7 @@
 				A184CE4C2A52293B008FAEC3 /* KeyboardInteraction.swift in Sources */,
 				A184CE3C2A5226C6008FAEC3 /* BlinkGestureHandler.swift in Sources */,
 				A184CE242A521B4D008FAEC3 /* GestureRecognition.swift in Sources */,
+				A11153BE2A5E985000524D65 /* SettingsView.swift in Sources */,
 				A184CE3A2A52221A008FAEC3 /* SwipeToTypeController.swift in Sources */,
 				A184CE382A5221E9008FAEC3 /* Settings.swift in Sources */,
 				A1F69EA72A520CD000480362 /* WordSuggestionDelegate.swift in Sources */,
@@ -414,7 +427,9 @@
 				A14D699A2A54B2AB00D67BFC /* CalibrationDelegate.swift in Sources */,
 				A184CE2C2A521BEE008FAEC3 /* CalibrationResult.swift in Sources */,
 				A184CE442A5227E0008FAEC3 /* DynamicCalibrationModel.swift in Sources */,
+				A11153BC2A5E981E00524D65 /* LanguagePickerView.swift in Sources */,
 				A1F69EA82A520CD000480362 /* GazeDetectionDelegate.swift in Sources */,
+				A11153C02A5E987B00524D65 /* SwipeToTypeView.swift in Sources */,
 				A1AB86162A5B6B0E0084F93C /* TextEntryView.swift in Sources */,
 				A1C70CD92A5CBC9200D8F9E3 /* SwipeToTypeControllerDelegate.swift in Sources */,
 				A184CE2A2A521BCC008FAEC3 /* DynamicCalibrationView.swift in Sources */,
@@ -431,6 +446,7 @@
 				A184CE262A521B91008FAEC3 /* Language.swift in Sources */,
 				A1F69EAD2A520DEF00480362 /* KeyboardKey.swift in Sources */,
 				A1C70CD52A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift in Sources */,
+				A11153BA2A5E97EA00524D65 /* CalibrationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
