@@ -1,4 +1,8 @@
-import Foundation
+import UIKit
+
+protocol KeyboardInteractionDelegate: class {
+    func keyboardInteraction(_ keyboardInteraction: KeyboardInteraction, didSelectKey key: String)
+}
 
 class KeyboardInteraction {
     private let layout: KeyboardLayout
