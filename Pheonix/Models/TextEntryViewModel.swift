@@ -8,7 +8,7 @@ class TextEntryViewModel: ObservableObject {
     
     init(textEntryService: TextEntryService) {
         self.textEntryService = textEntryService
-        self.textEntryState = textEntryService.textEntryStateSubject.value.textEntryState
+        self.textEntryState = textEntryService.textEntryState
         
         // Additional setup or subscriptions if needed
     }
