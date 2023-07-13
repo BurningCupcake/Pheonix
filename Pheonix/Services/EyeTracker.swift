@@ -1,41 +1,65 @@
-import ARKit
+import AVFoundation
 
-class EyeTracker: NSObject, ARSessionDelegate {
+class EyeTracker {
     weak var delegate: EyeTrackerDelegate?
-    private var session: ARSession?
+    private var captureSession: AVCaptureSession?
+    private var videoDataOutput: AVCaptureVideoDataOutput?
+    private var eyeDetectionQueue: DispatchQueue = DispatchQueue(label: "com.yourapp.eyeDetectionQueue")
     
-    func startTracking() {
-        guard ARFaceTrackingConfiguration.isSupported else {
-            // Face tracking is not supported on this device
+    init() {
+        setupCaptureSession()
+    }
+    
+    private func setupCaptureSession() {
+        guard let frontCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front),
+              let irCamera = AVCaptureDevice.default(.builtInDualCamera, for: .video, position: .front) else {
+            // Failed to retrieve the front camera or IR camera
             return
         }
         
-        let configuration = ARFaceTrackingConfiguration()
-        session = ARSession()
-        session?.delegate = self
-        session?.run(configuration, options: [])
-    }
-    
-    func stopTracking() {
-        session?.pause()
-    }
-    
-    // MARK: - ARSessionDelegate
-    
-    func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
-        guard let faceAnchor = anchors.compactMap({ $0 as? ARFaceAnchor }).first else {
-            return
+        do {
+            let frontCameraInput = try AVCaptureDeviceInput(device: frontCamera)
+            let irCameraInput = try AVCaptureDeviceInput(device: irCamera)
+            
+            let captureSession = AVCaptureSession()
+            captureSession.beginConfiguration()
+            
+            if captureSession.canAddInput(frontCameraInput) && captureSession.canAddInput(irCameraInput) {
+                captureSession.addInput(frontCameraInput)
+                captureSession.addInput(irCameraInput)
+                
+                let videoDataOutput = AVCaptureVideoDataOutput()
+                videoDataOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA]
+                videoDataOutput.alwaysDiscardsLateVideoFrames = true
+                
+                if captureSession.canAddOutput(videoDataOutput) {
+                    captureSession.addOutput(videoDataOutput)
+                    videoDataOutput.setSampleBufferDelegate(self, queue: eyeDetectionQueue)
+                }
+                
+                captureSession.commitConfiguration()
+                captureSession.startRunning()
+                
+                self.captureSession = captureSession
+                self.videoDataOutput = videoDataOutput
+            }
+        } catch {
+            // Error setting up the capture session
+            print("Failed to set up the capture session: \(error.localizedDescription)")
         }
+    }
+}
+
+extension EyeTracker: AVCaptureVideoDataOutputSampleBufferDelegate {
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        // Process the sample buffer to extract gaze point and eye state information
+        // Implement your eye tracking algorithm here
         
-        let leftEyeTransform = faceAnchor.leftEyeTransform
-        let gazePoint = CGPoint(x: CGFloat(leftEyeTransform.columns.3.x), y: CGFloat(leftEyeTransform.columns.3.y))
-        
+        // Example implementation:
+        let gazePoint = CGPoint(x: 0.5, y: 0.5) // Placeholder gaze point
         delegate?.eyeTracker(self, didTrackGazePoint: gazePoint)
-    }
-    
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Handle the AR session failure here
-        // You can implement custom error handling logic based on the error provided
-        print("AR session failed with error: \(error)")
+        
+        let eyeState = EyeState.open // Placeholder eye state
+        delegate?.eyeTracker(self, didUpdateEyeState: eyeState)
     }
 }
