@@ -1,75 +1,146 @@
-# Pheonix
-Keyeboatd prototype
+# Pheonix Keyboard
 
-Keyeboard White Sheet
+Pheonix is a custom keyboard for iOS that utilizes gaze detection and eye tracking technology for text entry. It provides an alternative input method for users with limited mobility or disabilities. The keyboard supports features such as predictive text, dynamic calibration, swipe-to-type, and blink gestures.
 
-Eye-Tracking Keyboard White Paper -
+## Features
 
-1. Introduction
-The Eye-Tracking Keyboard is an innovative text input system designed for iOS devices. It leverages advanced computer vision and machine learning algorithms to enable users to type using only their gaze. This white paper provides a comprehensive overview of the design principles, features, and implementation details of the Eye-Tracking Keyboard.
+- **Gaze Detection**: The keyboard tracks the user's eye movements to determine the intended key selection.
+- **Eye Tracking**: Utilizes ARKit and face tracking to precisely track the user's gaze and convert it into text input.
+- **Predictive Text**: Provides word suggestions based on the user's input to enhance typing speed and accuracy.
+- **Dynamic Calibration**: Enables the user to perform calibration for improved accuracy and responsiveness.
+- **Swipe-to-Type**: Allows users to swipe across keys to form words without lifting their finger.
+- **Blink Gestures**: Recognizes blinks as gestures for specific actions, such as space or delete.
 
-2. Design Principles
-2.1 Intuitive and Efficient Input:
-- The Eye-Tracking Keyboard prioritizes natural and efficient text input by utilizing the user's gaze as the primary input mechanism.
-- The user interface is designed to be intuitive, allowing users to quickly adapt to the eye-tracking input method without extensive training or adjustments.
+## File Structure
 
-2.2 Dynamic Calibration:
-- To ensure accurate gaze tracking, the Eye-Tracking Keyboard incorporates a dynamic calibration process.
-- The calibration process is interactive, engaging, and visually appealing, guiding users to establish precise calibration points.
+The Pheonix keyboard project consists of the following components:
 
+- **Controllers**: Contains the main view controller classes, including the keyboard view controller, eye tracking controller, and swipe-to-type controller.
+- **Views**: Contains the SwiftUI view implementations for the keyboard, calibration, text entry, predictive text, and other visual elements.
+- **Models**: Contains the data models and view models used by the keyboard, including the app state, keyboard keys, eye state, calibration result, and keyboard layout.
+- **Services**: Contains the service classes responsible for keyboard interaction, text entry, gaze detection, word suggestion, dynamic calibration, and other related functionalities.
+- **Delegates**: Contains the delegate protocols used for communication between different components, including the keyboard view delegate, eye tracker delegate, calibration delegate, word suggestion delegate, and more.
+- **Resources**: Contains the XIB file for the keyboard interface.
+- **Supporting Files**: Contains supporting files and assets used by the keyboard.
 
-2.3 Seamless Interaction:
-- The keyboard seamlessly integrates into the user interface, with keys morphing and transforming in response to the user's gaze.
-- Interactive animations and visual feedback enhance the user experience, providing clear indications of input actions and improving usability.
+Pheonix tree new****
 
-2.4 Word and Sentence Prediction:
-- The Eye-Tracking Keyboard employs advanced machine learning algorithms to predict words and sentences based on the user's gaze patterns and typing history.
-- The prediction system continuously adapts and learns from user input to improve accuracy, speed, and personalization.
+|____Pheonix
+| |____.DS_Store
+| |____Resources
+| | |____Keyboard.xib
+| |____Models
+| | |____AppState.swift
+| | |____KeyboardKey.swift
+| | |____Language.swift
+| | |____EyeState.swift
+| | |____PredictiveTextViewModel.swift
+| | |____TextEntryViewModel.swift
+| | |____Key.swift
+| | |____KeyboardViewModel.swift
+| | |____DynamicCalibrationModel.swift
+| | |____CalibrationResult.swift
+| | |____KeyboardLayoutStyle.swift
+| | |____KeyboardLayout.swift
+| |____Preview Content
+| | |____Preview Assets.xcassets
+| | | |____Contents.json
+| |____Supporting Files
+| | |____Assets.xcassets
+| | | |____AppIcon.appiconset
+| | | | |____IMG_6989.jpg
+| | | | |____Contents.json
+| | | |____AccentColor.colorset
+| | | | |____Contents.json
+| | | |____Contents.json
+| |____Delegates
+| | |____KeyboardViewDelegateWrapper.swift
+| | |____EyeTrackerDelegate.swift
+| | |____CalibrationDelegate.swift
+| | |____WordSuggestionDelegate.swift
+| | |____WordSuggestionDelegateWrapper.swift
+| | |____BlinkGestureHandlerDelegate.swift
+| | |____GazeCalibrationDeligate.swift
+| | |____KeyboardViewDelegate.swift
+| | |____KeyboardInteractionDelegate.swift
+| | |____GazeDetectionDelegate.swift
+| | |____GestureRecognitionDelegate.swift
+| | |____SceneDelegate.swift
+| | |____SwipeToTypeControllerDelegate.swift
+| |____Controllers
+| | |____EyeTrackingController.swift
+| | |____KeyboardViewController.swift
+| | |____SwipeToTypeController.swift
+| | |____EyeGazeViewController.swift
+| | |____AppDelegate.swift
+| |____Views
+| | |____CalibrationView.swift
+| | |____KeyboardKey.swift
+| | |____CalibrationProgressView.swift
+| | |____PredictiveTextView.swift
+| | |____SettingsView.swift
+| | |____DynamicCalibrationView.swift
+| | |____TextEntryView.swift
+| | |____KeyboardView.swift
+| | |____LanguagePickerView.swift
+| | |____SwipeToTypeView.swift
+| | |____ContentView.swift
+|____Services
+| |____DynamicCalibration.swift
+| |____WordSuggestion.swift
+| |____KeyboardInteraction.swift
+| |____DependencyInjection.swift
+| |____TextEntry.swift
+| |____GestureRecognition.swift
+| |____GazeDetection.swift
+| |____Settings.swift
+| |____EyeTracker.swift
+| |____PredictiveTextService.swift
+| |____TextEntryService.swift
+| |____BlinkGestureHandler.swift
+|____Keyboard.swift
 
-2.5 Gestural Input:
-- The Eye-Tracking Keyboard introduces innovative blink gestures as an additional input modality.
-- Users can perform actions such as selecting keys, inserting spaces, and deleting characters through well-defined and customizable blink gestures.
+## Getting Started
 
-3. Features
-3.1 Gaze Tracking:
-- The Eye-Tracking Keyboard utilizes the device's front-facing camera and infrared (IR) sensor to accurately track the user's gaze.
-- Sophisticated computer vision algorithms analyze eye movements and estimate the gaze point on the screen with exceptional precision.
+To use the Pheonix keyboard in your iOS project, follow these steps:
 
-3.2 Dynamic Calibration:
-- The Eye-Tracking Keyboard incorporates a captivating and interactive fractal visualization for dynamic calibration.
-- This visualization guides the user's gaze across the screen, ensuring optimal calibration accuracy and reducing calibration time.
+1. Add the Pheonix project to your Xcode workspace or include the necessary source files in your project.
+2. Configure the necessary dependencies and services using the `DependencyInjection` class. This class provides singleton instances of the required dependencies.
+3. Customize the keyboard appearance, settings, and other configurations in the `Settings` class. Modify the properties in this class to suit your desired keyboard style and behavior.
+4. Integrate the keyboard view controller into your app's view hierarchy by instantiating it and presenting it when needed. You can use the `KeyboardViewController` class provided in the project.
+5. Implement the necessary delegate methods to handle text input and other interactions:
+   - Conform to the `KeyboardViewDelegate` protocol to receive notifications when keys are selected or when word suggestions are updated.
+   - Conform to the `EyeTrackerDelegate` protocol to receive gaze tracking updates from the eye tracker.
+   - Conform to the `CalibrationDelegate` protocol to handle calibration progress and completion.
+   - Conform to the `WordSuggestionDelegate` protocol to receive word suggestions based on the user's input.
+   - Conform to the `SwipeToTypeControllerDelegate` protocol to handle swipe gestures for text input.
+6. Optionally, customize the keyboard layout, gestures, or add additional features as per your requirements. Modify the `KeyboardLayout` class and related components to define your desired keyboard layout and key configuration.
 
-3.3 Key Morphing and Interaction:
-- With the Eye-Tracking Keyboard, keys transform dynamically as the user gazes at them, adapting to the user's visual context and preferences.
-- Interactive animations provide immediate feedback when a key is selected, creating a delightful and engaging typing experience.
+## Requirements
 
-3.4 Blink Gesture Interaction:
-- The Eye-Tracking Keyboard revolutionizes text input by introducing blink gestures as a natural and effortless input mechanism.
-- Blink detection algorithms analyze eye blinks, allowing users to perform actions such as key selection, space insertion, and character deletion.
+- iOS 13.0 or later
+- Xcode 12.0 or later
+- Swift 5.0 or later
 
-3.5 Word and Sentence Prediction:
-- The Eye-Tracking Keyboard employs cutting-edge machine learning algorithms to predict words and sentences.
-- The prediction system takes into account the user's gaze patterns, typing history, and contextual information, generating highly accurate suggestions in real-time.
+## License
 
-3.6 User Interface and User Experience (UI/UX):
-- The Eye-Tracking Keyboard's user interface is meticulously designed to prioritize usability, clarity, and aesthetics.
-- The interface features a visually appealing and responsive keyboard layout that adapts seamlessly to user interactions, creating a delightful typing experience.
-- Clear visual feedback, animations, and intuitive interactions guide users throughout the typing process, making it a user-friendly and enjoyable experience.
+The Pheonix keyboard project is licensed under the [MIT License](LICENSE).
 
-4. Implementation
-4.1 Architecture:
-- The Eye-Tracking Keyboard follows the Model-View-ViewModel (MVVM) architectural pattern, providing a clear separation of concerns and promoting maintainability and ext ensibility.
-- The codebase is organized into modular components, ensuring reusability and facilitating testing and debugging processes.
+## Acknowledgements
 
-4.2 Technology Stack:
-- The Eye-Tracking Keyboard is developed using Swift programming language for iOS devices.
-- The implementation utilizes the power of ARKit for gaze tracking and facial landmark detection.
-- Machine learning algorithms are integrated using Core ML, enabling accurate word and sentence prediction based on user input and context.
+The Pheonix keyboard project utilizes various open-source libraries and frameworks. Special thanks to the contributors of these projects for their valuable work.
 
-4.3 Accessibility and Localization:
-- The Eye-Tracking Keyboard prioritizes accessibility, adhering to accessibility standards and providing support for alternative input methods.
-- Localization and internationalization features allow the keyboard to adapt seamlessly to different languages and regions, ensuring a global user base.
+- [ARKit](https://developer.apple.com/documentation/arkit): Apple's augmented reality framework used for eye tracking.
+- [Combine](https://developer.apple.com/documentation/combine): Apple's reactive programming framework used for data flow and event handling.
+- [UIKit](https://developer.apple.com/documentation/uikit): Apple's user interface framework used for the keyboard interface.
+- [SwiftUI](https://developer.apple.com/documentation/swiftui): Apple's declarative user interface framework used for building the keyboard views.
 
-5. Conclusion
-The Eye-Tracking Keyboard represents a paradigm shift in text input, leveraging the power of gaze tracking and machine learning to provide an intuitive, efficient, and accessible typing experience. With dynamic calibration, interactive key morphing, blink gestures, and intelligent word prediction, the Eye-Tracking Keyboard enhances productivity and revolutionizes the way users interact with digital devices. By adhering to the design principles outlined in this white paper and implementing the features described, the Eye-Tracking Keyboard aims to empower users and unlock their full potential in the realm of text input.
+## Contributing
 
+Contributions to the Pheonix keyboard project are welcome! If you have any suggestions, improvements, or bug fixes, please open an issue or submit a pull request.
+
+---
+
+This README provides an overview of the Pheonix keyboard and its file structure. For detailed implementation details and code, refer to the individual files in the project.
+
+For further assistance or questions, feel free to reach out.
