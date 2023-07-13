@@ -1,5 +1,6 @@
 import Foundation
+import CoreGraphics
 
 protocol GazeDetectionDelegate: AnyObject {
-    func gazeDetection(_ gazeDetection: GazeDetection, didDetectGazeAt point: CGPoint)
+    func gazeDetection(didDetectGazeAt point: CGPoint)
 }
