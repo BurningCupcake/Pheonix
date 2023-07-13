@@ -1,15 +1,17 @@
 import ARKit
-import simd
-import UIKit
+
+protocol GazeDetectionDelegate: class {
+    func gazeDetection(_ gazeDetection: GazeDetection, didDetectGazeAt point: CGPoint)
+}
 
 class GazeDetection: NSObject, ARSessionDelegate {
     weak var delegate: GazeDetectionDelegate?
     private var isCalibrating: Bool = false
     
     private var eyeTrackingSession: ARSession
-    private let calibrationDelegate: DynamicCalibration
+    private let calibrationDelegate: CalibrationDelegate
     
-    init(calibrationDelegate: DynamicCalibration) {
+    init(calibrationDelegate: CalibrationDelegate) {
         self.calibrationDelegate = calibrationDelegate
         eyeTrackingSession = ARSession()
         super.init()
@@ -32,30 +34,12 @@ class GazeDetection: NSObject, ARSessionDelegate {
             return
         }
         
-        let leftEyeTransform = SCNMatrix4(faceAnchor.leftEyeTransform)
-        let rightEyeTransform = SCNMatrix4(faceAnchor.rightEyeTransform)
+        let gazePoint = // Calculate gaze point based on the face anchor
         
-        let middleEyePosition = SCNVector3(
-            (leftEyeTransform.m41 + rightEyeTransform.m41) / 2,
-            (leftEyeTransform.m42 + rightEyeTransform.m42) / 2,
-            (leftEyeTransform.m43 + rightEyeTransform.m43) / 2
-        )
-        
-        let middleEyePositionFloat3 = simd_float3(middleEyePosition.x, middleEyePosition.y, middleEyePosition.z)
-        
-        let viewportSize = frame.camera.imageResolution
-        
-        // Obtain the correct orientation value
-        let interfaceOrientation: UIInterfaceOrientation
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-           let orientation = windowScene.windows.first?.windowScene?.interfaceOrientation {
-            interfaceOrientation = orientation
-        } else {
-            interfaceOrientation = .portrait
-        }
-        
-        let projectedPoint = frame.camera.projectPoint(middleEyePositionFloat3, orientation: interfaceOrientation, viewportSize: viewportSize)
-        let gazePoint = CGPoint(x: CGFloat(projectedPoint.x), y: CGFloat(projectedPoint.y))
         delegate?.gazeDetection(self, didDetectGazeAt: gazePoint)
+    }
+    
+    func session(_ session: ARSession, didFailWithError error: Error) {
+        // Handle AR session failure
     }
 }
