@@ -12,6 +12,7 @@
 		A11153BC2A5E981E00524D65 /* LanguagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11153BB2A5E981E00524D65 /* LanguagePickerView.swift */; };
 		A11153BE2A5E985000524D65 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11153BD2A5E985000524D65 /* SettingsView.swift */; };
 		A11153C02A5E987B00524D65 /* SwipeToTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11153BF2A5E987B00524D65 /* SwipeToTypeView.swift */; };
+		A14AA2F62A5F963100B8E77B /* WordSugestionDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14AA2F52A5F963100B8E77B /* WordSugestionDelegateWrapper.swift */; };
 		A14D699A2A54B2AB00D67BFC /* CalibrationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D69992A54B2AB00D67BFC /* CalibrationDelegate.swift */; };
 		A16CE4ED2A5485B6006C75EF /* GestureRecognitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16CE4EC2A5485B6006C75EF /* GestureRecognitionDelegate.swift */; };
 		A17483152A51016F00978F0A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17483142A51016F00978F0A /* ContentView.swift */; };
@@ -80,6 +81,7 @@
 		A11153BB2A5E981E00524D65 /* LanguagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagePickerView.swift; sourceTree = "<group>"; };
 		A11153BD2A5E985000524D65 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A11153BF2A5E987B00524D65 /* SwipeToTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToTypeView.swift; sourceTree = "<group>"; };
+		A14AA2F52A5F963100B8E77B /* WordSugestionDelegateWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordSugestionDelegateWrapper.swift; sourceTree = "<group>"; };
 		A14D69992A54B2AB00D67BFC /* CalibrationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationDelegate.swift; sourceTree = "<group>"; };
 		A16CE4E62A546E6E006C75EF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A16CE4EC2A5485B6006C75EF /* GestureRecognitionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureRecognitionDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				A1EC50102A536FB1000E900B /* KeyboardViewDelegate.swift */,
 				A1C70CD42A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift */,
 				A184CE552A522AFD008FAEC3 /* SceneDelegate.swift */,
+				A14AA2F52A5F963100B8E77B /* WordSugestionDelegateWrapper.swift */,
 				A1F69EA42A520CCF00480362 /* WordSuggestionDelegate.swift */,
 				A1C70CD82A5CBC9200D8F9E3 /* SwipeToTypeControllerDelegate.swift */,
 			);
@@ -438,6 +441,7 @@
 				A184CE322A521E7A008FAEC3 /* EyeTracker.swift in Sources */,
 				A1F69EA32A511D7700480362 /* Keyboard.swift in Sources */,
 				A1EC501B2A53734F000E900B /* EyeState.swift in Sources */,
+				A14AA2F62A5F963100B8E77B /* WordSugestionDelegateWrapper.swift in Sources */,
 				A184CE482A52284B008FAEC3 /* EyeTrackingController.swift in Sources */,
 				A1AB861C2A5B6C140084F93C /* TextEntryService.swift in Sources */,
 				A17483152A51016F00978F0A /* ContentView.swift in Sources */,
