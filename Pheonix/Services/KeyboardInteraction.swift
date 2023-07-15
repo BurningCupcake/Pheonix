@@ -3,18 +3,19 @@ import Foundation
 class KeyboardInteraction {
     private let layout: KeyboardLayout
     weak var delegate: KeyboardInteractionDelegate?
+    private let textEntryService: TextEntryService // Add this property to hold the instance of TextEntryService
     
-    init(layout: KeyboardLayout) {
+    init(layout: KeyboardLayout, textEntryService: TextEntryService) {
         self.layout = layout
+        self.textEntryService = textEntryService
     }
     
     func processGazePoint(_ point: CGPoint) {
         let keyIndex = calculateKeyIndex(at: point)
         if let key = getKey(at: keyIndex) {
-            delegate?.keyboardInteraction(self, didSelectKey: key)
+            delegate?.didSelectKey(key, textEntryService: textEntryService) // Pass the textEntryService argument
         }
     }
-    
     private func calculateKeyIndex(at point: CGPoint) -> Int {
         let keySize = layout.keySize
         let keyPadding = layout.keyPadding
@@ -35,3 +36,4 @@ class KeyboardInteraction {
         return flattenedLayout[index]
     }
 }
+

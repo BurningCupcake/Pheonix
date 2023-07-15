@@ -1,41 +1,45 @@
 import UIKit
 import ARKit
+import SwiftUI
 
 class EyeGazeViewController: UIViewController {
     private var gazeDetection: GazeDetection!
-    private var dynamicCalibration: DynamicCalibration!
+    private var eyeTracker: EyeTracker!
     private var keyboardInteraction: KeyboardInteraction!
-    private var textEntry: TextEntry!
+    private var textEntryService: TextEntryService!
     private var wordSuggestion: WordSuggestion!
-    private var eyeTrackingController: EyeTrackingController!
-    private var keyboardView: KeyboardView!
+    private var keyboardViewDelegateWrapper: KeyboardViewDelegateWrapper!
+    private var dynamicCalibration: DynamicCalibration!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        dynamicCalibration = DynamicCalibration()
         gazeDetection = GazeDetection(calibrationDelegate: dynamicCalibration)
+        eyeTracker = EyeTracker()
         keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout())
-        textEntry = TextEntry()
+        textEntryService = TextEntryService()
         wordSuggestion = WordSuggestion()
-        eyeTrackingController = EyeTrackingController()
+        keyboardViewDelegateWrapper = KeyboardViewDelegateWrapper()
         
-        gazeDetection.delegate = eyeTrackingController
+        gazeDetection.delegate = self
+        eyeTracker.delegate = self
         keyboardInteraction.delegate = self
         wordSuggestion.delegate = self
         
-        keyboardView = KeyboardView()
-        keyboardView.keyboardDelegate = self
-        keyboardView.backgroundColor = UIColor.lightGray
+        let keyboardView = KeyboardView(keyboardLayout: KeyboardLayout.defaultLayout())
+            .environmentObject(keyboardViewDelegateWrapper)
         
         view.addSubview(keyboardView)
         
         gazeDetection.start()
+        eyeTracker.startTracking()
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        keyboardView.frame = view.bounds
+        
+        // Adjust the frame of the keyboard view
+        // ...
     }
 }
 
@@ -45,15 +49,22 @@ extension EyeGazeViewController: GazeDetectionDelegate {
     }
 }
 
+extension EyeGazeViewController: EyeTrackerDelegate {
+    func eyeTracker(_ eyeTracker: EyeTracker, didTrackGazePoint gazePoint: CGPoint) {
+        keyboardInteraction.processGazePoint(gazePoint)
+    }
+}
+
 extension EyeGazeViewController: KeyboardInteractionDelegate {
     func didSelectKey(_ key: String) {
-        textEntry.keyboardInteraction(self, didSelectKey: key)
-        wordSuggestion.processTextEntry(textEntry)
+        textEntryService.addCharacter(key)
+        wordSuggestion.processTextEntry(textEntryService)
     }
 }
 
 extension EyeGazeViewController: WordSuggestionDelegate {
     func wordSuggestion(_ wordSuggestion: WordSuggestion, didSuggestWords words: [String]) {
-        keyboardView.updateWordSuggestions(words)
+        keyboardViewDelegateWrapper.wordSuggestions = words
     }
 }
+

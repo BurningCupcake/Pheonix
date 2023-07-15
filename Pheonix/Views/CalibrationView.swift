@@ -5,11 +5,12 @@ struct CalibrationView: View {
     
     var body: some View {
         VStack {
-            Text("Calibration Progress: \(Int(dynamicCalibrationModel.calibrationProgress * 100))%")
-            ProgressView(value: dynamicCalibrationModel.$calibrationProgress)
+            Text("Calibration Progress: \(Int(dynamicCalibrationModel.calibrationPoints.count * 100))%")
+            ProgressView(value: Double(dynamicCalibrationModel.calibrationPoints.count))
             Button("Start Calibration") {
                 dynamicCalibrationModel.startCalibration()
             }
         }
     }
 }
+

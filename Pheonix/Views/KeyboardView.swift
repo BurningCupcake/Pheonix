@@ -1,10 +1,12 @@
 import SwiftUI
 
 struct KeyboardView: View {
-    var keyboardInteraction: KeyboardInteraction
-    @StateObject var delegateWrapper = KeyboardViewDelegateWrapper()
+    @EnvironmentObject var delegateWrapper: KeyboardViewDelegateWrapper
+    @State private var wordSuggestions: [String] = []
     
-    var keyboardLayout: KeyboardLayout = KeyboardLayout.defaultLayout()
+    
+    
+    let keyboardLayout: KeyboardLayout
     
     var body: some View {
         VStack {
@@ -12,33 +14,53 @@ struct KeyboardView: View {
                 .font(.title)
                 .padding()
             
-            // Add keys based on the keyboard layout and interaction
-            ForEach(keyboardLayout.layout.indices, id: \.self) { rowIndex in
+            // Add keys based on the keyboard layout
+            ForEach(0..<keyboardLayout.layout.count, id: \.self) { rowIndex in
                 HStack {
-                    ForEach(keyboardLayout.layout[rowIndex].indices, id: \.self) { columnIndex in
-                        Text(keyboardLayout.layout[rowIndex][columnIndex])
-                            .tag(rowIndex * keyboardLayout.layout[rowIndex].count + columnIndex)
-                            .onTapGesture {
-                                let key = keyboardLayout.layout[rowIndex][columnIndex]
-                                delegateWrapper.didSelectKey(key)
-                            }
+                    ForEach(0..<keyboardLayout.layout[rowIndex].count, id: \.self) { columnIndex in
+                        let key = keyboardLayout.layout[rowIndex][columnIndex]
+                        
+                        Button(action: {
+                            delegateWrapper.didSelectKey(key)
+                        }) {
+                            Text(key)
+                                .font(.title)
+                                .padding()
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                        }
                     }
                 }
             }
+            
+            // Word suggestions
+            HStack {
+                ForEach(wordSuggestions, id: \.self) { suggestion in
+                    Text(suggestion)
+                        .font(.headline)
+                        .padding()
+                        .background(Color.gray)
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
+            }
+            .padding()
         }
-        .onAppear {
-            delegateWrapper.updateWordSuggestions([])
+        .padding()
+        .onReceive(delegateWrapper.objectWillChange) { _ in
+            self.wordSuggestions = delegateWrapper.wordSuggestions
         }
-        .environmentObject(delegateWrapper)
     }
     
-    func updateWordSuggestions(_ suggestions: [String]) {
-        delegateWrapper.updateWordSuggestions(suggestions)
+    func updateWordSuggestions(_ words: [String]) {
+        self.wordSuggestions = words
     }
 }
 
 struct KeyboardView_Previews: PreviewProvider {
     static var previews: some View {
-        KeyboardView(keyboardInteraction: KeyboardInteraction(layout: KeyboardLayout.defaultLayout()))
+        KeyboardView(keyboardLayout: KeyboardLayout.defaultLayout())
     }
 }
+

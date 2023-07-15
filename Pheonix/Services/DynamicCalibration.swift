@@ -1,7 +1,7 @@
 import UIKit
 
 class DynamicCalibration {
-    private var calibrationPoints: [CGPoint] = []
+    @Published private var calibrationPoints: [CGPoint] = []
     
     func addCalibrationPoint(_ point: CGPoint) {
         calibrationPoints.append(point)

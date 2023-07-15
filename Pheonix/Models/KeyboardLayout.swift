@@ -1,7 +1,7 @@
 import Foundation
 import CoreGraphics
 
-struct KeyboardLayout {
+public struct KeyboardLayout {
     var layout: [[String]]
     var keySize: CGSize
     var keyPadding: CGFloat

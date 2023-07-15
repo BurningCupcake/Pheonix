@@ -19,22 +19,30 @@ struct SettingsView: View {
             
             Section(header: Text("Eye Tracking Settings")) {
                 Toggle("Eye Tracking", isOn: $settings.isEyeTrackingEnabled)
-                Slider("Eye Tracking Accuracy Threshold", value: $settings.eyeTrackingAccuracyThreshold, in: 0.0...1.0)
+                Slider(value: $settings.eyeTrackingAccuracyThreshold, in: 0.0...1.0) {
+                    Text("Eye Tracking Accuracy Threshold")
+                }
             }
             
             Section(header: Text("Dynamic Calibration Settings")) {
                 Toggle("Dynamic Calibration", isOn: $settings.isDynamicCalibrationEnabled)
-                Slider("Dynamic Calibration Animation Duration", value: $settings.dynamicCalibrationAnimationDuration, in: 0.0...5.0)
+                Slider(value: $settings.dynamicCalibrationAnimationDuration, in: 0.0...5.0) {
+                    Text("Dynamic Calibration Animation Duration")
+                }
             }
             
             Section(header: Text("Swipe-to-Type Settings")) {
                 Toggle("Swipe to Type", isOn: $settings.isSwipeToTypeEnabled)
-                Slider("Swipe Sensitivity", value: $settings.swipeSensitivity, in: 0.0...1.0)
+                Slider(value: $settings.swipeSensitivity, in: 0.0...1.0) {
+                    Text("Swipe Sensitivity")
+                }
             }
             
             Section(header: Text("Blink Gesture Settings")) {
                 Toggle("Blink Gesture", isOn: $settings.isBlinkGestureEnabled)
-                Slider("Blink Gesture Duration Threshold", value: $settings.blinkGestureDurationThreshold, in: 0.0...1.0)
+                Slider(value: $settings.blinkGestureDurationThreshold, in: 0.0...1.0) {
+                    Text("Blink Gesture Duration Threshold")
+                }
             }
             
             // Add more sections as needed
