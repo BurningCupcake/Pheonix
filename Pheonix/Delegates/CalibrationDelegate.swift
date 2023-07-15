@@ -23,7 +23,7 @@ class CalibrationDelegateImplementation: DynamicCalibration, CalibrationDelegate
     private var calibrationPoints: [CGPoint] = []
     
     required override init() {
-        // Implementation of the initializer
+        super.init()
     }
     
     override func addCalibrationPoint(_ point: CGPoint) {
