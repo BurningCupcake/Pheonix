@@ -1,3 +1,22 @@
+//This class represents the model for dynamic calibration in the eye-tracking system. Let's break down its implementation:
+
+//Properties:
+//calibrationPoints: An array of CGPoint values representing the calibration points.
+//isCalibrationInProgress: A Boolean flag indicating whether the calibration process is currently in progress.
+//Methods:
+//startCalibration(): Initiates the calibration process. It checks if calibration is already in progress and then performs the following steps:
+//Shows the calibration visualization.
+//Simulates data collection by adding sample calibration points.
+//Calculates the calibration result based on the collected calibration points.
+//Applies the calibration result to the eye-tracking system if the result is available.
+//Updates the calibration state.
+//Private Helper Methods:
+//showCalibrationVisualization(): Shows the captivating fractal visualization on the screen. You can customize this method based on your implementation.
+//simulateCalibrationDataCollection(): Simulates data collection by adding sample calibration points. You can customize this method to collect calibration points based on your implementation. In the example implementation, it adds three simulated points after a delay of 2 seconds.
+//calculateCalibrationResult(): Calculates the calibration result based on the collected calibration points. It checks if the number of calibration points is sufficient and performs the calibration calculation. It returns the calibration result.
+//applyCalibrationResult(_ result: CalibrationResult): Applies the calibration result to the eye-tracking system. You can customize this method based on your implementation.
+//Overall, this class manages the dynamic calibration process, collects calibration points, calculates the calibration result, and applies it to the eye-tracking system.
+
 import Combine
 import SwiftUI
 

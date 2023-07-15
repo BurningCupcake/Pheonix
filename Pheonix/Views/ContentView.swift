@@ -1,3 +1,15 @@
+//This file defines a SwiftUI view called ContentView that represents the main content view of the application. Let's break down the implementation:
+
+//The ContentView struct is declared, conforming to the View protocol in SwiftUI.
+//It contains several @State properties that represent the state of various UI elements and settings within the view.
+//The body property describes the view's content using a VStack.
+//Inside the VStack, it displays an image using the system name "globe" from the SF Symbols library.
+//The image is scaled to .large size and has the accent color applied to it.
+//Below the image, it displays a Text view with the content "Hello, world!".
+//The VStack is then padded using the .padding() modifier.
+//Lastly, the ContentView includes a struct ContentView_Previews for previewing the view.
+//Overall, this file defines the main content view of the application, which displays an image and a text. The specific UI elements and their appearance can be customized based on the state properties defined in the view.
+
 import SwiftUI
 
 struct ContentView: View {

@@ -1,3 +1,16 @@
+// **Keyboard.swift**
+
+// In this file, we have the Keyboard class that inherits from UIInputViewController and conforms to the GazeDetectionDelegate, KeyboardInteractionDelegate, WordSuggestionDelegate, and SwipeToTypeControllerDelegate protocols.
+
+//The Keyboard class represents the main view controller for the custom keyboard. Here are the key points:
+
+//The class properties include various dependencies such as gazeDetection, keyboardInteraction, textEntryService, wordSuggestion, and more.
+//In the viewDidLoad() method, the dependencies are instantiated, delegates are set, and the SwiftUI-based keyboard view is created and added as a subview.
+//The gazeDetection(_:didDetectGazeAt:) method is called when a gaze is detected, and it forwards the gaze point to the keyboardInteraction for processing.
+//The didSelectKey(_:) method is called when a key is selected, and it adds the selected character to the textEntryService using the addCharacter(_:) method. It handles the success or failure result and updates the word suggestions accordingly.
+//The wordSuggestion(_:didSuggestWords:) method is called when word suggestions are provided by the wordSuggestion object, and it updates the word suggestions in the keyboard view.
+//The didSwipeLeft() method is called when a swipe left event occurs. You can implement the desired action for swipe-to-type functionality in this method.
+
 import Foundation
 import SwiftUI
 

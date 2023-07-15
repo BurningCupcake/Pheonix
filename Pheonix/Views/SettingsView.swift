@@ -1,3 +1,19 @@
+//This file defines a SwiftUI view called SettingsView that displays various settings options in a Form layout. Let's break down the implementation:
+
+//The SettingsView struct is declared, conforming to the View protocol in SwiftUI.
+//It contains a single property:
+//settings: A @State property that holds an instance of the Settings class, which manages the application's settings.
+//The body property describes the view's content using a Form component.
+//Inside the Form, there are several Section components that group related settings options together.
+//Each Section has a header text indicating the category of settings.
+//Within each Section, there are various Toggle and Slider components that represent individual settings options.
+//The Toggle components are used for boolean settings, allowing the user to enable or disable a particular feature.
+//The Slider components are used for settings that require a range of values, such as sensitivity or duration thresholds.
+//The values of the settings are bound to the corresponding properties in the Settings class using the $ prefix to create a two-way binding.
+//Each setting is labeled with a descriptive text using the Text view.
+//The view uses @State to track changes to the settings and update the view accordingly.
+//Overall, this file defines a SwiftUI view that presents a user interface for configuring various application settings in a structured and intuitive manner.
+
 import SwiftUI
 
 struct SettingsView: View {

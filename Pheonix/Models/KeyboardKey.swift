@@ -1,3 +1,19 @@
+//This is a subclass of UIView called KeyboardKey representing a key on the keyboard. It includes a gazeIndicator view, a weak delegate reference, and a textEntryService property for text entry functionality.
+
+//The class defines a static property defaultLayout which represents the default layout of the keyboard keys. It is a two-dimensional array of strings representing the characters on the keys.
+
+//In the initializer, the gazeIndicator and textEntryService are initialized, and the setupGazeIndicator and setupKeyboardLayout methods are called to set up the appearance and layout of the key.
+
+//The setupGazeIndicator method configures the appearance of the gaze indicator, setting its background color, size, and corner radius.
+
+//The setupKeyboardLayout method iterates over the defaultLayout array and creates UILabel instances for each key. The labels are configured with the corresponding text, alignment, background color, and corner radius. Gesture recognizers are added to each key label to handle tap events. The key labels are positioned using calculated x and y positions based on the key size and padding.
+
+//The updateGazeIndicatorPosition method updates the position of the gaze indicator by setting its center to the specified position.
+
+//The didSelectKey method is called when a key label is tapped. It extracts the selected key from the label's text and notifies the delegate by calling the didSelectKey method, passing the key and the textEntryService as arguments.
+
+//Overall, the KeyboardKey class represents an individual key on the keyboard and provides functionality for handling tap events and updating the gaze indicator's position.
+
 import UIKit
 
 class KeyboardKey: UIView {

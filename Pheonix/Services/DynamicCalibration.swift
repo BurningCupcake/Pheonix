@@ -1,3 +1,14 @@
+// **DynamicCalibraion.swift**
+
+// In this file, we have the DynamicCalibration class responsible for managing the dynamic calibration process. Here are the key points:
+
+//The class has a private property calibrationPoints of type [CGPoint] that stores the calibration points collected during the calibration process.
+//The addCalibrationPoint(_:) method adds a calibration point to the calibrationPoints array.
+//The clearCalibrationPoints() method removes all calibration points from the array.
+//The calculateCalibrationResult() method calculates the calibration result based on the collected calibration points. In the provided code, it returns a CalibrationResult object initialized with the calibration points. You may need to implement the actual calibration calculation logic.
+//The performCalibration(completion:) method performs the calibration process. It creates a CALayer called fractalLayer and adds it as a sublayer to the keyboard view's layer. Then, it animates the background color of the fractalLayer from white to red over a duration of 3 seconds. After the animation completes, the fractalLayer is removed from its superlayer, and the completion closure is called with a true value.
+
+
 import UIKit
 
 class DynamicCalibration {

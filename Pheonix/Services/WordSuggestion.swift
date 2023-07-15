@@ -1,3 +1,10 @@
+// The WordSuggestion class has a delegate property of type WordSuggestionDelegate, which allows it to notify the delegate about suggested words. It also has a lastWord property to keep track of the last processed word to avoid redundant suggestions.
+
+//The processTextEntry method takes a TextEntry object as input and extracts the current word from the text. It checks if the current word is different from the last word and then filters the dictionary of words to find words that have the current word as a prefix. The filtered words are then limited to a maximum number of suggestions (specified by maxSuggestions) and passed to the delegate via the didSuggestWords method. Finally, the last word is updated.
+
+//The resetLastWord method allows resetting the last word to an empty string, which can be useful in certain scenarios.
+
+
 import Foundation
 
 class WordSuggestion {

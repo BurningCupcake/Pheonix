@@ -1,3 +1,17 @@
+//The EyeTrackingController class is responsible for coordinating eye tracking, gaze detection, keyboard interaction, and word suggestion functionalities. Here's a breakdown of the key components:
+
+//session: An instance of ARSession used for AR tracking and providing facial anchor updates.
+//eyeTracker: An instance of EyeTracker responsible for tracking eye movements.
+//wordSuggestion: An instance of WordSuggestion responsible for providing word suggestions.
+//init(eyeTracker:wordSuggestion:): The initializer for EyeTrackingController that takes an EyeTracker and a WordSuggestion instance as parameters. It sets up the AR session and assigns the delegate to the ARSessionDelegate.
+//startTracking(): Starts the AR session with face tracking configuration.
+//stopTracking(): Pauses the AR session.
+//session(_:didUpdate:): An ARSessionDelegate method that is called when AR anchors are updated. It retrieves the left and right eye transforms from the face anchor and calculates the average gaze direction vector based on the eye directions.
+//gazeDetection(_:didDetectGazeAt:): A GazeDetectionDelegate method that is called when gaze is detected at a specific point. You need to implement the logic for gaze detection based on your requirements.
+//keyboardInteraction(_:didSelectKey:): A KeyboardInteractionDelegate method that is called when a key is selected on the keyboard. You need to implement the logic for keyboard interaction based on your requirements.
+//wordSuggestion(_:didSuggestWords:): A WordSuggestionDelegate method that is called when word suggestions are available. You need to implement the logic for word suggestion based on your requirements.
+//You can customize and implement the necessary logic in the delegate methods to integrate eye tracking, gaze detection, keyboard interaction, and word suggestion functionality into your application.
+
 import ARKit
 
 class EyeTrackingController: NSObject, ARSessionDelegate, GazeDetectionDelegate, KeyboardInteractionDelegate, WordSuggestionDelegate {
