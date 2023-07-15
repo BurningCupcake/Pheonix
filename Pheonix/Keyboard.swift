@@ -1,7 +1,7 @@
 import UIKit
 import SwiftUI
 
-class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractionDelegate, WordSuggestionDelegate, KeyboardViewDelegate, SwipeToTypeControllerDelegate {
+class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractionDelegate, WordSuggestionDelegate, SwipeToTypeControllerDelegate {
     
     private var keyboardHostingController: UIHostingController<KeyboardView>!
     private var gazeDetection: GazeDetection!
@@ -14,13 +14,14 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     private let textEntryService = TextEntryService()
     private var keyboardView: KeyboardView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Create dependencies
         dynamicCalibration = DynamicCalibration()
         gazeDetection = GazeDetection(calibrationDelegate: dynamicCalibration)
-        keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout(), textEntryService: textEntryService)
+        keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout())
         textEntry = TextEntry()
         wordSuggestion = WordSuggestion()
         eyeTrackingController = EyeTrackingController(eyeTracker: EyeTracker(), wordSuggestion: wordSuggestion)
@@ -69,52 +70,14 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     // MARK: - KeyboardInteractionDelegate
     
     func keyboardInteraction(_ keyboardInteraction: KeyboardInteraction, didSelectKey key: String) {
-        didSelectKey(key)
+        textEntry.appendText(key)
+        wordSuggestion.processTextEntry(textEntry)
     }
     
     // MARK: - WordSuggestionDelegate
     
     func wordSuggestion(_ wordSuggestion: WordSuggestion, didSuggestWords suggestedWords: [String]) {
-        keyboardView.updateWordSuggestions(suggestedWords)
-    }
-    
-    // MARK: - KeyboardViewDelegate
-    
-    func didSelectKey(_ key: String) {
-        // Handle the selection of a key when the user blinks while gazing at it
-        if key.count == 1 && key.rangeOfCharacter(from: CharacterSet.letters) != nil {
-            // If the key is a letter, add the letter to the text entry state
-            let result = textEntryService.addCharacter(key)
-            // Handle the result of adding the character
-            switch result {
-                case .success(let state):
-                    // The character was successfully added, do something with the new state if necessary
-                    print("New state: \(state)")
-                case .failure(let error):
-                    // There was an error adding the character, handle the error
-                    print("Error adding character: \(error)")
-            }
-        } else if key == " " {
-            // If the key is a space, add a space to the text entry state
-            let result = textEntryService.addCharacter(" ")
-            // Handle the result of adding the space
-            switch result {
-                case .success(let state):
-                    // The space was successfully added, do something with the new state if necessary
-                    print("New state: \(state)")
-                case .failure(let error):
-                    // There was an error adding the space, handle the error
-                    print("Error adding space: \(error)")
-            }
-        } else if key == "<" {
-            // If the key is a delete key, delete the last character from the text entry state
-            textEntryService.deleteLastCharacter()
-        }
-        // Add other cases as necessary
-    }
-    
-    func updateWordSuggestions(_ suggestions: [String]) {
-        keyboardView.updateWordSuggestions(suggestions)
+        keyboardView?.updateWordSuggestions(suggestedWords)
     }
     
     // MARK: - SwipeToTypeControllerDelegate

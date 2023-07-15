@@ -7,7 +7,7 @@ class DependencyInjection {
     var keyboardInteraction: KeyboardInteraction?
     var eyeTrackingController: EyeTrackingController?
     var gazeDetection: GazeDetection?
-    var textEntry: TextEntry?
+    var textEntryService: TextEntryService?
     var settings: Settings?
     var wordSuggestion: WordSuggestion?
     var eyeTracker: EyeTracker?
@@ -22,7 +22,7 @@ class DependencyInjection {
             return keyboardInteraction
         } else {
             let keyboardLayout: KeyboardLayout = KeyboardLayout.defaultLayout()
-            let keyboardInteraction = KeyboardInteraction(layout: keyboardLayout)
+            let keyboardInteraction = KeyboardInteraction(layout: keyboardLayout, textEntryService: getTextEntryService())
             self.keyboardInteraction = keyboardInteraction
             return keyboardInteraction
         }
@@ -52,13 +52,13 @@ class DependencyInjection {
         }
     }
     
-    func getTextEntry() -> TextEntry {
-        if let textEntry = self.textEntry {
-            return textEntry
+    func getTextEntryService() -> TextEntryService {
+        if let textEntryService = self.textEntryService {
+            return textEntryService
         } else {
-            let textEntry = TextEntry()
-            self.textEntry = textEntry
-            return textEntry
+            let textEntryService = TextEntryService()
+            self.textEntryService = textEntryService
+            return textEntryService
         }
     }
     
@@ -82,3 +82,4 @@ class DependencyInjection {
         }
     }
 }
+
