@@ -19,13 +19,11 @@ class EyeGazeViewController: UIViewController {
         eyeTracker = EyeTracker()
         textEntryService = TextEntryService()
         wordSuggestion = WordSuggestion()
-        keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout(), textEntryService: textEntryService)
-        keyboardViewDelegateWrapper = KeyboardViewDelegateWrapper()
-        
-        gazeDetection.delegate = self
-        eyeTracker.delegate = self
+        keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout())
         keyboardInteraction.delegate = self
+        keyboardInteraction.textEntryService = textEntryService
         wordSuggestion.delegate = self
+        keyboardViewDelegateWrapper = KeyboardViewDelegateWrapper()
         
         let keyboardView = KeyboardView(keyboardLayout: KeyboardLayout.defaultLayout())
             .environmentObject(keyboardViewDelegateWrapper)
@@ -40,6 +38,9 @@ class EyeGazeViewController: UIViewController {
                 keyboardContentView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
         }
+        
+        gazeDetection.delegate = self
+        eyeTracker.delegate = self
         
         gazeDetection.start()
         eyeTracker.startTracking()
@@ -59,7 +60,7 @@ extension EyeGazeViewController: EyeTrackerDelegate {
 }
 
 extension EyeGazeViewController: KeyboardInteractionDelegate {
-    func didSelectKey(_ key: String, textEntryService: TextEntryService) {
+    func didSelectKey(_ key: String) {
         let result = textEntryService.addCharacter(key)
         switch result {
             case .success(let state):
