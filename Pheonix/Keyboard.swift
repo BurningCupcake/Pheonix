@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 import SwiftUI
 
 class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractionDelegate, WordSuggestionDelegate, SwipeToTypeControllerDelegate {
@@ -21,7 +21,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         // Create dependencies
         dynamicCalibration = DynamicCalibration()
         gazeDetection = GazeDetection(calibrationDelegate: dynamicCalibration)
-        keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout())
+        keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout(), textEntryService: textEntryService)
         textEntry = TextEntry()
         wordSuggestion = WordSuggestion()
         eyeTrackingController = EyeTrackingController(eyeTracker: EyeTracker(), wordSuggestion: wordSuggestion)
@@ -69,9 +69,15 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     
     // MARK: - KeyboardInteractionDelegate
     
-    func keyboardInteraction(_ keyboardInteraction: KeyboardInteraction, didSelectKey key: String) {
-        textEntry.appendText(key)
-        wordSuggestion.processTextEntry(textEntry)
+    func didSelectKey(_ key: String) {
+        let result = textEntryService.addCharacter(key)
+        switch result {
+            case .success(let state):
+                print("New state: \(state)")
+                wordSuggestion.processTextEntry(textEntryService)
+            case .failure(let error):
+                print("Error adding character: \(error)")
+        }
     }
     
     // MARK: - WordSuggestionDelegate

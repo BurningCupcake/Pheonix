@@ -14,11 +14,12 @@ class EyeGazeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dynamicCalibration = DynamicCalibration()
         gazeDetection = GazeDetection(calibrationDelegate: dynamicCalibration)
         eyeTracker = EyeTracker()
-        keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout())
         textEntryService = TextEntryService()
         wordSuggestion = WordSuggestion()
+        keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout(), textEntryService: textEntryService)
         keyboardViewDelegateWrapper = KeyboardViewDelegateWrapper()
         
         gazeDetection.delegate = self
@@ -29,17 +30,19 @@ class EyeGazeViewController: UIViewController {
         let keyboardView = KeyboardView(keyboardLayout: KeyboardLayout.defaultLayout())
             .environmentObject(keyboardViewDelegateWrapper)
         
-        view.addSubview(keyboardView)
+        if let keyboardContentView = UIHostingController(rootView: keyboardView).view {
+            keyboardContentView.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(keyboardContentView)
+            NSLayoutConstraint.activate([
+                keyboardContentView.topAnchor.constraint(equalTo: view.topAnchor),
+                keyboardContentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                keyboardContentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                keyboardContentView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            ])
+        }
         
         gazeDetection.start()
         eyeTracker.startTracking()
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        
-        // Adjust the frame of the keyboard view
-        // ...
     }
 }
 
@@ -56,9 +59,15 @@ extension EyeGazeViewController: EyeTrackerDelegate {
 }
 
 extension EyeGazeViewController: KeyboardInteractionDelegate {
-    func didSelectKey(_ key: String) {
-        textEntryService.addCharacter(key)
-        wordSuggestion.processTextEntry(textEntryService)
+    func didSelectKey(_ key: String, textEntryService: TextEntryService) {
+        let result = textEntryService.addCharacter(key)
+        switch result {
+            case .success(let state):
+                print("New state: \(state)")
+                wordSuggestion.processTextEntry(textEntryService)
+            case .failure(let error):
+                print("Error adding character: \(error)")
+        }
     }
 }
 
