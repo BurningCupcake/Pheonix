@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import Combine
 
 class KeyboardViewDelegateWrapper: ObservableObject, KeyboardViewDelegate {
     @Published var wordSuggestions: [String] = []
@@ -11,6 +12,16 @@ class KeyboardViewDelegateWrapper: ObservableObject, KeyboardViewDelegate {
     
     func updateWordSuggestions(_ suggestions: [String]) {
         wordSuggestions = suggestions
+    }
+    
+    var spellingIndicator: Bool {
+        didSet {
+            objectWillChange.send()
+        }
+    }
+    
+    init(spellingIndicator: Bool = true) {
+        self.spellingIndicator = spellingIndicator
     }
     
     // Additional methods from the KeyboardViewDelegate extension
@@ -51,6 +62,6 @@ class KeyboardViewDelegateWrapper: ObservableObject, KeyboardViewDelegate {
     }
     
     private func updateSpellingIndicator(_ isSpellingCorrect: Bool) {
-        // Update the spelling indicator
+        spellingIndicator = isSpellingCorrect
     }
 }

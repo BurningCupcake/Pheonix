@@ -1,4 +1,5 @@
 import SwiftUI
+import Combine
 
 struct KeyboardView: View {
     @EnvironmentObject var delegateWrapper: KeyboardViewDelegateWrapper
@@ -55,10 +56,10 @@ struct KeyboardView: View {
                 .cornerRadius(10)
         }
         .padding()
-        .onReceive(delegateWrapper.objectWillChange) { _ in
+        .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("DelegateWrapperDidChange"))) { _ in
             self.wordSuggestions = delegateWrapper.wordSuggestions
         }
-        .onReceive(delegateWrapper.spellingIndicatorPublisher) { indicator in
+        .onReceive(delegateWrapper.$spellingIndicator) { indicator in
             self.spellingIndicator = indicator
         }
     }
