@@ -12,6 +12,7 @@ class TextEntryService: WordSuggestionDelegate {
     private var textEntry: TextEntry
     private let wordSuggestion: WordSuggestion
     private let textChecker: UITextChecker
+    private var keyboardViewDelegateWrapper: KeyboardViewDelegateWrapper!
     
     init() {
         textEntry = TextEntry()
@@ -138,3 +139,4 @@ class TextEntryService: WordSuggestionDelegate {
         keyboardViewDelegateWrapper.wordSuggestions = suggestions
     }
 }
+

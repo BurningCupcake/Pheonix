@@ -1,5 +1,6 @@
 import Foundation
 import Combine
+import SwiftUI
 
 class KeyboardViewDelegateWrapper: ObservableObject, KeyboardViewDelegate {
     @Published var wordSuggestions: [String] = []

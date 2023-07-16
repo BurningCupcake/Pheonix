@@ -13,8 +13,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     private var swipeToTypeController: SwipeToTypeController!
     private let textEntryService = TextEntryService()
     private var keyboardView: KeyboardView!
-    private var language: Language!
-    private var spellingIndicatorWrapper: SpellingIndicatorDelegateWrapper!
+    @ObservedObject private var spellingIndicatorWrapper = SpellingIndicatorDelegateWrapper()
     
     private let textChecker = UITextChecker()
     
@@ -28,7 +27,6 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         textEntry = TextEntry()
         eyeTracker = EyeTracker()
         swipeToTypeController = SwipeToTypeController()
-        spellingIndicatorWrapper = SpellingIndicatorDelegateWrapper()
         
         // Setup delegates
         gazeDetection.delegate = self
@@ -37,7 +35,6 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         
         // Create the SwiftUI keyboard view
         let keyboardView = KeyboardView(keyboardLayout: KeyboardLayout.defaultLayout())
-        
         self.keyboardView = keyboardView
         
         // Create a hosting controller to integrate SwiftUI view with UIKit
@@ -50,7 +47,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         keyboardHostingController.didMove(toParent: self)
         
         // Attach swipe gesture recognizer to the keyboard view
-        if let keyboardContentView = keyboardHostingController.view.subviews.first?.subviews.first {
+        if let keyboardContentView = keyboardHostingController.view.subviews.first {
             swipeToTypeController.attach(to: keyboardContentView)
         }
         
@@ -81,7 +78,9 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
                 print("New state: \(state)")
                 
                 let completions = getWordCompletions(for: state.text)
-                keyboardView.updateWordSuggestions(completions) // Fixed: Access 'keyboardView' instead of 'keyboardView?'
+                DispatchQueue.main.async {
+                    spellingIndicatorWrapper.wordSuggestions = completions
+                }
                 
                 // Perform spell checking
                 let isSpellingCorrect = performSpellChecking(for: state.text)
@@ -111,7 +110,9 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     // MARK: - Spelling Indicator
     
     private func updateSpellingIndicator(_ isSpellingCorrect: Bool) {
-        spellingIndicatorWrapper.spellingIndicator = isSpellingCorrect // Fixed: Access 'spellingIndicator' in 'spellingIndicatorWrapper'
+        DispatchQueue.main.async {
+            spellingIndicatorWrapper.spellingIndicator = isSpellingCorrect
+        }
     }
     
     // MARK: - SwipeToTypeControllerDelegate

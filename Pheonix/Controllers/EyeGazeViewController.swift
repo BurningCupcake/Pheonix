@@ -9,7 +9,8 @@ class EyeGazeViewController: UIViewController {
     private var textEntryService: TextEntryService!
     private var keyboardViewDelegateWrapper: KeyboardViewDelegateWrapper!
     private var dynamicCalibration: DynamicCalibration!
-    private var textChecker: UITextChecker = UITextChecker()  // Initialize UITextChecker with an initial value
+    
+    internal var textEntry: TextEntry!
     
     private var gazeDirection: SCNVector3 = SCNVector3Zero
     
@@ -21,10 +22,8 @@ class EyeGazeViewController: UIViewController {
         gazeDetection = GazeDetection(calibrationDelegate: dynamicCalibration)
         eyeTracker = EyeTracker()
         textEntryService = TextEntryService()
-        keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout())
-        keyboardInteraction.delegate = self
-        keyboardViewDelegateWrapper = KeyboardViewDelegateWrapper(textEntryService: textEntryService, textChecker: textChecker) // Pass the textEntryService and textChecker instances
-        textChecker = UITextChecker()  // Initialize UITextChecker
+        keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout(), textEntryService: textEntryService) // Pass the textEntryService
+        keyboardViewDelegateWrapper = KeyboardViewDelegateWrapper()
         
         // Create the SwiftUI keyboard view
         let keyboardView = KeyboardView(keyboardLayout: KeyboardLayout.defaultLayout())
@@ -47,7 +46,47 @@ class EyeGazeViewController: UIViewController {
         eyeTracker.delegate = self
         gazeDetection.start()
         eyeTracker.startTracking()
+        
+        // Subscribe to the latest text entry state
+        textEntryService.subscribeToLatestTextEntryState()
     }
 }
 
-// Rest of the code remains the same
+// MARK: - Extensions
+
+// GazeDetectionDelegate extension
+extension EyeGazeViewController: GazeDetectionDelegate {
+    func gazeDetection(_ gazeDetection: GazeDetection, didDetectGazeAt point: CGPoint) {
+        keyboardInteraction.processGazePoint(point)
+    }
+}
+
+// EyeTrackerDelegate extension
+extension EyeGazeViewController: EyeTrackerDelegate {
+    func eyeTracker(_ eyeTracker: EyeTracker, didTrackGazePoint gazePoint: CGPoint) {
+        keyboardInteraction.processGazePoint(gazePoint)
+    }
+}
+
+// KeyboardInteractionDelegate extension
+extension EyeGazeViewController: KeyboardInteractionDelegate {
+    func didSelectKey(_ key: String) {
+        let result = textEntryService.addCharacter(key)
+        switch result {
+            case .success(let state):
+                print("New state: \(state)")
+                let wordSuggestionInstance = WordSuggestion() // Replace with your existing WordSuggestion class instance
+                let currentText = textEntry.currentText // Retrieve the current text
+                wordSuggestionInstance.processTextEntry(textEntryService, currentText: currentText)
+            case .failure(let error):
+                print("Error adding character: \(error)")
+        }
+    }
+}
+
+// WordSuggestionDelegate extension
+extension EyeGazeViewController: WordSuggestionDelegate {
+    func wordSuggestion(_ wordSuggestion: WordSuggestion, didSuggestWords words: [String]) {
+        keyboardViewDelegateWrapper.wordSuggestions = words
+    }
+}
