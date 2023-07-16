@@ -14,6 +14,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     private let textEntryService = TextEntryService()
     private var keyboardView: KeyboardView!
     @ObservedObject private var spellingIndicatorWrapper = SpellingIndicatorDelegateWrapper()
+    private var interfaceOrientation: UIInterfaceOrientation = .portrait // Create a new property to keep track of the interface orientation
     
     private let textChecker = UITextChecker()
     
@@ -53,6 +54,14 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         keyboardHostingController.view.frame = view.bounds
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        coordinator.animate(alongsideTransition: { _ in
+            self.interfaceOrientation = self.view.window?.windowScene?.interfaceOrientation ?? .unknown
+        })
     }
     
     // MARK: - GazeDetectionDelegate

@@ -1,4 +1,3 @@
-
 import ARKit
 import simd
 import UIKit
@@ -26,9 +25,8 @@ class GazeDetection: NSObject, ARSessionDelegate {
         eyeTrackingSession.pause()
     }
     
-    // MARK: - ARSessionDelegate
-    
-    func session(_ session: ARSession, didUpdate frame: ARFrame) {
+    // Modified to include interfaceOrientation parameter
+    func session(_ session: ARSession, didUpdate frame: ARFrame, interfaceOrientation: UIInterfaceOrientation) {
         guard let faceAnchor = frame.anchors.compactMap({ $0 as? ARFaceAnchor }).first else {
             return
         }
@@ -45,15 +43,6 @@ class GazeDetection: NSObject, ARSessionDelegate {
         let middleEyePositionFloat3 = simd_float3(middleEyePosition.x, middleEyePosition.y, middleEyePosition.z)
         
         let viewportSize = frame.camera.imageResolution
-        
-        // Obtain the correct orientation value
-        let interfaceOrientation: UIInterfaceOrientation
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-           let orientation = windowScene.windows.first?.windowScene?.interfaceOrientation {
-            interfaceOrientation = orientation
-        } else {
-            interfaceOrientation = .portrait
-        }
         
         let projectedPoint = frame.camera.projectPoint(middleEyePositionFloat3, orientation: interfaceOrientation, viewportSize: viewportSize)
         let gazePoint = CGPoint(x: CGFloat(projectedPoint.x), y: CGFloat(projectedPoint.y))

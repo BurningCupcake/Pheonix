@@ -1,6 +1,6 @@
 import UIKit
 
-class DynamicCalibration {
+class DynamicCalibration: CalibrationDelegate {
     private var calibrationPoints: [CGPoint] = []
     
     init() {}
@@ -47,5 +47,21 @@ class DynamicCalibration {
             completion(true)
         }
     }
-
+    
+    // MARK: - CalibrationDelegate methods
+    
+    func didStartCalibration() {
+        // Handle the start of the calibration process
+        print("Calibration started")
+    }
+    
+    func didCompleteCalibration(withResult result: CalibrationResult) {
+        // Handle the completion of the calibration process with the provided result
+        print("Calibration completed with result: \(result)")
+    }
+    
+    func didFailCalibration(withError error: Error) {
+        // Handle the failure of the calibration process with the provided error
+        print("Calibration failed with error: \(error)")
+    }
 }

@@ -22,7 +22,6 @@ class EyeGazeViewController: UIViewController {
         textEntryService = TextEntryService()
         keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout(), textEntryService: textEntryService) // Pass the textEntryService
         
-        
         let keyboardViewDelegateWrapper = KeyboardViewDelegateWrapper()
         
         // Create the SwiftUI keyboard view

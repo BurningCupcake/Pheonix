@@ -1,4 +1,3 @@
-
 import ARKit
 import SwiftUI
 
@@ -7,7 +6,6 @@ class EyeTrackingController: NSObject, ARSessionDelegate, GazeDetectionDelegate,
     var eyeTracker: EyeTracker
     var textChecker: UITextChecker  // Add UITextChecker instance
     var gazeDirection: SCNVector3 = SCNVector3Zero
-
     
     init(eyeTracker: EyeTracker) {
         self.session = ARSession()
@@ -37,7 +35,6 @@ class EyeTrackingController: NSObject, ARSessionDelegate, GazeDetectionDelegate,
         
         // Average the two vectors to get the overall gaze direction
         gazeDirection = SCNVector3((leftEyeDirection.x + rightEyeDirection.x) / 2, (leftEyeDirection.y + rightEyeDirection.y) / 2, (leftEyeDirection.z + rightEyeDirection.z) / 2)
-
         
         // Now you can use the gazeDirection vector for your gaze detection logic
     }

@@ -1,4 +1,3 @@
-
 import UIKit
 
 class KeyboardViewController: UIInputViewController {
@@ -37,7 +36,6 @@ class KeyboardViewController: UIInputViewController {
                 // Calibration failed, handle the error as needed
             }
         }
-        
         
         // Create and configure keyboard keys
         let key1 = createKeyboardKey(title: "A")
