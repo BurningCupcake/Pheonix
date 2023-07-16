@@ -13,16 +13,17 @@
 //You can customize and implement the necessary logic in the delegate methods to integrate eye tracking, gaze detection, keyboard interaction, and word suggestion functionality into your application.
 
 import ARKit
+import SwiftUI
 
 class EyeTrackingController: NSObject, ARSessionDelegate, GazeDetectionDelegate, KeyboardInteractionDelegate, WordSuggestionDelegate {
     var session: ARSession
     var eyeTracker: EyeTracker
-    var wordSuggestion: WordSuggestion
+    var textChecker: UITextChecker  // Add UITextChecker instance
     
-    init(eyeTracker: EyeTracker, wordSuggestion: WordSuggestion) {
+    init(eyeTracker: EyeTracker) {
         self.session = ARSession()
         self.eyeTracker = eyeTracker
-        self.wordSuggestion = wordSuggestion
+        self.textChecker = UITextChecker()  // Initialize UITextChecker
         super.init()
         self.session.delegate = self
     }
@@ -62,8 +63,8 @@ class EyeTrackingController: NSObject, ARSessionDelegate, GazeDetectionDelegate,
         // Implement this method based on your keyboard interaction logic
     }
     
-    // WordSuggestionDelegate method
+    // WordSuggestionDelegate methods
     func wordSuggestion(_ wordSuggestion: WordSuggestion, didSuggestWords words: [String]) {
-        // Implement this method based on your word suggestion logic
+        // Implement this method to provide word suggestions based on the results from the UITextChecker
     }
 }

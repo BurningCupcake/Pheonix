@@ -1,18 +1,3 @@
-// **GazeDetection.swift**
-
-//In this file, we have the GazeDetection class that inherits from NSObject and conforms to the ARSessionDelegate protocol.
-
-//The GazeDetection class is responsible for detecting the user's gaze using ARKit. Here are the key points:
-
-//The class has a delegate property of type GazeDetectionDelegate to notify the gaze detection events.
-//The eyeTrackingSession property represents the ARSession used for eye tracking.
-//The calibrationDelegate property is an instance of DynamicCalibration used for calibration purposes.
-//In the init(calibrationDelegate:) initializer, the ARSession is set up and the delegate is assigned.
-//The start() method runs the ARFaceTrackingConfiguration on the eyeTrackingSession to start eye tracking.
-//The stop() method pauses the eyeTrackingSession.
-//The session(_:didUpdate:) method is called when the ARSession updates with a new frame. It extracts the eye transformation data from the ARFaceAnchor and calculates the gaze point based on the eye positions.
-//The calculated gaze point is transformed into the appropriate coordinate space based on the device's orientation and viewport size.
-// The delegate?.gazeDetection(_:didDetectGazeAt:) method is called to notify the delegate about the detected gaze point.
 
 import ARKit
 import simd

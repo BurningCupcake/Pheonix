@@ -1,12 +1,3 @@
-//EyeGazeViewController.swift:
-//- The EyeGazeViewController class is a UIViewController subclass responsible for managing the eye gaze tracking and keyboard interaction.
-//- It adopts the GazeDetectionDelegate, EyeTrackerDelegate, and KeyboardInteractionDelegate protocols to handle the corresponding events.
-//- It has references to various components such as gazeDetection, eyeTracker, textEntryService, wordSuggestion, and keyboardViewDelegateWrapper.
-//- In the viewDidLoad() method, the necessary dependencies are initialized, the SwiftUI keyboard view is created and embedded in a UIHostingController, and gaze detection and eye tracking are started.
-//- The class also includes extensions for the delegate methods to handle gaze detection, eye tracking, keyboard interaction, and word suggestions.
-
-
-
 import UIKit
 import ARKit
 import SwiftUI
@@ -16,9 +7,17 @@ class EyeGazeViewController: UIViewController {
     private var eyeTracker: EyeTracker!
     private var keyboardInteraction: KeyboardInteraction!
     private var textEntryService: TextEntryService!
-    private var wordSuggestion: WordSuggestion!
     private var keyboardViewDelegateWrapper: KeyboardViewDelegateWrapper!
     private var dynamicCalibration: DynamicCalibration!
+    private var textChecker: UITextChecker  // Add UITextChecker instance
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +27,11 @@ class EyeGazeViewController: UIViewController {
         gazeDetection = GazeDetection(calibrationDelegate: dynamicCalibration)
         eyeTracker = EyeTracker()
         textEntryService = TextEntryService()
-        wordSuggestion = WordSuggestion()
         keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout())
         keyboardInteraction.delegate = self
         keyboardInteraction.textEntryService = textEntryService
-        wordSuggestion.delegate = self
         keyboardViewDelegateWrapper = KeyboardViewDelegateWrapper()
+        textChecker = UITextChecker()  // Initialize UITextChecker
         
         // Create the SwiftUI keyboard view
         let keyboardView = KeyboardView(keyboardLayout: KeyboardLayout.defaultLayout())
@@ -80,17 +78,13 @@ extension EyeGazeViewController: KeyboardInteractionDelegate {
         switch result {
             case .success(let state):
                 print("New state: \(state)")
-                wordSuggestion.processTextEntry(textEntryService)
+                let completions = textChecker.completions(forPartialWordRange: NSRange(location: 0, length: state.text.utf16.count),
+                                                          in: state.text,
+                                                          language: "en_US")
+                let suggestions = completions ?? []
+                keyboardViewDelegateWrapper.wordSuggestions = suggestions
             case .failure(let error):
                 print("Error adding character: \(error)")
         }
     }
 }
-
-// WordSuggestionDelegate extension
-extension EyeGazeViewController: WordSuggestionDelegate {
-    func wordSuggestion(_ wordSuggestion: WordSuggestion, didSuggestWords words: [String]) {
-        keyboardViewDelegateWrapper.wordSuggestions = words
-    }
-}
-

@@ -20,8 +20,6 @@ struct KeyboardView: View {
     @EnvironmentObject var delegateWrapper: KeyboardViewDelegateWrapper
     @State private var wordSuggestions: [String] = []
     
-    
-    
     let keyboardLayout: KeyboardLayout
     
     var body: some View {
@@ -37,7 +35,7 @@ struct KeyboardView: View {
                         let key = keyboardLayout.layout[rowIndex][columnIndex]
                         
                         Button(action: {
-                            delegateWrapper.didSelectKey(key)
+                            delegateWrapper.didSelectKey(key, textEntryService: delegateWrapper.textEntryService)
                         }) {
                             Text(key)
                                 .font(.title)
@@ -69,14 +67,14 @@ struct KeyboardView: View {
         }
     }
     
-    func updateWordSuggestions(_ words: [String]) {
-        self.wordSuggestions = words
+    func updateWordSuggestions(_ suggestions: [String]) {
+        self.wordSuggestions = suggestions
     }
 }
 
 struct KeyboardView_Previews: PreviewProvider {
     static var previews: some View {
         KeyboardView(keyboardLayout: KeyboardLayout.defaultLayout())
+            .environmentObject(KeyboardViewDelegateWrapper())
     }
 }
-

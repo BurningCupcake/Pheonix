@@ -30,6 +30,11 @@ extension KeyboardViewDelegate {
             switch result {
                 case .success(let state):
                     print("New state: \(state)")
+                    let completions = textChecker.completions(forPartialWordRange: NSRange(location: 0, length: state.text.utf16.count),
+                                                              in: state.text,
+                                                              language: "en_US")
+                    let suggestions = completions ?? []
+                    updateWordSuggestions(suggestions)
                 case .failure(let error):
                     print("Error adding character: \(error)")
             }

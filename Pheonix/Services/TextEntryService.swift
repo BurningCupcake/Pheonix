@@ -1,20 +1,8 @@
-//The provided code defines a TextEntryService class that manages the text entry process for the keyboard. Here's the analysis of the code:
-
-//The TextEntryService class utilizes the Combine framework to provide a reactive interface for the text entry state. It uses a CurrentValueSubject named textEntryStateSubject to publish the current text entry state.
-//The textEntryStatePublisher property exposes the textEntryStateSubject as an AnyPublisher of type TextEntryState, allowing clients to subscribe to changes in the text entry state.
-//The class contains private properties:
-//textEntry: An instance of the TextEntry class that handles the text entry logic.
-//predictiveTextState: An instance of the PredictiveTextState struct representing the current state of the predictive text suggestions.
-//The initializer sets up the initial state of the textEntry and predictiveTextState.
-//The addCharacter(_:) method is used to add a character to the text entry. It appends the character to the textEntry and creates an updated TextEntryState based on the current text. If the updated text exceeds a length of 10 characters, it returns a failure result with the .textTooLong error. Otherwise, it sends the updated TextEntryState through the textEntryStateSubject and returns a success result with the updated state.
-//The deleteLastCharacter() method deletes the last character from the text entry. It updates the textEntry and sends the updated TextEntryState through the textEntryStateSubject.
-//The TextEntryError enum defines an error type with a single case .textTooLong, indicating that the text exceeds the allowed length.
-//Note: The code assumes the availability of the Combine framework for publishing the text entry state and the TextEntry class for text entry logic.
-
 import Foundation
 import Combine
+import SwiftUI
 
-class TextEntryService {
+class TextEntryService: WordSuggestionDelegate {
     private let textEntryStateSubject = CurrentValueSubject<TextEntryState, Never>(TextEntryState(text: ""))
     
     var textEntryStatePublisher: AnyPublisher<TextEntryState, Never> {
@@ -22,15 +10,26 @@ class TextEntryService {
     }
     
     private var textEntry: TextEntry
-    private var predictiveTextState: PredictiveTextState
+    private let wordSuggestion: WordSuggestion
+    private let textChecker: UITextChecker
     
     init() {
         textEntry = TextEntry()
-        predictiveTextState = PredictiveTextState(suggestions: [])
+        wordSuggestion = WordSuggestion()
+        textChecker = UITextChecker()
+        wordSuggestion.delegate = self
     }
     
-    func addCharacter(_ character: String) -> Result<TextEntryState, TextEntryError> {
-        textEntry.appendText(character)
+    func addCharacter(_ character: String, usingEyeGaze: Bool = false, gazePoint: CGPoint? = nil) -> Result<TextEntryState, TextEntryError> {
+        if usingEyeGaze, let point = gazePoint {
+            // Process character input based on eye gaze
+            guard let characterToAdd = processCharacterFromGazePoint(point) else {
+                return .failure(.invalidGazePoint)
+            }
+            textEntry.appendText(characterToAdd)
+        } else {
+            textEntry.appendText(character)
+        }
         
         let updatedTextEntryState = TextEntryState(text: textEntry.currentText)
         
@@ -49,8 +48,96 @@ class TextEntryService {
         
         textEntryStateSubject.send(updatedTextEntryState)
     }
-}
+    
+    private func processCharacterFromGazePoint(_ gazePoint: CGPoint) -> String? {
+        // Process the gaze point to determine the character to add based on the keyboard layout or interaction rules
+        // Implement your logic here to convert the gaze point to a character
+        
+        // Example implementation:
+        if gazePoint.x < 100 && gazePoint.y < 100 {
+            return "A"
+        } else if gazePoint.x < 200 && gazePoint.y < 200 {
+            return "B"
+        } else if gazePoint.x < 300 && gazePoint.y < 300 {
+            return "C"
+        }
+        
+        return nil
+    }
+    
+    // MARK: - WordSuggestionDelegate
+    
+    func wordSuggestion(_ wordSuggestion: WordSuggestion, didSuggestWords suggestedWords: [String]) {
+        // Pass the suggested words to the text checker for further processing
+        let updatedSuggestions = processSuggestions(suggestedWords)
+        
+        // Update the word suggestions with the text checker's predictions
+        wordSuggestion.updateSuggestions(updatedSuggestions)
+    }
+    
+    private func processSuggestions(_ words: [String]) -> [String] {
+        let rangeForEndOfStr = NSRange(location: 0, length: textEntry.currentText.utf16.count)
+        let completions = textChecker.completions(forPartialWordRange: rangeForEndOfStr, in: textEntry.currentText, language: "en_US")
+        return completions ?? []
+    }
+    
+    // MARK: - Subscriptions
+    
+    private var cancellables = Set<AnyCancellable>()
+    
+    func subscribeToLatestTextEntryState() {
+        textEntryStatePublisher
+            .sink { [weak self] state in
+                self?.handleLatestTextEntryState(state)
+            }
+            .store(in: &cancellables)
+    }
+    
+    private func handleLatestTextEntryState(_ state: TextEntryState) {
+        // Handle the latest text entry state here
+        print(state)
+        
+        // Perform any necessary operations with the latest state
+        let completions = getWordCompletions(for: state.text)
+        let isSpellingCorrect = performSpellChecking(for: state.text)
+        
+        // Update the UI or perform other actions based on the latest state and results
+        DispatchQueue.main.async {
+            // Update the UI or trigger any necessary UI updates
+            // For example:
+            self.updateWordSuggestions(completions)
+            self.updateSpellingIndicator(isSpellingCorrect)
+        }
+    }
+    
+    // MARK: - Word Completions
+    
+    private func getWordCompletions(for text: String) -> [String] {
+        let range = NSRange(text.startIndex..<text.endIndex, in: text)
+        let completions = textChecker.completions(forPartialWordRange: range, in: text, language: "en_US")
+        return completions ?? []
+    }
+    
+    // MARK: - Spell Checking
+    
+    private func performSpellChecking(for text: String) -> Bool {
+        let range = NSRange(text.startIndex..<text.endIndex, in: text)
+        let misspelledRange = textChecker.rangeOfMisspelledWord(in: text, range: range, startingAt: 0, wrap: false, language: "en_US")
+        return misspelledRange.location == NSNotFound
+    }
 
-enum TextEntryError: Error {
-    case textTooLong
+    
+    // MARK: - Word Suggestions Update
+    
+    private func updateWordSuggestions(_ suggestions: [String]) {
+        // Update the word suggestions in your UI or perform any necessary actions
+        print("Word suggestions: \(suggestions)")
+    }
+    
+    // MARK: - Spelling Indicator Update
+    
+    private func updateSpellingIndicator(_ isSpellingCorrect: Bool) {
+        // Update the spelling indicator in your UI or perform any necessary actions
+        print("Is spelling correct: \(isSpellingCorrect)")
+    }
 }

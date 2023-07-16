@@ -13,9 +13,11 @@
 //- This class can be used as a delegate for the keyboard view, allowing it to handle key selection events and update word suggestions. The SwiftUI views observing the `wordSuggestions` property will automatically update when the value changes, enabling dynamic word suggestion updates in the user interface.
 
 import Foundation
+import SwiftUI
 
 class KeyboardViewDelegateWrapper: ObservableObject, KeyboardViewDelegate {
     @Published var wordSuggestions: [String] = []
+    private let textChecker = UITextChecker()
     
     func didSelectKey(_ key: String) {
         // Handle key selection event
@@ -36,6 +38,11 @@ class KeyboardViewDelegateWrapper: ObservableObject, KeyboardViewDelegate {
                 case .success(let state):
                     // The character was successfully added, do something with the new state if necessary
                     print("New state: \(state)")
+                    let completions = textChecker.completions(forPartialWordRange: NSRange(location: 0, length: state.text.utf16.count),
+                                                              in: state.text,
+                                                              language: "en_US")
+                    let suggestions = completions ?? []
+                    updateWordSuggestions(suggestions)
                 case .failure(let error):
                     // There was an error adding the character, handle the error
                     print("Error adding character: \(error)")

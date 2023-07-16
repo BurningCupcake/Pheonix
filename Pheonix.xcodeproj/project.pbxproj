@@ -46,6 +46,8 @@
 		A184CE6D2A5258DD008FAEC3 /* libswiftSystem_Foundation.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE672A5258DC008FAEC3 /* libswiftSystem_Foundation.tbd */; };
 		A184CE6E2A5258DD008FAEC3 /* libswiftExtensionFoundation.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE682A5258DC008FAEC3 /* libswiftExtensionFoundation.tbd */; };
 		A184CE6F2A5258DD008FAEC3 /* libswiftAVFoundation.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE692A5258DC008FAEC3 /* libswiftAVFoundation.tbd */; };
+		A18547B02A636312005E179F /* WordSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18547AF2A636312005E179F /* WordSuggestion.swift */; };
+		A18547B22A637078005E179F /* TextEntryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18547B12A637078005E179F /* TextEntryError.swift */; };
 		A1AB86162A5B6B0E0084F93C /* TextEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB86152A5B6B0E0084F93C /* TextEntryView.swift */; };
 		A1AB86182A5B6B4B0084F93C /* TextEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB86172A5B6B4B0084F93C /* TextEntryViewModel.swift */; };
 		A1AB861A2A5B6B8E0084F93C /* PredictiveTextServerice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB86192A5B6B8E0084F93C /* PredictiveTextServerice.swift */; };
@@ -69,7 +71,6 @@
 		A1F69EA32A511D7700480362 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA22A511D7700480362 /* Keyboard.swift */; };
 		A1F69EA72A520CD000480362 /* WordSuggestionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA42A520CCF00480362 /* WordSuggestionDelegate.swift */; };
 		A1F69EA82A520CD000480362 /* GazeDetectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA52A520CCF00480362 /* GazeDetectionDelegate.swift */; };
-		A1F69EAB2A520DA500480362 /* WordSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EAA2A520DA500480362 /* WordSuggestion.swift */; };
 		A1F69EAD2A520DEF00480362 /* KeyboardKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EAC2A520DEF00480362 /* KeyboardKey.swift */; };
 		A1F69EAF2A520FB700480362 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EAE2A520FB700480362 /* KeyboardViewController.swift */; };
 /* End PBXBuildFile section */
@@ -119,6 +120,8 @@
 		A184CE672A5258DC008FAEC3 /* libswiftSystem_Foundation.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftSystem_Foundation.tbd; path = usr/lib/swift/libswiftSystem_Foundation.tbd; sourceTree = SDKROOT; };
 		A184CE682A5258DC008FAEC3 /* libswiftExtensionFoundation.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftExtensionFoundation.tbd; path = usr/lib/swift/libswiftExtensionFoundation.tbd; sourceTree = SDKROOT; };
 		A184CE692A5258DC008FAEC3 /* libswiftAVFoundation.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftAVFoundation.tbd; path = usr/lib/swift/libswiftAVFoundation.tbd; sourceTree = SDKROOT; };
+		A18547AF2A636312005E179F /* WordSuggestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordSuggestion.swift; sourceTree = "<group>"; };
+		A18547B12A637078005E179F /* TextEntryError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntryError.swift; sourceTree = "<group>"; };
 		A1AB86152A5B6B0E0084F93C /* TextEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntryView.swift; sourceTree = "<group>"; };
 		A1AB86172A5B6B4B0084F93C /* TextEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntryViewModel.swift; sourceTree = "<group>"; };
 		A1AB86192A5B6B8E0084F93C /* PredictiveTextServerice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictiveTextServerice.swift; sourceTree = "<group>"; };
@@ -138,7 +141,6 @@
 		A1F69EA22A511D7700480362 /* Keyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		A1F69EA42A520CCF00480362 /* WordSuggestionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordSuggestionDelegate.swift; sourceTree = "<group>"; };
 		A1F69EA52A520CCF00480362 /* GazeDetectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GazeDetectionDelegate.swift; sourceTree = "<group>"; };
-		A1F69EAA2A520DA500480362 /* WordSuggestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordSuggestion.swift; sourceTree = "<group>"; };
 		A1F69EAC2A520DEF00480362 /* KeyboardKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardKey.swift; sourceTree = "<group>"; };
 		A1F69EAE2A520FB700480362 /* KeyboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -241,6 +243,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A18547AA2A6358F2005E179F /* Finished Files */ = {
+			isa = PBXGroup;
+			children = (
+				A184CE232A521B4D008FAEC3 /* GestureRecognition.swift */,
+			);
+			name = "Finished Files";
+			path = ..;
+			sourceTree = "<group>";
+		};
 		A1EC50122A537245000E900B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +279,7 @@
 				A184CE252A521B91008FAEC3 /* Language.swift */,
 				A1AB861D2A5B6C4B0084F93C /* PredictiveTextViewModel.swift */,
 				A1AB86172A5B6B4B0084F93C /* TextEntryViewModel.swift */,
+				A18547B12A637078005E179F /* TextEntryError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -275,18 +287,18 @@
 		A1EC50142A53726B000E900B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A18547AA2A6358F2005E179F /* Finished Files */,
 				A184CE3B2A5226C6008FAEC3 /* BlinkGestureHandler.swift */,
+				A184CE312A521E7A008FAEC3 /* EyeTracker.swift */,
 				A184CE3F2A52276B008FAEC3 /* DependencyInjection.swift */,
 				A184CE352A522033008FAEC3 /* DynamicCalibration.swift */,
-				A184CE312A521E7A008FAEC3 /* EyeTracker.swift */,
 				A184CE2F2A521DE5008FAEC3 /* GazeDetection.swift */,
-				A184CE232A521B4D008FAEC3 /* GestureRecognition.swift */,
 				A184CE4B2A52293B008FAEC3 /* KeyboardInteraction.swift */,
 				A1AB86192A5B6B8E0084F93C /* PredictiveTextServerice.swift */,
 				A184CE372A5221E9008FAEC3 /* Settings.swift */,
 				A184CE572A522B53008FAEC3 /* TextEntry.swift */,
 				A1AB861B2A5B6C140084F93C /* TextEntryService.swift */,
-				A1F69EAA2A520DA500480362 /* WordSuggestion.swift */,
+				A18547AF2A636312005E179F /* WordSuggestion.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -422,12 +434,12 @@
 				A184CE4A2A52289C008FAEC3 /* Key.swift in Sources */,
 				A184CE4E2A52299A008FAEC3 /* KeyboardLayoutStyle.swift in Sources */,
 				A184CE462A522803008FAEC3 /* EyeGazeViewController.swift in Sources */,
-				A1F69EAB2A520DA500480362 /* WordSuggestion.swift in Sources */,
 				A184CE582A522B53008FAEC3 /* TextEntry.swift in Sources */,
 				A14D699A2A54B2AB00D67BFC /* CalibrationDelegate.swift in Sources */,
 				A184CE2C2A521BEE008FAEC3 /* CalibrationResult.swift in Sources */,
 				A184CE442A5227E0008FAEC3 /* DynamicCalibrationModel.swift in Sources */,
 				A11153BC2A5E981E00524D65 /* LanguagePickerView.swift in Sources */,
+				A18547B02A636312005E179F /* WordSuggestion.swift in Sources */,
 				A1F69EA82A520CD000480362 /* GazeDetectionDelegate.swift in Sources */,
 				A11153C02A5E987B00524D65 /* SwipeToTypeView.swift in Sources */,
 				A1AB86162A5B6B0E0084F93C /* TextEntryView.swift in Sources */,
@@ -436,6 +448,7 @@
 				A184CE5C2A52588D008FAEC3 /* KeyboardLayout.swift in Sources */,
 				A1EC501D2A53739B000E900B /* EyeTrackerDelegate.swift in Sources */,
 				A184CE322A521E7A008FAEC3 /* EyeTracker.swift in Sources */,
+				A18547B22A637078005E179F /* TextEntryError.swift in Sources */,
 				A1F69EA32A511D7700480362 /* Keyboard.swift in Sources */,
 				A1EC501B2A53734F000E900B /* EyeState.swift in Sources */,
 				A184CE482A52284B008FAEC3 /* EyeTrackingController.swift in Sources */,

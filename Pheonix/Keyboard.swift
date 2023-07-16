@@ -1,32 +1,20 @@
-// **Keyboard.swift**
-
-// In this file, we have the Keyboard class that inherits from UIInputViewController and conforms to the GazeDetectionDelegate, KeyboardInteractionDelegate, WordSuggestionDelegate, and SwipeToTypeControllerDelegate protocols.
-
-//The Keyboard class represents the main view controller for the custom keyboard. Here are the key points:
-
-//The class properties include various dependencies such as gazeDetection, keyboardInteraction, textEntryService, wordSuggestion, and more.
-//In the viewDidLoad() method, the dependencies are instantiated, delegates are set, and the SwiftUI-based keyboard view is created and added as a subview.
-//The gazeDetection(_:didDetectGazeAt:) method is called when a gaze is detected, and it forwards the gaze point to the keyboardInteraction for processing.
-//The didSelectKey(_:) method is called when a key is selected, and it adds the selected character to the textEntryService using the addCharacter(_:) method. It handles the success or failure result and updates the word suggestions accordingly.
-//The wordSuggestion(_:didSuggestWords:) method is called when word suggestions are provided by the wordSuggestion object, and it updates the word suggestions in the keyboard view.
-//The didSwipeLeft() method is called when a swipe left event occurs. You can implement the desired action for swipe-to-type functionality in this method.
-
 import Foundation
 import SwiftUI
+import ARKit
 
-class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractionDelegate, WordSuggestionDelegate, SwipeToTypeControllerDelegate {
+class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractionDelegate, SwipeToTypeControllerDelegate {
     
     private var keyboardHostingController: UIHostingController<KeyboardView>!
     private var gazeDetection: GazeDetection!
     private var dynamicCalibration: DynamicCalibration!
     private var keyboardInteraction: KeyboardInteraction!
     private var textEntry: TextEntry!
-    private var wordSuggestion: WordSuggestion!
-    private var eyeTrackingController: EyeTrackingController!
+    private var eyeTracker: EyeTracker!
     private var swipeToTypeController: SwipeToTypeController!
     private let textEntryService = TextEntryService()
     private var keyboardView: KeyboardView!
     
+    private let textChecker = UITextChecker()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,14 +24,12 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         gazeDetection = GazeDetection(calibrationDelegate: dynamicCalibration)
         keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout(), textEntryService: textEntryService)
         textEntry = TextEntry()
-        wordSuggestion = WordSuggestion()
-        eyeTrackingController = EyeTrackingController(eyeTracker: EyeTracker(), wordSuggestion: wordSuggestion)
+        eyeTracker = EyeTracker()
         swipeToTypeController = SwipeToTypeController()
         
         // Setup delegates
         gazeDetection.delegate = self
         keyboardInteraction.delegate = self
-        wordSuggestion.delegate = self
         swipeToTypeController.delegate = self
         
         // Create the SwiftUI keyboard view
@@ -67,6 +53,9 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         
         // Start gaze detection
         gazeDetection.start()
+        
+        // Start eye tracking
+        eyeTracker.startTracking()
     }
     
     override func viewWillLayoutSubviews() {
@@ -87,16 +76,33 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         switch result {
             case .success(let state):
                 print("New state: \(state)")
-                wordSuggestion.processTextEntry(textEntryService)
+                
+                let completions = getWordCompletions(for: state.text)
+                keyboardView?.updateWordSuggestions(completions)
+                
+                // Perform spell checking
+                let isSpellingCorrect = performSpellChecking(for: state.text)
+                keyboardView?.updateSpellingIndicator(isSpellingCorrect)
+                
             case .failure(let error):
                 print("Error adding character: \(error)")
         }
     }
     
-    // MARK: - WordSuggestionDelegate
+    // MARK: - Word Completions
     
-    func wordSuggestion(_ wordSuggestion: WordSuggestion, didSuggestWords suggestedWords: [String]) {
-        keyboardView?.updateWordSuggestions(suggestedWords)
+    private func getWordCompletions(for text: String) -> [String] {
+        let range = NSRange(text.startIndex..<text.endIndex, in: text)
+        let completions = textChecker.completions(forPartialWordRange: range, in: text, language: nil)
+        return completions ?? []
+    }
+    
+    // MARK: - Spell Checking
+    
+    private func performSpellChecking(for text: String) -> Bool {
+        let range = NSRange(text.startIndex..<text.endIndex, in: text)
+        let misspelledRange = textChecker.rangeOfMisspelledWord(in: text, range: range, startingAt: 0, wrap: false, language: nil)
+        return misspelledRange.location == NSNotFound
     }
     
     // MARK: - SwipeToTypeControllerDelegate
@@ -106,4 +112,3 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         // You can perform the swipe-to-type action here
     }
 }
-
