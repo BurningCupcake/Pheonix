@@ -26,7 +26,7 @@ class GazeDetection: NSObject, ARSessionDelegate {
     }
     
     // Modified to include interfaceOrientation parameter
-    func session(_ session: ARSession, didUpdate frame: ARFrame, interfaceOrientation: UIInterfaceOrientation) {
+    func session(_ session: ARSession, didUpdate frame: ARFrame) {
         guard let faceAnchor = frame.anchors.compactMap({ $0 as? ARFaceAnchor }).first else {
             return
         }
@@ -44,8 +44,12 @@ class GazeDetection: NSObject, ARSessionDelegate {
         
         let viewportSize = frame.camera.imageResolution
         
+        // Get the interface orientation from the delegate
+        let interfaceOrientation = delegate?.currentInterfaceOrientation(for: self) ?? .unknown
+        
         let projectedPoint = frame.camera.projectPoint(middleEyePositionFloat3, orientation: interfaceOrientation, viewportSize: viewportSize)
         let gazePoint = CGPoint(x: CGFloat(projectedPoint.x), y: CGFloat(projectedPoint.y))
         delegate?.gazeDetection(self, didDetectGazeAt: gazePoint)
     }
+
 }

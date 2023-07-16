@@ -1,4 +1,3 @@
-
 import UIKit
 
 class DependencyInjection {
@@ -44,7 +43,7 @@ class DependencyInjection {
         if let gazeDetection = self.gazeDetection {
             return gazeDetection
         } else {
-            let calibrationDelegate = CalibrationDelegateImplementation()
+            let calibrationDelegate = DynamicCalibration() // Changed to DynamicCalibration
             let gazeDetection = GazeDetection(calibrationDelegate: calibrationDelegate)
             self.gazeDetection = gazeDetection
             return gazeDetection

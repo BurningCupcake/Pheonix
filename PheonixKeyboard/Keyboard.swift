@@ -4,6 +4,8 @@ import ARKit
 
 class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractionDelegate, SwipeToTypeControllerDelegate {
     
+    internal var currentInterfaceOrientation: UIInterfaceOrientation = .portrait 
+
     private var keyboardHostingController: UIHostingController<KeyboardView>!
     private var gazeDetection: GazeDetection!
     private var dynamicCalibration: DynamicCalibration!
@@ -14,7 +16,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     private let textEntryService = TextEntryService()
     private var keyboardView: KeyboardView!
     @ObservedObject private var spellingIndicatorWrapper = SpellingIndicatorDelegateWrapper()
-    private var interfaceOrientation: UIInterfaceOrientation = .portrait // Create a new property to keep track of the interface orientation
+    internal var currentInterfaceOrientation: UIInterfaceOrientation = .portrait
     
     private let textChecker = UITextChecker()
     
@@ -60,8 +62,9 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         super.viewWillTransition(to: size, with: coordinator)
         
         coordinator.animate(alongsideTransition: { _ in
-            self.interfaceOrientation = self.view.window?.windowScene?.interfaceOrientation ?? .unknown
+            self.currentInterfaceOrientation = self.view.window?.windowScene?.interfaceOrientation ?? .unknown
         })
+
     }
     
     // MARK: - GazeDetectionDelegate

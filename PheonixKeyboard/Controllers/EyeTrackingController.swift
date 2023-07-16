@@ -15,6 +15,12 @@ class EyeTrackingController: NSObject, ARSessionDelegate, GazeDetectionDelegate,
         self.session.delegate = self
     }
     
+    func currentInterfaceOrientation(for gazeDetection: GazeDetection) -> UIInterfaceOrientation {
+        // Replace this with actual logic to determine the current interface orientation.
+        // This is just an example.
+        return .portrait
+    }
+    
     func startTracking() {
         let configuration = ARFaceTrackingConfiguration()
         self.session.run(configuration)

@@ -109,6 +109,8 @@
 		A1F721F92A648DBD007966A1 /* CalibrationProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC50362A537815000E900B /* CalibrationProgressView.swift */; };
 		A1F721FA2A648DBD007966A1 /* DynamicCalibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE292A521BCC008FAEC3 /* DynamicCalibrationView.swift */; };
 		A1F721FB2A648DBD007966A1 /* SwipeToTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11153BF2A5E987B00524D65 /* SwipeToTypeView.swift */; };
+		A1F721FE2A64A423007966A1 /* GestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F721FD2A64A423007966A1 /* GestureRecognizer.swift */; };
+		A1F721FF2A64A423007966A1 /* GestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F721FD2A64A423007966A1 /* GestureRecognizer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -205,6 +207,7 @@
 		A1F69EA52A520CCF00480362 /* GazeDetectionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GazeDetectionDelegate.swift; sourceTree = "<group>"; };
 		A1F69EAC2A520DEF00480362 /* KeyboardKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardKey.swift; sourceTree = "<group>"; };
 		A1F69EAE2A520FB700480362 /* KeyboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		A1F721FD2A64A423007966A1 /* GestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureRecognizer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -370,6 +373,7 @@
 				A184CE572A522B53008FAEC3 /* TextEntry.swift */,
 				A1AB861B2A5B6C140084F93C /* TextEntryService.swift */,
 				A18547AF2A636312005E179F /* WordSuggestion.swift */,
+				A1F721FD2A64A423007966A1 /* GestureRecognizer.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -533,6 +537,7 @@
 				A16A71282A63E5E700F8EA60 /* Keyboard.swift in Sources */,
 				A1F721F92A648DBD007966A1 /* CalibrationProgressView.swift in Sources */,
 				A16A712F2A63EC4C00F8EA60 /* KeyboardViewDelegate.swift in Sources */,
+				A1F721FF2A64A423007966A1 /* GestureRecognizer.swift in Sources */,
 				A1F721FA2A648DBD007966A1 /* DynamicCalibrationView.swift in Sources */,
 				A16A716D2A63F04E00F8EA60 /* KeyboardKey.swift in Sources */,
 				A16A716B2A63F04E00F8EA60 /* EyeState.swift in Sources */,
@@ -600,6 +605,7 @@
 				A1EC501B2A53734F000E900B /* EyeState.swift in Sources */,
 				A16A717C2A63F05800F8EA60 /* DynamicCalibration.swift in Sources */,
 				A184CE262A521B91008FAEC3 /* Language.swift in Sources */,
+				A1F721FE2A64A423007966A1 /* GestureRecognizer.swift in Sources */,
 				A16A71792A63F05800F8EA60 /* KeyboardInteraction.swift in Sources */,
 				A1F69EAD2A520DEF00480362 /* KeyboardKey.swift in Sources */,
 			);

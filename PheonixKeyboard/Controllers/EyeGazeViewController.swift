@@ -52,6 +52,11 @@ class EyeGazeViewController: UIViewController {
 
 // GazeDetectionDelegate extension
 extension EyeGazeViewController: GazeDetectionDelegate {
+    func currentInterfaceOrientation(for gazeDetection: GazeDetection) -> UIInterfaceOrientation {
+        return view.window?.windowScene?.interfaceOrientation ?? .unknown
+    }
+
+    
     func gazeDetection(_ gazeDetection: GazeDetection, didDetectGazeAt point: CGPoint) {
         keyboardInteraction.processGazePoint(point)
     }
