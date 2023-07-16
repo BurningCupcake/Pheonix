@@ -3,9 +3,11 @@ import UIKit
 class DynamicCalibration {
     private var calibrationPoints: [CGPoint] = []
     
-    static let shared = DynamicCalibration()
-    
     private init() {}
+    
+    static func create() -> DynamicCalibration {
+        return DynamicCalibration()
+    }
     
     func addCalibrationPoint(_ point: CGPoint) {
         calibrationPoints.append(point)

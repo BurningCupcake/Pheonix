@@ -1,7 +1,6 @@
 import UIKit
 
 protocol CalibrationDelegate: AnyObject {
-    init()
     func didStartCalibration()
     func didCompleteCalibration(withResult result: CalibrationResult)
     func didFailCalibration(withError error: Error)
@@ -9,20 +8,21 @@ protocol CalibrationDelegate: AnyObject {
 
 class CalibrationDelegateImplementation: CalibrationDelegate {
     private let dynamicCalibration: DynamicCalibration
+    private var calibrationPoints: [CGPoint] = []
     
     required init() {
         self.dynamicCalibration = DynamicCalibration.shared
     }
     
-    override func addCalibrationPoint(_ point: CGPoint) {
+    func addCalibrationPoint(_ point: CGPoint) {
         calibrationPoints.append(point)
     }
     
-    override func clearCalibrationPoints() {
+    func clearCalibrationPoints() {
         calibrationPoints.removeAll()
     }
     
-    override func calculateCalibrationResult() -> CalibrationResult? {
+    func calculateCalibrationResult() -> CalibrationResult? {
         // Perform calibration calculation based on calibration points
         // Return the calibration result
         
@@ -31,7 +31,7 @@ class CalibrationDelegateImplementation: CalibrationDelegate {
         return result
     }
     
-    override func performCalibration(completion: @escaping (Bool) -> Void) {
+    func performCalibration(completion: @escaping (Bool) -> Void) {
         didStartCalibration()
         
         // Perform the calibration process
