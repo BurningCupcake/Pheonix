@@ -14,11 +14,11 @@ struct KeyboardView: View {
                 .font(.title)
                 .padding()
             
-            ForEach(Array(keyboardLayout.layout.enumerated()), id: \.1) { rowIndex, row in
+            ForEach(Array(keyboardLayout.layout.enumerated()), id: \.offset) { rowIndex, row in
                 HStack {
-                    ForEach(Array(row.enumerated()), id: \.1) { columnIndex, key in
+                    ForEach(row, id: \.self) { key in
                         Button(action: {
-                            delegateWrapper.delegate?.didSelectKey(key)
+                            delegateWrapper.didSelectKey(key)
                         }) {
                             Text(key)
                                 .font(.title)

@@ -22,8 +22,11 @@ class EyeGazeViewController: UIViewController {
         textEntryService = TextEntryService()
         keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout(), textEntryService: textEntryService) // Pass the textEntryService
         
+        
+        let keyboardViewDelegateWrapper = KeyboardViewDelegateWrapper()
+        
         // Create the SwiftUI keyboard view
-        let keyboardView = KeyboardView(delegateWrapper: $keyboardViewDelegateWrapper.delegateWrapper, wordSuggestions: $keyboardViewDelegateWrapper.wordSuggestions, spellingIndicator: $keyboardViewDelegateWrapper.spellingIndicator, keyboardLayout: KeyboardLayout.defaultLayout())
+        let keyboardView = KeyboardView(delegateWrapper: keyboardViewDelegateWrapper, wordSuggestions: $keyboardViewDelegateWrapper.wordSuggestions, spellingIndicator: $keyboardViewDelegateWrapper.spellingIndicator, keyboardLayout: KeyboardLayout.defaultLayout())
             .environmentObject(keyboardViewDelegateWrapper) // Wrap with EnvironmentObject
         
         // Embed the SwiftUI view in a UIHostingController

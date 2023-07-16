@@ -17,7 +17,6 @@
 		A17483152A51016F00978F0A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17483142A51016F00978F0A /* ContentView.swift */; };
 		A17483172A51017100978F0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A17483162A51017100978F0A /* Assets.xcassets */; };
 		A174831A2A51017100978F0A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A17483192A51017100978F0A /* Preview Assets.xcassets */; };
-		A184CE242A521B4D008FAEC3 /* GestureRecognition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE232A521B4D008FAEC3 /* GestureRecognition.swift */; };
 		A184CE262A521B91008FAEC3 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE252A521B91008FAEC3 /* Language.swift */; };
 		A184CE2A2A521BCC008FAEC3 /* DynamicCalibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE292A521BCC008FAEC3 /* DynamicCalibrationView.swift */; };
 		A184CE2C2A521BEE008FAEC3 /* CalibrationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE2B2A521BEE008FAEC3 /* CalibrationResult.swift */; };
@@ -89,7 +88,6 @@
 		A17483142A51016F00978F0A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A17483162A51017100978F0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A17483192A51017100978F0A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A184CE232A521B4D008FAEC3 /* GestureRecognition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureRecognition.swift; sourceTree = "<group>"; };
 		A184CE252A521B91008FAEC3 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		A184CE292A521BCC008FAEC3 /* DynamicCalibrationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicCalibrationView.swift; sourceTree = "<group>"; };
 		A184CE2B2A521BEE008FAEC3 /* CalibrationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationResult.swift; sourceTree = "<group>"; };
@@ -246,15 +244,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A18547AA2A6358F2005E179F /* Finished Files */ = {
-			isa = PBXGroup;
-			children = (
-				A184CE232A521B4D008FAEC3 /* GestureRecognition.swift */,
-			);
-			name = "Finished Files";
-			path = ..;
-			sourceTree = "<group>";
-		};
 		A1EC50122A537245000E900B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,7 +279,6 @@
 		A1EC50142A53726B000E900B /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				A18547AA2A6358F2005E179F /* Finished Files */,
 				A184CE3B2A5226C6008FAEC3 /* BlinkGestureHandler.swift */,
 				A184CE312A521E7A008FAEC3 /* EyeTracker.swift */,
 				A184CE3F2A52276B008FAEC3 /* DependencyInjection.swift */,
@@ -425,7 +413,6 @@
 				A184CE362A522033008FAEC3 /* DynamicCalibration.swift in Sources */,
 				A184CE4C2A52293B008FAEC3 /* KeyboardInteraction.swift in Sources */,
 				A184CE3C2A5226C6008FAEC3 /* BlinkGestureHandler.swift in Sources */,
-				A184CE242A521B4D008FAEC3 /* GestureRecognition.swift in Sources */,
 				A11153BE2A5E985000524D65 /* SettingsView.swift in Sources */,
 				A184CE3A2A52221A008FAEC3 /* SwipeToTypeController.swift in Sources */,
 				A184CE382A5221E9008FAEC3 /* Settings.swift in Sources */,

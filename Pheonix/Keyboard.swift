@@ -14,7 +14,6 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     private let textEntryService = TextEntryService()
     private var keyboardView: KeyboardView!
     @ObservedObject private var spellingIndicatorWrapper = SpellingIndicatorDelegateWrapper()
-    @EnvironmentObject private var keyboardViewDelegateWrapper: KeyboardViewDelegateWrapper
     
     private let textChecker = UITextChecker()
     
@@ -32,7 +31,8 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         keyboardInteraction.delegate = self
         swipeToTypeController.delegate = self
         
-        let keyboardView = KeyboardView(delegateWrapper: keyboardViewDelegateWrapper, wordSuggestions: $keyboardViewDelegateWrapper.wordSuggestions, spellingIndicator: $keyboardViewDelegateWrapper.spellingIndicator, keyboardLayout: KeyboardLayout.defaultLayout())
+        let delegateWrapper = KeyboardViewDelegateWrapper(spellingIndicator: spellingIndicatorWrapper.spellingIndicator)
+        let keyboardView = KeyboardView(delegateWrapper: delegateWrapper, wordSuggestions: $spellingIndicatorWrapper.wordSuggestions, spellingIndicator: $spellingIndicatorWrapper.spellingIndicator, keyboardLayout: KeyboardLayout.defaultLayout())
         self.keyboardView = keyboardView
         
         keyboardHostingController = UIHostingController(rootView: keyboardView)
@@ -71,7 +71,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
                 
                 let completions = getWordCompletions(for: state.text)
                 DispatchQueue.main.async {
-                    self.spellingIndicatorWrapper.wordSuggestions = completions
+                    self.spellingIndicatorWrapper.updateWordSuggestions(completions)
                 }
                 
                 // Perform spell checking
