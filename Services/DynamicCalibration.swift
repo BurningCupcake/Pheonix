@@ -30,24 +30,13 @@ class DynamicCalibration {
         return result
     }
     
-    func performCalibration(completion: @escaping (Bool) -> Void) {
+    func performCalibration(in viewController: UIViewController, completion: @escaping (Bool) -> Void) {
         let fractalLayer = CALayer()
-        fractalLayer.frame = UIScreen.main.bounds
+        fractalLayer.frame = viewController.view.bounds // Use the bounds of the provided view controller
         fractalLayer.backgroundColor = UIColor.white.cgColor
         fractalLayer.contentsGravity = .center
-        fractalLayer.contentsScale = UIScreen.main.scale
+        fractalLayer.contentsScale = viewController.view.contentScaleFactor // Use the scale of the provided view controller
         fractalLayer.masksToBounds = true
-        
-        var rootViewController: UIViewController?
-        
-        if let windowScene = UIApplication.shared.connectedScenes.compactMap({ $0 as? UIWindowScene }).first {
-            rootViewController = windowScene.windows.first?.rootViewController
-        }
-        
-        guard let viewController = rootViewController else {
-            completion(false)
-            return
-        }
         
         viewController.view.layer.insertSublayer(fractalLayer, at: 0)
         
@@ -58,4 +47,5 @@ class DynamicCalibration {
             completion(true)
         }
     }
+
 }

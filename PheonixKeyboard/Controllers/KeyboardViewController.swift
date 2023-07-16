@@ -1,21 +1,10 @@
-//This file represents a custom keyboard view controller. Here's a breakdown of its implementation:
-
-//The class inherits from UIInputViewController, which is a base class for custom input view controllers in UIKit.
-//It declares an outlet for the "Next Keyboard" button (nextKeyboardButton).
-//The updateViewConstraints() method is overridden to add custom view sizing constraints. This method can be used to update the layout constraints of the view.
-//The viewDidLoad() method is overridden to perform custom UI setup for the keyboard.
-//In the viewDidLoad() method, the "Next Keyboard" button is created and configured. Its title is localized using NSLocalizedString. The button is added as a subview of the view controller's view, and layout constraints are set to position it.
-//Keyboard keys are created and configured using the createKeyboardKey() helper method. Two keys ("A" and "B") are added to a horizontal UIStackView (keyboardStackView) that acts as a container for the keys. The stack view is added as a subview of the view controller's view, and layout constraints are set to position it.
-//The viewWillLayoutSubviews() method is overridden to show or hide the "Next Keyboard" button based on whether the keyboard needs an input mode switch key.
-//The textWillChange(_:) and textDidChange(_:) methods are overridden to perform any necessary actions when the document's contents are about to change or have changed.
-//The keyPressed(_:) method is called when a keyboard key is pressed. It inserts the pressed key's title into the text input.
-//The createKeyboardKey(title:) method is a helper method to create and configure a keyboard key button.
 
 import UIKit
 
 class KeyboardViewController: UIInputViewController {
     
     @IBOutlet var nextKeyboardButton: UIButton!
+    private let dynamicCalibration = DynamicCalibration.create()
     
     override func updateViewConstraints() {
         super.updateViewConstraints()
@@ -39,6 +28,16 @@ class KeyboardViewController: UIInputViewController {
         
         self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
         self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        
+        // Start the calibration process when the keyboard view loads
+        dynamicCalibration.performCalibration(in: self) { success in
+            if success {
+                // Calibration succeeded, update the keyboard UI or behavior as needed
+            } else {
+                // Calibration failed, handle the error as needed
+            }
+        }
+        
         
         // Create and configure keyboard keys
         let key1 = createKeyboardKey(title: "A")
