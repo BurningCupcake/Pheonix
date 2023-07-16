@@ -11,7 +11,7 @@ class CalibrationDelegateImplementation: CalibrationDelegate {
     private var calibrationPoints: [CGPoint] = []
     
     required init() {
-        self.dynamicCalibration = DynamicCalibration.shared
+        self.dynamicCalibration = DynamicCalibration.create()
     }
     
     func addCalibrationPoint(_ point: CGPoint) {

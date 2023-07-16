@@ -3,7 +3,7 @@ import UIKit
 class DynamicCalibration {
     private var calibrationPoints: [CGPoint] = []
     
-    private init() {}
+    init() {}
     
     static func create() -> DynamicCalibration {
         return DynamicCalibration()
@@ -38,10 +38,18 @@ class DynamicCalibration {
         fractalLayer.contentsScale = UIScreen.main.scale
         fractalLayer.masksToBounds = true
         
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-           let keyboardView = windowScene.windows.first?.rootViewController?.view {
-            keyboardView.layer.insertSublayer(fractalLayer, at: 0)
+        var rootViewController: UIViewController?
+        
+        if let windowScene = UIApplication.shared.connectedScenes.compactMap({ $0 as? UIWindowScene }).first {
+            rootViewController = windowScene.windows.first?.rootViewController
         }
+        
+        guard let viewController = rootViewController else {
+            completion(false)
+            return
+        }
+        
+        viewController.view.layer.insertSublayer(fractalLayer, at: 0)
         
         UIView.animate(withDuration: 3.0, animations: {
             fractalLayer.backgroundColor = UIColor.red.cgColor
