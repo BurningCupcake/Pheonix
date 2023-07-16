@@ -3,8 +3,8 @@ import Combine
 
 struct KeyboardView: View {
     @EnvironmentObject var delegateWrapper: KeyboardViewDelegateWrapper
-    @State private var wordSuggestions: [String] = []
-    @State private var spellingIndicator: Bool = true
+    @Binding var wordSuggestions: [String]
+    @Binding var spellingIndicator: Bool
     
     let keyboardLayout: KeyboardLayout
     

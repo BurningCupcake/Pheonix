@@ -34,7 +34,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         swipeToTypeController.delegate = self
         
         // Create the SwiftUI keyboard view
-        let keyboardView = KeyboardView(keyboardLayout: KeyboardLayout.defaultLayout())
+        let keyboardView = KeyboardView(keyboardLayout: KeyboardLayout.defaultLayout(), wordSuggestions: $spellingIndicatorWrapper.wordSuggestions, spellingIndicator: $spellingIndicatorWrapper.spellingIndicator)
         self.keyboardView = keyboardView
         
         // Create a hosting controller to integrate SwiftUI view with UIKit
@@ -78,13 +78,15 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
                 print("New state: \(state)")
                 
                 let completions = getWordCompletions(for: state.text)
-                DispatchQueue.main.async {
-                    spellingIndicatorWrapper.wordSuggestions = completions
+                DispatchQueue.main.async { [self] in
+                    self.spellingIndicatorWrapper.wordSuggestions = completions
                 }
                 
                 // Perform spell checking
                 let isSpellingCorrect = performSpellChecking(for: state.text)
-                updateSpellingIndicator(isSpellingCorrect)
+                DispatchQueue.main.async { [self] in
+                    self.spellingIndicatorWrapper.spellingIndicator = isSpellingCorrect
+                }
                 
             case .failure(let error):
                 print("Error adding character: \(error)")
@@ -105,14 +107,6 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         let range = NSRange(text.startIndex..<text.endIndex, in: text)
         let misspelledRange = textChecker.rangeOfMisspelledWord(in: text, range: range, startingAt: 0, wrap: false, language: "en_US")
         return misspelledRange.location == NSNotFound
-    }
-    
-    // MARK: - Spelling Indicator
-    
-    private func updateSpellingIndicator(_ isSpellingCorrect: Bool) {
-        DispatchQueue.main.async {
-            spellingIndicatorWrapper.spellingIndicator = isSpellingCorrect
-        }
     }
     
     // MARK: - SwipeToTypeControllerDelegate
