@@ -1,9 +1,9 @@
-
 import SwiftUI
 
 struct KeyboardView: View {
     @EnvironmentObject var delegateWrapper: KeyboardViewDelegateWrapper
     @State private var wordSuggestions: [String] = []
+    @State private var spellingIndicator: Bool = true
     
     let keyboardLayout: KeyboardLayout
     
@@ -45,21 +45,21 @@ struct KeyboardView: View {
                 }
             }
             .padding()
+            
+            // Spelling Indicator
+            Text("Spelling Indicator: \(spellingIndicator ? "Correct" : "Incorrect")")
+                .font(.headline)
+                .padding()
+                .background(spellingIndicator ? Color.green : Color.red)
+                .foregroundColor(.white)
+                .cornerRadius(10)
         }
         .padding()
         .onReceive(delegateWrapper.objectWillChange) { _ in
             self.wordSuggestions = delegateWrapper.wordSuggestions
         }
-    }
-    
-    func updateWordSuggestions(_ suggestions: [String]) {
-        self.wordSuggestions = suggestions
-    }
-}
-
-struct KeyboardView_Previews: PreviewProvider {
-    static var previews: some View {
-        KeyboardView(keyboardLayout: KeyboardLayout.defaultLayout())
-            .environmentObject(KeyboardViewDelegateWrapper())
+        .onReceive(delegateWrapper.spellingIndicatorPublisher) { indicator in
+            self.spellingIndicator = indicator
+        }
     }
 }

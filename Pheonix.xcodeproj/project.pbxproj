@@ -48,6 +48,7 @@
 		A184CE6F2A5258DD008FAEC3 /* libswiftAVFoundation.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE692A5258DC008FAEC3 /* libswiftAVFoundation.tbd */; };
 		A18547B02A636312005E179F /* WordSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18547AF2A636312005E179F /* WordSuggestion.swift */; };
 		A18547B22A637078005E179F /* TextEntryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18547B12A637078005E179F /* TextEntryError.swift */; };
+		A18547B42A6386B9005E179F /* SpellingIndicatorDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18547B32A6386B9005E179F /* SpellingIndicatorDelegateWrapper.swift */; };
 		A1AB86162A5B6B0E0084F93C /* TextEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB86152A5B6B0E0084F93C /* TextEntryView.swift */; };
 		A1AB86182A5B6B4B0084F93C /* TextEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB86172A5B6B4B0084F93C /* TextEntryViewModel.swift */; };
 		A1AB861A2A5B6B8E0084F93C /* PredictiveTextServerice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB86192A5B6B8E0084F93C /* PredictiveTextServerice.swift */; };
@@ -122,6 +123,7 @@
 		A184CE692A5258DC008FAEC3 /* libswiftAVFoundation.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftAVFoundation.tbd; path = usr/lib/swift/libswiftAVFoundation.tbd; sourceTree = SDKROOT; };
 		A18547AF2A636312005E179F /* WordSuggestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordSuggestion.swift; sourceTree = "<group>"; };
 		A18547B12A637078005E179F /* TextEntryError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntryError.swift; sourceTree = "<group>"; };
+		A18547B32A6386B9005E179F /* SpellingIndicatorDelegateWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingIndicatorDelegateWrapper.swift; sourceTree = "<group>"; };
 		A1AB86152A5B6B0E0084F93C /* TextEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntryView.swift; sourceTree = "<group>"; };
 		A1AB86172A5B6B4B0084F93C /* TextEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntryViewModel.swift; sourceTree = "<group>"; };
 		A1AB86192A5B6B8E0084F93C /* PredictiveTextServerice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictiveTextServerice.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				A184CE552A522AFD008FAEC3 /* SceneDelegate.swift */,
 				A1F69EA42A520CCF00480362 /* WordSuggestionDelegate.swift */,
 				A1C70CD82A5CBC9200D8F9E3 /* SwipeToTypeControllerDelegate.swift */,
+				A18547B32A6386B9005E179F /* SpellingIndicatorDelegateWrapper.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				A184CE4A2A52289C008FAEC3 /* Key.swift in Sources */,
 				A184CE4E2A52299A008FAEC3 /* KeyboardLayoutStyle.swift in Sources */,
 				A184CE462A522803008FAEC3 /* EyeGazeViewController.swift in Sources */,
+				A18547B42A6386B9005E179F /* SpellingIndicatorDelegateWrapper.swift in Sources */,
 				A184CE582A522B53008FAEC3 /* TextEntry.swift in Sources */,
 				A14D699A2A54B2AB00D67BFC /* CalibrationDelegate.swift in Sources */,
 				A184CE2C2A521BEE008FAEC3 /* CalibrationResult.swift in Sources */,

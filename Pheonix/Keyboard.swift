@@ -14,6 +14,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     private let textEntryService = TextEntryService()
     private var keyboardView: KeyboardView!
     private var language: Language!
+    private var spellingIndicatorWrapper: SpellingIndicatorDelegateWrapper!
     
     private let textChecker = UITextChecker()
     
@@ -27,6 +28,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         textEntry = TextEntry()
         eyeTracker = EyeTracker()
         swipeToTypeController = SwipeToTypeController()
+        spellingIndicatorWrapper = SpellingIndicatorDelegateWrapper()
         
         // Setup delegates
         gazeDetection.delegate = self
@@ -39,7 +41,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         self.keyboardView = keyboardView
         
         // Create a hosting controller to integrate SwiftUI view with UIKit
-        keyboardHostingController = UIHostingController(rootView: keyboardView)
+        keyboardHostingController = UIHostingController(rootView: keyboardView.environmentObject(spellingIndicatorWrapper))
         keyboardHostingController.view.translatesAutoresizingMaskIntoConstraints = false
         
         // Add the hosting controller's view to the input view
@@ -79,11 +81,11 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
                 print("New state: \(state)")
                 
                 let completions = getWordCompletions(for: state.text)
-                keyboardView?.updateWordSuggestions(completions)
+                keyboardView.updateWordSuggestions(completions) // Fixed: Access 'keyboardView' instead of 'keyboardView?'
                 
                 // Perform spell checking
                 let isSpellingCorrect = performSpellChecking(for: state.text)
-                keyboardView?.updateSpellingIndicator(isSpellingCorrect)
+                updateSpellingIndicator(isSpellingCorrect)
                 
             case .failure(let error):
                 print("Error adding character: \(error)")
@@ -104,6 +106,12 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         let range = NSRange(text.startIndex..<text.endIndex, in: text)
         let misspelledRange = textChecker.rangeOfMisspelledWord(in: text, range: range, startingAt: 0, wrap: false, language: "en_US")
         return misspelledRange.location == NSNotFound
+    }
+    
+    // MARK: - Spelling Indicator
+    
+    private func updateSpellingIndicator(_ isSpellingCorrect: Bool) {
+        spellingIndicatorWrapper.spellingIndicator = isSpellingCorrect // Fixed: Access 'spellingIndicator' in 'spellingIndicatorWrapper'
     }
     
     // MARK: - SwipeToTypeControllerDelegate

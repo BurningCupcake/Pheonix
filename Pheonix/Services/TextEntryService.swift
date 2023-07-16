@@ -1,6 +1,6 @@
 import Foundation
 import Combine
-import SwiftUI
+import UIKit
 
 class TextEntryService: WordSuggestionDelegate {
     private let textEntryStateSubject = CurrentValueSubject<TextEntryState, Never>(TextEntryState(text: ""))
@@ -125,19 +125,16 @@ class TextEntryService: WordSuggestionDelegate {
         let misspelledRange = textChecker.rangeOfMisspelledWord(in: text, range: range, startingAt: 0, wrap: false, language: "en_US")
         return misspelledRange.location == NSNotFound
     }
-
-    
-    // MARK: - Word Suggestions Update
-    
-    private func updateWordSuggestions(_ suggestions: [String]) {
-        // Update the word suggestions in your UI or perform any necessary actions
-        print("Word suggestions: \(suggestions)")
-    }
     
     // MARK: - Spelling Indicator Update
     
     private func updateSpellingIndicator(_ isSpellingCorrect: Bool) {
-        // Update the spelling indicator in your UI or perform any necessary actions
-        print("Is spelling correct: \(isSpellingCorrect)")
+        keyboardViewDelegateWrapper.spellingIndicator = isSpellingCorrect
+    }
+    
+    // MARK: - Word Suggestions Update
+    
+    private func updateWordSuggestions(_ suggestions: [String]) {
+        keyboardViewDelegateWrapper.wordSuggestions = suggestions
     }
 }

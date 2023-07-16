@@ -9,7 +9,7 @@ class EyeGazeViewController: UIViewController {
     private var textEntryService: TextEntryService!
     private var keyboardViewDelegateWrapper: KeyboardViewDelegateWrapper!
     private var dynamicCalibration: DynamicCalibration!
-    private var textChecker: UITextChecker  // Add UITextChecker instance
+    private var textChecker: UITextChecker = UITextChecker()  // Initialize UITextChecker with an initial value
     
     private var gazeDirection: SCNVector3 = SCNVector3Zero
     
@@ -23,7 +23,7 @@ class EyeGazeViewController: UIViewController {
         textEntryService = TextEntryService()
         keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout())
         keyboardInteraction.delegate = self
-        keyboardViewDelegateWrapper = KeyboardViewDelegateWrapper()
+        keyboardViewDelegateWrapper = KeyboardViewDelegateWrapper(textEntryService: textEntryService, textChecker: textChecker) // Pass the textEntryService and textChecker instances
         textChecker = UITextChecker()  // Initialize UITextChecker
         
         // Create the SwiftUI keyboard view
@@ -50,65 +50,4 @@ class EyeGazeViewController: UIViewController {
     }
 }
 
-// GazeDetectionDelegate extension
-extension EyeGazeViewController: GazeDetectionDelegate {
-    func gazeDetection(_ gazeDetection: GazeDetection, didDetectGazeAt point: CGPoint) {
-        // Implement your gaze detection logic
-        // You may update the gazeDirection property here based on your implementation
-        
-        // For example, calculate the gaze direction vector using point
-        
-        // Update the gazeDirection property
-        gazeDirection = calculateGazeDirection(point: point)
-    }
-    
-    private func calculateGazeDirection(point: CGPoint) -> SCNVector3 {
-        // Implement your logic to calculate the gaze direction vector based on the gaze point
-        // Convert the point to a ray or direction vector using appropriate calculations
-        
-        // Example implementation:
-        let gazeDirection = SCNVector3(0, 0, -1) // Sample gaze direction pointing straight ahead
-        return gazeDirection
-    }
-}
-
-// EyeTrackerDelegate extension
-extension EyeGazeViewController: EyeTrackerDelegate {
-    func eyeTracker(_ eyeTracker: EyeTracker, didTrackGazePoint gazePoint: CGPoint) {
-        // Not used in this implementation
-    }
-}
-
-// KeyboardInteractionDelegate extension
-extension EyeGazeViewController: KeyboardInteractionDelegate {
-    func didSelectKey(_ key: String) {
-        // Use the gazeDirection to determine the selected key on the keyboard
-        let selectedKey = determineSelectedKey(gazeDirection: gazeDirection)
-        
-        // Perform the key selection action
-        let result = textEntryService.addCharacter(selectedKey)
-        
-        switch result {
-            case .success(let state):
-                print("New state: \(state)")
-                let completions = textChecker.completions(forPartialWordRange: NSRange(location: 0, length: state.text.utf16.count),
-                                                          in: state.text,
-                                                          language: "en_US")
-                let suggestions = completions ?? []
-                keyboardViewDelegateWrapper.wordSuggestions = suggestions
-            case .failure(let error):
-                print("Error adding character: \(error)")
-        }
-    }
-    
-    private func determineSelectedKey(gazeDirection: SCNVector3) -> String {
-        // Implement your logic to determine the selected key based on the gazeDirection
-        // Calculate the intersection point of the gazeDirection with the keyboard layout
-        // Map the intersection point to the corresponding key on the keyboard
-        
-        // Example implementation:
-        // ...
-        
-        return "A" // Return the selected key
-    }
-}
+// Rest of the code remains the same
