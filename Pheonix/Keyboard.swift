@@ -21,7 +21,6 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Create dependencies
         dynamicCalibration = DynamicCalibration()
         gazeDetection = GazeDetection(calibrationDelegate: dynamicCalibration)
         keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout(), textEntryService: textEntryService)
@@ -29,33 +28,25 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         eyeTracker = EyeTracker()
         swipeToTypeController = SwipeToTypeController()
         
-        // Setup delegates
         gazeDetection.delegate = self
         keyboardInteraction.delegate = self
         swipeToTypeController.delegate = self
         
-        // Create the SwiftUI keyboard view
-        let keyboardView = KeyboardView(delegateWrapper: $keyboardViewDelegateWrapper, wordSuggestions: $keyboardViewDelegateWrapper.wordSuggestions, spellingIndicator: $keyboardViewDelegateWrapper.spellingIndicator, keyboardLayout: KeyboardLayout.defaultLayout())
+        let keyboardView = KeyboardView(delegateWrapper: keyboardViewDelegateWrapper, wordSuggestions: $keyboardViewDelegateWrapper.wordSuggestions, spellingIndicator: $keyboardViewDelegateWrapper.spellingIndicator, keyboardLayout: KeyboardLayout.defaultLayout())
         self.keyboardView = keyboardView
         
-        // Create a hosting controller to integrate SwiftUI view with UIKit
-        keyboardHostingController = UIHostingController(rootView: keyboardView.environmentObject(spellingIndicatorWrapper))
+        keyboardHostingController = UIHostingController(rootView: keyboardView)
         keyboardHostingController.view.translatesAutoresizingMaskIntoConstraints = false
         
-        // Add the hosting controller's view to the input view
         addChild(keyboardHostingController)
         view.addSubview(keyboardHostingController.view)
         keyboardHostingController.didMove(toParent: self)
         
-        // Attach swipe gesture recognizer to the keyboard view
         if let keyboardContentView = keyboardHostingController.view.subviews.first {
             swipeToTypeController.attach(to: keyboardContentView)
         }
         
-        // Start gaze detection
         gazeDetection.start()
-        
-        // Start eye tracking
         eyeTracker.startTracking()
     }
     

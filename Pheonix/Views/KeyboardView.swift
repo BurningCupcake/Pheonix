@@ -2,7 +2,7 @@ import SwiftUI
 import Combine
 
 struct KeyboardView: View {
-    @EnvironmentObject var delegateWrapper: KeyboardViewDelegateWrapper
+    @ObservedObject var delegateWrapper: KeyboardViewDelegateWrapper
     @Binding var wordSuggestions: [String]
     @Binding var spellingIndicator: Bool
     
@@ -14,12 +14,9 @@ struct KeyboardView: View {
                 .font(.title)
                 .padding()
             
-            // Add keys based on the keyboard layout
-            ForEach(0..<keyboardLayout.layout.count, id: \.self) { rowIndex in
+            ForEach(Array(keyboardLayout.layout.enumerated()), id: \.1) { rowIndex, row in
                 HStack {
-                    ForEach(0..<keyboardLayout.layout[rowIndex].count, id: \.self) { columnIndex in
-                        let key = keyboardLayout.layout[rowIndex][columnIndex]
-                        
+                    ForEach(Array(row.enumerated()), id: \.1) { columnIndex, key in
                         Button(action: {
                             delegateWrapper.delegate?.didSelectKey(key)
                         }) {
@@ -34,7 +31,6 @@ struct KeyboardView: View {
                 }
             }
             
-            // Word suggestions
             HStack {
                 ForEach(wordSuggestions, id: \.self) { suggestion in
                     Text(suggestion)
@@ -47,7 +43,6 @@ struct KeyboardView: View {
             }
             .padding()
             
-            // Spelling Indicator
             Text("Spelling Indicator: \(spellingIndicator ? "Correct" : "Incorrect")")
                 .font(.headline)
                 .padding()
