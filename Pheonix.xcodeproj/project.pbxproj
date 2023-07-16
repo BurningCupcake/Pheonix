@@ -13,6 +13,11 @@
 		A11153BE2A5E985000524D65 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11153BD2A5E985000524D65 /* SettingsView.swift */; };
 		A11153C02A5E987B00524D65 /* SwipeToTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11153BF2A5E987B00524D65 /* SwipeToTypeView.swift */; };
 		A14D699A2A54B2AB00D67BFC /* CalibrationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D69992A54B2AB00D67BFC /* CalibrationDelegate.swift */; };
+		A16A71232A63E44B00F8EA60 /* PheonixKeyboard.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A16A711C2A63E44B00F8EA60 /* PheonixKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A16A71282A63E5E700F8EA60 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA22A511D7700480362 /* Keyboard.swift */; };
+		A16A71292A63E5F000F8EA60 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA02A511D4100480362 /* KeyboardView.swift */; };
+		A16A712A2A63E5FC00F8EA60 /* KeyboardViewDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C70CD42A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift */; };
+		A16A712C2A63E8E500F8EA60 /* SpellingIndicatorDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18547B32A6386B9005E179F /* SpellingIndicatorDelegateWrapper.swift */; };
 		A16CE4ED2A5485B6006C75EF /* GestureRecognitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16CE4EC2A5485B6006C75EF /* GestureRecognitionDelegate.swift */; };
 		A17483152A51016F00978F0A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17483142A51016F00978F0A /* ContentView.swift */; };
 		A17483172A51017100978F0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A17483162A51017100978F0A /* Assets.xcassets */; };
@@ -47,14 +52,12 @@
 		A184CE6F2A5258DD008FAEC3 /* libswiftAVFoundation.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE692A5258DC008FAEC3 /* libswiftAVFoundation.tbd */; };
 		A18547B02A636312005E179F /* WordSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18547AF2A636312005E179F /* WordSuggestion.swift */; };
 		A18547B22A637078005E179F /* TextEntryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18547B12A637078005E179F /* TextEntryError.swift */; };
-		A18547B42A6386B9005E179F /* SpellingIndicatorDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18547B32A6386B9005E179F /* SpellingIndicatorDelegateWrapper.swift */; };
 		A1AB86162A5B6B0E0084F93C /* TextEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB86152A5B6B0E0084F93C /* TextEntryView.swift */; };
 		A1AB86182A5B6B4B0084F93C /* TextEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB86172A5B6B4B0084F93C /* TextEntryViewModel.swift */; };
 		A1AB861A2A5B6B8E0084F93C /* PredictiveTextServerice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB86192A5B6B8E0084F93C /* PredictiveTextServerice.swift */; };
 		A1AB861C2A5B6C140084F93C /* TextEntryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB861B2A5B6C140084F93C /* TextEntryService.swift */; };
 		A1AB861E2A5B6C4B0084F93C /* PredictiveTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB861D2A5B6C4B0084F93C /* PredictiveTextViewModel.swift */; };
 		A1AB86202A5B6C9C0084F93C /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB861F2A5B6C9C0084F93C /* AppState.swift */; };
-		A1C70CD52A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C70CD42A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift */; };
 		A1C70CD92A5CBC9200D8F9E3 /* SwipeToTypeControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C70CD82A5CBC9200D8F9E3 /* SwipeToTypeControllerDelegate.swift */; };
 		A1EC50112A536FB1000E900B /* KeyboardViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC50102A536FB1000E900B /* KeyboardViewDelegate.swift */; };
 		A1EC501B2A53734F000E900B /* EyeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC501A2A53734F000E900B /* EyeState.swift */; };
@@ -67,13 +70,35 @@
 		A1ED014C2A565DA3008B32C9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE5E2A5258C0008FAEC3 /* UIKit.framework */; };
 		A1ED014E2A565DA5008B32C9 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16CE4E62A546E6E006C75EF /* XCTest.framework */; };
 		A1F69E9F2A511B1600480362 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69E9E2A511B1600480362 /* AppDelegate.swift */; };
-		A1F69EA12A511D4100480362 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA02A511D4100480362 /* KeyboardView.swift */; };
-		A1F69EA32A511D7700480362 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA22A511D7700480362 /* Keyboard.swift */; };
 		A1F69EA72A520CD000480362 /* WordSuggestionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA42A520CCF00480362 /* WordSuggestionDelegate.swift */; };
 		A1F69EA82A520CD000480362 /* GazeDetectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA52A520CCF00480362 /* GazeDetectionDelegate.swift */; };
 		A1F69EAD2A520DEF00480362 /* KeyboardKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EAC2A520DEF00480362 /* KeyboardKey.swift */; };
 		A1F69EAF2A520FB700480362 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EAE2A520FB700480362 /* KeyboardViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A16A71212A63E44B00F8EA60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A17483072A51016F00978F0A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A16A711B2A63E44B00F8EA60;
+			remoteInfo = PheonixKeyboard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A16A71272A63E44B00F8EA60 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A16A71232A63E44B00F8EA60 /* PheonixKeyboard.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A10125792A573D35005C1E12 /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
@@ -82,6 +107,9 @@
 		A11153BD2A5E985000524D65 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A11153BF2A5E987B00524D65 /* SwipeToTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToTypeView.swift; sourceTree = "<group>"; };
 		A14D69992A54B2AB00D67BFC /* CalibrationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationDelegate.swift; sourceTree = "<group>"; };
+		A16A711C2A63E44B00F8EA60 /* PheonixKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PheonixKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A16A711E2A63E44B00F8EA60 /* OldKeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldKeyboardViewController.swift; sourceTree = "<group>"; };
+		A16A71202A63E44B00F8EA60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A16CE4E62A546E6E006C75EF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A16CE4EC2A5485B6006C75EF /* GestureRecognitionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureRecognitionDelegate.swift; sourceTree = "<group>"; };
 		A174830F2A51016F00978F0A /* Pheonix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pheonix.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +174,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A16A71192A63E44B00F8EA60 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A174830C2A51016F00978F0A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -166,9 +201,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A16A711D2A63E44B00F8EA60 /* PheonixKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				A16CE4E82A546FFD006C75EF /* Delegates */,
+				A1EC50122A537245000E900B /* Controllers */,
+				A1EC50142A53726B000E900B /* Services */,
+				A1EC50152A537279000E900B /* Views */,
+				A1C70CD42A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift */,
+				A1F69EA22A511D7700480362 /* Keyboard.swift */,
+				A1F69EA02A511D4100480362 /* KeyboardView.swift */,
+				A16A711E2A63E44B00F8EA60 /* OldKeyboardViewController.swift */,
+				A16A71202A63E44B00F8EA60 /* Info.plist */,
+			);
+			path = PheonixKeyboard;
+			sourceTree = "<group>";
+		};
 		A16CE4E82A546FFD006C75EF /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
+				A18547B32A6386B9005E179F /* SpellingIndicatorDelegateWrapper.swift */,
 				A184CE3D2A5226DF008FAEC3 /* BlinkGestureHandlerDelegate.swift */,
 				A14D69992A54B2AB00D67BFC /* CalibrationDelegate.swift */,
 				A1EC501C2A53739B000E900B /* EyeTrackerDelegate.swift */,
@@ -176,11 +228,9 @@
 				A16CE4EC2A5485B6006C75EF /* GestureRecognitionDelegate.swift */,
 				A1EC501E2A5373D6000E900B /* KeyboardInteractionDelegate.swift */,
 				A1EC50102A536FB1000E900B /* KeyboardViewDelegate.swift */,
-				A1C70CD42A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift */,
 				A184CE552A522AFD008FAEC3 /* SceneDelegate.swift */,
 				A1F69EA42A520CCF00480362 /* WordSuggestionDelegate.swift */,
 				A1C70CD82A5CBC9200D8F9E3 /* SwipeToTypeControllerDelegate.swift */,
-				A18547B32A6386B9005E179F /* SpellingIndicatorDelegateWrapper.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -189,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				A17483112A51016F00978F0A /* Pheonix */,
+				A16A711D2A63E44B00F8EA60 /* PheonixKeyboard */,
 				A17483102A51016F00978F0A /* Products */,
 				A184CE5D2A5258BF008FAEC3 /* Frameworks */,
 			);
@@ -198,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				A174830F2A51016F00978F0A /* Pheonix.app */,
+				A16A711C2A63E44B00F8EA60 /* PheonixKeyboard.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -205,16 +257,11 @@
 		A17483112A51016F00978F0A /* Pheonix */ = {
 			isa = PBXGroup;
 			children = (
-				A1EC50122A537245000E900B /* Controllers */,
-				A16CE4E82A546FFD006C75EF /* Delegates */,
 				A10125792A573D35005C1E12 /* info.plist */,
-				A1F69EA22A511D7700480362 /* Keyboard.swift */,
 				A1EC50132A537254000E900B /* Models */,
 				A17483182A51017100978F0A /* Preview Content */,
 				A1EC50172A53728E000E900B /* Resources */,
-				A1EC50142A53726B000E900B /* Services */,
 				A1EC50162A537284000E900B /* Supporting Files */,
-				A1EC50152A537279000E900B /* Views */,
 			);
 			path = Pheonix;
 			sourceTree = "<group>";
@@ -300,7 +347,6 @@
 				A1EC50362A537815000E900B /* CalibrationProgressView.swift */,
 				A17483142A51016F00978F0A /* ContentView.swift */,
 				A184CE292A521BCC008FAEC3 /* DynamicCalibrationView.swift */,
-				A1F69EA02A511D4100480362 /* KeyboardView.swift */,
 				A184CE532A522AC2008FAEC3 /* PredictiveTextView.swift */,
 				A1AB86152A5B6B0E0084F93C /* TextEntryView.swift */,
 				A11153B92A5E97EA00524D65 /* CalibrationView.swift */,
@@ -330,6 +376,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A16A711B2A63E44B00F8EA60 /* PheonixKeyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A16A71242A63E44B00F8EA60 /* Build configuration list for PBXNativeTarget "PheonixKeyboard" */;
+			buildPhases = (
+				A16A71182A63E44B00F8EA60 /* Sources */,
+				A16A71192A63E44B00F8EA60 /* Frameworks */,
+				A16A711A2A63E44B00F8EA60 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PheonixKeyboard;
+			productName = PheonixKeyboard;
+			productReference = A16A711C2A63E44B00F8EA60 /* PheonixKeyboard.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		A174830E2A51016F00978F0A /* Pheonix */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A174831D2A51017100978F0A /* Build configuration list for PBXNativeTarget "Pheonix" */;
@@ -337,10 +400,12 @@
 				A174830B2A51016F00978F0A /* Sources */,
 				A174830C2A51016F00978F0A /* Frameworks */,
 				A174830D2A51016F00978F0A /* Resources */,
+				A16A71272A63E44B00F8EA60 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A16A71222A63E44B00F8EA60 /* PBXTargetDependency */,
 			);
 			name = Pheonix;
 			productName = Pheonix;
@@ -357,6 +422,9 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					A16A711B2A63E44B00F8EA60 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
 					A174830E2A51016F00978F0A = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
@@ -376,11 +444,19 @@
 			projectRoot = "";
 			targets = (
 				A174830E2A51016F00978F0A /* Pheonix */,
+				A16A711B2A63E44B00F8EA60 /* PheonixKeyboard */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A16A711A2A63E44B00F8EA60 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A174830D2A51016F00978F0A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -395,10 +471,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A16A71182A63E44B00F8EA60 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A16A712A2A63E5FC00F8EA60 /* KeyboardViewDelegateWrapper.swift in Sources */,
+				A16A71292A63E5F000F8EA60 /* KeyboardView.swift in Sources */,
+				A16A71282A63E5E700F8EA60 /* Keyboard.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A174830B2A51016F00978F0A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A16A712C2A63E8E500F8EA60 /* SpellingIndicatorDelegateWrapper.swift in Sources */,
 				A1AB86182A5B6B4B0084F93C /* TextEntryViewModel.swift in Sources */,
 				A1EC50372A537815000E900B /* CalibrationProgressView.swift in Sources */,
 				A1EC501F2A5373D6000E900B /* KeyboardInteractionDelegate.swift in Sources */,
@@ -406,7 +493,6 @@
 				A1F69EAF2A520FB700480362 /* KeyboardViewController.swift in Sources */,
 				A184CE542A522AC2008FAEC3 /* PredictiveTextView.swift in Sources */,
 				A1AB861A2A5B6B8E0084F93C /* PredictiveTextServerice.swift in Sources */,
-				A1F69EA12A511D4100480362 /* KeyboardView.swift in Sources */,
 				A1EC50112A536FB1000E900B /* KeyboardViewDelegate.swift in Sources */,
 				A184CE302A521DE5008FAEC3 /* GazeDetection.swift in Sources */,
 				A16CE4ED2A5485B6006C75EF /* GestureRecognitionDelegate.swift in Sources */,
@@ -424,7 +510,6 @@
 				A184CE4A2A52289C008FAEC3 /* Key.swift in Sources */,
 				A184CE4E2A52299A008FAEC3 /* KeyboardLayoutStyle.swift in Sources */,
 				A184CE462A522803008FAEC3 /* EyeGazeViewController.swift in Sources */,
-				A18547B42A6386B9005E179F /* SpellingIndicatorDelegateWrapper.swift in Sources */,
 				A184CE582A522B53008FAEC3 /* TextEntry.swift in Sources */,
 				A14D699A2A54B2AB00D67BFC /* CalibrationDelegate.swift in Sources */,
 				A184CE2C2A521BEE008FAEC3 /* CalibrationResult.swift in Sources */,
@@ -440,7 +525,6 @@
 				A1EC501D2A53739B000E900B /* EyeTrackerDelegate.swift in Sources */,
 				A184CE322A521E7A008FAEC3 /* EyeTracker.swift in Sources */,
 				A18547B22A637078005E179F /* TextEntryError.swift in Sources */,
-				A1F69EA32A511D7700480362 /* Keyboard.swift in Sources */,
 				A1EC501B2A53734F000E900B /* EyeState.swift in Sources */,
 				A184CE482A52284B008FAEC3 /* EyeTrackingController.swift in Sources */,
 				A1AB861C2A5B6C140084F93C /* TextEntryService.swift in Sources */,
@@ -449,14 +533,79 @@
 				A184CE562A522AFD008FAEC3 /* SceneDelegate.swift in Sources */,
 				A184CE262A521B91008FAEC3 /* Language.swift in Sources */,
 				A1F69EAD2A520DEF00480362 /* KeyboardKey.swift in Sources */,
-				A1C70CD52A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift in Sources */,
 				A11153BA2A5E97EA00524D65 /* CalibrationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		A16A71222A63E44B00F8EA60 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A16A711B2A63E44B00F8EA60 /* PheonixKeyboard */;
+			targetProxy = A16A71212A63E44B00F8EA60 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		A16A71252A63E44B00F8EA60 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 8CUXCK3FDP;
+				ENABLE_TESTABILITY = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PheonixKeyboard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PheonixKeyboard;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = Cuptastrophe.Pheonix.PheonixKeyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A16A71262A63E44B00F8EA60 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8CUXCK3FDP;
+				ENABLE_NS_ASSERTIONS = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PheonixKeyboard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PheonixKeyboard;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Cuptastrophe.Pheonix.PheonixKeyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		A174831B2A51017100978F0A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -510,10 +659,10 @@
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_KEY_CFBundleDisplayName = Pheonix;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = Cuptastrophe.Pheonix;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -568,9 +717,10 @@
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_KEY_CFBundleDisplayName = Pheonix;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = Cuptastrophe.Pheonix;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -582,6 +732,7 @@
 		A174831E2A51017100978F0A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
@@ -623,6 +774,7 @@
 					"$(SDKROOT)/usr/lib/swift",
 				);
 				MARKETING_VERSION = 1.1;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = Cuptastrophe.Pheonix;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
@@ -635,6 +787,7 @@
 		A174831F2A51017100978F0A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
@@ -688,6 +841,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A16A71242A63E44B00F8EA60 /* Build configuration list for PBXNativeTarget "PheonixKeyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A16A71252A63E44B00F8EA60 /* Debug */,
+				A16A71262A63E44B00F8EA60 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A174830A2A51016F00978F0A /* Build configuration list for PBXProject "Pheonix" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
