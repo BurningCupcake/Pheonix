@@ -143,7 +143,6 @@
 		A11153BF2A5E987B00524D65 /* SwipeToTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToTypeView.swift; sourceTree = "<group>"; };
 		A14D69992A54B2AB00D67BFC /* CalibrationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationDelegate.swift; sourceTree = "<group>"; };
 		A16A711C2A63E44B00F8EA60 /* PheonixKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PheonixKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		A16A711E2A63E44B00F8EA60 /* OldKeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldKeyboardViewController.swift; sourceTree = "<group>"; };
 		A16A71202A63E44B00F8EA60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A16CE4E62A546E6E006C75EF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A16CE4EC2A5485B6006C75EF /* GestureRecognitionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureRecognitionDelegate.swift; sourceTree = "<group>"; };
@@ -244,7 +243,6 @@
 				A1C70CD42A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift */,
 				A1F69EA22A511D7700480362 /* Keyboard.swift */,
 				A1F69EA02A511D4100480362 /* KeyboardView.swift */,
-				A16A711E2A63E44B00F8EA60 /* OldKeyboardViewController.swift */,
 				A16A71202A63E44B00F8EA60 /* Info.plist */,
 			);
 			path = PheonixKeyboard;
