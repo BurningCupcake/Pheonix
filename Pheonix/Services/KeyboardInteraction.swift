@@ -18,7 +18,7 @@ import Foundation
 class KeyboardInteraction {
     private let layout: KeyboardLayout
     weak var delegate: KeyboardInteractionDelegate?
-    private let textEntryService: TextEntryService // Add this property to hold the instance of TextEntryService
+        let textEntryService: TextEntryService // Add this property to hold the instance of TextEntryService
     
     init(layout: KeyboardLayout, textEntryService: TextEntryService) {
         self.layout = layout

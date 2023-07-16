@@ -1,5 +1,5 @@
-
 import ARKit
+import CoreGraphics
 
 class EyeTracker: NSObject, ARSessionDelegate {
     weak var delegate: EyeTrackerDelegate?
@@ -35,6 +35,7 @@ class EyeTracker: NSObject, ARSessionDelegate {
         let rightEyePosition = faceAnchor.rightEyeTransform.columns.3
         
         // Calculate gaze point based on eye positions
+        let gazePoint = calculateGazePoint(leftEyePosition: leftEyePosition, rightEyePosition: rightEyePosition)
         
         // Pass the calculated gaze point to the delegate
         delegate?.eyeTracker(self, didTrackGazePoint: gazePoint)
@@ -44,5 +45,20 @@ class EyeTracker: NSObject, ARSessionDelegate {
         // Handle the AR session failure here
         // You can implement custom error handling logic based on the error provided
         print("AR session failed with error: \(error)")
+    }
+    
+    // MARK: - Gaze Point Calculation
+    
+    private func calculateGazePoint(leftEyePosition: simd_float4, rightEyePosition: simd_float4) -> CGPoint {
+        // Calculate the gaze point based on the eye positions
+        // Implement your gaze point calculation logic here
+        
+        // Example implementation: Average the left and right eye positions
+        let averageEyePosition = (leftEyePosition + rightEyePosition) / 2
+        
+        // Convert the average eye position to screen coordinates
+        let gazePoint = CGPoint(x: CGFloat(averageEyePosition.x), y: CGFloat(averageEyePosition.y))
+        
+        return gazePoint
     }
 }

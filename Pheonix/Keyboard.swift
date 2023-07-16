@@ -13,6 +13,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     private var swipeToTypeController: SwipeToTypeController!
     private let textEntryService = TextEntryService()
     private var keyboardView: KeyboardView!
+    private var language: Language!
     
     private let textChecker = UITextChecker()
     
@@ -93,7 +94,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     
     private func getWordCompletions(for text: String) -> [String] {
         let range = NSRange(text.startIndex..<text.endIndex, in: text)
-        let completions = textChecker.completions(forPartialWordRange: range, in: text, language: nil)
+        let completions = textChecker.completions(forPartialWordRange: range, in: text, language: "en_US")
         return completions ?? []
     }
     
@@ -101,7 +102,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     
     private func performSpellChecking(for text: String) -> Bool {
         let range = NSRange(text.startIndex..<text.endIndex, in: text)
-        let misspelledRange = textChecker.rangeOfMisspelledWord(in: text, range: range, startingAt: 0, wrap: false, language: nil)
+        let misspelledRange = textChecker.rangeOfMisspelledWord(in: text, range: range, startingAt: 0, wrap: false, language: "en_US")
         return misspelledRange.location == NSNotFound
     }
     
