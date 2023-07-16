@@ -21,7 +21,7 @@ struct KeyboardView: View {
                         let key = keyboardLayout.layout[rowIndex][columnIndex]
                         
                         Button(action: {
-                            delegateWrapper.didSelectKey(key)
+                            delegateWrapper.delegate?.didSelectKey(key)
                         }) {
                             Text(key)
                                 .font(.title)
