@@ -4,8 +4,6 @@ import ARKit
 
 class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractionDelegate, SwipeToTypeControllerDelegate {
     
-    internal var currentInterfaceOrientation: UIInterfaceOrientation = .portrait 
-
     private var keyboardHostingController: UIHostingController<KeyboardView>!
     private var gazeDetection: GazeDetection!
     private var dynamicCalibration: DynamicCalibration!
@@ -72,6 +70,11 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     func gazeDetection(_ gazeDetection: GazeDetection, didDetectGazeAt point: CGPoint) {
         keyboardInteraction.processGazePoint(point)
     }
+    
+    func currentInterfaceOrientation(for gazeDetection: GazeDetection) -> UIInterfaceOrientation {
+            return self.currentInterfaceOrientation
+    }
+    
     
     // MARK: - KeyboardInteractionDelegate
     
