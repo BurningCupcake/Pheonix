@@ -23,7 +23,7 @@ class EyeGazeViewController: UIViewController {
         keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout(), textEntryService: textEntryService) // Pass the textEntryService
         
         // Create the SwiftUI keyboard view
-        let keyboardView = KeyboardView(wordSuggestions: $keyboardViewDelegateWrapper.wordSuggestions, spellingIndicator: $keyboardViewDelegateWrapper.spellingIndicator, keyboardLayout: KeyboardLayout.defaultLayout())
+        let keyboardView = KeyboardView(delegateWrapper: $keyboardViewDelegateWrapper.delegateWrapper, wordSuggestions: $keyboardViewDelegateWrapper.wordSuggestions, spellingIndicator: $keyboardViewDelegateWrapper.spellingIndicator, keyboardLayout: KeyboardLayout.defaultLayout())
             .environmentObject(keyboardViewDelegateWrapper) // Wrap with EnvironmentObject
         
         // Embed the SwiftUI view in a UIHostingController
@@ -43,11 +43,6 @@ class EyeGazeViewController: UIViewController {
         eyeTracker.delegate = self
         gazeDetection.start()
         eyeTracker.startTracking()
-        
-        // Track text entry updates
-        textEntryService.trackTextEntryUpdates { [weak self] state in
-            self?.textEntry = state.textEntry
-        }
     }
 }
 
@@ -66,5 +61,3 @@ extension EyeGazeViewController: EyeTrackerDelegate {
         keyboardInteraction.processGazePoint(gazePoint)
     }
 }
-
-// Rest of the code remains the same

@@ -14,6 +14,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     private let textEntryService = TextEntryService()
     private var keyboardView: KeyboardView!
     @ObservedObject private var spellingIndicatorWrapper = SpellingIndicatorDelegateWrapper()
+    @EnvironmentObject private var keyboardViewDelegateWrapper: KeyboardViewDelegateWrapper
     
     private let textChecker = UITextChecker()
     
@@ -34,7 +35,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         swipeToTypeController.delegate = self
         
         // Create the SwiftUI keyboard view
-        let keyboardView = KeyboardView(keyboardLayout: KeyboardLayout.defaultLayout(), wordSuggestions: $spellingIndicatorWrapper.wordSuggestions, spellingIndicator: $spellingIndicatorWrapper.spellingIndicator)
+        let keyboardView = KeyboardView(delegateWrapper: $keyboardViewDelegateWrapper, wordSuggestions: $keyboardViewDelegateWrapper.wordSuggestions, spellingIndicator: $keyboardViewDelegateWrapper.spellingIndicator, keyboardLayout: KeyboardLayout.defaultLayout())
         self.keyboardView = keyboardView
         
         // Create a hosting controller to integrate SwiftUI view with UIKit
@@ -78,13 +79,13 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
                 print("New state: \(state)")
                 
                 let completions = getWordCompletions(for: state.text)
-                DispatchQueue.main.async { [self] in
+                DispatchQueue.main.async {
                     self.spellingIndicatorWrapper.wordSuggestions = completions
                 }
                 
                 // Perform spell checking
                 let isSpellingCorrect = performSpellChecking(for: state.text)
-                DispatchQueue.main.async { [self] in
+                DispatchQueue.main.async {
                     self.spellingIndicatorWrapper.spellingIndicator = isSpellingCorrect
                 }
                 
