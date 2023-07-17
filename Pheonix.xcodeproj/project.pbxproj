@@ -104,6 +104,7 @@
 		A18E40752A65BA93003D79AD /* EyeGazeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE452A522803008FAEC3 /* EyeGazeViewController.swift */; };
 		A18E40762A65BEF6003D79AD /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA02A511D4100480362 /* KeyboardView.swift */; };
 		A18E40772A65BF3E003D79AD /* SwipeToTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE392A52221A008FAEC3 /* SwipeToTypeController.swift */; };
+		A18E40782A65BFEC003D79AD /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA22A511D7700480362 /* Keyboard.swift */; };
 		A1AB86182A5B6B4B0084F93C /* TextEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB86172A5B6B4B0084F93C /* TextEntryViewModel.swift */; };
 		A1AB861E2A5B6C4B0084F93C /* PredictiveTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB861D2A5B6C4B0084F93C /* PredictiveTextViewModel.swift */; };
 		A1AB86202A5B6C9C0084F93C /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB861F2A5B6C9C0084F93C /* AppState.swift */; };
@@ -633,6 +634,7 @@
 				A1EC501B2A53734F000E900B /* EyeState.swift in Sources */,
 				A16A717C2A63F05800F8EA60 /* DynamicCalibration.swift in Sources */,
 				A184CE262A521B91008FAEC3 /* Language.swift in Sources */,
+				A18E40782A65BFEC003D79AD /* Keyboard.swift in Sources */,
 				A1F721FE2A64A423007966A1 /* GestureRecognizer.swift in Sources */,
 				A18E40712A65BA74003D79AD /* CalibrationView.swift in Sources */,
 				A16A71792A63F05800F8EA60 /* KeyboardInteraction.swift in Sources */,
