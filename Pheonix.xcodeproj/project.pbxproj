@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A101257A2A573D35005C1E12 /* info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A10125792A573D35005C1E12 /* info.plist */; };
+		A11B35532A6B13D5001ACCA6 /* IMG_6989.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A11B35522A6B13D5001ACCA6 /* IMG_6989.jpg */; };
 		A16A71282A63E5E700F8EA60 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA22A511D7700480362 /* Keyboard.swift */; };
 		A16A71292A63E5F000F8EA60 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA02A511D4100480362 /* KeyboardView.swift */; };
 		A16A712A2A63E5FC00F8EA60 /* KeyboardViewDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C70CD42A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift */; };
@@ -107,6 +108,10 @@
 		A1AB86182A5B6B4B0084F93C /* TextEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB86172A5B6B4B0084F93C /* TextEntryViewModel.swift */; };
 		A1AB861E2A5B6C4B0084F93C /* PredictiveTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB861D2A5B6C4B0084F93C /* PredictiveTextViewModel.swift */; };
 		A1AB86202A5B6C9C0084F93C /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB861F2A5B6C9C0084F93C /* AppState.swift */; };
+		A1EA3B462A6A1EC100D23C2B /* PheonixTests in Resources */ = {isa = PBXBuildFile; fileRef = A1EA3B442A6A1EC100D23C2B /* PheonixTests */; };
+		A1EA3B472A6A1EC100D23C2B /* PheonixTests in Resources */ = {isa = PBXBuildFile; fileRef = A1EA3B442A6A1EC100D23C2B /* PheonixTests */; };
+		A1EA3B482A6A1EC100D23C2B /* PheonixUITests in Resources */ = {isa = PBXBuildFile; fileRef = A1EA3B452A6A1EC100D23C2B /* PheonixUITests */; };
+		A1EA3B492A6A1EC100D23C2B /* PheonixUITests in Resources */ = {isa = PBXBuildFile; fileRef = A1EA3B452A6A1EC100D23C2B /* PheonixUITests */; };
 		A1EC501B2A53734F000E900B /* EyeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC501A2A53734F000E900B /* EyeState.swift */; };
 		A1EC50212A537463000E900B /* Keyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1EC50202A537463000E900B /* Keyboard.xib */; };
 		A1ED01472A565DA0008B32C9 /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE622A5258C9008FAEC3 /* ARKit.framework */; };
@@ -133,6 +138,7 @@
 		A11153BB2A5E981E00524D65 /* LanguagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagePickerView.swift; sourceTree = "<group>"; };
 		A11153BD2A5E985000524D65 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A11153BF2A5E987B00524D65 /* SwipeToTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToTypeView.swift; sourceTree = "<group>"; };
+		A11B35522A6B13D5001ACCA6 /* IMG_6989.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_6989.jpg; sourceTree = "<group>"; };
 		A14D69992A54B2AB00D67BFC /* CalibrationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationDelegate.swift; sourceTree = "<group>"; };
 		A16A711C2A63E44B00F8EA60 /* PheonixKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PheonixKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A16A71202A63E44B00F8EA60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -185,6 +191,9 @@
 		A1AB861F2A5B6C9C0084F93C /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		A1C70CD42A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewDelegateWrapper.swift; sourceTree = "<group>"; };
 		A1C70CD82A5CBC9200D8F9E3 /* SwipeToTypeControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToTypeControllerDelegate.swift; sourceTree = "<group>"; };
+		A1EA3B432A6A1ACA00D23C2B /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
+		A1EA3B442A6A1EC100D23C2B /* PheonixTests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PheonixTests; sourceTree = "<group>"; };
+		A1EA3B452A6A1EC100D23C2B /* PheonixUITests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PheonixUITests; sourceTree = "<group>"; };
 		A1EC50102A536FB1000E900B /* KeyboardViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewDelegate.swift; sourceTree = "<group>"; };
 		A1EC501A2A53734F000E900B /* EyeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeState.swift; sourceTree = "<group>"; };
 		A1EC501C2A53739B000E900B /* EyeTrackerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeTrackerDelegate.swift; sourceTree = "<group>"; };
@@ -261,6 +270,9 @@
 		A17483062A51016F00978F0A = {
 			isa = PBXGroup;
 			children = (
+				A1EA3B442A6A1EC100D23C2B /* PheonixTests */,
+				A1EA3B452A6A1EC100D23C2B /* PheonixUITests */,
+				A1EA3B432A6A1ACA00D23C2B /* TestPlan.xctestplan */,
 				A1F69E9E2A511B1600480362 /* AppDelegate.swift */,
 				A18E405F2A65B965003D79AD /* main.swift */,
 				A184CE552A522AFD008FAEC3 /* SceneDelegate.swift */,
@@ -398,6 +410,7 @@
 			isa = PBXGroup;
 			children = (
 				A1EC50202A537463000E900B /* Keyboard.xib */,
+				A11B35522A6B13D5001ACCA6 /* IMG_6989.jpg */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -484,6 +497,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1EA3B492A6A1EC100D23C2B /* PheonixUITests in Resources */,
+				A1EA3B472A6A1EC100D23C2B /* PheonixTests in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,7 +506,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1EA3B482A6A1EC100D23C2B /* PheonixUITests in Resources */,
 				A101257A2A573D35005C1E12 /* info.plist in Resources */,
+				A11B35532A6B13D5001ACCA6 /* IMG_6989.jpg in Resources */,
+				A1EA3B462A6A1EC100D23C2B /* PheonixTests in Resources */,
 				A174831A2A51017100978F0A /* Preview Assets.xcassets in Resources */,
 				A17483172A51017100978F0A /* Assets.xcassets in Resources */,
 				A1EC50212A537463000E900B /* Keyboard.xib in Resources */,
@@ -637,7 +655,7 @@
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = "";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -668,7 +686,7 @@
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = "";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -741,7 +759,7 @@
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_KEY_CFBundleDisplayName = Pheonix;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
@@ -802,7 +820,7 @@
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_KEY_CFBundleDisplayName = Pheonix;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
@@ -830,7 +848,7 @@
 				DONT_GENERATE_INFOPLIST_FILE = NO;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				ENABLE_PREVIEWS = YES;
-				ENABLE_TESTABILITY = NO;
+				ENABLE_TESTABILITY = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Pheonix/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Pheonix;
@@ -885,6 +903,7 @@
 				DONT_GENERATE_INFOPLIST_FILE = NO;
 				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_TESTABILITY = NO;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = Pheonix/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Pheonix;
