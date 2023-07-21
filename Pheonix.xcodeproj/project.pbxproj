@@ -862,9 +862,9 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = Keyboard.xib;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				INFOPLIST_PREPROCESS = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -917,9 +917,9 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = Keyboard.xib;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = armv7;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
 				INFOPLIST_PREPROCESS = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
