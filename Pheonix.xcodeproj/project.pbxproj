@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A101257A2A573D35005C1E12 /* info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A10125792A573D35005C1E12 /* info.plist */; };
 		A11B35532A6B13D5001ACCA6 /* IMG_6989.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A11B35522A6B13D5001ACCA6 /* IMG_6989.jpg */; };
+		A1619A5B2A6C6F0E00F3C1B8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A1619A5A2A6C6F0E00F3C1B8 /* README.md */; };
+		A1619A5C2A6C6F0E00F3C1B8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A1619A5A2A6C6F0E00F3C1B8 /* README.md */; };
 		A16A71282A63E5E700F8EA60 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA22A511D7700480362 /* Keyboard.swift */; };
 		A16A71292A63E5F000F8EA60 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA02A511D4100480362 /* KeyboardView.swift */; };
 		A16A712A2A63E5FC00F8EA60 /* KeyboardViewDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C70CD42A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift */; };
@@ -140,6 +142,10 @@
 		A11153BF2A5E987B00524D65 /* SwipeToTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToTypeView.swift; sourceTree = "<group>"; };
 		A11B35522A6B13D5001ACCA6 /* IMG_6989.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_6989.jpg; sourceTree = "<group>"; };
 		A14D69992A54B2AB00D67BFC /* CalibrationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationDelegate.swift; sourceTree = "<group>"; };
+		A1619A572A6C62CC00F3C1B8 /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = info.plist; sourceTree = "<group>"; };
+		A1619A582A6C69E000F3C1B8 /* convert_to_txt.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = convert_to_txt.sh; sourceTree = "<group>"; };
+		A1619A592A6C6EDF00F3C1B8 /* readme.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
+		A1619A5A2A6C6F0E00F3C1B8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		A16A711C2A63E44B00F8EA60 /* PheonixKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PheonixKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A16A71202A63E44B00F8EA60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A16CE4E62A546E6E006C75EF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -270,6 +276,10 @@
 		A17483062A51016F00978F0A = {
 			isa = PBXGroup;
 			children = (
+				A1619A5A2A6C6F0E00F3C1B8 /* README.md */,
+				A1619A592A6C6EDF00F3C1B8 /* readme.txt */,
+				A1619A582A6C69E000F3C1B8 /* convert_to_txt.sh */,
+				A1619A572A6C62CC00F3C1B8 /* info.plist */,
 				A1EA3B442A6A1EC100D23C2B /* PheonixTests */,
 				A1EA3B452A6A1EC100D23C2B /* PheonixUITests */,
 				A1EA3B432A6A1ACA00D23C2B /* TestPlan.xctestplan */,
@@ -497,6 +507,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1619A5C2A6C6F0E00F3C1B8 /* README.md in Resources */,
 				A1EA3B492A6A1EC100D23C2B /* PheonixUITests in Resources */,
 				A1EA3B472A6A1EC100D23C2B /* PheonixTests in Resources */,
 			);
@@ -512,6 +523,7 @@
 				A1EA3B462A6A1EC100D23C2B /* PheonixTests in Resources */,
 				A174831A2A51017100978F0A /* Preview Assets.xcassets in Resources */,
 				A17483172A51017100978F0A /* Assets.xcassets in Resources */,
+				A1619A5B2A6C6F0E00F3C1B8 /* README.md in Resources */,
 				A1EC50212A537463000E900B /* Keyboard.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -666,6 +678,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Cuptastrophe.Pheonix.PheonixKeyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -697,6 +713,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Cuptastrophe.Pheonix.PheonixKeyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -881,6 +901,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Cuptastrophe.Pheonix;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -936,6 +960,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Cuptastrophe.Pheonix;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

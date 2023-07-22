@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
-#  convert_to_txt.sh
-#  Pheonix
-#
-#  Created by Justin Fortier on 7/22/23.
-#  
+# Create a new folder for the converted files
+mkdir -p ConvertedSwiftFiles
+
+# Find all Swift files and copy them to the new folder with .txt extension
+find . -name "*.swift" -exec sh -c 'file="{}"; output="ConvertedSwiftFiles/$(basename "$file" .swift).txt"; cp "$file" "$output"' \;
