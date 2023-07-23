@@ -1,0 +1,121 @@
+Pheonix Tree
+
+|____.DS_Store
+|____PheonixUITests
+| |____KeyboardUITests.swift
+|____Pheonix.xcodeproj
+| |____project.pbxproj
+| |____xcuserdata
+| | |____justinfortier.xcuserdatad
+| | | |____xcdebugger
+| | | | |____Breakpoints_v2.xcbkptlist
+| | | |____xcschemes
+| | | | |____xcschememanagement.plist
+| |____project.xcworkspace
+| | |____contents.xcworkspacedata
+| | |____xcuserdata
+| | | |____justinfortier.xcuserdatad
+| | | | |____WorkspaceSettings.xcsettings
+| | | | |____UserInterfaceState.xcuserstate
+| | |____xcshareddata
+| | | |____IDEWorkspaceChecks.plist
+| | | |____WorkspaceSettings.xcsettings
+| | | |____swiftpm
+| | | | |____configuration
+|____Models
+| |____AppState.swift
+| |____KeyboardKey.swift
+| |____Language.swift
+| |____EyeState.swift
+| |____.DS_Store
+| |____PredictiveTextViewModel.swift
+| |____TextEntryViewModel.swift
+| |____Key.swift
+| |____KeyboardViewModel.swift
+| |____TextEntryError.swift
+| |____DynamicCalibrationModel.swift
+| |____CalibrationResult.swift
+| |____KeyboardLayoutStyle.swift
+| |____KeyboardLayout.swift
+|____README.md
+|____Delegates
+| |____KeyboardViewDelegateWrapper.swift
+| |____EyeTrackerDelegate.swift
+| |____CalibrationDelegate.swift
+| |____WordSuggestionDelegate.swift
+| |____.DS_Store
+| |____BlinkGestureHandlerDelegate.swift
+| |____GazeCalibrationDeligate.swift
+| |____SpellingIndicatorDelegateWrapper.swift
+| |____KeyboardViewDelegate.swift
+| |____KeyboardInteractionDelegate.swift
+| |____GazeDetectionDelegate.swift
+| |____GestureRecognitionDelegate.swift
+| |____WordSugestionDelegateWrapper.swift
+| |____SceneDelegate.swift
+| |____SwipeToTypeControllerDelegate.swift
+|____Pheonix
+| |____.DS_Store
+| |____Resources
+| | |____Keyboard.xib
+| |____Preview Content
+| | |____Preview Assets.xcassets
+| | | |____Contents.json
+| |____Supporting Files
+| | |____Assets.xcassets
+| | | |____AppIcon.appiconset
+| | | | |____IMG_6989.jpg
+| | | | |____Contents.json
+| | | |____AccentColor.colorset
+| | | | |____Contents.json
+| | | |____Contents.json
+| |____info.plist
+|____PheonixKeyboard
+| |____.DS_Store
+| |____KeyboardView.swift
+| |____Keyboard.swift
+| |____Controllers
+| | |____.DS_Store
+| | |____EyeTrackingController.swift
+| | |____KeyboardViewController.swift
+| | |____SwipeToTypeController.swift
+| | |____EyeGazeViewController.swift
+| | |____AppDelegate.swift
+| |____Views
+| | |____CalibrationView.swift
+| | |____KeyboardKey.swift
+| | |____CalibrationProgressView.swift
+| | |____PredictiveTextView.swift
+| | |____SettingsView.swift
+| | |____.DS_Store
+| | |____DynamicCalibrationView.swift
+| | |____TextEntryView.swift
+| | |____LanguagePickerView.swift
+| | |____SwipeToTypeView.swift
+| | |____ContentView.swift
+| |____Info.plist
+|____main.swift
+|____PheonixTests
+| |____EyeTrackerTests.swift
+| |____TextEntryTests.swift
+| |____DynamicCalibrationTests.swift
+| |____GazeDetectionTests.swift
+| |____WordSuggestionTests.swift
+| |____GestureRecognitionTests.swift
+| |____KeyboardInteractionTests.swift
+| |____BlinkGestureHandlerTests.swift
+| |____SwipeToTypeControllerTests.swift
+|____Services
+| |____DynamicCalibration.swift
+| |____WordSuggestion.swift
+| |____.DS_Store
+| |____KeyboardInteraction.swift
+| |____DependencyInjection.swift
+| |____GestureRecognizer.swift
+| |____TextEntry.swift
+| |____GazeDetection.swift
+| |____Settings.swift
+| |____EyeTracker.swift
+| |____PredictiveTextServerice.swift
+| |____TextEntryService.swift
+| |____BlinkGestureHandler.swift
