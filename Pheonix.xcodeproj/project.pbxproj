@@ -110,6 +110,8 @@
 		A1AB86182A5B6B4B0084F93C /* TextEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB86172A5B6B4B0084F93C /* TextEntryViewModel.swift */; };
 		A1AB861E2A5B6C4B0084F93C /* PredictiveTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB861D2A5B6C4B0084F93C /* PredictiveTextViewModel.swift */; };
 		A1AB86202A5B6C9C0084F93C /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB861F2A5B6C9C0084F93C /* AppState.swift */; };
+		A1D3A4072A7419BD001D5C42 /* EyeMovementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D3A4062A7419BD001D5C42 /* EyeMovementMonitor.swift */; };
+		A1D3A4082A7419BD001D5C42 /* EyeMovementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D3A4062A7419BD001D5C42 /* EyeMovementMonitor.swift */; };
 		A1EA3B462A6A1EC100D23C2B /* PheonixTests in Resources */ = {isa = PBXBuildFile; fileRef = A1EA3B442A6A1EC100D23C2B /* PheonixTests */; };
 		A1EA3B472A6A1EC100D23C2B /* PheonixTests in Resources */ = {isa = PBXBuildFile; fileRef = A1EA3B442A6A1EC100D23C2B /* PheonixTests */; };
 		A1EA3B482A6A1EC100D23C2B /* PheonixUITests in Resources */ = {isa = PBXBuildFile; fileRef = A1EA3B452A6A1EC100D23C2B /* PheonixUITests */; };
@@ -143,8 +145,6 @@
 		A11B35522A6B13D5001ACCA6 /* IMG_6989.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_6989.jpg; sourceTree = "<group>"; };
 		A14D69992A54B2AB00D67BFC /* CalibrationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationDelegate.swift; sourceTree = "<group>"; };
 		A1619A572A6C62CC00F3C1B8 /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = info.plist; sourceTree = "<group>"; };
-		A1619A582A6C69E000F3C1B8 /* convert_to_txt.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = convert_to_txt.sh; sourceTree = "<group>"; };
-		A1619A592A6C6EDF00F3C1B8 /* readme.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
 		A1619A5A2A6C6F0E00F3C1B8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		A16A711C2A63E44B00F8EA60 /* PheonixKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PheonixKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A16A71202A63E44B00F8EA60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -197,6 +197,7 @@
 		A1AB861F2A5B6C9C0084F93C /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		A1C70CD42A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewDelegateWrapper.swift; sourceTree = "<group>"; };
 		A1C70CD82A5CBC9200D8F9E3 /* SwipeToTypeControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToTypeControllerDelegate.swift; sourceTree = "<group>"; };
+		A1D3A4062A7419BD001D5C42 /* EyeMovementMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeMovementMonitor.swift; sourceTree = "<group>"; };
 		A1EA3B432A6A1ACA00D23C2B /* TestPlan.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TestPlan.xctestplan; sourceTree = "<group>"; };
 		A1EA3B442A6A1EC100D23C2B /* PheonixTests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PheonixTests; sourceTree = "<group>"; };
 		A1EA3B452A6A1EC100D23C2B /* PheonixUITests */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PheonixUITests; sourceTree = "<group>"; };
@@ -277,8 +278,6 @@
 			isa = PBXGroup;
 			children = (
 				A1619A5A2A6C6F0E00F3C1B8 /* README.md */,
-				A1619A592A6C6EDF00F3C1B8 /* readme.txt */,
-				A1619A582A6C69E000F3C1B8 /* convert_to_txt.sh */,
 				A1619A572A6C62CC00F3C1B8 /* info.plist */,
 				A1EA3B442A6A1EC100D23C2B /* PheonixTests */,
 				A1EA3B452A6A1EC100D23C2B /* PheonixUITests */,
@@ -366,6 +365,7 @@
 				A1AB861D2A5B6C4B0084F93C /* PredictiveTextViewModel.swift */,
 				A1AB86172A5B6B4B0084F93C /* TextEntryViewModel.swift */,
 				A18547B12A637078005E179F /* TextEntryError.swift */,
+				A1D3A4062A7419BD001D5C42 /* EyeMovementMonitor.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -572,6 +572,7 @@
 				A16A71432A63EC8400F8EA60 /* DynamicCalibration.swift in Sources */,
 				A16A71712A63F04E00F8EA60 /* Language.swift in Sources */,
 				A16A713B2A63EC5300F8EA60 /* KeyboardViewController.swift in Sources */,
+				A1D3A4082A7419BD001D5C42 /* EyeMovementMonitor.swift in Sources */,
 				A1F721F52A648DBD007966A1 /* TextEntryView.swift in Sources */,
 				A16A71442A63EC8400F8EA60 /* GazeDetection.swift in Sources */,
 				A16A716E2A63F04E00F8EA60 /* KeyboardLayoutStyle.swift in Sources */,
@@ -630,6 +631,7 @@
 				A18E406F2A65BA74003D79AD /* SettingsView.swift in Sources */,
 				A18E40602A65B965003D79AD /* main.swift in Sources */,
 				A18E40702A65BA74003D79AD /* TextEntryView.swift in Sources */,
+				A1D3A4072A7419BD001D5C42 /* EyeMovementMonitor.swift in Sources */,
 				A18E40742A65BA74003D79AD /* DynamicCalibrationView.swift in Sources */,
 				A184CE442A5227E0008FAEC3 /* DynamicCalibrationModel.swift in Sources */,
 				A16A71812A63F05800F8EA60 /* WordSuggestion.swift in Sources */,
@@ -782,7 +784,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = Cuptastrophe.Pheonix;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
