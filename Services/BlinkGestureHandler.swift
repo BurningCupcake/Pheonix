@@ -1,17 +1,5 @@
 import Foundation
 
-// Protocol that should be adhered to by a class which uses BlinkGestureHandler to manage blink gestures
-protocol BlinkGestureHandlerDelegate: AnyObject {
-    // Method called whenever a blink gesture is detected
-    func didDetectBlink()
-}
-
-// Enum representing the states an eye can be in
-enum EyeState {
-    case open
-    case closed
-}
-
 // Class responsible for handling blink gestures
 class BlinkGestureHandler {
     // Delegate reference, sends a notification when a blink is detected
