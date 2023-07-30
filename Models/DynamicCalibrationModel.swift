@@ -10,7 +10,7 @@ class DynamicCalibrationModel: ObservableObject {
     
     // This private variable is used to keep track of whether calibration is in progress to avoid unnecessary or multiple executions of the process.
     private var isCalibrationInProgress = false
-
+    
     // This function is used to start the calibration process, checks if calibration is already in progress.
     func startCalibration() {
         guard !isCalibrationInProgress else { return }
@@ -21,13 +21,13 @@ class DynamicCalibrationModel: ObservableObject {
             self?.isCalibrationInProgress = false
         }
     }
-
-     // Helper function that handles operations after data collection. 
+    
+    // Helper function that handles operations after data collection.
     private func callAfterDataCollection() {
         guard let result = calculateCalibrationResult() else { return }
         applyCalibrationResult(result)
     }
-        
+    
     // This function simulates the data collection for calibration.
     private func simulateCalibrationDataCollection(_ completion: @escaping () -> Void) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
@@ -35,21 +35,17 @@ class DynamicCalibrationModel: ObservableObject {
             completion()
         }
     }
-
+    
     // This function calculates the calibration result and returns a CalibrationResult object if points are enough.
     private func calculateCalibrationResult() -> CalibrationResult? {
         guard calibrationPoints.count >= 3 else { return nil }
         return CalibrationResult(calibrationPoints: calibrationPoints)
     }
-
+    
     // Applies the derived calibration result.
     private func applyCalibrationResult(_ result: CalibrationResult) {
         print("Applying calibration result: \(result)")
     }
 }
 
-// Assuming a CalibrationResult model
-// This model represents the calibration result.
-struct CalibrationResult {
-    let calibrationPoints: [CGPoint]
-}
+
