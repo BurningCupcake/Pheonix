@@ -86,7 +86,13 @@ class KeyboardViewController: UIInputViewController, CalibrationDelegate {
         let proxy = textDocumentProxy
         proxy.insertText(keyTitle)
     }
-    
+   func handleKey(key: Key) {
+    if key.isCharacter {
+        // Existing implementation
+    } else {
+        // Handle non-character keys
+    }
+} 
     // Empty function to manage input mode list.
     @objc func handleInputModeList(from view: UIInputView?, with event: UIEvent) {}
     
