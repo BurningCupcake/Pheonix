@@ -1,66 +1,72 @@
+// UIKit, ARKit, simd and CoreGraphics Libraries imported
+import UIKit
 import ARKit
-import CoreGraphics
+import simd
+import CoreGraphics 
 
-
-
+// EyeTracker class that inherits from NSObject and implements ARSession's delegate
 class EyeTracker: NSObject, ARSessionDelegate {
-    weak var delegate: EyeTrackerDelegate?
-    private var session: ARSession?
     
+    // Delegate of EyeTracker
+    weak var delegate: EyeTrackerDelegate?
+    
+    // ARSession which manages motion tracking and camera processing interactions needed for AR
+    private var session: ARSession?
+
+    // Starts the process of tracking the eye movements
     func startTracking() {
+        
+        // Check if Face Tracking is supported on the device
         guard ARFaceTrackingConfiguration.isSupported else {
-            // Face tracking is not supported on this device
+            // If not supported, delegate is notified with failure
+            delegate?.eyeTrackerDidFailToStart(self)
             return
         }
-        
+
+        // Start ARFaceTrackingConfiguration if supported
         let configuration = ARFaceTrackingConfiguration()
         session = ARSession()
         session?.delegate = self
         session?.run(configuration, options: [])
     }
-    
+
+    // Function to stop the process of tracking the eye movements
     func stopTracking() {
         session?.pause()
     }
-    
+
     // MARK: - ARSessionDelegate
-    
-    func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
-        guard let faceAnchor = anchors.compactMap({ $0 as? ARFaceAnchor }).first else {
+
+    // ARSession's delegate method which runs every time session's frame is updated
+    func session(_ session: ARSession, didUpdate frame: ARFrame) {
+        // Check if there's a face anchor in the frame
+        guard let faceAnchor = frame.anchors.compactMap({ $0 as? ARFaceAnchor }).first else {
             return
         }
-        
-        // Perform additional eye tracking logic using faceAnchor
-        
-        // Extract eye tracking data, such as eye positions or gaze direction
-        let leftEyePosition = faceAnchor.leftEyeTransform.columns.3
-        let rightEyePosition = faceAnchor.rightEyeTransform.columns.3
-        
-        // Calculate gaze point based on eye positions
+        // Calculate transformations for eyes
+        let leftEyeTransform = faceAnchor.transform * faceAnchor.leftEyeTransform
+        let rightEyeTransform = faceAnchor.transform * faceAnchor.rightEyeTransform
+
+        // Get the 3D position of the eyes from transform matrices
+        let leftEyePosition = simd_make_float3(leftEyeTransform.columns.3)
+        let rightEyePosition = simd_make_float3(rightEyeTransform.columns.3)
+
+        // Calculate the actual gaze point of the eyes
         let gazePoint = calculateGazePoint(leftEyePosition: leftEyePosition, rightEyePosition: rightEyePosition)
         
-        // Pass the calculated gaze point to the delegate
-        delegate?.eyeTracker(self, didTrackGazePoint: gazePoint)
+        // Notify delegate about update in gaze point
+        self.delegate?.eyeTracker(self, didTrackGazePoint: gazePoint)
     }
-    
+
+    // Function which runs when there's an error within ARSession
     func session(_ session: ARSession, didFailWithError error: Error) {
-        // Handle the AR session failure here
-        // You can implement custom error handling logic based on the error provided
         print("AR session failed with error: \(error)")
     }
-    
-    // MARK: - Gaze Point Calculation
-    
-    private func calculateGazePoint(leftEyePosition: simd_float4, rightEyePosition: simd_float4) -> CGPoint {
-        // Calculate the gaze point based on the eye positions
-        // Implement your gaze point calculation logic here
-        
-        // Example implementation: Average the left and right eye positions
+
+    // Function to calculate center point between the positions of left and right eyes
+    private func calculateGazePoint(leftEyePosition: simd_float3, rightEyePosition: simd_float3) -> CGPoint {
         let averageEyePosition = (leftEyePosition + rightEyePosition) / 2
-        
-        // Convert the average eye position to screen coordinates
-        let gazePoint = CGPoint(x: CGFloat(averageEyePosition.x), y: CGFloat(averageEyePosition.y))
-        
-        return gazePoint
+        // create CGPoint from average position values
+        return CGPoint(x: CGFloat(averageEyePosition.x), y: CGFloat(averageEyePosition.y))
     }
 }

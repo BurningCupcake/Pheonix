@@ -1,26 +1,23 @@
-//The TextEntry class provides methods to manipulate the current text. The currentText property is used to store the current text value and is accessible through a private setter.
-
-//The appendText method appends the given text to the current text value. It modifies the currentText string by appending the provided text.
-
-//The deleteLastCharacter method removes the last character from the currentText string. It uses the popLast() method to remove and return the last character of the string.
-
-//The clearText method resets the currentText value to an empty string.
-
-//These methods allow manipulating the current text entry by appending text, deleting the last character, or clearing the entire text.
-
 import Foundation
 
+// TextEntry class that handles operations on a piece of text
 class TextEntry {
+    // A string that represents the current state of the text
     private(set) var currentText: String = ""
     
+    // Method that appends additional text to the current text
     func appendText(_ text: String) {
-        currentText.append(text)
+        currentText.append(contentsOf: text)
     }
     
+    // Method that deletes the last character from the current text
     func deleteLastCharacter() {
-        _ = currentText.popLast()
+        if !currentText.isEmpty {
+            currentText.removeLast()
+        }
     }
     
+    // Method that clears the current text
     func clearText() {
         currentText = ""
     }

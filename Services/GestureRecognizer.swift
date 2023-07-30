@@ -1,10 +1,12 @@
+import Foundation
+
+// Updated Gesture Recruiter
 class GestureRecognizer {
+    // This reference can be `weak`, because it's usually better to prevent strong reference cycles
     weak var delegate: GestureRecognitionDelegate?
-    
-    func recognizeGesture() {
-        // Recognize the gesture...
-        
-        // If a blink gesture is recognized, notify the delegate
-        delegate?.gestureRecognizer(self, didRecognizeGesture: .blink)
+
+    func recognize(_ gestureType: GestureType) {
+        // Call the delegate method if any gesture is recognized
+        delegate?.gestureRecognizer(self, didRecognizeGesture: gestureType)
     }
 }

@@ -1,34 +1,24 @@
-//The TextEntryViewModel class is responsible for managing the text entry state and interacting with the TextEntryService.
-
-//Here's a breakdown of the key components:
-
-//textEntryState: An @Published property that represents the current state of the text entry. It's initially set to an instance of TextEntryState with an empty text.
-//textEntryService: An instance of the TextEntryService class, which handles the logic for text entry operations.
-//textEntryStateCancellable: An AnyCancellable object that represents the subscription to the textEntryStatePublisher of the TextEntryService. It assigns the received state to the textEntryState property whenever a new state is published.
-//init(textEntryService:): The initializer of the view model. It takes an instance of TextEntryService as a parameter and sets up the initial state and the subscription to the textEntryStatePublisher using the assign(to:on:) method.
-//addCharacter(_:): A method used to add a character to the text entry. It calls the addCharacter(_:) method of the TextEntryService and handles the result. If the operation is successful, it returns the updated text entry state wrapped in a Result.success case. If there's an error, it returns the error wrapped in a Result.failure case.
-//deleteLastCharacter(): A method used to delete the last character from the text entry. It calls the deleteLastCharacter() method of the TextEntryService.
-//By using the TextEntryViewModel and its textEntryState property, you can observe and retrieve the current state of the text entry in your SwiftUI views. The view model interacts with the TextEntryService to perform text entry operations and update the state accordingly.
-
 import Foundation
 import Combine
 
+// TextEntryViewModel class declaration, which conforms to ObservableObject protocol for SwiftUI View updations
 class TextEntryViewModel: ObservableObject {
-    @Published var textEntryState: TextEntryState
+    @Published var textEntryState: TextEntryState  // Published property for observing changes in textEntryState
     
-    private let textEntryService: TextEntryService
-    private var textEntryStateCancellable: AnyCancellable?
+    private let textEntryService: TextEntryService // A service responsible for handling text entry related operations
+    private var textEntryStateCancellable: AnyCancellable? // Holds the cancellation token for the publisher subscription
     
+    // Initializer for initializing TextEntryService and textEntryState; also establishes bindings to service publisher
     init(textEntryService: TextEntryService) {
         self.textEntryService = textEntryService
         self.textEntryState = TextEntryState(text: "")
         
-        textEntryStateCancellable = textEntryService.textEntryStatePublisher
+        // Assign the textEntryStatePublisher's output to the textEntryState variable with the 'assign(to:on:)' method
+        textEntryService.textEntryStatePublisher
             .assign(to: \.textEntryState, on: self)
-        
-        // Additional setup or subscriptions if needed
     }
     
+    // Function to add a character in text, handles the success/failure cases from the service and returns the result
     func addCharacter(_ character: String) -> Result<TextEntryState, TextEntryError> {
         let result = textEntryService.addCharacter(character)
         switch result {
@@ -39,6 +29,7 @@ class TextEntryViewModel: ObservableObject {
         }
     }
     
+    // function to delete the last character from the text using the textEntryService
     func deleteLastCharacter() {
         textEntryService.deleteLastCharacter()
     }

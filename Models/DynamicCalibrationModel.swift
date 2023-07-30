@@ -1,63 +1,55 @@
-private var calibrationSubscription: AnyCancellable?
+// Importing required Apple frameworks
+import Combine
+import SwiftUI
 
-func startCalibration() {
-    guard !isCalibrationInProgress else {
-        return
-    }
+// This class represents a view model for dynamic calibration, conforming to Swift's ObservableObject protocol for handling data that can be observed.
+class DynamicCalibrationModel: ObservableObject {
     
-    isCalibrationInProgress = true
+    // This variable represents an array of calibration points and can be monitored for changes using the @Published property wrapper.
+    @Published var calibrationPoints: [CGPoint] = []
     
-    showCalibrationVisualization()
-    simulateCalibrationDataCollection()
-    
-    calibrationSubscription = $calibrationPoints
-        .sink { [weak self] points in
-            guard let self = self else { return }
-            
-            let calibrationResult = self.calculateCalibrationResult(points: points)
-            if let result = calibrationResult {
-                self.applyCalibrationResult(result: result)
-            }
-            
-            self.isCalibrationInProgress = false
-        }
-}
+    // This private variable is used to keep track of whether calibration is in progress to avoid unnecessary or multiple executions of the process.
+    private var isCalibrationInProgress = false
 
-private func showCalibrationVisualization() {
-    // Show the captivating fractal visualization on the screen
-    // Customize this method based on your implementation
-    // Example implementation:
-    print("Showing calibration visualization")
-}
-
-private func simulateCalibrationDataCollection() {
-    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-        let simulatedPoints = [
-            CGPoint(x: 100, y: 100),
-            CGPoint(x: 200, y: 300),
-            CGPoint(x: 300, y: 200)
-        ]
+    // This function is used to start the calibration process, checks if calibration is already in progress.
+    func startCalibration() {
+        guard !isCalibrationInProgress else { return }
         
-        self.calibrationPoints = simulatedPoints
+        isCalibrationInProgress = true
+        simulateCalibrationDataCollection { [weak self] in
+            self?.callAfterDataCollection()
+            self?.isCalibrationInProgress = false
+        }
+    }
+
+     // Helper function that handles operations after data collection. 
+    private func callAfterDataCollection() {
+        guard let result = calculateCalibrationResult() else { return }
+        applyCalibrationResult(result)
+    }
+        
+    // This function simulates the data collection for calibration.
+    private func simulateCalibrationDataCollection(_ completion: @escaping () -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.calibrationPoints = [CGPoint(x: 100, y: 100), CGPoint(x: 200, y: 300), CGPoint(x: 300, y: 200)]
+            completion()
+        }
+    }
+
+    // This function calculates the calibration result and returns a CalibrationResult object if points are enough.
+    private func calculateCalibrationResult() -> CalibrationResult? {
+        guard calibrationPoints.count >= 3 else { return nil }
+        return CalibrationResult(calibrationPoints: calibrationPoints)
+    }
+
+    // Applies the derived calibration result.
+    private func applyCalibrationResult(_ result: CalibrationResult) {
+        print("Applying calibration result: \(result)")
     }
 }
 
-private func calculateCalibrationResult(points: [CGPoint]) -> CalibrationResult? {
-    guard points.count >= 3 else {
-        return nil
-    }
-    
-    // Perform the calibration calculation based on calibration points
-    // Return the calibration result
-    // Example implementation:
-    let result = CalibrationResult(calibrationPoints: points)
-    return result
-}
-
-private func applyCalibrationResult(result: CalibrationResult) {
-    // Apply the calibration result to the eye-tracking system
-    // Customize this method based on your implementation
-    // Example implementation:
-    print("Applying calibration result")
-}
+// Assuming a CalibrationResult model
+// This model represents the calibration result.
+struct CalibrationResult {
+    let calibrationPoints: [CGPoint]
 }

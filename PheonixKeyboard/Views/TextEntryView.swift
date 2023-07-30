@@ -1,24 +1,24 @@
-//This file defines a SwiftUI view called TextEntryView. Let's break down the implementation:
-
-//The TextEntryView struct is declared, conforming to the View protocol in SwiftUI.
-//It contains a single property:
-//viewModel: An ObservedObject that holds the TextEntryViewModel, responsible for managing the text entry state.
-//The body property describes the view's content using a TextField component.
-//The TextField displays a placeholder text of "Enter text" and binds its text value to viewModel.textEntryState.text.
-//When the user commits the text entry (e.g., by pressing the return key on the keyboard), the onCommit closure is triggered.
-//Inside the onCommit closure, the addCharacter(_:) function is called on the viewModel to handle the committed text. The provided empty string argument appears to be a placeholder and may be replaced with an appropriate value.
-//Overall, this file defines a SwiftUI view that presents a TextField for text entry. It binds the text input to the viewModel and triggers the appropriate action when the user commits the text entry.
-
+// Importing the SwiftUI module that provides the interface for building
+// UI components.
 import SwiftUI
 
+// Creating a SwiftUI View named `TextEntryView`.
 struct TextEntryView: View {
+    // Declaring a variable `viewModel` of type `TextEntryViewModel`. 
+    // This acts as the source of truth for the `TextEntryView` and updating 
+    // viewModel will cause the view to re-render.
     @ObservedObject var viewModel: TextEntryViewModel
     
+    // The declaration of the view hierarchy which will be displayed by SwiftUI.
     var body: some View {
+        // A TextField view is returned which takes an initial placeholder text
+        // "Enter text", and sets as its text binding to viewModel.textEntryState.text.
+        // The TextField view updates this value as the user types.
+        // The `onCommit` closure is called when the user presses the return 
+        // key on the keyboard. It runs the `addCharacter` function of the `viewModel` 
+        // passing the entered text as an argument.
         TextField("Enter text", text: $viewModel.textEntryState.text, onCommit: {
-            let _ = viewModel.addCharacter("")
+            let _ = viewModel.addCharacter(viewModel.textEntryState.text)
         })
     }
 }
-
-

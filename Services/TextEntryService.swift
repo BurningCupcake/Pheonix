@@ -12,7 +12,7 @@ class TextEntryService: WordSuggestionDelegate {
     private var textEntry: TextEntry
     private let wordSuggestion: WordSuggestion
     private let textChecker: UITextChecker
-    private var keyboardViewDelegateWrapper: KeyboardViewDelegateWrapper!
+    private var keyboardViewDelegateWrapper: KeyboardViewDelegateWrapper?
     
     init() {
         textEntry = TextEntry()
@@ -22,27 +22,28 @@ class TextEntryService: WordSuggestionDelegate {
     }
     
     func addCharacter(_ character: String, usingEyeGaze: Bool = false, gazePoint: CGPoint? = nil) -> Result<TextEntryState, TextEntryError> {
+        var characterToAdd = character
         if usingEyeGaze, let point = gazePoint {
             // Process character input based on eye gaze
-            guard let characterToAdd = processCharacterFromGazePoint(point) else {
+            guard let processedCharacter = processCharacterFromGazePoint(point) else {
                 return .failure(.invalidGazePoint)
             }
-            textEntry.appendText(characterToAdd)
-        } else {
-            textEntry.appendText(character)
+            characterToAdd = processedCharacter
         }
         
-        let updatedTextEntryState = TextEntryState(text: textEntry.currentText)
-        
-        if updatedTextEntryState.text.count > 10 {
+        if textEntry.currentText.count + characterToAdd.count > 10 {
             return .failure(.textTooLong)
         }
         
+        textEntry.appendText(characterToAdd)
+        
+        let updatedTextEntryState = TextEntryState(text: textEntry.currentText)
         textEntryStateSubject.send(updatedTextEntryState)
         return .success(updatedTextEntryState)
     }
     
     func deleteLastCharacter() {
+        guard !textEntry.currentText.isEmpty else { return }
         textEntry.deleteLastCharacter()
         
         let updatedTextEntryState = TextEntryState(text: textEntry.currentText)
@@ -130,13 +131,13 @@ class TextEntryService: WordSuggestionDelegate {
     // MARK: - Spelling Indicator Update
     
     private func updateSpellingIndicator(_ isSpellingCorrect: Bool) {
-        keyboardViewDelegateWrapper.spellingIndicator = isSpellingCorrect
-    }
-    
-    // MARK: - Word Suggestions Update
-    
-    private func updateWordSuggestions(_ suggestions: [String]) {
-        keyboardViewDelegateWrapper.wordSuggestions = suggestions
-    }
+   self.keyboardViewDelegateWrapper?.spellingIndicator = isSpellingCorrect
+}
+
+// MARK: - Word Suggestions Update
+
+private func updateWordSuggestions(_ suggestions: [String]) {
+   self.keyboardViewDelegateWrapper?.wordSuggestions = suggestions
+}   
 }
 
