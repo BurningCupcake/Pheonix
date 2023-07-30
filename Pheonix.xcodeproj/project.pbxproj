@@ -99,7 +99,6 @@
 		A18E406E2A65BA74003D79AD /* PredictiveTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE532A522AC2008FAEC3 /* PredictiveTextView.swift */; };
 		A18E406F2A65BA74003D79AD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11153BD2A5E985000524D65 /* SettingsView.swift */; };
 		A18E40702A65BA74003D79AD /* TextEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB86152A5B6B0E0084F93C /* TextEntryView.swift */; };
-		A18E40712A65BA74003D79AD /* CalibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11153B92A5E97EA00524D65 /* CalibrationView.swift */; };
 		A18E40722A65BA74003D79AD /* LanguagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11153BB2A5E981E00524D65 /* LanguagePickerView.swift */; };
 		A18E40732A65BA74003D79AD /* SwipeToTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11153BF2A5E987B00524D65 /* SwipeToTypeView.swift */; };
 		A18E40742A65BA74003D79AD /* DynamicCalibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE292A521BCC008FAEC3 /* DynamicCalibrationView.swift */; };
@@ -127,7 +126,6 @@
 		A1F721F42A648DBD007966A1 /* PredictiveTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE532A522AC2008FAEC3 /* PredictiveTextView.swift */; };
 		A1F721F52A648DBD007966A1 /* TextEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB86152A5B6B0E0084F93C /* TextEntryView.swift */; };
 		A1F721F62A648DBD007966A1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11153BD2A5E985000524D65 /* SettingsView.swift */; };
-		A1F721F72A648DBD007966A1 /* CalibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11153B92A5E97EA00524D65 /* CalibrationView.swift */; };
 		A1F721F82A648DBD007966A1 /* LanguagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11153BB2A5E981E00524D65 /* LanguagePickerView.swift */; };
 		A1F721F92A648DBD007966A1 /* CalibrationProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC50362A537815000E900B /* CalibrationProgressView.swift */; };
 		A1F721FA2A648DBD007966A1 /* DynamicCalibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE292A521BCC008FAEC3 /* DynamicCalibrationView.swift */; };
@@ -138,7 +136,6 @@
 
 /* Begin PBXFileReference section */
 		A10125792A573D35005C1E12 /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = info.plist; sourceTree = "<group>"; };
-		A11153B92A5E97EA00524D65 /* CalibrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationView.swift; sourceTree = "<group>"; };
 		A11153BB2A5E981E00524D65 /* LanguagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagePickerView.swift; sourceTree = "<group>"; };
 		A11153BD2A5E985000524D65 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A11153BF2A5E987B00524D65 /* SwipeToTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToTypeView.swift; sourceTree = "<group>"; };
@@ -400,7 +397,6 @@
 				A184CE292A521BCC008FAEC3 /* DynamicCalibrationView.swift */,
 				A184CE532A522AC2008FAEC3 /* PredictiveTextView.swift */,
 				A1AB86152A5B6B0E0084F93C /* TextEntryView.swift */,
-				A11153B92A5E97EA00524D65 /* CalibrationView.swift */,
 				A11153BB2A5E981E00524D65 /* LanguagePickerView.swift */,
 				A11153BD2A5E985000524D65 /* SettingsView.swift */,
 				A11153BF2A5E987B00524D65 /* SwipeToTypeView.swift */,
@@ -538,7 +534,6 @@
 				A16A71752A63F04E00F8EA60 /* TextEntryViewModel.swift in Sources */,
 				A16A71462A63EC8400F8EA60 /* Settings.swift in Sources */,
 				A16A71392A63EC5300F8EA60 /* EyeTrackingController.swift in Sources */,
-				A1F721F72A648DBD007966A1 /* CalibrationView.swift in Sources */,
 				A16A71412A63EC8400F8EA60 /* TextEntryService.swift in Sources */,
 				A16A712A2A63E5FC00F8EA60 /* KeyboardViewDelegateWrapper.swift in Sources */,
 				A16A71352A63EC4C00F8EA60 /* EyeTrackerDelegate.swift in Sources */,
@@ -644,7 +639,6 @@
 				A184CE262A521B91008FAEC3 /* Language.swift in Sources */,
 				A18E40782A65BFEC003D79AD /* Keyboard.swift in Sources */,
 				A1F721FE2A64A423007966A1 /* GestureRecognizer.swift in Sources */,
-				A18E40712A65BA74003D79AD /* CalibrationView.swift in Sources */,
 				A16A71792A63F05800F8EA60 /* KeyboardInteraction.swift in Sources */,
 				A18E405D2A65AF70003D79AD /* EyeTrackingController.swift in Sources */,
 				A1F69EAD2A520DEF00480362 /* KeyboardKey.swift in Sources */,
