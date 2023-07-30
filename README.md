@@ -52,23 +52,18 @@ The Eye-Tracking Keyboard represents a paradigm shift in text input, leveraging 
 
 While the current implementation of the Eye-Tracking Keyboard provides a robust and innovative text input system, there are several areas for potential improvement and future work:
 
-1. **Extension Files**: The current version of the project lacks certain extension files that are crucial for the functioning of the keyboard. These files need to be created and integrated into the project.
 
-2. **Code Refactoring**: Some parts of the codebase could benefit from refactoring to improve readability, maintainability, and performance. This includes adhering to best practices for Swift programming, improving function and variable naming, and optimizing algorithms and data structures.
+1. **Code Refactoring**: Some parts of the codebase could benefit from refactoring to improve readability, maintainability, and performance. This includes adhering to best practices for Swift programming, improving function and variable naming, and optimizing algorithms and data structures.
 
-3. **Testing**: The project could benefit from more comprehensive testing, including unit tests, integration tests, and end-to-end tests. This would help ensure the reliability and robustness of the keyboard.
+2. **Testing**: The project could benefit from more comprehensive testing, including unit tests, integration tests, and end-to-end tests. This would help ensure the reliability and robustness of the keyboard.
 
-4. **Documentation**: While the project has a good level of documentation, there is room for improvement. More detailed comments in the code, as well as more comprehensive technical documentation, would make the project easier to understand and maintain.
+3. **Documentation**: While the project has a good level of documentation, there is room for improvement. More detailed comments in the code, as well as more comprehensive technical documentation, would make the project easier to understand and maintain.
 
-5. **User Interface Improvements**: While the user interface of the keyboard is already intuitive and visually appealing, there is always room for improvement. User feedback could be used to make further refinements to the UI.
+4. **User Interface Improvements**: While the user interface of the keyboard is already intuitive and visually appealing, there is always room for improvement. User feedback could be used to make further refinements to the UI.
 
-6. **
+5. Performance Optimization**: The performance of the gaze tracking and word prediction algorithms could potentially be improved. This could involve optimizing the algorithms themselves, as well as improving the efficiency of the code.
 
-Performance Optimization**: The performance of the gaze tracking and word prediction algorithms could potentially be improved. This could involve optimizing the algorithms themselves, as well as improving the efficiency of the code.
-
-7. **Feature Expansion**: There are many potential features that could be added to the Eye-Tracking Keyboard in the future. This could include support for more languages, more customization options for the user interface, and additional input methods.
-
-By addressing these areas, the Eye-Tracking Keyboard can continue to evolve and improve, providing an even better user experience and setting new standards for gaze-based text input.
+Full Program File Tree:
 
 .
 ├── .DS_Store
