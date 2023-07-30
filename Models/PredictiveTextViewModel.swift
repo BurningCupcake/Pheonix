@@ -1,33 +1,30 @@
-//The PredictiveTextViewModel class is responsible for managing the predictive text state and interacting with the PredictiveTextService.
-
-//Here's a breakdown of the key components:
-
-//predictiveTextService: An instance of the PredictiveTextService class, which handles the logic for generating predictive text suggestions.
-//cancellables: A set of AnyCancellable objects used to manage the lifetime of subscriptions.
-//predictiveTextState: An @Published property that represents the current state of the predictive text suggestions. It's initially set to PredictiveTextState.empty, indicating no suggestions.
-//init(predictiveTextService:): The initializer of the view model. It takes an instance of PredictiveTextService as a parameter and sets up a subscription to the predictiveTextStatePublisher of the service. Whenever a new state is received, it updates the predictiveTextState property, triggering the @Published property wrapper to notify the subscribers (such as views).
-//updatePredictiveText(for:): A method used to update the predictive text based on the provided text. It calls the updatePredictiveText(for:) method of the PredictiveTextService, which performs the necessary calculations to generate new suggestions based on the given text.
-//By using the PredictiveTextViewModel and its predictiveTextState property, you can observe and retrieve the current state of the predictive text suggestions in your SwiftUI views. The view model interacts with the PredictiveTextService to update the suggestions based on user input or any other relevant triggers.
-
 import Foundation
 import Combine
 
+// PredictiveTextViewModel is a class that is used to bind the PredictiveTextState updatable data to the View. 
 class PredictiveTextViewModel: ObservableObject {
+    // An instance of the class/service that provides the text prediction capability.
     private let predictiveTextService: PredictiveTextService
+    // A collection of AnyCancellable instances that the PredictiveTextService instance produces.
     private var cancellables = Set<AnyCancellable>()
     
+    // Published property to propagate changes to the predictive text state to subscribed views.
     @Published var predictiveTextState: PredictiveTextState = PredictiveTextState.empty
     
+    // Constructor initializer accepting an instance of PredictiveTextService.
     init(predictiveTextService: PredictiveTextService) {
         self.predictiveTextService = predictiveTextService
         
+        // Subscribes and stores the subscriber to changes in the PredictiveTextService's PredictiveTextState for object updates.
         predictiveTextService.predictiveTextStatePublisher
             .sink { [weak self] state in
+                // Update the predictive text state whenever it changes in the PredictiveTextService.
                 self?.predictiveTextState = state
             }
-            .store(in: &cancellables)
+            .store(in: &cancellables) // Stores the AnyCancellable instance for potential cancellation later.
     }
     
+    // Method that updates the predictive text based on the input text.
     func updatePredictiveText(for text: String) {
         predictiveTextService.updatePredictiveText(for: text)
     }

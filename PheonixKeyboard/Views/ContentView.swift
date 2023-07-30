@@ -1,26 +1,15 @@
-//This file defines a SwiftUI view called ContentView that represents the main content view of the application. Let's break down the implementation:
-
-//The ContentView struct is declared, conforming to the View protocol in SwiftUI.
-//It contains several @State properties that represent the state of various UI elements and settings within the view.
-//The body property describes the view's content using a VStack.
-//Inside the VStack, it displays an image using the system name "globe" from the SF Symbols library.
-//The image is scaled to .large size and has the accent color applied to it.
-//Below the image, it displays a Text view with the content "Hello, world!".
-//The VStack is then padded using the .padding() modifier.
-//Lastly, the ContentView includes a struct ContentView_Previews for previewing the view.
-//Overall, this file defines the main content view of the application, which displays an image and a text. The specific UI elements and their appearance can be customized based on the state properties defined in the view.
-
 import SwiftUI
 
+// ContentView is the main struct that handles all the components in the SwiftUI project.
 struct ContentView: View {
+    // The following variables hold the state of the various view components and settings.
     @State private var text = ""
     @State private var isShowingDynamicCalibration = false
     @State private var isShowingSettings = false
     @State private var isShowingSwipeToType = false
-    @State private var isShowingKeyboard = true
     @State private var keyboardLayoutStyle = KeyboardLayoutStyle.en
-    @State private var language = Language.english
     @State private var currentSuggestions: [String] = []
+    @State private var language = Language.english
     @State private var isPredictiveTextEnabled = false
     @State private var isSwipeToTypeEnabled = false
     @State private var isDynamicCalibrationEnabled = false
@@ -37,19 +26,90 @@ struct ContentView: View {
     @State private var isDynamicCalibrationEnabledOnKeyboard = false
     @State private var isEyeTrackingEnabledOnKeyboard = false
     @State private var isBlinkingEnabledOnKeyboard = false
-    
-    var body: some View {
 
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+    
+    // This defines the content's view structure and logic
+    var body: some View {
+        NavigationView {
+            VStack {
+                // An image of a globe
+                Image(systemName: "globe")
+                    .imageScale(.large)
+                    .foregroundColor(.accentColor)
+                
+                // The keyboard component
+                KeyboardView(layout: keyboardLayoutStyle)
+                
+                // Toggle button for enabling/disabling settings.
+                Button(action: {
+                    self.isShowingSettings.toggle()
+                }) {
+                    Text("Settings")
+                }
+                .sheet(isPresented: $isShowingSettings) {
+                    SettingsView(isPredictiveTextEnabled: self.$isPredictiveTextEnabled,
+                                 isSwipeToTypeEnabled: self.$isSwipeToTypeEnabled,
+                                 isDynamicCalibrationEnabled: self.$isDynamicCalibrationEnabled,
+                                 keyboardLayoutStyle: self.$keyboardLayoutStyle,
+                                 language: self.$language)
+                }
+            }
+            .padding() // Add padding for all elements inside VStack
         }
-        .padding()
     }
 }
 
+// The KeyboardView struct handles the display of the keyboard on the screen
+struct KeyboardView: View {
+    var layout: KeyboardLayoutStyle
+    
+    var body: some View {
+        // Add your Keyboard layout view here.
+        Text("Keyboard layout: \(layout)")
+    }
+}
+
+// Language enum represents the different language options
+enum Language {
+    case english
+    // ... Add other languages here.
+}
+
+// KeyboardLayoutStyle enum represents the different keyboard styles
+enum KeyboardLayoutStyle {
+    case en
+    // ... Add other keyboard layout styles here.
+}
+
+// The SettingsView struct is responsible for the settings view
+struct SettingsView: View {
+    @Binding var isPredictiveTextEnabled: Bool
+    @Binding var isSwipeToTypeEnabled: Bool
+    @Binding var isDynamicCalibrationEnabled: Bool
+    @Binding var keyboardLayoutStyle: KeyboardLayoutStyle
+    @Binding var language: Language
+
+    var body: some View {
+        Form {
+            // Toggle for enabling/disabling predictive text
+            Toggle(isOn: $isPredictiveTextEnabled) {
+                Text("Predictive Text")
+            }
+            // Toggle for enabling/disabling swipe to type
+            Toggle(isOn: $isSwipeToTypeEnabled) {
+                Text("Swipe To Type")
+            }
+            // Toggle for enabling/disabling dynamic calibration
+            Toggle(isOn: $isDynamicCalibrationEnabled) {
+                Text("Dynamic Calibration")
+            }
+            // Add more options here.
+        }
+        .navigationBarTitle("Settings")
+    }
+}
+
+// ContentView_Previews is responsible for producing preview content
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

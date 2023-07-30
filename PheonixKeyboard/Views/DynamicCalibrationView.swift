@@ -1,69 +1,27 @@
-
 import SwiftUI
 
+// `CalibrationView` struct conforms to the `View` protocol to compose the dynamic user interface of the app.
 struct DynamicCalibrationView: View {
-    @Binding var isCalibrating: Bool
-    @State private var calibrationProgress: CGFloat = 0.0
+    // `@ObservedObject` property wrapper is used to subscribe to an observable object (`dynamicCalibrationModel`), 
+    // for the view updates when changes occur in that object.
+    @ObservedObject var dynamicCalibrationModel: DynamicCalibrationModel
     
+    // The `body` property returns some View that SwiftUI displays. 
     var body: some View {
+        // VStack combines views vertically.
         VStack {
-            Text("Dynamic Calibration View")
-                .font(.title)
-                .padding()
-            
-            // Display instructions or visual cues for calibration
-            Text("Move your eyes to the center of the circle")
-                .font(.headline)
-                .padding()
-            
-            Circle()
-                .trim(from: 0.0, to: calibrationProgress)
-                .stroke(Color.blue, lineWidth: 5)
-                .frame(width: 100, height: 100)
-                .rotationEffect(.degrees(-90))
-                .animation(.easeInOut, value: calibrationProgress)
-            
-            // Add logic to guide the user's eye movement during calibration
-            // Utilize eye tracking functionality to track the user's gaze
-            // Implement calculations or algorithms for calibration accuracy
-            // Provide visual and audio feedback to the user during calibration
-            
-            // Add a button to finish calibration and dismiss the view
-            Button(action: {
-                withAnimation {
-                    isCalibrating = false
-                }
-            }) {
-                Text("Finish Calibration")
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
+            // The `Text` view displays read-only text. It's showing the progress of calibration in percentage format.
+            Text("Calibration Progress: \(Int(dynamicCalibrationModel.calibrationPoints.count * 100))%")
+            // `ProgressView` shows the progress of a task over time.
+            ProgressView(value: Double(dynamicCalibrationModel.calibrationPoints.count))
+            // `Button` view represents a button that users can tap or click.
+            Button("Start Calibration") {
+                // Invoking `startCalibration()` method of the `dynamicCalibrationModel` when the button is tapped.
+                dynamicCalibrationModel.startCalibration()
             }
-        }
-        .padding()
-        .onAppear {
-            startCalibration()
-        }
-    }
-    
-    private func startCalibration() {
-        // Perform calibration logic here
-        // Update calibrationProgress based on the progress of calibration
-        
-        // Simulating the calibration progress with a timer
-        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
-            // Update the calibrationProgress based on the accuracy of the user's gaze
-            
-            // Simulated completion of calibration
-            if calibrationProgress >= 1.0 {
-                timer.invalidate()
-                withAnimation {
-                    isCalibrating = false
-                }
-            } else {
-                calibrationProgress += 0.1
-            }
+        }.onAppear {
+            // When this view appears on screen, `startCalibration()` method of the `dynamicCalibrationModel` is invoked
+            dynamicCalibrationModel.startCalibration()
         }
     }
 }

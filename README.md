@@ -69,3 +69,135 @@ Performance Optimization**: The performance of the gaze tracking and word predic
 7. **Feature Expansion**: There are many potential features that could be added to the Eye-Tracking Keyboard in the future. This could include support for more languages, more customization options for the user interface, and additional input methods.
 
 By addressing these areas, the Eye-Tracking Keyboard can continue to evolve and improve, providing an even better user experience and setting new standards for gaze-based text input.
+
+.
+├── .DS_Store
+├── PheonixUITests
+│   └── KeyboardUITests.swift
+├── Pheonix.xcodeproj
+│   ├── project.pbxproj
+│   ├── xcuserdata
+│   │   └── justinfortier.xcuserdatad
+│   │       ├── xcdebugger
+│   │       │   └── Breakpoints_v2.xcbkptlist
+│   │       └── xcschemes
+│   │           └── xcschememanagement.plist
+│   ├── project.xcworkspace
+│   │   ├── contents.xcworkspacedata
+│   │   ├── xcuserdata
+│   │   │   └── justinfortier.xcuserdatad
+│   │   │       ├── IDEFindNavigatorScopes.plist
+│   │   │       ├── WorkspaceSettings.xcsettings
+│   │   │       └── UserInterfaceState.xcuserstate
+│   │   └── xcshareddata
+│   │       ├── IDEWorkspaceChecks.plist
+│   │       ├── WorkspaceSettings.xcsettings
+│   │       └── swiftpm
+│   │           └── configuration
+│   └── xcshareddata
+│       └── xcschemes
+│           ├── PheonixKeyboard.xcscheme
+│           └── Pheonix.xcscheme
+├── Models
+│   ├── AppState.swift
+│   ├── KeyboardKey.swift
+│   ├── Language.swift
+│   ├── EyeState.swift
+│   ├── .DS_Store
+│   ├── PredictiveTextViewModel.swift
+│   ├── TextEntryViewModel.swift
+│   ├── Key.swift
+│   ├── KeyboardViewModel.swift
+│   ├── TextEntryError.swift
+│   ├── DynamicCalibrationModel.swift
+│   ├── CalibrationResult.swift
+│   ├── EyeMovementMonitor.swift
+│   ├── KeyboardLayoutStyle.swift
+│   └── KeyboardLayout.swift
+├── README.md
+├── convert_to_txt.sh
+├── TestPlan.xctestplan
+├── Pheonix
+│   ├── .DS_Store
+│   ├── Resources
+│   │   ├── Keyboard.xib
+│   │   └── IMG_6989.jpg
+│   ├── Preview Content
+│   │   └── Preview Assets.xcassets
+│   │       └── Contents.json
+│   ├── Supporting Files
+│   │   └── Assets.xcassets
+│   │       ├── AppIcon.appiconset
+│   │       │   ├── IMG_6989.jpg
+│   │       │   └── Contents.json
+│   │       ├── AccentColor.colorset
+│   │       │   └── Contents.json
+│   │       └── Contents.json
+│   └── info.plist
+├── AppDelegate.swift (missing)
+├── PheonixKeyboard
+│   ├── .DS_Store
+│   ├── Delegates
+│   │   ├── KeyboardViewDelegateWrapper.swift
+│   │   ├── EyeTrackerDelegate.swift
+│   │   ├── CalibrationDelegate.swift
+│   │   ├── WordSuggestionDelegate.swift
+│   │   ├── .DS_Store
+│   │   ├── BlinkGestureHandlerDelegate.swift
+│   │   ├── GazeCalibrationDeligate.swift
+│   │   ├── SpellingIndicatorDelegateWrapper.swift
+│   │   ├── KeyboardViewDelegate.swift
+│   │   ├── KeyboardInteractionDelegate.swift
+│   │   ├── GazeDetectionDelegate.swift
+│   │   ├── GestureRecognitionDelegate.swift
+│   │   ├── WordSugestionDelegateWrapper.swift
+│   │   └── SwipeToTypeControllerDelegate.swift
+│   ├── Controllers
+│   │   ├── .DS_Store
+│   │   ├── EyeTrackingController.swift
+│   │   ├── KeyboardViewController.swift
+│   │   ├── SwipeToTypeController.swift
+│   │   └── EyeGazeViewController.swift
+│   ├── Views
+│   │   ├── CalibrationView.swift
+│   │   ├── KeyboardKey.swift
+│   │   ├── CalibrationProgressView.swift
+│   │   ├── PredictiveTextView.swift
+│   │   ├── SettingsView.swift
+│   │   ├── .DS_Store
+│   │   ├── DynamicCalibrationView.swift
+│   │   ├── TextEntryView.swift
+│   │   ├── KeyboardView.swift
+│   │   ├── Keyboard.swift
+│   │   ├── LanguagePickerView.swift
+│   │   ├── SwipeToTypeView.swift
+│   │   └── ContentView.swift
+│   └── Info.plist
+├── Iphone.mobileprovision
+├── main.swift
+├── PheonixTests
+│   ├── EyeTrackerTests.swift
+│   ├── TextEntryTests.swift
+│   ├── DynamicCalibrationTests.swift
+│   ├── GazeDetectionTests.swift
+│   ├── WordSuggestionTests.swift
+│   ├── GestureRecognitionTests.swift
+│   ├── KeyboardInteractionTests.swift
+│   ├── BlinkGestureHandlerTests.swift
+│   └── SwipeToTypeControllerTests.swift
+├── info.plist
+├── Services
+│   ├── DynamicCalibration.swift
+│   ├── WordSuggestion.swift
+│   ├── .DS_Store
+│   ├── KeyboardInteraction.swift
+│   ├── DependencyInjection.swift
+│   ├── GestureRecognizer.swift
+│   ├── TextEntry.swift
+│   ├── GazeDetection.swift
+│   ├── Settings.swift
+│   ├── EyeTracker.swift
+│   ├── PredictiveTextServerice.swift
+│   ├── TextEntryService.swift
+│   └── BlinkGestureHandler.swift
+└── SceneDelegate.swift

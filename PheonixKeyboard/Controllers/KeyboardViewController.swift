@@ -1,98 +1,96 @@
+// Import the necessary UIKit library.
 import UIKit
 
-class KeyboardViewController: UIInputViewController {
+// Define a custom class for a keyboard view controller, inheriting from UIInputViewController and conforming to the CalibrationDelegate protocol.
+class KeyboardViewController: UIInputViewController, CalibrationDelegate {
     
+    // Create definable variable `nextKeyboardButton` of type UIButton.
+    // Create a private variable `dynamicCalibration` specifically for dynamic calibration functionality.
+    // Define a constant string for keyboard keys.
     @IBOutlet var nextKeyboardButton: UIButton!
-    private let dynamicCalibration = DynamicCalibration.create()
-    
-    override func updateViewConstraints() {
-        super.updateViewConstraints()
-        
-        // Add custom view sizing constraints here
-    }
-    
+    private var dynamicCalibration: DynamicCalibration?
+    let keyboardKeys = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+    // Override viewDidLoad to customize initial view conditions.
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Perform custom UI setup here
+        // Define the properties of the next keyboard button.
         self.nextKeyboardButton = UIButton(type: .system)
-        
+        // Set title for the next keyboard button.
         self.nextKeyboardButton.setTitle(NSLocalizedString("Next Keyboard", comment: "Title for 'Next Keyboard' button"), for: [])
+        // Adjust button size to fit content.
         self.nextKeyboardButton.sizeToFit()
+        // Set constraints property
         self.nextKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
-        
+        // Define a method to run when the button is clicked.
         self.nextKeyboardButton.addTarget(self, action: #selector(handleInputModeList(from:with:)), for: .allTouchEvents)
-        
+        // Add the button to the view.
         self.view.addSubview(self.nextKeyboardButton)
-        
+
+        // Constrain the next keyboard button to the left and bottom of the view.
         self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
         self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+
+        // Create and delegate for dynamicCalibration object.
+        dynamicCalibration = DynamicCalibration.create()
+        dynamicCalibration?.delegate = self
         
-        // Start the calibration process when the keyboard view loads
-        dynamicCalibration.performCalibration(in: self) { success in
-            if success {
-                // Calibration succeeded, update the keyboard UI or behavior as needed
-            } else {
-                // Calibration failed, handle the error as needed
-            }
-        }
-        
-        // Create and configure keyboard keys
-        let key1 = createKeyboardKey(title: "A")
-        key1.addTarget(self, action: #selector(keyPressed(_:)), for: .touchUpInside)
-        let key2 = createKeyboardKey(title: "B")
-        key2.addTarget(self, action: #selector(keyPressed(_:)), for: .touchUpInside)
-        // Add more keys as needed
-        
-        // Add keyboard keys to the view
-        let keyboardStackView = UIStackView(arrangedSubviews: [key1, key2])
-        keyboardStackView.axis = .horizontal
-        keyboardStackView.spacing = 10.0
-        keyboardStackView.alignment = .center
+        // Create, define properties of and add stack view to the view.
+        let keyboardStackView = UIStackView()
+        keyboardStackView.axis = .vertical
         keyboardStackView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(keyboardStackView)
-        
-        // Position the keyboard keys using constraints
         keyboardStackView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         keyboardStackView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+
+        // Split the keyboard keys into rows and define behavior for each row's keys.
+        let keyRows = keyboardKeys.split(by: 10)
+        
+        // Loop over rows and create keyboard buttons from the keys.
+        for row in keyRows {
+            let rowStackView = UIStackView()
+            rowStackView.axis = .horizontal
+            rowStackView.alignment = .center
+            rowStackView.spacing = 10.0
+            rowStackView.translatesAutoresizingMaskIntoConstraints = false
+            for key in row {
+                let keyButton = createKeyboardKey(title: String(key))
+                keyButton.addTarget(self, action: #selector(keyPressed(_:)), for: .touchUpInside)
+                rowStackView.addArrangedSubview(keyButton)
+            }
+            keyboardStackView.addArrangedSubview(rowStackView)
+        }
     }
     
+    // Override viewWillLayoutSubviews to hide the next keyboard button when it is not needed.
     override func viewWillLayoutSubviews() {
         self.nextKeyboardButton.isHidden = !self.needsInputModeSwitchKey
         super.viewWillLayoutSubviews()
     }
     
-    override func textWillChange(_ textInput: UITextInput?) {
-        // The app is about to change the document's contents. Perform any preparation here.
-    }
+    // Override textWillChange to leave it empty as we're not doing anything when text will change.
+    override func textWillChange(_ textInput: UITextInput?) {}
     
+    // Override textDidChange to update the text color based on the keyboard's appearance.
     override func textDidChange(_ textInput: UITextInput?) {
-        // The app has just changed the document's contents, the document context has been updated.
-        
         var textColor: UIColor
         let proxy = self.textDocumentProxy
-        if proxy.keyboardAppearance == UIKeyboardAppearance.dark {
-            textColor = UIColor.white
-        } else {
-            textColor = UIColor.black
-        }
+        textColor = proxy.keyboardAppearance == UIKeyboardAppearance.dark ? UIColor.white : UIColor.black
         self.nextKeyboardButton.setTitleColor(textColor, for: [])
     }
     
-    // MARK: - Keyboard Key Actions
-    
+    // Define the behavior when a key is pressed.
     @objc func keyPressed(_ sender: UIButton) {
-        guard let keyTitle = sender.currentTitle else {
-            return
-        }
-        
-        // Insert the pressed key's title into the text input
+        guard let keyTitle = sender.currentTitle else { return }
         let proxy = textDocumentProxy
         proxy.insertText(keyTitle)
     }
     
-    // MARK: - Helper methods
+    // Empty function to manage input mode list.
+    @objc func handleInputModeList(from view: UIInputView?, with event: UIEvent) {}
     
+    // Create a keyboard key with a defined title.
     func createKeyboardKey(title: String) -> UIButton {
         let button = UIButton(type: .system)
         button.setTitle(title, for: .normal)
@@ -101,4 +99,10 @@ class KeyboardViewController: UIInputViewController {
         return button
     }
     
+    // Define functions for calibration delegate protocol.
+    func didStartCalibration() {}
+    func didCompleteCalibration(withResult result: CalibrationResult) {}
+    func didFailCalibration(withError error: Error) {}
 }
+
+// Extension of the Collection class to

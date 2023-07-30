@@ -1,12 +1,14 @@
-// In this file, we have the CalibrationResult struct that represents the result of the calibration process. Currently, it has one property:
-
-//calibrationPoints: An array of CGPoint representing the calibration points collected during the calibration process.
-//This struct serves as a container for the calibration result, allowing you to store and access the calibration points or any other properties you may need for further processing or analysis.
-
 import Foundation
 import CoreGraphics
 
+// The `CalibrationResult` struct is used to store the result of a calibration process.
+// Currently, it only contains an array of `CGPoint` which represents the calibration points.
+// Add more properties if needed depending on the result of the calibration. 
 struct CalibrationResult {
-    var calibrationPoints: [CGPoint]
-    // Add any other properties as needed
+    
+    // An array to hold CGPoint objects. Each CGPoint represents a calibration point.
+    var calibrationPoints: [CGPoint] = []
+    
+    // Other properties related to calibration result can be added here.
+    // For example, successful (Bool), calibrationError (Error?), etc.
 }

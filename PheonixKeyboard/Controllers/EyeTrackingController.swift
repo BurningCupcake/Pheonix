@@ -1,62 +1,55 @@
+// UIKit is imported to use its libraries for UI interface tasks etc.
+import UIKit
+// ARKit is imported to use its libraries for Augmented Reality tasks
 import ARKit
-import SwiftUI
 
-class EyeTrackingController: NSObject, ARSessionDelegate, GazeDetectionDelegate, KeyboardInteractionDelegate, WordSuggestionDelegate {
-    var session: ARSession
-    var eyeTracker: EyeTracker
-    var textChecker: UITextChecker  // Add UITextChecker instance
-    var gazeDirection: SCNVector3 = SCNVector3Zero
+// EyeTrackingControllerDelegate protocol comprises of a single method
+// The struct/class/entity which conforms to this protocol will have to implement this method
+protocol EyeTrackingControllerDelegate: AnyObject {
+    func eyeTrackingController(didUpdate pointOfView: SCNVector3) // method to update the point of view vector in eye tracking controller
+}
+
+// Main class EyeTrackingController, inheriting NSObject and conforming ARSessionDelegate and ARSCNViewDelegate
+class EyeTrackingController: NSObject, ARSessionDelegate, ARSCNViewDelegate {
+
+    weak var delegate: EyeTrackingControllerDelegate? // a weak (to avoid retain cycle) delegate 
+    var session: ARSession // object of ARSession
+    var gazeDirection: SCNVector3 = SCNVector3Zero // gaze direction set to zero by default
     
-    init(eyeTracker: EyeTracker) {
-        self.session = ARSession()
-        self.eyeTracker = eyeTracker
-        self.textChecker = UITextChecker()  // Initialize UITextChecker
+    override init() {
+        self.session = ARSession() // AR session initialized
         super.init()
-        self.session.delegate = self
+        self.session.delegate = self // setting self as the delegate
     }
     
-    func currentInterfaceOrientation(for gazeDetection: GazeDetection) -> UIInterfaceOrientation {
-        // Replace this with actual logic to determine the current interface orientation.
-        // This is just an example.
-        return .portrait
-    }
-    
-    func startTracking() {
-        let configuration = ARFaceTrackingConfiguration()
-        self.session.run(configuration)
-    }
-    
-    func stopTracking() {
-        self.session.pause()
-    }
-    
-    // ARSessionDelegate method
+    // Delegate method which gets called whenever the ARSession updates an anchor
+    // Checking if the anchor is of type ARFaceAnchor
+    // If true, calculate eye gaze directions and call the delgate method
     func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
-        guard let faceAnchor = anchors.first as? ARFaceAnchor else { return }
-        let leftEyeTransform = faceAnchor.leftEyeTransform
-        let rightEyeTransform = faceAnchor.rightEyeTransform
-        // Calculate the gaze direction
-        let leftEyeDirection = SCNVector3(leftEyeTransform.columns.3.x, leftEyeTransform.columns.3.y, leftEyeTransform.columns.3.z)
-        let rightEyeDirection = SCNVector3(rightEyeTransform.columns.3.x, rightEyeTransform.columns.3.y, rightEyeTransform.columns.3.z)
+        guard let faceAnchor = anchors.compactMap({ $0 as? ARFaceAnchor }).first else { return }
+        let leftEyeTransform = SCNMatrix4(faceAnchor.leftEyeTransform)
+        let rightEyeTransform = SCNMatrix4(faceAnchor.rightEyeTransform)
         
-        // Average the two vectors to get the overall gaze direction
+        let leftEyeDirection = SCNVector3(-1 * leftEyeTransform.m31, -1 * leftEyeTransform.m32, -1 * leftEyeTransform.m33)
+        let rightEyeDirection = SCNVector3(-1 * rightEyeTransform.m31, -1 * rightEyeTransform.m32, -1 * rightEyeTransform.m33)
+        
         gazeDirection = SCNVector3((leftEyeDirection.x + rightEyeDirection.x) / 2, (leftEyeDirection.y + rightEyeDirection.y) / 2, (leftEyeDirection.z + rightEyeDirection.z) / 2)
         
-        // Now you can use the gazeDirection vector for your gaze detection logic
+        delegate?.eyeTrackingController(didUpdate: gazeDirection)
     }
     
-    // GazeDetectionDelegate method
-    func gazeDetection(_ gazeDetection: GazeDetection, didDetectGazeAt point: CGPoint) {
-        // Implement this method based on your gaze detection logic
+    // Function to initialize ARKit with a given view
+    // It also sets up some configuration for face tracking
+    func initializeArKit(with view: ARSCNView) {
+        let configuration = ARFaceTrackingConfiguration()
+        configuration.isLightEstimationEnabled = true
+        view.session = session
+        view.delegate = self
+        view.session?.run(configuration, options: [.resetTracking, .removeExistingAnchors])
     }
     
-    // KeyboardInteractionDelegate method
-    func keyboardInteraction(_ keyboardInteraction: KeyboardInteraction, didSelectKey key: String) {
-        // Implement this method based on your keyboard interaction logic
-    }
-    
-    // WordSuggestionDelegate methods
-    func wordSuggestion(_ wordSuggestion: WordSuggestion, didSuggestWords words: [String]) {
-        // Implement this method to provide word suggestions based on the results from the UITextChecker
+    // Function to stop the ARKit session
+    func stopArKit(with view: ARSCNView) {
+        view.session?.pause()
     }
 }

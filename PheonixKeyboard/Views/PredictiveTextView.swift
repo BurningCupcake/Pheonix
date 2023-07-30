@@ -1,22 +1,20 @@
-//This file defines a SwiftUI view called PredictiveTextView. Let's break down the implementation:
-
-//The PredictiveTextView struct is declared, conforming to the View protocol in SwiftUI.
-//It contains a single property:
-//viewModel: An ObservedObject that holds the PredictiveTextViewModel, responsible for managing the predictive text state.
-//The body property describes the view's content using a VStack component.
-//Inside the VStack, there is a ForEach loop that iterates over the viewModel.predictiveTextState.suggestions array.
-//For each element in the suggestions array, a Text view is created, displaying the suggestion text.
-//Each suggestion in the ForEach loop is identified by its value using the id: \.self modifier.
-//Overall, this file defines a SwiftUI view that displays a vertical stack of Text views representing the suggestions provided by the PredictiveTextViewModel.
-
+// Importing SwiftUI framework
 import SwiftUI
 
+// Defining a new view called PredictiveTextView.
 struct PredictiveTextView: View {
+    // Using ObservableObject to monitor changes in an instance of PredictiveTextViewModel
     @ObservedObject var viewModel: PredictiveTextViewModel
     
+    // SwiftUI calls `var body: some View` to build the view’s content.
+    // This computed property should return some sort of view that SwiftUI can display.
     var body: some View {
-        VStack {
+        // Build a list 
+        List {
+            // Use ForEach to loop through all elements in predictiveTextState's suggestions list 
+            // This list is part of the ViewModel instance and it contains the suggested texts.
             ForEach(viewModel.predictiveTextState.suggestions, id: \.self) { suggestion in
+                // For each suggestion in the list, we create a Text view
                 Text(suggestion)
             }
         }

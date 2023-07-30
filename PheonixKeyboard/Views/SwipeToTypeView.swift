@@ -1,28 +1,42 @@
-//This file defines a SwiftUI view called SwipeToTypeView that enables swipe-to-type functionality. Let's break down the implementation:
-
-//The SwipeToTypeView struct is declared, conforming to the View protocol in SwiftUI.
-//It contains a single property:
-//swipeToTypeController: An ObservedObject property that holds the instance of SwipeToTypeController responsible for managing the swipe-to-type functionality.
-//The body property describes the view's content using a TextEditor component.
-//The TextEditor displays an editable text area bound to the text property of the swipeToTypeController.
-//The view sets up a DragGesture gesture on the TextEditor.
-//When the gesture changes (i.e., user is swiping), it checks if the swipe direction is to the left by comparing the startLocation and location coordinates of the gesture.
-//If the swipe is to the left, it calls the handleSwipeGesture method on the swipeToTypeController using a UISwipeGestureRecognizer.
-//This enables the swipe gesture to be handled by the SwipeToTypeController, triggering the appropriate action.
-//Overall, this file defines a SwiftUI view that allows users to perform swipe gestures to enable swipe-to-type functionality. The swipe gestures are detected and passed to the SwipeToTypeController for further processing and handling.
-
+// Import the SwiftUI library
 import SwiftUI
 
+// Define a SwiftUI View named SwipeToTypeView
 struct SwipeToTypeView: View {
+    // Declare an observed SwipeToTypeController object
     @ObservedObject var swipeToTypeController: SwipeToTypeController
     
+    // Define the body of the SwiftUI View
     var body: some View {
+        // Create a text editor bound to the text property of the SwipeToTypeController
         TextEditor(text: $swipeToTypeController.text)
-            .gesture(DragGesture().onChanged { value in
-                if value.startLocation.x > value.location.x {
-                    // Swipe left detected
-                    self.swipeToTypeController.handleSwipeGesture(UISwipeGestureRecognizer())
-                }
-            })
+            // Apply a gesture recognizer to the text editor
+            .gesture(DragGesture()
+                .onChanged { value in
+                    // Calculate the horizontal and vertical displacement of the swipe
+                    let deltaX = value.location.x - value.startLocation.x
+                    let deltaY = value.location.y - value.startLocation.y
+                    
+                    // Determine if the swipe was primarily horizontal or vertical
+                    if abs(deltaX) > abs(deltaY) {
+                        // Handle horizontal swipe
+                        if deltaX > 0 {
+                            // Handle swipe to the right
+                            self.swipeToTypeController.handleSwipeGesture(delta: deltaX, direction: .right)
+                        } else {
+                            // Handle swipe to the left
+                            self.swipeToTypeController.handleSwipeGesture(delta: -deltaX, direction: .left)
+                        }
+                    } else {
+                        // Handle vertical swipe
+                        if deltaY > 0 {
+                             // Handle swipe downward
+                            self.swipeToTypeController.handleSwipeGesture(delta: deltaY, direction: .down)
+                        } else {
+                            // Handle swipe upward
+                            self.swipeToTypeController.handleSwipeGesture(delta: -deltaY, direction: .up)
+                        }
+                    }
+                })
     }
 }

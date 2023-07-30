@@ -1,26 +1,25 @@
-//The provided code defines a PredictiveTextService class responsible for managing and providing predictive text suggestions. Here's the analysis of the code:
-
-//The PredictiveTextService class has the following properties and methods:
-//predictiveTextStateSubject: A CurrentValueSubject that holds the current state of the predictive text suggestions. It is initialized with an initial state of PredictiveTextState(suggestions: []).
-//predictiveTextStatePublisher: A computed property that exposes a publisher of type AnyPublisher<PredictiveTextState, Never>. It publishes updates to the predictive text state as values of PredictiveTextState.
-//updatePredictiveText(for:) method: Updates the predictive text state based on the provided text and publishes the updated state through the predictiveTextStateSubject.
-//The updatePredictiveText(for:) method is responsible for updating the predictive text state based on the provided text. Currently, it creates a new PredictiveTextState object with an empty array of suggestions. You should replace this with your own logic to generate the predictive text suggestions based on the provided text.
-//When the predictive text state is updated, the predictiveTextStateSubject publishes the updated state through the send(_:) method, notifying any subscribers of the new value.
-//Note: The code assumes the existence of a PredictiveTextState struct that represents the state of the predictive text suggestions.
-
 import Foundation
 import Combine
 
+// `PredictiveTextService` is a class aimed at managing predictive text functionality.
+// It is designed to offer suggestions based on the currently inputted text.
 class PredictiveTextService {
+    
+    // `predictiveTextStateSubject` is a CurrentValueSubject that emits the current state of the predictive text.
+    // Initial state has an empty array of suggestions.
     private let predictiveTextStateSubject = CurrentValueSubject<PredictiveTextState, Never>(PredictiveTextState(suggestions: []))
     
+    // `predictiveTextStatePublisher` is a public computed property that provides a publisher
+    // enabling any object to subscribe to changes in the predictive text's state.
     var predictiveTextStatePublisher: AnyPublisher<PredictiveTextState, Never> {
         return predictiveTextStateSubject.eraseToAnyPublisher()
     }
     
+    // `updatePredictiveText` is a method that takes in a string and updates the predictive text state based on it.
+    // Currently, the state is always reset to the default one, with no suggestions.
+    // TODO: Implement the logic for updating the PredictiveTextState based on the inputted text.
     func updatePredictiveText(for text: String) {
-        // Update predictive text state based on the provided text
-        let predictiveTextState = PredictiveTextState(suggestions: []) // Replace this with your logic
+        let predictiveTextState = PredictiveTextState(suggestions: []) 
         
         predictiveTextStateSubject.send(predictiveTextState)
     }
