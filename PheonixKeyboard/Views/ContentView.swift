@@ -59,55 +59,6 @@ struct ContentView: View {
     }
 }
 
-// The KeyboardView struct handles the display of the keyboard on the screen
-struct KeyboardView: View {
-    var layout: KeyboardLayoutStyle
-    
-    var body: some View {
-        // Add your Keyboard layout view here.
-        Text("Keyboard layout: \(layout)")
-    }
-}
-
-// Language enum represents the different language options
-enum Language {
-    case english
-    // ... Add other languages here.
-}
-
-// KeyboardLayoutStyle enum represents the different keyboard styles
-enum KeyboardLayoutStyle {
-    case en
-    // ... Add other keyboard layout styles here.
-}
-
-// The SettingsView struct is responsible for the settings view
-struct SettingsView: View {
-    @Binding var isPredictiveTextEnabled: Bool
-    @Binding var isSwipeToTypeEnabled: Bool
-    @Binding var isDynamicCalibrationEnabled: Bool
-    @Binding var keyboardLayoutStyle: KeyboardLayoutStyle
-    @Binding var language: Language
-
-    var body: some View {
-        Form {
-            // Toggle for enabling/disabling predictive text
-            Toggle(isOn: $isPredictiveTextEnabled) {
-                Text("Predictive Text")
-            }
-            // Toggle for enabling/disabling swipe to type
-            Toggle(isOn: $isSwipeToTypeEnabled) {
-                Text("Swipe To Type")
-            }
-            // Toggle for enabling/disabling dynamic calibration
-            Toggle(isOn: $isDynamicCalibrationEnabled) {
-                Text("Dynamic Calibration")
-            }
-            // Add more options here.
-        }
-        .navigationBarTitle("Settings")
-    }
-}
 
 // ContentView_Previews is responsible for producing preview content
 struct ContentView_Previews: PreviewProvider {
