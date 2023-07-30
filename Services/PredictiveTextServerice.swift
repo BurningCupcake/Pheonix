@@ -41,3 +41,6 @@ class PredictiveTextService {
     let predictiveTextState = PredictiveTextState(suggestions: suggestions)
     predictiveTextStateSubject.send(predictiveTextState)
 }
+func getPredictions(numberOfPredictions: Int) -> [String] {
+    // Adjust implementation to return specified number of predictions
+}
