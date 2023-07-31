@@ -1,4 +1,6 @@
 import UIKit
+import CoreGraphics
+import QuartzCore
 
 /// A class to handle dynamic calibration.
 class DynamicCalibration: CalibrationDelegate {
@@ -31,9 +33,8 @@ class DynamicCalibration: CalibrationDelegate {
     func setFractalImage(_ image: UIImage?) {
         self.fractalImage = image
     }
-    }
     
-    /// Function that calculates the CalibrationResult based on the current calibration points. 
+    /// Function that calculates the CalibrationResult based on the current calibration points.
     /// Returns nil if no calibration points are set.
     func calculateCalibrationResult() -> CalibrationResult? {
         guard !calibrationPoints.isEmpty else {
@@ -44,7 +45,7 @@ class DynamicCalibration: CalibrationDelegate {
         return result
     }
     
-    /// Function to generate a fractal image. 
+    /// Function to generate a fractal image.
     func generateFractal(size: CGSize) -> UIImage {
         let width = Int(size.width)
         let height = Int(size.height)
@@ -138,51 +139,36 @@ class DynamicCalibration: CalibrationDelegate {
     /// Function to determine the point of interest from an array of eye movements and a fractal state.
     /// Currently averages the eye movement positions to find the point of interest.
     func determinePointOfInterest(eyeMovements: [EyeMovements], fractalState: FractalState) -> CGPoint {
-        // sample code: average over the eye movements' position
-    let count = eyeMovements.count if count == 0 { return CGPoint.zero }
+        let count = eyeMovements.count
+        if count == 0 {
+            return CGPoint.zero
+        }
+        
         var sumX = 0.0
         var sumY = 0.0
-    for movement in eyeMovements {
-        sumX += Double(movement.position.x)
-        sumY += Double(movement.position.y)
-}
-
-let averageX = CGFloat(sumX / Double(count))
-let averageY = CGFloat(sumY / Double(count))
-
-return CGPoint(x: averageX, y: averageY)
-  
+        for movement in eyeMovements {
+            sumX += Double(movement.position.x)
+            sumY += Double(movement.position.y)
+        }
+        
+        let averageX = CGFloat(sumX / Double(count))
+        let averageY = CGFloat(sumY / Double(count))
+        
+        return CGPoint(x: averageX, y: averageY)
     }
-
     
     // MARK: - CalibrationDelegate methods
     
-     /// Reports start of calibration.
-    func didStartCalibration(
-    ) {
-        // Handle the start of the calibration process
-        print(
-            "Calibration started"
-        )
+    /// Reports start of calibration.
+    func didStartCalibration() {
+        print("Calibration started")
     }
     
-     /// Reports completion of calibration.
-    func didCompleteCalibration(
-        withResult result: CalibrationResult
-    ) {
-        // Handle the completion of the calibration process with the provided result
-        print(
-            "Calibration completed with result: \(result)"
-        )
+    func didCompleteCalibration(withResult result: CalibrationResult) {
+        print("Calibration completed with result: \(result)")
     }
     
-      /// Reports failure of calibration.
-   func didFailCalibration(
-        withError error: Error
-    ) {
-        // Handle the failure of the calibration process with the provided error
-        print(
-            "Calibration failed with error: \(error)"
-        )
+    func didFailCalibration(withError error: Error) {
+        print("Calibration failed with error: \(error)")
     }
 }
