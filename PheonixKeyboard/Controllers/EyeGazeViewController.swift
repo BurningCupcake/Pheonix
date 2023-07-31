@@ -56,7 +56,13 @@ class EyeGazeViewController: UIViewController {
 
 // Conforming EyeGazeViewController to GazeDetectionDelegate protocol
 extension EyeGazeViewController: GazeDetectionDelegate {
-
+    
+    // Implementing the gazeDetection(_:didDetectGazeAt:) method
+    func gazeDetection(_ gazeDetection: GazeDetection, didDetectGazeAt point: CGPoint) {
+        // Handle the detected gaze at the given point
+        // For example, you might want to move a cursor to the gaze point
+    }
+    
     // Returns the interface orientation of the view
     func currentInterfaceOrientation(for gazeDetection: GazeDetection) -> UIInterfaceOrientation {
         return view.window?.windowScene?.interfaceOrientation ?? .unknown
