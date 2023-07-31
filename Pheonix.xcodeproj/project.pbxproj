@@ -120,6 +120,8 @@
 		A1BE407F2A787F5A0086160A /* DynamicCalibrationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE407E2A787F5A0086160A /* DynamicCalibrationDelegate.swift */; };
 		A1BE40802A787F5A0086160A /* DynamicCalibrationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE407E2A787F5A0086160A /* DynamicCalibrationDelegate.swift */; };
 		A1BE40812A7880440086160A /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EAE2A520FB700480362 /* KeyboardViewController.swift */; };
+		A1BE40832A7881310086160A /* SwipeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE40822A7881310086160A /* SwipeDirection.swift */; };
+		A1BE40842A7881310086160A /* SwipeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE40822A7881310086160A /* SwipeDirection.swift */; };
 		A1D3A4072A7419BD001D5C42 /* EyeMovementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D3A4062A7419BD001D5C42 /* EyeMovementMonitor.swift */; };
 		A1D3A4082A7419BD001D5C42 /* EyeMovementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D3A4062A7419BD001D5C42 /* EyeMovementMonitor.swift */; };
 		A1EA3B462A6A1EC100D23C2B /* PheonixTests in Resources */ = {isa = PBXBuildFile; fileRef = A1EA3B442A6A1EC100D23C2B /* PheonixTests */; };
@@ -208,6 +210,7 @@
 		A1BE40782A774B5A0086160A /* SpellingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingIndicator.swift; sourceTree = "<group>"; };
 		A1BE407B2A7753320086160A /* EyeMovements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeMovements.swift; sourceTree = "<group>"; };
 		A1BE407E2A787F5A0086160A /* DynamicCalibrationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicCalibrationDelegate.swift; sourceTree = "<group>"; };
+		A1BE40822A7881310086160A /* SwipeDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeDirection.swift; sourceTree = "<group>"; };
 		A1C70CD42A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewDelegateWrapper.swift; sourceTree = "<group>"; };
 		A1C70CD82A5CBC9200D8F9E3 /* SwipeToTypeControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToTypeControllerDelegate.swift; sourceTree = "<group>"; };
 		A1D3A4062A7419BD001D5C42 /* EyeMovementMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeMovementMonitor.swift; sourceTree = "<group>"; };
@@ -384,6 +387,7 @@
 				A1BE40722A77115E0086160A /* FractalState.swift */,
 				A1BE40782A774B5A0086160A /* SpellingIndicator.swift */,
 				A1BE407B2A7753320086160A /* EyeMovements.swift */,
+				A1BE40822A7881310086160A /* SwipeDirection.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -552,6 +556,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1BE40842A7881310086160A /* SwipeDirection.swift in Sources */,
 				A16A71752A63F04E00F8EA60 /* TextEntryViewModel.swift in Sources */,
 				A16A71462A63EC8400F8EA60 /* Settings.swift in Sources */,
 				A16A71392A63EC5300F8EA60 /* EyeTrackingController.swift in Sources */,
@@ -639,6 +644,7 @@
 				A18E40722A65BA74003D79AD /* LanguagePickerView.swift in Sources */,
 				A16A71782A63F05800F8EA60 /* BlinkGestureHandler.swift in Sources */,
 				A184CE4A2A52289C008FAEC3 /* Key.swift in Sources */,
+				A1BE40832A7881310086160A /* SwipeDirection.swift in Sources */,
 				A16A71862A63F05F00F8EA60 /* EyeTrackerDelegate.swift in Sources */,
 				A16A717A2A63F05800F8EA60 /* Settings.swift in Sources */,
 				A16A717B2A63F05800F8EA60 /* GazeDetection.swift in Sources */,

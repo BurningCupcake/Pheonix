@@ -22,7 +22,7 @@ class EyeGazeViewController: UIViewController {
         
         // Initialize dependencies
         let dynamicCalibration = DynamicCalibration()
-        gazeDetection = GazeDetection(calibrationDelegate: dynamicCalibration)
+        gazeDetection = GazeDetection(delegate: dynamicCalibration as! GazeDetectionDelegate)
         eyeTracker = EyeTracker()
         textEntryService = TextEntryService()
         keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout(), textEntryService: textEntryService!) 
