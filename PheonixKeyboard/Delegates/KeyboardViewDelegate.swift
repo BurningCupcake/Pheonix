@@ -1,7 +1,8 @@
 import Foundation
 
 protocol KeyboardViewDelegate: AnyObject {
-    func didSelectKey(_ key: String, textEntryService: TextEntryService) {
+    func didSelectKey(_ key: String, textEntryService: TextEntryService)
+}
         if key.count == 1 && key.rangeOfCharacter(from: CharacterSet.letters) != nil {
             let result = textEntryService.addCharacter(key)
             switch result {
@@ -29,4 +30,10 @@ protocol KeyboardViewDelegate: AnyObject {
     
     func updateWordSuggestions(_ suggestions: [String])
     func updateSpellingIndicator(_ isSpellingCorrect: Bool)
+
+
+extension SomeClass: KeyboardViewDelegate {
+    func didSelectKey(_ key: String, textEntryService: TextEntryService) {
+        // Implementation here
+    }
 }

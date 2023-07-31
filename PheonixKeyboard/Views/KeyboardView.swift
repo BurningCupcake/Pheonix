@@ -16,7 +16,7 @@ struct KeyboardView: View {
                 HStack {
                     ForEach(row, id: \.self) { key in
                         Button(action: {
-                            delegateWrapper.didSelectKey(key, textEntryService: <#TextEntryService#>)
+                            delegateWrapper.didSelectKey(key, textEntryService: TextEntryService)
                         }) {
                             Text(key)
                                 .font(.title)

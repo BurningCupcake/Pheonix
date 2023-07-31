@@ -56,6 +56,7 @@ class EyeGazeViewController: UIViewController {
 
 // Conforming EyeGazeViewController to GazeDetectionDelegate protocol
 extension EyeGazeViewController: GazeDetectionDelegate {
+   
     // Returns the interface orientation of the view
     func currentInterfaceOrientation(for gazeDetection: GazeDetection) -> UIInterfaceOrientation {
         return view.window?.windowScene?.interfaceOrientation ?? .unknown

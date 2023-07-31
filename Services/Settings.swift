@@ -1,7 +1,7 @@
 import UIKit
 
 // This class manages application-wide settings.
-class Settings {
+class Settings: ObservableObject {
 
     // Singleton shared instance.
     static let shared = Settings()
