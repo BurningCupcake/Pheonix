@@ -5,11 +5,6 @@ import Combine
 // SwiftUI allows the creation of user interfaces across Apple platforms in a concise and declarative syntax
 import SwiftUI
 
-// `KeyboardViewDelegate` protocol ensures classes adhere to a certain behaviour, having a method that observes the selection of a key
-protocol KeyboardViewDelegate {
-    // A method that observes the selection of a key from the keyboard
-    func didSelectKey(_ key: String)
-}
 
 // `KeyboardViewDelegateWrapper` class conforms to above described protocol and the `ObservableObject` protocol which allows SwiftUI to observe it and respond to changes
 class KeyboardViewDelegateWrapper: ObservableObject, KeyboardViewDelegate {

@@ -2,9 +2,12 @@ import UIKit
 
 /// A class to handle dynamic calibration.
 class DynamicCalibration: CalibrationDelegate {
-
+    
     /// Array of calibration points.
     private var calibrationPoints: [CGPoint] = []
+    
+    /// The generated fractal image based on the calibration points
+    private var fractalImage: UIImage?
     
     /// Default initializer.
     init() {}
@@ -22,6 +25,12 @@ class DynamicCalibration: CalibrationDelegate {
     /// Function to clear all calibration points.
     func clearCalibrationPoints() {
         calibrationPoints.removeAll()
+    }
+    
+    /// Function to set the fractal image.
+    func setFractalImage(_ image: UIImage?) {
+        self.fractalImage = image
+    }
     }
     
     /// Function that calculates the CalibrationResult based on the current calibration points. 
@@ -128,8 +137,8 @@ class DynamicCalibration: CalibrationDelegate {
     
     /// Function to determine the point of interest from an array of eye movements and a fractal state.
     /// Currently averages the eye movement positions to find the point of interest.
-    func determinePointOfInterest(eyeMovements: [EyeMovement], fractalState: FractalState) -> CGPoint { 
-        // sample code: average over the eye movements' position 
+    func determinePointOfInterest(eyeMovements: [EyeMovements], fractalState: FractalState) -> CGPoint {
+        // sample code: average over the eye movements' position
     let count = eyeMovements.count if count == 0 { return CGPoint.zero }
         var sumX = 0.0
         var sumY = 0.0

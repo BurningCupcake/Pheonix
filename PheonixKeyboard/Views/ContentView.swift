@@ -26,7 +26,7 @@ struct ContentView: View {
     @State private var isDynamicCalibrationEnabledOnKeyboard = false
     @State private var isEyeTrackingEnabledOnKeyboard = false
     @State private var isBlinkingEnabledOnKeyboard = false
-
+    
     
     // This defines the content's view structure and logic
     var body: some View {
@@ -38,7 +38,7 @@ struct ContentView: View {
                     .foregroundColor(.accentColor)
                 
                 // The keyboard component
-                KeyboardView(layout: keyboardLayoutStyle)
+                KeyboardView(layoutStyle: keyboardLayoutStyle)
                 
                 // Toggle button for enabling/disabling settings.
                 Button(action: {

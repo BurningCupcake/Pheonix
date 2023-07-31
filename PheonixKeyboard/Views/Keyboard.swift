@@ -23,7 +23,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
     // This function is called after the controller's view is loaded into memory
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Initialize the private class properties
         dynamicCalibration = DynamicCalibration()
         gazeDetection = GazeDetection(calibrationDelegate: dynamicCalibration)
@@ -36,19 +36,19 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         gazeDetection?.delegate = self
         keyboardInteraction?.delegate = self
         swipeToTypeController?.delegate = self
-
+        
         // Create keyboard view
         let delegateWrapper = KeyboardViewDelegateWrapper(spellingIndicator: spellingIndicatorWrapper.spellingIndicator)
         let keyboardView = KeyboardView(delegateWrapper: delegateWrapper, wordSuggestions: $spellingIndicatorWrapper.wordSuggestions, spellingIndicator: $spellingIndicatorWrapper.spellingIndicator, keyboardLayout: KeyboardLayout.defaultLayout())
         self.keyboardView = keyboardView
-
+        
         // Create HostingContainer and add constraints
         keyboardHostingController = UIHostingController(rootView: keyboardView)
         keyboardHostingController.view.translatesAutoresizingMaskIntoConstraints = false
         addChild(keyboardHostingController)
         view.addSubview(keyboardHostingController.view)
         keyboardHostingController.didMove(toParent: self)
-
+        
         // If HostingContainer contains a child, attach to it
         if let keyboardContentView = keyboardHostingController?.view.subviews.first {
             swipeToTypeController?.attach(to: keyboardContentView)
@@ -60,7 +60,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         gazeDetection?.start()
         eyeTracker?.startTracking()
     }
-
+    
     // Called prior to the rotation of the interface
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
@@ -68,7 +68,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
             self.currentInterfaceOrientation = self.view.window?.windowScene?.interfaceOrientation ?? .unknown
         })
     }
-
+}
     // GazeDetectionDelegate
 // This protocol is a callback interface for gaze points detected by a gaze detector.
 func gazeDetection(_ gazeDetection: GazeDetection, didDetectGazeAt point: CGPoint) {

@@ -15,22 +15,8 @@ protocol KeyboardViewDelegate: AnyObject {
         - Parameter key: A string representation of the key pressed
         - Parameter textEntryService: A service for handling text entry
     */
-    func didSelectKey(_ key: String, textEntryService: TextEntryService) 
-
-    /**
-        The delegate is responsible for updating word suggestions.
-        - Parameter suggestions: An array of suggested words
-    */
-    func updateWordSuggestions(_ suggestions: [String])
-}
-
-extension KeyboardViewDelegate {
-    /**
-        Handles key selection.
-        - Parameter key: A string representation of the key pressed
-        - Parameter textEntryService: A service for handling text entry
-    */
-    func didSelectKey(_ key: String, textEntryService: TextEntryService) {  
+   
+    func didSelectKey(_ key: String, textEntryService: TextEntryService) {
         // Checks if the key is a letter
         if key.count == 1 && key.rangeOfCharacter(from: CharacterSet.letters) != nil {
             // Try to add the character to the current text

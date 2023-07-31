@@ -1,3 +1,7 @@
+
+import UIKit
+
+
 /// EyeMovementMonitor class for monitoring eye movement.
 class EyeMovementMonitor {
     
@@ -7,15 +11,15 @@ class EyeMovementMonitor {
     /// Waiting function, Timer will do task repeatedly after a specific time interval.
     var timer: Timer?
     
-    /// Array of type 'EyeMovement' for storing all the eye positions. Here we are using CGPoint for eye movements.
-    var eyeMovements: [EyeMovement] = [] 
-
+    /// Array of type 'CGPoint' for storing all the eye positions. Here we are using CGPoint for eye movements.
+    var eyeMovements: [CGPoint] = []
+    
     /// Initializes an EyeMovementMonitor with given eyeTracker.
     /// - Parameter eyeTracker: The instance used to monitor users' eyes.
     init(eyeTracker: EyeTracker) {
         self.eyeTracker = eyeTracker
     }
-        
+    
     /// Start monitoring the users' eyes.
     func startMonitoring() {
         // To prevent any retain cycle, we use [weak self] in the closure of timer
