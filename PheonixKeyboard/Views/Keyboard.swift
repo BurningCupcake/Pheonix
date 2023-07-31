@@ -173,13 +173,4 @@ func didUpdateSuggestions(_ wordSuggestions: [String]) {
     // Updates word suggestions on the keyboard.
     self.keyboardView.updateWordSuggestions(wordSuggestions)
 }
-extension Keyboard: GazeDetectionDelegate {
-    // Implement the methods required by GazeDetectionDelegate here
-}
-extension Keyboard: TextEntryDelegate {
-    // Implement the methods required by TextEntryDelegate here
-}
 
-extension Keyboard: KeyboardViewDelegate {
-    // Implement the methods required by KeyboardViewDelegate here
-}

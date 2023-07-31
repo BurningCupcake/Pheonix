@@ -1,8 +1,6 @@
 // Required library for the code
 import Foundation
 
-
-
 // Class for handling keyboard interactions
 class KeyboardInteraction {
     // The keyboard layout
