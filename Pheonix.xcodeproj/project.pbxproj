@@ -119,6 +119,7 @@
 		A1BE407D2A7753320086160A /* EyeMovements.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE407B2A7753320086160A /* EyeMovements.swift */; };
 		A1BE407F2A787F5A0086160A /* DynamicCalibrationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE407E2A787F5A0086160A /* DynamicCalibrationDelegate.swift */; };
 		A1BE40802A787F5A0086160A /* DynamicCalibrationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE407E2A787F5A0086160A /* DynamicCalibrationDelegate.swift */; };
+		A1BE40812A7880440086160A /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EAE2A520FB700480362 /* KeyboardViewController.swift */; };
 		A1D3A4072A7419BD001D5C42 /* EyeMovementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D3A4062A7419BD001D5C42 /* EyeMovementMonitor.swift */; };
 		A1D3A4082A7419BD001D5C42 /* EyeMovementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D3A4062A7419BD001D5C42 /* EyeMovementMonitor.swift */; };
 		A1EA3B462A6A1EC100D23C2B /* PheonixTests in Resources */ = {isa = PBXBuildFile; fileRef = A1EA3B442A6A1EC100D23C2B /* PheonixTests */; };
@@ -645,6 +646,7 @@
 				A184CE4E2A52299A008FAEC3 /* KeyboardLayoutStyle.swift in Sources */,
 				A16A71802A63F05800F8EA60 /* DependencyInjection.swift in Sources */,
 				A16A717E2A63F05800F8EA60 /* PredictiveTextServerice.swift in Sources */,
+				A1BE40812A7880440086160A /* KeyboardViewController.swift in Sources */,
 				A16A71842A63F05F00F8EA60 /* KeyboardViewDelegate.swift in Sources */,
 				A16A718A2A63F05F00F8EA60 /* GazeDetectionDelegate.swift in Sources */,
 				A18E406D2A65BA74003D79AD /* ContentView.swift in Sources */,
