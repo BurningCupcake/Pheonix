@@ -1,8 +1,6 @@
-//
-//  DynamicCalibrationDelegate.swift
-//  Pheonix
-//
-//  Created by Justin Fortier on 7/31/23.
-//
+import simd
 
-import Foundation
+protocol DynamicCalibrationDelegate: AnyObject {
+    // This method is called when the DynamicCalibration object has updated the eye offset
+    func dynamicCalibration(_ dynamicCalibration: DynamicCalibration, didUpdateEyeOffset eyeOffset: simd_float3)
+}

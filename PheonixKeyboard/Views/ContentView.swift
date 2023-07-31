@@ -7,7 +7,7 @@ struct ContentView: View {
     @State private var isShowingDynamicCalibration = false
     @State private var isShowingSettings = false
     @State private var isShowingSwipeToType = false
-    @State private var keyboardLayoutStyle = KeyboardLayoutStyle.en
+    @State private var keyboardLayoutStyle = KeyboardLayoutStyle.english
     @State private var currentSuggestions: [String] = []
     @State private var language = Language.english
     @State private var isPredictiveTextEnabled = false

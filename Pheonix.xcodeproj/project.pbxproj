@@ -117,6 +117,8 @@
 		A1BE407A2A774B5A0086160A /* SpellingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE40782A774B5A0086160A /* SpellingIndicator.swift */; };
 		A1BE407C2A7753320086160A /* EyeMovements.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE407B2A7753320086160A /* EyeMovements.swift */; };
 		A1BE407D2A7753320086160A /* EyeMovements.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE407B2A7753320086160A /* EyeMovements.swift */; };
+		A1BE407F2A787F5A0086160A /* DynamicCalibrationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE407E2A787F5A0086160A /* DynamicCalibrationDelegate.swift */; };
+		A1BE40802A787F5A0086160A /* DynamicCalibrationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE407E2A787F5A0086160A /* DynamicCalibrationDelegate.swift */; };
 		A1D3A4072A7419BD001D5C42 /* EyeMovementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D3A4062A7419BD001D5C42 /* EyeMovementMonitor.swift */; };
 		A1D3A4082A7419BD001D5C42 /* EyeMovementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D3A4062A7419BD001D5C42 /* EyeMovementMonitor.swift */; };
 		A1EA3B462A6A1EC100D23C2B /* PheonixTests in Resources */ = {isa = PBXBuildFile; fileRef = A1EA3B442A6A1EC100D23C2B /* PheonixTests */; };
@@ -204,6 +206,7 @@
 		A1BE40752A7749600086160A /* TextEntryDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEntryDelegate.swift; sourceTree = "<group>"; };
 		A1BE40782A774B5A0086160A /* SpellingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingIndicator.swift; sourceTree = "<group>"; };
 		A1BE407B2A7753320086160A /* EyeMovements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeMovements.swift; sourceTree = "<group>"; };
+		A1BE407E2A787F5A0086160A /* DynamicCalibrationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicCalibrationDelegate.swift; sourceTree = "<group>"; };
 		A1C70CD42A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewDelegateWrapper.swift; sourceTree = "<group>"; };
 		A1C70CD82A5CBC9200D8F9E3 /* SwipeToTypeControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToTypeControllerDelegate.swift; sourceTree = "<group>"; };
 		A1D3A4062A7419BD001D5C42 /* EyeMovementMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EyeMovementMonitor.swift; sourceTree = "<group>"; };
@@ -280,6 +283,7 @@
 				A1C70CD82A5CBC9200D8F9E3 /* SwipeToTypeControllerDelegate.swift */,
 				A1C70CD42A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift */,
 				A1BE40752A7749600086160A /* TextEntryDelegate.swift */,
+				A1BE407E2A787F5A0086160A /* DynamicCalibrationDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -569,6 +573,7 @@
 				A16A71332A63EC4C00F8EA60 /* BlinkGestureHandlerDelegate.swift in Sources */,
 				A16A71422A63EC8400F8EA60 /* DependencyInjection.swift in Sources */,
 				A16A71402A63EC8400F8EA60 /* EyeTracker.swift in Sources */,
+				A1BE40802A787F5A0086160A /* DynamicCalibrationDelegate.swift in Sources */,
 				A16A716C2A63F04E00F8EA60 /* TextEntryError.swift in Sources */,
 				A16A71282A63E5E700F8EA60 /* Keyboard.swift in Sources */,
 				A1F721F92A648DBD007966A1 /* CalibrationProgressView.swift in Sources */,
@@ -655,6 +660,7 @@
 				A16A71892A63F05F00F8EA60 /* GestureRecognitionDelegate.swift in Sources */,
 				A184CE5C2A52588D008FAEC3 /* KeyboardLayout.swift in Sources */,
 				A1BE40792A774B5A0086160A /* SpellingIndicator.swift in Sources */,
+				A1BE407F2A787F5A0086160A /* DynamicCalibrationDelegate.swift in Sources */,
 				A18547B22A637078005E179F /* TextEntryError.swift in Sources */,
 				A16A718B2A63F05F00F8EA60 /* KeyboardInteractionDelegate.swift in Sources */,
 				A1EC501B2A53734F000E900B /* EyeState.swift in Sources */,
