@@ -2,6 +2,7 @@
 import Foundation
 import SwiftUI
 import ARKit
+import Combine
 
 // Keyboard class implementing various delegate methods
 class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractionDelegate, SwipeToTypeControllerDelegate, TextEntryDelegate, EyeTrackerDelegate, DynamicCalibrationDelegate, KeyboardViewDelegate, SpellingIndicatorDelegate {
