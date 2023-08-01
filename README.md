@@ -58,4 +58,114 @@ Pheonix is licensed under the MIT License. See `LICENSE` for more information.
 
 ---
 
-Please review this updated README and adjust it according to your needs before integrating it into your project.
+Current File Tree of source codebase.
+.
+|____README.md
+|____PheonixUITests
+| |____KeyboardUITests.swift
+|____Models
+| |____AppState.swift
+| |____FractalState.swift
+| |____KeyboardKey.swift
+| |____Language.swift
+| |____EyeState.swift
+| |____.DS_Store
+| |____SwipeDirection.swift
+| |____EyeMovements.swift
+| |____PredictiveTextViewModel.swift
+| |____TextEntryViewModel.swift
+| |____Key.swift
+| |____SpellingIndicator.swift
+| |____KeyboardViewModel.swift
+| |____TextEntryError.swift
+| |____DynamicCalibrationModel.swift
+| |____CalibrationResult.swift
+| |____EyeMovementMonitor.swift
+| |____KeyboardLayoutStyle.swift
+| |____KeyboardLayout.swift
+|____Pheonix
+| |____.DS_Store
+| |____Resources
+| | |____Keyboard.xib
+| | |____IMG_6989.jpg
+| |____Preview Content
+| | |____Preview Assets.xcassets
+| | | |____Contents.json
+| |____Supporting Files
+| | |____Assets.xcassets
+| | | |____AppIcon.appiconset
+| | | | |____IMG_6989.jpg
+| | | | |____Contents.json
+| | | |____AccentColor.colorset
+| | | | |____Contents.json
+| | | |____Contents.json
+| |____info.plist
+|____AppDelegate.swift
+|____PheonixKeyboard
+| |____.DS_Store
+| |____Delegates
+| | |____KeyboardViewDelegateWrapper.swift
+| | |____EyeTrackerDelegate.swift
+| | |____CalibrationDelegate.swift
+| | |____WordSuggestionDelegate.swift
+| | |____.DS_Store
+| | |____BlinkGestureHandlerDelegate.swift
+| | |____GazeCalibrationDeligate.swift
+| | |____TextEntryDelegate.swift
+| | |____SpellingIndicatorDelegateWrapper.swift
+| | |____KeyboardViewDelegate.swift
+| | |____KeyboardInteractionDelegate.swift
+| | |____GazeDetectionDelegate.swift
+| | |____GestureRecognitionDelegate.swift
+| | |____DynamicCalibrationDelegate.swift
+| | |____WordSugestionDelegateWrapper.swift
+| | |____SwipeToTypeControllerDelegate.swift
+| |____Controllers
+| | |____.DS_Store
+| | |____EyeTrackingController.swift
+| | |____KeyboardViewController.swift
+| | |____SwipeToTypeController.swift
+| | |____EyeGazeViewController.swift
+| |____Views
+| | |____CalibrationProgressView.swift
+| | |____PredictiveTextView.swift
+| | |____SettingsView.swift
+| | |____.DS_Store
+| | |____DynamicCalibrationView.swift
+| | |____TextEntryView.swift
+| | |____KeyboardView.swift
+| | |____Keyboard.swift
+| | |____LanguagePickerView.swift
+| | |____SwipeToTypeView.swift
+| | |____ContentView.swift
+| |____Info.plist
+|____Iphone.mobileprovision
+|____main.swift
+|____PheonixTests
+| |____EyeTrackerTests.swift
+| |____TextEntryTests.swift
+| |____DynamicCalibrationTests.swift
+| |____GazeDetectionTests.swift
+| |____WordSuggestionTests.swift
+| |____GestureRecognitionTests.swift
+| |____KeyboardInteractionTests.swift
+| |____BlinkGestureHandlerTests.swift
+| |____SwipeToTypeControllerTests.swift
+|____info.plist
+|____Services
+| |____DynamicCalibration.swift
+| |____WordSuggestion.swift
+| |____.DS_Store
+| |____KeyboardInteraction.swift
+| |____DependencyInjection.swift
+| |____GestureRecognizer.swift
+| |____TextEntry.swift
+| |____GazeDetection.swift
+| |____Settings.swift
+| |____EyeTracker.swift
+| |____PredictiveTextServerice.swift
+| |____TextEntryService.swift
+| |____BlinkGestureHandler.swift
+|____SceneDelegate.swift
+(base) justinfortier@Sprinkles Pheonix % 
+
