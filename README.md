@@ -58,11 +58,35 @@ Pheonix is licensed under the MIT License. See `LICENSE` for more information.
 
 ---
 
-Current File Tree of source codebase.
-.
-|____README.md
+Current Complete File Tree of source codebase.
+
+|____.DS_Store
 |____PheonixUITests
 | |____KeyboardUITests.swift
+|____Pheonix.xcodeproj
+| |____project.pbxproj
+| |____xcuserdata
+| | |____justinfortier.xcuserdatad
+| | | |____xcdebugger
+| | | | |____Breakpoints_v2.xcbkptlist
+| | | |____xcschemes
+| | | | |____xcschememanagement.plist
+| |____project.xcworkspace
+| | |____contents.xcworkspacedata
+| | |____xcuserdata
+| | | |____justinfortier.xcuserdatad
+| | | | |____IDEFindNavigatorScopes.plist
+| | | | |____WorkspaceSettings.xcsettings
+| | | | |____UserInterfaceState.xcuserstate
+| | |____xcshareddata
+| | | |____IDEWorkspaceChecks.plist
+| | | |____WorkspaceSettings.xcsettings
+| | | |____swiftpm
+| | | | |____configuration
+| |____xcshareddata
+| | |____xcschemes
+| | | |____PheonixKeyboard.xcscheme
+| | | |____Pheonix.xcscheme
 |____Models
 | |____AppState.swift
 | |____FractalState.swift
@@ -83,6 +107,8 @@ Current File Tree of source codebase.
 | |____EyeMovementMonitor.swift
 | |____KeyboardLayoutStyle.swift
 | |____KeyboardLayout.swift
+|____README.md
+|____TestPlan.xctestplan
 |____Pheonix
 | |____.DS_Store
 | |____Resources
@@ -101,6 +127,100 @@ Current File Tree of source codebase.
 | | | |____Contents.json
 | |____info.plist
 |____AppDelegate.swift
+|____.git
+| |____.DS_Store
+| |____ORIG_HEAD
+| |____config
+| |____objects
+| |____HEAD
+| |____info
+| | |____exclude
+| |____logs
+| | |____HEAD
+| | |____refs
+| | | |____heads
+| | | | |____0.7.1
+| | | | |____0.5.2
+| | | | |____0.3.1
+| | | | |____revert-1-0.4.1
+| | | | |____0.4.1
+| | | | |____0.7.2
+| | | | |____0.5.1
+| | | | |____0.5.0
+| | | | |____0.3.2
+| | | | |____main
+| | | | |____0.4.2
+| | | | |____0.6.1
+| | | | |____0.6.0
+| | | |____remotes
+| | | | |____origin
+| | | | | |____0.7.1
+| | | | | |____0.5.2
+| | | | | |____0.3.1
+| | | | | |____revert-1-0.4.1
+| | | | | |____0.4.1
+| | | | | |____HEAD
+| | | | | |____0.7.2
+| | | | | |____0.5.1
+| | | | | |____0.5.0
+| | | | | |____0.3.2
+| | | | | |____main
+| | | | | |____0.4.2
+| | | | | |____0.6.1
+| | | | | |____0.6.0
+| | | |____stash
+| |____description
+| |____hooks
+| | |____README.sample
+| | |____commit-msg.sample
+| | |____pre-rebase.sample
+| | |____pre-commit.sample
+| | |____applypatch-msg.sample
+| | |____fsmonitor-watchman.sample
+| | |____pre-receive.sample
+| | |____prepare-commit-msg.sample
+| | |____post-update.sample
+| | |____pre-merge-commit.sample
+| | |____pre-applypatch.sample
+| | |____pre-push.sample
+| | |____update.sample
+| | |____push-to-checkout.sample
+| |____refs
+| | |____heads
+| | | |____0.7.1
+| | | |____0.5.2
+| | | |____0.3.1
+| | | |____revert-1-0.4.1
+| | | |____0.4.1
+| | | |____0.7.2
+| | | |____0.5.1
+| | | |____0.5.0
+| | | |____0.3.2
+| | | |____main
+| | | |____0.4.2
+| | | |____0.6.1
+| | | |____0.6.0
+| | |____tags
+| | |____remotes
+| | | |____origin
+| | | | |____0.7.1
+| | | | |____0.5.2
+| | | | |____0.3.1
+| | | | |____revert-1-0.4.1
+| | | | |____0.4.1
+| | | | |____HEAD
+| | | | |____0.7.2
+| | | | |____0.5.1
+| | | | |____0.5.0
+| | | | |____0.3.2
+| | | | |____main
+| | | | |____0.4.2
+| | | | |____0.6.1
+| | | | |____0.6.0
+| | |____stash
+| |____index
+| |____COMMIT_EDITMSG
+| |____FETCH_HEAD
 |____PheonixKeyboard
 | |____.DS_Store
 | |____Delegates
@@ -167,5 +287,4 @@ Current File Tree of source codebase.
 | |____TextEntryService.swift
 | |____BlinkGestureHandler.swift
 |____SceneDelegate.swift
-(base) justinfortier@Sprinkles Pheonix % 
 
