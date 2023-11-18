@@ -6,6 +6,34 @@ import Combine
 
 // Keyboard class implementing various delegate methods
 class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractionDelegate, SwipeToTypeControllerDelegate, TextEntryDelegate, EyeTrackerDelegate, DynamicCalibrationDelegate, KeyboardViewDelegate, SpellingIndicatorDelegate {
+    func gazeDetection(_ gazeDetection: GazeDetection, didDetectGazeAt point: CGPoint) {
+        <#code#>
+    }
+    
+    func currentInterfaceOrientation(for gazeDetection: GazeDetection) -> UIInterfaceOrientation {
+        <#code#>
+    }
+    
+    func didSwipe(in direction: UISwipeGestureRecognizer.Direction) {
+        <#code#>
+    }
+    
+    func textEntry(_ textEntry: TextEntry, didUpdateText text: String) {
+        <#code#>
+    }
+    
+    func dynamicCalibration(_ dynamicCalibration: DynamicCalibration, didUpdateEyeOffset eyeOffset: simd_float3) {
+        <#code#>
+    }
+    
+    func updateWordSuggestions(_ suggestions: [String]) {
+        <#code#>
+    }
+    
+    func updateSpellingIndicator(_ isSpellingCorrect: Bool) {
+        <#code#>
+    }
+    
     
     // Class properties
     private var keyboardHostingController: UIHostingController<KeyboardView>?
@@ -27,7 +55,7 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         
         // Initialize the private class properties
         dynamicCalibration = DynamicCalibration()
-        gazeDetection = GazeDetection(calibrationDelegate: dynamicCalibration)
+        gazeDetection = GazeDetection(calibrationDelegate: dynamicCalibration as! GazeDetectionDelegate)
         keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout(), textEntryService: textEntryService)
         textEntry = TextEntry()
         eyeTracker = EyeTracker()
@@ -45,10 +73,10 @@ class Keyboard: UIInputViewController, GazeDetectionDelegate, KeyboardInteractio
         
         // Create HostingContainer and add constraints
         keyboardHostingController = UIHostingController(rootView: keyboardView)
-        keyboardHostingController.view.translatesAutoresizingMaskIntoConstraints = false
-        addChild(keyboardHostingController)
-        view.addSubview(keyboardHostingController.view)
-        keyboardHostingController.didMove(toParent: self)
+        keyboardHostingController?.view.translatesAutoresizingMaskIntoConstraints = false
+        addChild(keyboardHostingController ?? <#default value#>)
+        view.addSubview(keyboardHostingController?.view!!)
+        keyboardHostingController?.didMove(toParent: self)
         
         // If HostingContainer contains a child, attach to it
         if let keyboardContentView = keyboardHostingController?.view.subviews.first {

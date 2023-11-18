@@ -10,20 +10,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // This function is the entry point of the app, creates the UIWindowScene and launches the UIHostingController with ContentView as the root view.
     // This function is automatically launched whenever a new scene(session) is created.
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        // Ensure the scene is of type UIWindowScene
+        guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        // We securely bind UIWindowScene from the given scene, if the casting fails, the function will return and do nothing
-        guard let windowScene = scene as? UIWindowScene else { return }
-        
-        // Initialize new UIWindow with the given windowScene
+        // Create a new UIWindow using the windowScene constructor which takes the UIWindowScene as a parameter
         let window = UIWindow(windowScene: windowScene)
         
-        // Assign UIHostingController (which has ContentView as rootView) to rootViewController of our UIWindow
-        window.rootViewController = UIHostingController(rootView: ContentView())
+        // Create the SwiftUI view that provides the window contents
+        let contentView = ContentView() // Replace ContentView with your initial SwiftUI view
         
-        // Assign our newly created UIWindow to the instance variable
+        // Use a UIHostingController as window root view controller to host the SwiftUI view
+        window.rootViewController = UIHostingController(rootView: contentView)
+        
+        // Set the window and make it visible
         self.window = window
-        
-        // Make this window the main window and make it visible
         window.makeKeyAndVisible()
     }
 }

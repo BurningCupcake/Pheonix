@@ -46,7 +46,7 @@ class DynamicCalibration: CalibrationDelegate {
     }
     
     /// Function to generate a fractal image.
-    func generateFractal(size: CGSize) -> UIImage {
+    func generateFractal(size: CGSize) -> UIImage? {
         let width = Int(size.width)
         let height = Int(size.height)
         let scale = 4.0
@@ -80,9 +80,8 @@ class DynamicCalibration: CalibrationDelegate {
             }
         }
         
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image!
+        
+        return UIGraphicsGetImageFromCurrentImageContext()
     }
     
     /// Function that adds a fractal layer, animates it, then removes it from the given view controller.
