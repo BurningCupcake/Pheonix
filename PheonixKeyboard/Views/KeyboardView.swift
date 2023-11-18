@@ -3,20 +3,24 @@ import Combine
 
 struct KeyboardView: View {
     @ObservedObject var delegateWrapper: KeyboardViewDelegateWrapper
+    @Binding var text: String // Binding for the text
     @Binding var wordSuggestions: [String]
     @Binding var spellingIndicator: Bool
     let keyboardLayout: KeyboardLayout
     
+    var textEntryService: TextEntryService
+    
     var body: some View {
         VStack {
-            Text("Keyboard View")
+            Text(text) // Display the text
                 .font(.title)
                 .padding()
             ForEach(Array(keyboardLayout.layout.enumerated()), id: \.offset) { rowIndex, row in
                 HStack {
                     ForEach(row, id: \.self) { key in
                         Button(action: {
-                            delegateWrapper.didSelectKey(key, textEntryService: TextEntryService)
+                            // Use the instance of TextEntryService here
+                            delegateWrapper.didSelectKey(key, textEntryService: textEntryService)
                         }) {
                             Text(key)
                                 .font(.title)
@@ -48,4 +52,19 @@ struct KeyboardView: View {
         }
         .padding()
     }
+    // Method to update text
+    func updateText(_ newText: String) {
+        _text.wrappedValue = newText
+    }
+    
+    // Method to update word suggestions
+    func updateWordSuggestions(_ newSuggestions: [String]) {
+        _wordSuggestions.wrappedValue = newSuggestions
+    }
+    
+    // Method to update spelling indicator
+    func updateSpellingIndicator(_ isCorrect: Bool) {
+        _spellingIndicator.wrappedValue = isCorrect
+    }
 }
+

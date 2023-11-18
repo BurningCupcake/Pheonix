@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A101257A2A573D35005C1E12 /* info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A10125792A573D35005C1E12 /* info.plist */; };
 		A11B35532A6B13D5001ACCA6 /* IMG_6989.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A11B35522A6B13D5001ACCA6 /* IMG_6989.jpg */; };
+		A146839B2B08778E0057DBB2 /* SpellingIndicatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A146839A2B08778E0057DBB2 /* SpellingIndicatorDelegate.swift */; };
+		A146839C2B08787F0057DBB2 /* SpellingIndicatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A146839A2B08778E0057DBB2 /* SpellingIndicatorDelegate.swift */; };
 		A1619A5B2A6C6F0E00F3C1B8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A1619A5A2A6C6F0E00F3C1B8 /* README.md */; };
 		A1619A5C2A6C6F0E00F3C1B8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A1619A5A2A6C6F0E00F3C1B8 /* README.md */; };
 		A16A71282A63E5E700F8EA60 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA22A511D7700480362 /* Keyboard.swift */; };
@@ -153,6 +155,7 @@
 		A11153BD2A5E985000524D65 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A11153BF2A5E987B00524D65 /* SwipeToTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToTypeView.swift; sourceTree = "<group>"; };
 		A11B35522A6B13D5001ACCA6 /* IMG_6989.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_6989.jpg; sourceTree = "<group>"; };
+		A146839A2B08778E0057DBB2 /* SpellingIndicatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingIndicatorDelegate.swift; sourceTree = "<group>"; };
 		A14D69992A54B2AB00D67BFC /* CalibrationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationDelegate.swift; sourceTree = "<group>"; };
 		A1619A572A6C62CC00F3C1B8 /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = info.plist; sourceTree = "<group>"; };
 		A1619A5A2A6C6F0E00F3C1B8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
@@ -288,6 +291,7 @@
 				A1C70CD42A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift */,
 				A1BE40752A7749600086160A /* TextEntryDelegate.swift */,
 				A1BE407E2A787F5A0086160A /* DynamicCalibrationDelegate.swift */,
+				A146839A2B08778E0057DBB2 /* SpellingIndicatorDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -612,6 +616,7 @@
 				A16A713F2A63EC8400F8EA60 /* WordSuggestion.swift in Sources */,
 				A16A71732A63F04E00F8EA60 /* AppState.swift in Sources */,
 				A16A713E2A63EC8400F8EA60 /* TextEntry.swift in Sources */,
+				A146839B2B08778E0057DBB2 /* SpellingIndicatorDelegate.swift in Sources */,
 				A16A71322A63EC4C00F8EA60 /* CalibrationDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -662,6 +667,7 @@
 				A18E40602A65B965003D79AD /* main.swift in Sources */,
 				A18E40702A65BA74003D79AD /* TextEntryView.swift in Sources */,
 				A1D3A4072A7419BD001D5C42 /* EyeMovementMonitor.swift in Sources */,
+				A146839C2B08787F0057DBB2 /* SpellingIndicatorDelegate.swift in Sources */,
 				A18E40742A65BA74003D79AD /* DynamicCalibrationView.swift in Sources */,
 				A184CE442A5227E0008FAEC3 /* DynamicCalibrationModel.swift in Sources */,
 				A16A71812A63F05800F8EA60 /* WordSuggestion.swift in Sources */,

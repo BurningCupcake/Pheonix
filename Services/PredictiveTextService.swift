@@ -1,5 +1,6 @@
 import Foundation
 import Combine
+import UIKit  // Import UIKit for UITextChecker
 
 class PredictiveTextService {
     
@@ -28,7 +29,15 @@ class PredictiveTextService {
     
     // Optional method to get a specific number of predictions
     func getPredictions(for text: String, numberOfPredictions: Int) -> [String] {
-        let allPredictions = updatePredictiveText(for: text)
+        let allPredictions = getPredictions(from: text)
         return Array(allPredictions.prefix(numberOfPredictions))
+    }
+    
+    // Helper method to get predictions from text
+    private func getPredictions(from text: String) -> [String] {
+        let textChecker = UITextChecker()
+        let range = NSRange(location: 0, length: text.utf16.count)
+        let completions = textChecker.completions(forPartialWordRange: range, in: text, language: "en") ?? []
+        return completions
     }
 }

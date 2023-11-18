@@ -16,11 +16,19 @@ protocol EyeTrackerDelegate: AnyObject {
     // It receives the EyeTracker instance that has stopped tracking.
     func eyeTrackerDidStopTracking(_ eyeTracker: EyeTracker)
     
+    
+    
     // Any additional delegate methods for eye tracking events can be added here...
 }
    
 
 extension EyeTrackerDelegate {
+    
+    // Default implementation for the new method
+    func eyeTrackerDidFailToStart(_ eyeTracker: EyeTracker) {
+        // This method can be overridden in classes that conform to the EyeTrackerDelegate protocol
+        // to define their own behavior when the eye tracking fails to start.
+    }
     
     // Default implementation for tracking gaze point
     func eyeTracker(_ eyeTracker: EyeTracker, didTrackGazePoint gazePoint: CGPoint) {

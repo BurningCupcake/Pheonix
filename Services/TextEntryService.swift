@@ -2,8 +2,15 @@ import Foundation
 import Combine
 import UIKit
 
+protocol TextEntryServiceDelegate: AnyObject {
+    func didUpdateWordSuggestions(_ suggestions: [String])
+    func didUpdateSpellingIndicator(_ isCorrect: Bool)
+}
+
 class TextEntryService: WordSuggestionDelegate {
     private let textEntryStateSubject = CurrentValueSubject<TextEntryState, Never>(TextEntryState(text: ""))
+    weak var delegate: TextEntryServiceDelegate?
+
     
     var textEntryStatePublisher: AnyPublisher<TextEntryState, Never> {
         return textEntryStateSubject.eraseToAnyPublisher()
@@ -68,21 +75,30 @@ class TextEntryService: WordSuggestionDelegate {
     }
     
     // MARK: - WordSuggestionDelegate
-    
     func wordSuggestion(_ wordSuggestion: WordSuggestion, didSuggestWords suggestedWords: [String]) {
-        // Pass the suggested words to the text checker for further processing
-        let updatedSuggestions = processSuggestions(suggestedWords)
+        // Process the suggested words
+        let processedSuggestions = processSuggestions(suggestedWords)
         
         // Update the word suggestions with the text checker's predictions
-        wordSuggestion.updateSuggestions(updatedSuggestions)
+        wordSuggestion.updateSuggestions(processedSuggestions)
+        
+        // Notify delegate about the updated word suggestions
+        DispatchQueue.main.async {
+            self.delegate?.didUpdateWordSuggestions(processedSuggestions)
+        }
     }
     
     private func processSuggestions(_ words: [String]) -> [String] {
-        let rangeForEndOfStr = NSRange(location: 0, length: textEntry.currentText.utf16.count)
-        let completions = textChecker.completions(forPartialWordRange: rangeForEndOfStr, in: textEntry.currentText, language: "en_US")
-        return completions ?? []
+        // Assuming you want to get completions for the last word of the current text
+        let lastWord = textEntry.currentText.components(separatedBy: " ").last ?? ""
+        let rangeForLastWord = NSRange(location: 0, length: lastWord.utf16.count)
+        let completions = textChecker.completions(forPartialWordRange: rangeForLastWord, in: lastWord, language: "en_US") ?? []
+        
+        // Merge the completions with the suggested words from WordSuggestion
+        let mergedSuggestions = Set(completions + words)
+        return Array(mergedSuggestions)
     }
-    
+
     // MARK: - Subscriptions
     
     private var cancellables = Set<AnyCancellable>()
@@ -96,25 +112,20 @@ class TextEntryService: WordSuggestionDelegate {
     }
     
     private func handleLatestTextEntryState(_ state: TextEntryState) {
-        // Handle the latest text entry state here
-        print(state)
-        
-        // Perform any necessary operations with the latest state
         let completions = getWordCompletions(for: state.text)
         let isSpellingCorrect = performSpellChecking(for: state.text)
         
-        // Update the UI or perform other actions based on the latest state and results
         DispatchQueue.main.async {
-            // Update the UI or trigger any necessary UI updates
-            // For example:
-            self.updateWordSuggestions(completions)
-            self.updateSpellingIndicator(isSpellingCorrect)
+            self.delegate?.didUpdateWordSuggestions(completions)
+            self.delegate?.didUpdateSpellingIndicator(isSpellingCorrect)
         }
     }
     
+  
+    
     // MARK: - Word Completions
     
-    private func getWordCompletions(for text: String) -> [String] {
+    func getWordCompletions(for text: String) -> [String] {
         let range = NSRange(text.startIndex..<text.endIndex, in: text)
         let completions = textChecker.completions(forPartialWordRange: range, in: text, language: "en_US")
         return completions ?? []
@@ -122,7 +133,7 @@ class TextEntryService: WordSuggestionDelegate {
     
     // MARK: - Spell Checking
     
-    private func performSpellChecking(for text: String) -> Bool {
+    func performSpellChecking(for text: String) -> Bool {
         let range = NSRange(text.startIndex..<text.endIndex, in: text)
         let misspelledRange = textChecker.rangeOfMisspelledWord(in: text, range: range, startingAt: 0, wrap: false, language: "en_US")
         return misspelledRange.location == NSNotFound

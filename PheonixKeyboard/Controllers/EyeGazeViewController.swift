@@ -2,21 +2,14 @@ import UIKit
 import ARKit
 import SwiftUI
 
-// A view controller that handles gaze tracking and keyboard interactions
-class EyeGazeViewController: UIViewController {
-    // Gaze detection object that carries out gaze tracking
+class EyeGazeViewController: UIViewController, EyeTrackerDelegate {
     private var gazeDetection: GazeDetection?
-    // Eye tracker that tracks eye movements
     private var eyeTracker: EyeTracker?
-    // Handles keyboard interactions
     private var keyboardInteraction: KeyboardInteraction?
-    // Service for text entry
-    private var textEntryService: TextEntryService?
+    private var textEntryService: TextEntryService = TextEntryService()
+    @State private var text: String = ""
+    private var keyboardViewDelegateWrapper = KeyboardViewDelegateWrapper()
     
-    // Direction of gaze
-    private var gazeDirection: SCNVector3 = SCNVector3Zero
-    
-    // Called once the view is loaded into memory
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,19 +17,37 @@ class EyeGazeViewController: UIViewController {
         let dynamicCalibration = DynamicCalibration()
         gazeDetection = GazeDetection(delegate: dynamicCalibration as! GazeDetectionDelegate)
         eyeTracker = EyeTracker()
-        textEntryService = TextEntryService()
-        keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout(), textEntryService: textEntryService!) 
+        keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout(), textEntryService: textEntryService)
         
-        // Create a SwiftUI keyboard view
-        let keyboardViewDelegateWrapper = KeyboardViewDelegateWrapper()
-        let keyboardView = KeyboardView(delegateWrapper: keyboardViewDelegateWrapper, wordSuggestions: keyboardViewDelegateWrapper.wordSuggestions, spellingIndicator: keyboardViewDelegateWrapper.spellingIndicator, keyboardLayout: KeyboardLayout.defaultLayout())
-            .environmentObject(keyboardViewDelegateWrapper) // Wrap with EnvironmentObject
+        // Create bindings
+        let textBinding = Binding<String>(
+            get: { self.text },
+            set: { self.text = $0 }
+        )
+        let wordSuggestionsBinding = Binding<[String]>(
+            get: { self.keyboardViewDelegateWrapper.wordSuggestions },
+            set: { self.keyboardViewDelegateWrapper.wordSuggestions = $0 }
+        )
+        let spellingIndicatorBinding = Binding<Bool>(
+            get: { self.keyboardViewDelegateWrapper.spellingIndicator },
+            set: { self.keyboardViewDelegateWrapper.spellingIndicator = $0 }
+        )
+        
+        // Create and setup the SwiftUI keyboard view
+        let keyboardView = KeyboardView(
+            delegateWrapper: keyboardViewDelegateWrapper,
+            text: textBinding,
+            wordSuggestions: wordSuggestionsBinding,
+            spellingIndicator: spellingIndicatorBinding,
+            keyboardLayout: KeyboardLayout.defaultLayout(),
+            textEntryService: textEntryService
+        )
         
         // Embed the SwiftUI view in a UIHostingController
         let hostingController = UIHostingController(rootView: keyboardView)
-        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
         addChild(hostingController)
         view.addSubview(hostingController.view)
+        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             hostingController.view.topAnchor.constraint(equalTo: view.topAnchor),
             hostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -44,27 +55,19 @@ class EyeGazeViewController: UIViewController {
             hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        // Set up delegates and start gaze detection and eye tracking
-        gazeDetection?.delegate = self
-        eyeTracker?.delegate = self
+        // Start gaze detection and eye tracking
         gazeDetection?.start()
         eyeTracker?.startTracking()
     }
 }
-
-// MARK: - Extensions
-
-// Conforming EyeGazeViewController to GazeDetectionDelegate protocol
-extension EyeGazeViewController: GazeDetectionDelegate {
-    
-    // Implementing the gazeDetection(_:didDetectGazeAt:) method
-    func gazeDetection(_ gazeDetection: GazeDetection, didDetectGazeAt point: CGPoint) {
-        // Handle the detected gaze at the given point
-        // For example, you might want to move a cursor to the gaze point
+    // MARK: - GazeDetectionDelegate
+    extension EyeGazeViewController: GazeDetectionDelegate {
+        func gazeDetection(_ gazeDetection: GazeDetection, didDetectGazeAt point: CGPoint) {
+            // Handle gaze point detection
+        }
+        
+        func currentInterfaceOrientation(for gazeDetection: GazeDetection) -> UIInterfaceOrientation {
+            return view.window?.windowScene?.interfaceOrientation ?? .unknown
+        }
     }
-    
-    // Returns the interface orientation of the view
-    func currentInterfaceOrientation(for gazeDetection: GazeDetection) -> UIInterfaceOrientation {
-        return view.window?.windowScene?.interfaceOrientation ?? .unknown
-    }
-}
+

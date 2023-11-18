@@ -14,6 +14,9 @@ class DynamicCalibration: CalibrationDelegate {
     /// Default initializer.
     init() {}
     
+    /// add delegate
+    weak var delegate: DynamicCalibrationDelegate?
+    
     /// Static function to create an instance of DynamicCalibration.
     static func create() -> DynamicCalibration {
         return DynamicCalibration()
@@ -92,7 +95,7 @@ class DynamicCalibration: CalibrationDelegate {
         fractalLayer.backgroundColor = UIColor.white.cgColor
         
         let fractalImage = generateFractal(size: viewController.view.bounds.size)
-        fractalLayer.contents = fractalImage.cgImage
+        fractalLayer.contents = fractalImage?.cgImage
         
         viewController.view.layer.insertSublayer(fractalLayer, at: 0)
         

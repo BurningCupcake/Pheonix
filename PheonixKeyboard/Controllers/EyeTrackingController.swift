@@ -45,11 +45,11 @@ class EyeTrackingController: NSObject, ARSessionDelegate, ARSCNViewDelegate {
         configuration.isLightEstimationEnabled = true
         view.session = session
         view.delegate = self
-        view.session?.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+        view.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
     }
     
     // Function to stop the ARKit session
     func stopArKit(with view: ARSCNView) {
-        view.session?.pause()
+        view.session.pause()
     }
 }

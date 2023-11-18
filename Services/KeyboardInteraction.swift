@@ -1,4 +1,3 @@
-// Required library for the code
 import Foundation
 
 // Class for handling keyboard interactions
@@ -18,11 +17,13 @@ class KeyboardInteraction {
     
     // Processes the point of gaze to select a keyboard key
     func processGazePoint(_ point: CGPoint) {
+        // Determine the key from the gaze point and notify the delegate
         let keyIndex = calculateKeyIndex(at: point)
         if let key = getKey(at: keyIndex) {
-            delegate?.didSelectKey(key)
+            delegate?.didSelectKey(key, textEntryService: textEntryService)
         }
     }
+
     
     // Calculate the index of the key at the given point
     private func calculateKeyIndex(at point: CGPoint) -> Int {

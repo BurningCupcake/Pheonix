@@ -37,7 +37,7 @@ class DependencyInjection {
             assert(dynamicCalibration is GazeDetectionDelegate)  // ensure DynamicCalibration conforms to GazeDetectionDelegate
             let gazeDetection = GazeDetection(delegate: dynamicCalibration as! GazeDetectionDelegate)
             self.gazeDetection = gazeDetection
-            return gazeDetection
+            return gazeDetection!
         }()
     }
     

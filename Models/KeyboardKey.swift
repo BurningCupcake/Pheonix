@@ -72,23 +72,27 @@ class KeyboardKey: UIView {
                 keyLabel.addGestureRecognizer(tapGesture)
                 
                 addSubview(keyLabel)
-                // Auto Layout Constraints setting for positioning the keys.
-                NSLayoutConstraint.activate([
+                var constraints = [
                     keyLabel.widthAnchor.constraint(equalToConstant: keySize.width),
                     keyLabel.heightAnchor.constraint(equalToConstant: keySize.height),
-                    keyLabel.topAnchor.constraint(equalTo: topAnchor, constant: CGFloat(i) * keySize.height),
-                    (lastLabel != nil ?  keyLabel.leftAnchor.constraint(equalTo: lastLabel!.rightAnchor) : keyLabel.leftAnchor.constraint(equalTo: leftAnchor)).priorityHigh()
-                ])
-
+                    keyLabel.topAnchor.constraint(equalTo: topAnchor, constant: CGFloat(i) * keySize.height)
+                ]
+                
+                if let lastLabel = lastLabel {
+                    constraints.append(keyLabel.leftAnchor.constraint(equalTo: lastLabel.rightAnchor))
+                } else {
+                    constraints.append(keyLabel.leftAnchor.constraint(equalTo: leftAnchor))
+                }
+                
+                NSLayoutConstraint.activate(constraints)
                 lastLabel = keyLabel
             }
         }
     }
     
-    // Function that gets the text of the key that is selected.
     @objc func didSelectKey(_ sender: UITapGestureRecognizer) {
         if let keyLabel = sender.view as? UILabel, let key = keyLabel.text {
-            delegate?.didSelectKey(key, textEntryService: textEntryService, textChecker: textChecker)
+            delegate?.didSelectKey(key, textEntryService: textEntryService)
         }
     }
 }
