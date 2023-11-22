@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A101257A2A573D35005C1E12 /* info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A10125792A573D35005C1E12 /* info.plist */; };
 		A11B35532A6B13D5001ACCA6 /* IMG_6989.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A11B35522A6B13D5001ACCA6 /* IMG_6989.jpg */; };
 		A146839B2B08778E0057DBB2 /* SpellingIndicatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A146839A2B08778E0057DBB2 /* SpellingIndicatorDelegate.swift */; };
 		A146839C2B08787F0057DBB2 /* SpellingIndicatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A146839A2B08778E0057DBB2 /* SpellingIndicatorDelegate.swift */; };
@@ -661,7 +660,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A101257A2A573D35005C1E12 /* info.plist in Resources */,
 				A11B35532A6B13D5001ACCA6 /* IMG_6989.jpg in Resources */,
 				A174831A2A51017100978F0A /* Preview Assets.xcassets in Resources */,
 				A17483172A51017100978F0A /* Assets.xcassets in Resources */,
