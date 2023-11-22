@@ -42,7 +42,18 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>RequestsOpenAccess</key>
-	<string>true</string>
+	<key>NSExtension</key>
+	<dict>
+		<key>NSExtensionAttributes</key>
+		<dict/>
+		<key>RequestsOpenAccess</key>
+		<true/>
+		<key>IsASCIICapable</key>
+		<true/>
+		<key>PrefersRightToLeft</key>
+		<true/>
+		<key>PrimaryLanguage</key>
+		<string>en-US</string>
+	</dict>
 </dict>
 </plist>

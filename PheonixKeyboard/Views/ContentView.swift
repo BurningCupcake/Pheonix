@@ -13,6 +13,7 @@ struct ContentView: View {
                 
                 // Here you can add other components of your ContentView
                 
+
                 Button("Settings") {
                     isShowingSettings.toggle()
                 }
