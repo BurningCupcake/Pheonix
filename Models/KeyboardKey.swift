@@ -60,7 +60,7 @@ class KeyboardKey: UIView {
     func setupKeyboardLayout() {
         var lastLabel: UILabel? = nil
         for (i, row) in KeyboardKey.defaultLayout.enumerated() {
-            for (j, key) in row.enumerated() {
+            for (_, key) in row.enumerated() {
                 let keyLabel = UILabel()
                 keyLabel.text = key
                 keyLabel.textAlignment = .center

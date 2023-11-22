@@ -13,8 +13,8 @@ class TextEntryViewModel: ObservableObject {
         self.textEntryService = textEntryService
         self.textEntryState = TextEntryState(text: "")
         
-        // Assign the textEntryStatePublisher's output to the textEntryState variable with the 'assign(to:on:)' method
-        textEntryService.textEntryStatePublisher
+        // Assign the textEntryStatePublisher's output to the textEntryState variable and store the cancellable
+        textEntryStateCancellable = textEntryService.textEntryStatePublisher
             .assign(to: \.textEntryState, on: self)
     }
     
@@ -29,7 +29,7 @@ class TextEntryViewModel: ObservableObject {
         }
     }
     
-    // function to delete the last character from the text using the textEntryService
+    // Function to delete the last character from the text using the textEntryService
     func deleteLastCharacter() {
         textEntryService.deleteLastCharacter()
     }
