@@ -51,7 +51,7 @@
 		<key>IsASCIICapable</key>
 		<true/>
 		<key>PrefersRightToLeft</key>
-		<true/>
+        <false/>
 		<key>PrimaryLanguage</key>
 		<string>en-US</string>
 	</dict>
