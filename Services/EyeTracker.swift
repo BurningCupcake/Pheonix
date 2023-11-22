@@ -11,7 +11,7 @@ class EyeTracker: NSObject, ARSessionDelegate {
     weak var delegate: EyeTrackerDelegate?
     
     // ARSession which manages motion tracking and camera processing interactions needed for AR
-    private var session: ARSession?
+    internal var session: ARSession?
     
     // Current position of gaze point
     var currentPosition: CGPoint = .zero
@@ -70,9 +70,10 @@ class EyeTracker: NSObject, ARSessionDelegate {
     }
     
     // Function to calculate center point between the positions of left and right eyes
-    private func calculateGazePoint(leftEyePosition: simd_float3, rightEyePosition: simd_float3) -> CGPoint {
+    internal func calculateGazePoint(leftEyePosition: simd_float3, rightEyePosition: simd_float3) -> CGPoint {
         let averageEyePosition = (leftEyePosition + rightEyePosition) / 2
         // create CGPoint from average position values
         return CGPoint(x: CGFloat(averageEyePosition.x), y: CGFloat(averageEyePosition.y))
     }
 }
+

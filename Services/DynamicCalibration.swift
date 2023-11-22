@@ -6,10 +6,10 @@ import QuartzCore
 class DynamicCalibration: CalibrationDelegate {
     
     /// Array of calibration points.
-    private var calibrationPoints: [CGPoint] = []
+    internal var calibrationPoints: [CGPoint] = []
     
     /// The generated fractal image based on the calibration points
-    private var fractalImage: UIImage?
+    internal var fractalImage: UIImage?
     
     /// Default initializer.
     init() {}
