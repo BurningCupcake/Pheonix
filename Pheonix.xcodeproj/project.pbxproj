@@ -191,7 +191,6 @@
 		A11B35522A6B13D5001ACCA6 /* IMG_6989.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_6989.jpg; sourceTree = "<group>"; };
 		A146839A2B08778E0057DBB2 /* SpellingIndicatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingIndicatorDelegate.swift; sourceTree = "<group>"; };
 		A14D69992A54B2AB00D67BFC /* CalibrationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationDelegate.swift; sourceTree = "<group>"; };
-		A1619A572A6C62CC00F3C1B8 /* info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = info.plist; sourceTree = "<group>"; };
 		A1619A5A2A6C6F0E00F3C1B8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		A16A711C2A63E44B00F8EA60 /* PheonixKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PheonixKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A16A71202A63E44B00F8EA60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -356,7 +355,6 @@
 			children = (
 				A19C43F32B0947D50048130B /* TestPlan.xctestplan */,
 				A1619A5A2A6C6F0E00F3C1B8 /* README.md */,
-				A1619A572A6C62CC00F3C1B8 /* info.plist */,
 				A1F69E9E2A511B1600480362 /* AppDelegate.swift */,
 				A18E405F2A65B965003D79AD /* main.swift */,
 				A184CE552A522AFD008FAEC3 /* SceneDelegate.swift */,
