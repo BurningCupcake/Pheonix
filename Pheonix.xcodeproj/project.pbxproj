@@ -8,80 +8,84 @@
 
 /* Begin PBXBuildFile section */
 		A11B35532A6B13D5001ACCA6 /* IMG_6989.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A11B35522A6B13D5001ACCA6 /* IMG_6989.jpg */; };
-		A146839C2B08787F0057DBB2 /* SpellingIndicatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A146839A2B08778E0057DBB2 /* SpellingIndicatorDelegate.swift */; };
+		A12679D12B1FA4D600899D2F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11153BD2A5E985000524D65 /* SettingsView.swift */; };
+		A12679D22B1FA54700899D2F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11153BD2A5E985000524D65 /* SettingsView.swift */; };
 		A1619A5B2A6C6F0E00F3C1B8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A1619A5A2A6C6F0E00F3C1B8 /* README.md */; };
-		A16A71782A63F05800F8EA60 /* BlinkGestureHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE3B2A5226C6008FAEC3 /* BlinkGestureHandler.swift */; };
-		A16A71792A63F05800F8EA60 /* KeyboardInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE4B2A52293B008FAEC3 /* KeyboardInteraction.swift */; };
-		A16A717A2A63F05800F8EA60 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE372A5221E9008FAEC3 /* Settings.swift */; };
-		A16A717B2A63F05800F8EA60 /* GazeDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE2F2A521DE5008FAEC3 /* GazeDetection.swift */; };
-		A16A717C2A63F05800F8EA60 /* DynamicCalibration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE352A522033008FAEC3 /* DynamicCalibration.swift */; };
-		A16A717D2A63F05800F8EA60 /* TextEntryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB861B2A5B6C140084F93C /* TextEntryService.swift */; };
-		A16A717E2A63F05800F8EA60 /* PredictiveTextService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB86192A5B6B8E0084F93C /* PredictiveTextService.swift */; };
-		A16A717F2A63F05800F8EA60 /* EyeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE312A521E7A008FAEC3 /* EyeTracker.swift */; };
-		A16A71802A63F05800F8EA60 /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE3F2A52276B008FAEC3 /* DependencyInjection.swift */; };
-		A16A71812A63F05800F8EA60 /* WordSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18547AF2A636312005E179F /* WordSuggestion.swift */; };
-		A16A71822A63F05800F8EA60 /* TextEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE572A522B53008FAEC3 /* TextEntry.swift */; };
-		A16A71832A63F05F00F8EA60 /* BlinkGestureHandlerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE3D2A5226DF008FAEC3 /* BlinkGestureHandlerDelegate.swift */; };
-		A16A71842A63F05F00F8EA60 /* KeyboardViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC50102A536FB1000E900B /* KeyboardViewDelegate.swift */; };
-		A16A71852A63F05F00F8EA60 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE552A522AFD008FAEC3 /* SceneDelegate.swift */; };
-		A16A71862A63F05F00F8EA60 /* EyeTrackerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC501C2A53739B000E900B /* EyeTrackerDelegate.swift */; };
-		A16A71872A63F05F00F8EA60 /* WordSuggestionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA42A520CCF00480362 /* WordSuggestionDelegate.swift */; };
-		A16A71882A63F05F00F8EA60 /* SwipeToTypeControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C70CD82A5CBC9200D8F9E3 /* SwipeToTypeControllerDelegate.swift */; };
-		A16A71892A63F05F00F8EA60 /* GestureRecognitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16CE4EC2A5485B6006C75EF /* GestureRecognitionDelegate.swift */; };
-		A16A718A2A63F05F00F8EA60 /* GazeDetectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA52A520CCF00480362 /* GazeDetectionDelegate.swift */; };
-		A16A718B2A63F05F00F8EA60 /* KeyboardInteractionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC501E2A5373D6000E900B /* KeyboardInteractionDelegate.swift */; };
-		A16A718C2A63F05F00F8EA60 /* CalibrationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D69992A54B2AB00D67BFC /* CalibrationDelegate.swift */; };
-		A16A718D2A63F05F00F8EA60 /* SpellingIndicatorDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18547B32A6386B9005E179F /* SpellingIndicatorDelegateWrapper.swift */; };
 		A17483172A51017100978F0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A17483162A51017100978F0A /* Assets.xcassets */; };
 		A174831A2A51017100978F0A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A17483192A51017100978F0A /* Preview Assets.xcassets */; };
-		A184CE262A521B91008FAEC3 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE252A521B91008FAEC3 /* Language.swift */; };
-		A184CE2C2A521BEE008FAEC3 /* CalibrationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE2B2A521BEE008FAEC3 /* CalibrationResult.swift */; };
-		A184CE442A5227E0008FAEC3 /* DynamicCalibrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE432A5227E0008FAEC3 /* DynamicCalibrationModel.swift */; };
-		A184CE4A2A52289C008FAEC3 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE492A52289C008FAEC3 /* Key.swift */; };
-		A184CE4E2A52299A008FAEC3 /* KeyboardLayoutStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE4D2A52299A008FAEC3 /* KeyboardLayoutStyle.swift */; };
-		A184CE502A5229F5008FAEC3 /* KeyboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE4F2A5229F5008FAEC3 /* KeyboardViewModel.swift */; };
-		A184CE5C2A52588D008FAEC3 /* KeyboardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE5B2A52588D008FAEC3 /* KeyboardLayout.swift */; };
 		A184CE612A5258C0008FAEC3 /* libswiftUIKit.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE5F2A5258C0008FAEC3 /* libswiftUIKit.tbd */; };
 		A184CE6B2A5258DD008FAEC3 /* libswiftCoreFoundation.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE652A5258DC008FAEC3 /* libswiftCoreFoundation.tbd */; };
 		A184CE6C2A5258DD008FAEC3 /* libswiftFoundation.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE662A5258DC008FAEC3 /* libswiftFoundation.tbd */; };
 		A184CE6D2A5258DD008FAEC3 /* libswiftSystem_Foundation.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE672A5258DC008FAEC3 /* libswiftSystem_Foundation.tbd */; };
 		A184CE6E2A5258DD008FAEC3 /* libswiftExtensionFoundation.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE682A5258DC008FAEC3 /* libswiftExtensionFoundation.tbd */; };
 		A184CE6F2A5258DD008FAEC3 /* libswiftAVFoundation.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE692A5258DC008FAEC3 /* libswiftAVFoundation.tbd */; };
-		A18547B22A637078005E179F /* TextEntryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18547B12A637078005E179F /* TextEntryError.swift */; };
-		A18E405C2A65AF1F003D79AD /* KeyboardViewDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C70CD42A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift */; };
-		A18E405D2A65AF70003D79AD /* EyeTrackingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE472A52284B008FAEC3 /* EyeTrackingController.swift */; };
-		A18E40602A65B965003D79AD /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18E405F2A65B965003D79AD /* main.swift */; };
-		A18E40622A65BA25003D79AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69E9E2A511B1600480362 /* AppDelegate.swift */; };
-		A18E406C2A65BA74003D79AD /* CalibrationProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC50362A537815000E900B /* CalibrationProgressView.swift */; };
-		A18E406D2A65BA74003D79AD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17483142A51016F00978F0A /* ContentView.swift */; };
-		A18E406E2A65BA74003D79AD /* PredictiveTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE532A522AC2008FAEC3 /* PredictiveTextView.swift */; };
-		A18E406F2A65BA74003D79AD /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11153BD2A5E985000524D65 /* SettingsView.swift */; };
-		A18E40702A65BA74003D79AD /* TextEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB86152A5B6B0E0084F93C /* TextEntryView.swift */; };
-		A18E40722A65BA74003D79AD /* LanguagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11153BB2A5E981E00524D65 /* LanguagePickerView.swift */; };
-		A18E40732A65BA74003D79AD /* SwipeToTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11153BF2A5E987B00524D65 /* SwipeToTypeView.swift */; };
-		A18E40742A65BA74003D79AD /* DynamicCalibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE292A521BCC008FAEC3 /* DynamicCalibrationView.swift */; };
-		A18E40752A65BA93003D79AD /* EyeGazeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE452A522803008FAEC3 /* EyeGazeViewController.swift */; };
-		A18E40762A65BEF6003D79AD /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA02A511D4100480362 /* KeyboardView.swift */; };
-		A18E40772A65BF3E003D79AD /* SwipeToTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE392A52221A008FAEC3 /* SwipeToTypeController.swift */; };
-		A18E40782A65BFEC003D79AD /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA22A511D7700480362 /* Keyboard.swift */; };
-		A1AB86182A5B6B4B0084F93C /* TextEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB86172A5B6B4B0084F93C /* TextEntryViewModel.swift */; };
-		A1AB861E2A5B6C4B0084F93C /* PredictiveTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB861D2A5B6C4B0084F93C /* PredictiveTextViewModel.swift */; };
-		A1AB86202A5B6C9C0084F93C /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB861F2A5B6C9C0084F93C /* AppState.swift */; };
-		A1BE40732A77115E0086160A /* FractalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE40722A77115E0086160A /* FractalState.swift */; };
-		A1BE40762A7749600086160A /* TextEntryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE40752A7749600086160A /* TextEntryDelegate.swift */; };
-		A1BE40792A774B5A0086160A /* SpellingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE40782A774B5A0086160A /* SpellingIndicator.swift */; };
-		A1BE407C2A7753320086160A /* EyeMovements.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE407B2A7753320086160A /* EyeMovements.swift */; };
-		A1BE407F2A787F5A0086160A /* DynamicCalibrationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE407E2A787F5A0086160A /* DynamicCalibrationDelegate.swift */; };
-		A1BE40812A7880440086160A /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EAE2A520FB700480362 /* KeyboardViewController.swift */; };
-		A1BE40832A7881310086160A /* SwipeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE40822A7881310086160A /* SwipeDirection.swift */; };
-		A1D3A4072A7419BD001D5C42 /* EyeMovementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D3A4062A7419BD001D5C42 /* EyeMovementMonitor.swift */; };
-		A1EC501B2A53734F000E900B /* EyeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC501A2A53734F000E900B /* EyeState.swift */; };
+		A1CAEE412B1F98FB0042EDCC /* PKey.appex in Resources */ = {isa = PBXBuildFile; fileRef = A1F839012B1F92B900C8E90A /* PKey.appex */; };
 		A1EC50212A537463000E900B /* Keyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1EC50202A537463000E900B /* Keyboard.xib */; };
 		A1ED01472A565DA0008B32C9 /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE622A5258C9008FAEC3 /* ARKit.framework */; };
 		A1ED014A2A565DA2008B32C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE642A5258DC008FAEC3 /* Foundation.framework */; };
 		A1ED014C2A565DA3008B32C9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE5E2A5258C0008FAEC3 /* UIKit.framework */; };
-		A1F69EAD2A520DEF00480362 /* KeyboardKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EAC2A520DEF00480362 /* KeyboardKey.swift */; };
-		A1F721FE2A64A423007966A1 /* GestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F721FD2A64A423007966A1 /* GestureRecognizer.swift */; };
+		A1F355EB2B1F9F7B001B30A2 /* SpellingIndicatorDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18547B32A6386B9005E179F /* SpellingIndicatorDelegateWrapper.swift */; };
+		A1F355EC2B1F9F7B001B30A2 /* BlinkGestureHandlerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE3D2A5226DF008FAEC3 /* BlinkGestureHandlerDelegate.swift */; };
+		A1F355ED2B1F9F7B001B30A2 /* CalibrationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D69992A54B2AB00D67BFC /* CalibrationDelegate.swift */; };
+		A1F355EE2B1F9F7B001B30A2 /* EyeTrackerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC501C2A53739B000E900B /* EyeTrackerDelegate.swift */; };
+		A1F355EF2B1F9F7B001B30A2 /* GazeDetectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA52A520CCF00480362 /* GazeDetectionDelegate.swift */; };
+		A1F355F02B1F9F7B001B30A2 /* GestureRecognitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16CE4EC2A5485B6006C75EF /* GestureRecognitionDelegate.swift */; };
+		A1F355F12B1F9F7B001B30A2 /* KeyboardInteractionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC501E2A5373D6000E900B /* KeyboardInteractionDelegate.swift */; };
+		A1F355F22B1F9F7B001B30A2 /* KeyboardViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC50102A536FB1000E900B /* KeyboardViewDelegate.swift */; };
+		A1F355F32B1F9F7B001B30A2 /* WordSuggestionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA42A520CCF00480362 /* WordSuggestionDelegate.swift */; };
+		A1F355F42B1F9F7B001B30A2 /* SwipeToTypeControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C70CD82A5CBC9200D8F9E3 /* SwipeToTypeControllerDelegate.swift */; };
+		A1F355F52B1F9F7B001B30A2 /* KeyboardViewDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C70CD42A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift */; };
+		A1F355F62B1F9F7B001B30A2 /* TextEntryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE40752A7749600086160A /* TextEntryDelegate.swift */; };
+		A1F355F72B1F9F7B001B30A2 /* DynamicCalibrationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE407E2A787F5A0086160A /* DynamicCalibrationDelegate.swift */; };
+		A1F355F82B1F9F7C001B30A2 /* SpellingIndicatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A146839A2B08778E0057DBB2 /* SpellingIndicatorDelegate.swift */; };
+		A1F355F92B1F9F7C001B30A2 /* EyeGazeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE452A522803008FAEC3 /* EyeGazeViewController.swift */; };
+		A1F355FA2B1F9F7C001B30A2 /* EyeTrackingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE472A52284B008FAEC3 /* EyeTrackingController.swift */; };
+		A1F355FB2B1F9F7C001B30A2 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EAE2A520FB700480362 /* KeyboardViewController.swift */; };
+		A1F355FC2B1F9F7C001B30A2 /* SwipeToTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE392A52221A008FAEC3 /* SwipeToTypeController.swift */; };
+		A1F355FD2B1F9F7C001B30A2 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA02A511D4100480362 /* KeyboardView.swift */; };
+		A1F355FE2B1F9F7C001B30A2 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA22A511D7700480362 /* Keyboard.swift */; };
+		A1F355FF2B1F9F7C001B30A2 /* KeyboardKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EAC2A520DEF00480362 /* KeyboardKey.swift */; };
+		A1F356002B1F9F7C001B30A2 /* CalibrationProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC50362A537815000E900B /* CalibrationProgressView.swift */; };
+		A1F356012B1F9F7C001B30A2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17483142A51016F00978F0A /* ContentView.swift */; };
+		A1F356022B1F9F7C001B30A2 /* DynamicCalibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE292A521BCC008FAEC3 /* DynamicCalibrationView.swift */; };
+		A1F356032B1F9F7C001B30A2 /* PredictiveTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE532A522AC2008FAEC3 /* PredictiveTextView.swift */; };
+		A1F356042B1F9F7C001B30A2 /* TextEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB86152A5B6B0E0084F93C /* TextEntryView.swift */; };
+		A1F356052B1F9F7C001B30A2 /* LanguagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11153BB2A5E981E00524D65 /* LanguagePickerView.swift */; };
+		A1F356072B1F9F7C001B30A2 /* SwipeToTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11153BF2A5E987B00524D65 /* SwipeToTypeView.swift */; };
+		A1F356082B1F9F86001B30A2 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB861F2A5B6C9C0084F93C /* AppState.swift */; };
+		A1F356092B1F9F86001B30A2 /* CalibrationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE2B2A521BEE008FAEC3 /* CalibrationResult.swift */; };
+		A1F3560A2B1F9F86001B30A2 /* DynamicCalibrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE432A5227E0008FAEC3 /* DynamicCalibrationModel.swift */; };
+		A1F3560B2B1F9F86001B30A2 /* EyeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC501A2A53734F000E900B /* EyeState.swift */; };
+		A1F3560C2B1F9F86001B30A2 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE492A52289C008FAEC3 /* Key.swift */; };
+		A1F3560D2B1F9F86001B30A2 /* KeyboardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE5B2A52588D008FAEC3 /* KeyboardLayout.swift */; };
+		A1F3560E2B1F9F86001B30A2 /* KeyboardLayoutStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE4D2A52299A008FAEC3 /* KeyboardLayoutStyle.swift */; };
+		A1F3560F2B1F9F86001B30A2 /* KeyboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE4F2A5229F5008FAEC3 /* KeyboardViewModel.swift */; };
+		A1F356102B1F9F86001B30A2 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE252A521B91008FAEC3 /* Language.swift */; };
+		A1F356112B1F9F86001B30A2 /* PredictiveTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB861D2A5B6C4B0084F93C /* PredictiveTextViewModel.swift */; };
+		A1F356122B1F9F86001B30A2 /* TextEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB86172A5B6B4B0084F93C /* TextEntryViewModel.swift */; };
+		A1F356132B1F9F86001B30A2 /* TextEntryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18547B12A637078005E179F /* TextEntryError.swift */; };
+		A1F356142B1F9F86001B30A2 /* EyeMovementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D3A4062A7419BD001D5C42 /* EyeMovementMonitor.swift */; };
+		A1F356152B1F9F86001B30A2 /* FractalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE40722A77115E0086160A /* FractalState.swift */; };
+		A1F356162B1F9F86001B30A2 /* SpellingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE40782A774B5A0086160A /* SpellingIndicator.swift */; };
+		A1F356172B1F9F86001B30A2 /* EyeMovements.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE407B2A7753320086160A /* EyeMovements.swift */; };
+		A1F356182B1F9F86001B30A2 /* SwipeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE40822A7881310086160A /* SwipeDirection.swift */; };
+		A1F356192B1F9F90001B30A2 /* BlinkGestureHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE3B2A5226C6008FAEC3 /* BlinkGestureHandler.swift */; };
+		A1F3561A2B1F9F90001B30A2 /* EyeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE312A521E7A008FAEC3 /* EyeTracker.swift */; };
+		A1F3561B2B1F9F90001B30A2 /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE3F2A52276B008FAEC3 /* DependencyInjection.swift */; };
+		A1F3561C2B1F9F90001B30A2 /* DynamicCalibration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE352A522033008FAEC3 /* DynamicCalibration.swift */; };
+		A1F3561D2B1F9F90001B30A2 /* GazeDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE2F2A521DE5008FAEC3 /* GazeDetection.swift */; };
+		A1F3561E2B1F9F90001B30A2 /* KeyboardInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE4B2A52293B008FAEC3 /* KeyboardInteraction.swift */; };
+		A1F3561F2B1F9F90001B30A2 /* PredictiveTextService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB86192A5B6B8E0084F93C /* PredictiveTextService.swift */; };
+		A1F356202B1F9F90001B30A2 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE372A5221E9008FAEC3 /* Settings.swift */; };
+		A1F356212B1F9F90001B30A2 /* TextEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE572A522B53008FAEC3 /* TextEntry.swift */; };
+		A1F356222B1F9F90001B30A2 /* TextEntryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB861B2A5B6C140084F93C /* TextEntryService.swift */; };
+		A1F356232B1F9F90001B30A2 /* WordSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18547AF2A636312005E179F /* WordSuggestion.swift */; };
+		A1F356242B1F9F90001B30A2 /* GestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F721FD2A64A423007966A1 /* GestureRecognizer.swift */; };
+		A1F356252B1FA08C001B30A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69E9E2A511B1600480362 /* AppDelegate.swift */; };
+		A1F356262B1FA08C001B30A2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18E405F2A65B965003D79AD /* main.swift */; };
+		A1F356272B1FA08C001B30A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE552A522AFD008FAEC3 /* SceneDelegate.swift */; };
+		A1F356282B1FA0AC001B30A2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17483142A51016F00978F0A /* ContentView.swift */; };
+		A1F356292B1FA0CA001B30A2 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE372A5221E9008FAEC3 /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -484,6 +488,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A11B35532A6B13D5001ACCA6 /* IMG_6989.jpg in Resources */,
+				A1CAEE412B1F98FB0042EDCC /* PKey.appex in Resources */,
 				A174831A2A51017100978F0A /* Preview Assets.xcassets in Resources */,
 				A17483172A51017100978F0A /* Assets.xcassets in Resources */,
 				A1619A5B2A6C6F0E00F3C1B8 /* README.md in Resources */,
@@ -505,67 +510,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A16A717F2A63F05800F8EA60 /* EyeTracker.swift in Sources */,
-				A18E40762A65BEF6003D79AD /* KeyboardView.swift in Sources */,
-				A18E40732A65BA74003D79AD /* SwipeToTypeView.swift in Sources */,
-				A18E40752A65BA93003D79AD /* EyeGazeViewController.swift in Sources */,
-				A1AB86182A5B6B4B0084F93C /* TextEntryViewModel.swift in Sources */,
-				A16A717D2A63F05800F8EA60 /* TextEntryService.swift in Sources */,
-				A16A71882A63F05F00F8EA60 /* SwipeToTypeControllerDelegate.swift in Sources */,
-				A18E40772A65BF3E003D79AD /* SwipeToTypeController.swift in Sources */,
-				A18E40622A65BA25003D79AD /* AppDelegate.swift in Sources */,
-				A16A718C2A63F05F00F8EA60 /* CalibrationDelegate.swift in Sources */,
-				A18E406C2A65BA74003D79AD /* CalibrationProgressView.swift in Sources */,
-				A16A71822A63F05800F8EA60 /* TextEntry.swift in Sources */,
-				A16A71872A63F05F00F8EA60 /* WordSuggestionDelegate.swift in Sources */,
-				A1BE40732A77115E0086160A /* FractalState.swift in Sources */,
-				A16A71832A63F05F00F8EA60 /* BlinkGestureHandlerDelegate.swift in Sources */,
-				A184CE502A5229F5008FAEC3 /* KeyboardViewModel.swift in Sources */,
-				A16A718D2A63F05F00F8EA60 /* SpellingIndicatorDelegateWrapper.swift in Sources */,
-				A1AB861E2A5B6C4B0084F93C /* PredictiveTextViewModel.swift in Sources */,
-				A1AB86202A5B6C9C0084F93C /* AppState.swift in Sources */,
-				A16A71852A63F05F00F8EA60 /* SceneDelegate.swift in Sources */,
-				A18E405C2A65AF1F003D79AD /* KeyboardViewDelegateWrapper.swift in Sources */,
-				A18E40722A65BA74003D79AD /* LanguagePickerView.swift in Sources */,
-				A16A71782A63F05800F8EA60 /* BlinkGestureHandler.swift in Sources */,
-				A184CE4A2A52289C008FAEC3 /* Key.swift in Sources */,
-				A1BE40832A7881310086160A /* SwipeDirection.swift in Sources */,
-				A16A71862A63F05F00F8EA60 /* EyeTrackerDelegate.swift in Sources */,
-				A16A717A2A63F05800F8EA60 /* Settings.swift in Sources */,
-				A16A717B2A63F05800F8EA60 /* GazeDetection.swift in Sources */,
-				A18E406E2A65BA74003D79AD /* PredictiveTextView.swift in Sources */,
-				A184CE4E2A52299A008FAEC3 /* KeyboardLayoutStyle.swift in Sources */,
-				A16A71802A63F05800F8EA60 /* DependencyInjection.swift in Sources */,
-				A16A717E2A63F05800F8EA60 /* PredictiveTextService.swift in Sources */,
-				A1BE40812A7880440086160A /* KeyboardViewController.swift in Sources */,
-				A16A71842A63F05F00F8EA60 /* KeyboardViewDelegate.swift in Sources */,
-				A16A718A2A63F05F00F8EA60 /* GazeDetectionDelegate.swift in Sources */,
-				A18E406D2A65BA74003D79AD /* ContentView.swift in Sources */,
-				A1BE40762A7749600086160A /* TextEntryDelegate.swift in Sources */,
-				A184CE2C2A521BEE008FAEC3 /* CalibrationResult.swift in Sources */,
-				A18E406F2A65BA74003D79AD /* SettingsView.swift in Sources */,
-				A18E40602A65B965003D79AD /* main.swift in Sources */,
-				A18E40702A65BA74003D79AD /* TextEntryView.swift in Sources */,
-				A1D3A4072A7419BD001D5C42 /* EyeMovementMonitor.swift in Sources */,
-				A146839C2B08787F0057DBB2 /* SpellingIndicatorDelegate.swift in Sources */,
-				A18E40742A65BA74003D79AD /* DynamicCalibrationView.swift in Sources */,
-				A184CE442A5227E0008FAEC3 /* DynamicCalibrationModel.swift in Sources */,
-				A16A71812A63F05800F8EA60 /* WordSuggestion.swift in Sources */,
-				A16A71892A63F05F00F8EA60 /* GestureRecognitionDelegate.swift in Sources */,
-				A184CE5C2A52588D008FAEC3 /* KeyboardLayout.swift in Sources */,
-				A1BE40792A774B5A0086160A /* SpellingIndicator.swift in Sources */,
-				A1BE407F2A787F5A0086160A /* DynamicCalibrationDelegate.swift in Sources */,
-				A18547B22A637078005E179F /* TextEntryError.swift in Sources */,
-				A16A718B2A63F05F00F8EA60 /* KeyboardInteractionDelegate.swift in Sources */,
-				A1EC501B2A53734F000E900B /* EyeState.swift in Sources */,
-				A16A717C2A63F05800F8EA60 /* DynamicCalibration.swift in Sources */,
-				A184CE262A521B91008FAEC3 /* Language.swift in Sources */,
-				A18E40782A65BFEC003D79AD /* Keyboard.swift in Sources */,
-				A1F721FE2A64A423007966A1 /* GestureRecognizer.swift in Sources */,
-				A1BE407C2A7753320086160A /* EyeMovements.swift in Sources */,
-				A16A71792A63F05800F8EA60 /* KeyboardInteraction.swift in Sources */,
-				A18E405D2A65AF70003D79AD /* EyeTrackingController.swift in Sources */,
-				A1F69EAD2A520DEF00480362 /* KeyboardKey.swift in Sources */,
+				A12679D12B1FA4D600899D2F /* SettingsView.swift in Sources */,
+				A1F356292B1FA0CA001B30A2 /* Settings.swift in Sources */,
+				A1F356282B1FA0AC001B30A2 /* ContentView.swift in Sources */,
+				A1F356252B1FA08C001B30A2 /* AppDelegate.swift in Sources */,
+				A1F356262B1FA08C001B30A2 /* main.swift in Sources */,
+				A1F356272B1FA08C001B30A2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,6 +523,64 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A12679D22B1FA54700899D2F /* SettingsView.swift in Sources */,
+				A1F356192B1F9F90001B30A2 /* BlinkGestureHandler.swift in Sources */,
+				A1F3561A2B1F9F90001B30A2 /* EyeTracker.swift in Sources */,
+				A1F3561B2B1F9F90001B30A2 /* DependencyInjection.swift in Sources */,
+				A1F3561C2B1F9F90001B30A2 /* DynamicCalibration.swift in Sources */,
+				A1F3561D2B1F9F90001B30A2 /* GazeDetection.swift in Sources */,
+				A1F3561E2B1F9F90001B30A2 /* KeyboardInteraction.swift in Sources */,
+				A1F3561F2B1F9F90001B30A2 /* PredictiveTextService.swift in Sources */,
+				A1F356202B1F9F90001B30A2 /* Settings.swift in Sources */,
+				A1F356212B1F9F90001B30A2 /* TextEntry.swift in Sources */,
+				A1F356222B1F9F90001B30A2 /* TextEntryService.swift in Sources */,
+				A1F356232B1F9F90001B30A2 /* WordSuggestion.swift in Sources */,
+				A1F356242B1F9F90001B30A2 /* GestureRecognizer.swift in Sources */,
+				A1F356082B1F9F86001B30A2 /* AppState.swift in Sources */,
+				A1F356092B1F9F86001B30A2 /* CalibrationResult.swift in Sources */,
+				A1F3560A2B1F9F86001B30A2 /* DynamicCalibrationModel.swift in Sources */,
+				A1F3560B2B1F9F86001B30A2 /* EyeState.swift in Sources */,
+				A1F3560C2B1F9F86001B30A2 /* Key.swift in Sources */,
+				A1F3560D2B1F9F86001B30A2 /* KeyboardLayout.swift in Sources */,
+				A1F3560E2B1F9F86001B30A2 /* KeyboardLayoutStyle.swift in Sources */,
+				A1F3560F2B1F9F86001B30A2 /* KeyboardViewModel.swift in Sources */,
+				A1F356102B1F9F86001B30A2 /* Language.swift in Sources */,
+				A1F356112B1F9F86001B30A2 /* PredictiveTextViewModel.swift in Sources */,
+				A1F356122B1F9F86001B30A2 /* TextEntryViewModel.swift in Sources */,
+				A1F356132B1F9F86001B30A2 /* TextEntryError.swift in Sources */,
+				A1F356142B1F9F86001B30A2 /* EyeMovementMonitor.swift in Sources */,
+				A1F356152B1F9F86001B30A2 /* FractalState.swift in Sources */,
+				A1F356162B1F9F86001B30A2 /* SpellingIndicator.swift in Sources */,
+				A1F356172B1F9F86001B30A2 /* EyeMovements.swift in Sources */,
+				A1F356182B1F9F86001B30A2 /* SwipeDirection.swift in Sources */,
+				A1F355EB2B1F9F7B001B30A2 /* SpellingIndicatorDelegateWrapper.swift in Sources */,
+				A1F355EC2B1F9F7B001B30A2 /* BlinkGestureHandlerDelegate.swift in Sources */,
+				A1F355ED2B1F9F7B001B30A2 /* CalibrationDelegate.swift in Sources */,
+				A1F355EE2B1F9F7B001B30A2 /* EyeTrackerDelegate.swift in Sources */,
+				A1F355EF2B1F9F7B001B30A2 /* GazeDetectionDelegate.swift in Sources */,
+				A1F355F02B1F9F7B001B30A2 /* GestureRecognitionDelegate.swift in Sources */,
+				A1F355F12B1F9F7B001B30A2 /* KeyboardInteractionDelegate.swift in Sources */,
+				A1F355F22B1F9F7B001B30A2 /* KeyboardViewDelegate.swift in Sources */,
+				A1F355F32B1F9F7B001B30A2 /* WordSuggestionDelegate.swift in Sources */,
+				A1F355F42B1F9F7B001B30A2 /* SwipeToTypeControllerDelegate.swift in Sources */,
+				A1F355F52B1F9F7B001B30A2 /* KeyboardViewDelegateWrapper.swift in Sources */,
+				A1F355F62B1F9F7B001B30A2 /* TextEntryDelegate.swift in Sources */,
+				A1F355F72B1F9F7B001B30A2 /* DynamicCalibrationDelegate.swift in Sources */,
+				A1F355F82B1F9F7C001B30A2 /* SpellingIndicatorDelegate.swift in Sources */,
+				A1F355F92B1F9F7C001B30A2 /* EyeGazeViewController.swift in Sources */,
+				A1F355FA2B1F9F7C001B30A2 /* EyeTrackingController.swift in Sources */,
+				A1F355FB2B1F9F7C001B30A2 /* KeyboardViewController.swift in Sources */,
+				A1F355FC2B1F9F7C001B30A2 /* SwipeToTypeController.swift in Sources */,
+				A1F355FD2B1F9F7C001B30A2 /* KeyboardView.swift in Sources */,
+				A1F355FE2B1F9F7C001B30A2 /* Keyboard.swift in Sources */,
+				A1F355FF2B1F9F7C001B30A2 /* KeyboardKey.swift in Sources */,
+				A1F356002B1F9F7C001B30A2 /* CalibrationProgressView.swift in Sources */,
+				A1F356012B1F9F7C001B30A2 /* ContentView.swift in Sources */,
+				A1F356022B1F9F7C001B30A2 /* DynamicCalibrationView.swift in Sources */,
+				A1F356032B1F9F7C001B30A2 /* PredictiveTextView.swift in Sources */,
+				A1F356042B1F9F7C001B30A2 /* TextEntryView.swift in Sources */,
+				A1F356052B1F9F7C001B30A2 /* LanguagePickerView.swift in Sources */,
+				A1F356072B1F9F7C001B30A2 /* SwipeToTypeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -847,6 +855,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PKey/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = PKey;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -876,6 +885,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PKey/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = PKey;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

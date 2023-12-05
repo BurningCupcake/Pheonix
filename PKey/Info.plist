@@ -19,6 +19,10 @@
 		<string>com.apple.keyboard-service</string>
 		<key>NSExtensionPrincipalClass</key>
 		<string>$(PRODUCT_MODULE_NAME).KeyboardViewController</string>
+		<key>CFBundleIdentifier</key>
+		<string>Cuptastrophe.Pheonix.PKey</string>
+		<key>CFBundleName</key>
+		<string>PKey</string>
 	</dict>
 </dict>
 </plist>
