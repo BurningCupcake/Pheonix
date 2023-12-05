@@ -8,51 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A11B35532A6B13D5001ACCA6 /* IMG_6989.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A11B35522A6B13D5001ACCA6 /* IMG_6989.jpg */; };
-		A146839B2B08778E0057DBB2 /* SpellingIndicatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A146839A2B08778E0057DBB2 /* SpellingIndicatorDelegate.swift */; };
 		A146839C2B08787F0057DBB2 /* SpellingIndicatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A146839A2B08778E0057DBB2 /* SpellingIndicatorDelegate.swift */; };
 		A1619A5B2A6C6F0E00F3C1B8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A1619A5A2A6C6F0E00F3C1B8 /* README.md */; };
-		A1619A5C2A6C6F0E00F3C1B8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A1619A5A2A6C6F0E00F3C1B8 /* README.md */; };
-		A16A71282A63E5E700F8EA60 /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA22A511D7700480362 /* Keyboard.swift */; };
-		A16A71292A63E5F000F8EA60 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA02A511D4100480362 /* KeyboardView.swift */; };
-		A16A712A2A63E5FC00F8EA60 /* KeyboardViewDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C70CD42A5CAB1900D8F9E3 /* KeyboardViewDelegateWrapper.swift */; };
-		A16A712D2A63EC4C00F8EA60 /* WordSuggestionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA42A520CCF00480362 /* WordSuggestionDelegate.swift */; };
-		A16A712E2A63EC4C00F8EA60 /* SwipeToTypeControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C70CD82A5CBC9200D8F9E3 /* SwipeToTypeControllerDelegate.swift */; };
-		A16A712F2A63EC4C00F8EA60 /* KeyboardViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC50102A536FB1000E900B /* KeyboardViewDelegate.swift */; };
-		A16A71302A63EC4C00F8EA60 /* GazeDetectionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EA52A520CCF00480362 /* GazeDetectionDelegate.swift */; };
-		A16A71322A63EC4C00F8EA60 /* CalibrationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D69992A54B2AB00D67BFC /* CalibrationDelegate.swift */; };
-		A16A71332A63EC4C00F8EA60 /* BlinkGestureHandlerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE3D2A5226DF008FAEC3 /* BlinkGestureHandlerDelegate.swift */; };
-		A16A71342A63EC4C00F8EA60 /* SpellingIndicatorDelegateWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18547B32A6386B9005E179F /* SpellingIndicatorDelegateWrapper.swift */; };
-		A16A71352A63EC4C00F8EA60 /* EyeTrackerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC501C2A53739B000E900B /* EyeTrackerDelegate.swift */; };
-		A16A71362A63EC4C00F8EA60 /* KeyboardInteractionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC501E2A5373D6000E900B /* KeyboardInteractionDelegate.swift */; };
-		A16A71372A63EC4C00F8EA60 /* GestureRecognitionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16CE4EC2A5485B6006C75EF /* GestureRecognitionDelegate.swift */; };
-		A16A71382A63EC5300F8EA60 /* EyeGazeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE452A522803008FAEC3 /* EyeGazeViewController.swift */; };
-		A16A71392A63EC5300F8EA60 /* EyeTrackingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE472A52284B008FAEC3 /* EyeTrackingController.swift */; };
-		A16A713A2A63EC5300F8EA60 /* SwipeToTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE392A52221A008FAEC3 /* SwipeToTypeController.swift */; };
-		A16A713B2A63EC5300F8EA60 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EAE2A520FB700480362 /* KeyboardViewController.swift */; };
-		A16A713D2A63EC8400F8EA60 /* PredictiveTextService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB86192A5B6B8E0084F93C /* PredictiveTextService.swift */; };
-		A16A713E2A63EC8400F8EA60 /* TextEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE572A522B53008FAEC3 /* TextEntry.swift */; };
-		A16A713F2A63EC8400F8EA60 /* WordSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18547AF2A636312005E179F /* WordSuggestion.swift */; };
-		A16A71402A63EC8400F8EA60 /* EyeTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE312A521E7A008FAEC3 /* EyeTracker.swift */; };
-		A16A71412A63EC8400F8EA60 /* TextEntryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB861B2A5B6C140084F93C /* TextEntryService.swift */; };
-		A16A71422A63EC8400F8EA60 /* DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE3F2A52276B008FAEC3 /* DependencyInjection.swift */; };
-		A16A71432A63EC8400F8EA60 /* DynamicCalibration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE352A522033008FAEC3 /* DynamicCalibration.swift */; };
-		A16A71442A63EC8400F8EA60 /* GazeDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE2F2A521DE5008FAEC3 /* GazeDetection.swift */; };
-		A16A71452A63EC8400F8EA60 /* KeyboardInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE4B2A52293B008FAEC3 /* KeyboardInteraction.swift */; };
-		A16A71462A63EC8400F8EA60 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE372A5221E9008FAEC3 /* Settings.swift */; };
-		A16A71472A63EC8400F8EA60 /* BlinkGestureHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE3B2A5226C6008FAEC3 /* BlinkGestureHandler.swift */; };
-		A16A716B2A63F04E00F8EA60 /* EyeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC501A2A53734F000E900B /* EyeState.swift */; };
-		A16A716C2A63F04E00F8EA60 /* TextEntryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18547B12A637078005E179F /* TextEntryError.swift */; };
-		A16A716D2A63F04E00F8EA60 /* KeyboardKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EAC2A520DEF00480362 /* KeyboardKey.swift */; };
-		A16A716E2A63F04E00F8EA60 /* KeyboardLayoutStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE4D2A52299A008FAEC3 /* KeyboardLayoutStyle.swift */; };
-		A16A716F2A63F04E00F8EA60 /* DynamicCalibrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE432A5227E0008FAEC3 /* DynamicCalibrationModel.swift */; };
-		A16A71702A63F04E00F8EA60 /* KeyboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE4F2A5229F5008FAEC3 /* KeyboardViewModel.swift */; };
-		A16A71712A63F04E00F8EA60 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE252A521B91008FAEC3 /* Language.swift */; };
-		A16A71722A63F04E00F8EA60 /* PredictiveTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB861D2A5B6C4B0084F93C /* PredictiveTextViewModel.swift */; };
-		A16A71732A63F04E00F8EA60 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB861F2A5B6C9C0084F93C /* AppState.swift */; };
-		A16A71742A63F04E00F8EA60 /* KeyboardLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE5B2A52588D008FAEC3 /* KeyboardLayout.swift */; };
-		A16A71752A63F04E00F8EA60 /* TextEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB86172A5B6B4B0084F93C /* TextEntryViewModel.swift */; };
-		A16A71762A63F04E00F8EA60 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE492A52289C008FAEC3 /* Key.swift */; };
-		A16A71772A63F04E00F8EA60 /* CalibrationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE2B2A521BEE008FAEC3 /* CalibrationResult.swift */; };
 		A16A71782A63F05800F8EA60 /* BlinkGestureHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE3B2A5226C6008FAEC3 /* BlinkGestureHandler.swift */; };
 		A16A71792A63F05800F8EA60 /* KeyboardInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE4B2A52293B008FAEC3 /* KeyboardInteraction.swift */; };
 		A16A717A2A63F05800F8EA60 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE372A5221E9008FAEC3 /* Settings.swift */; };
@@ -111,37 +68,31 @@
 		A1AB861E2A5B6C4B0084F93C /* PredictiveTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB861D2A5B6C4B0084F93C /* PredictiveTextViewModel.swift */; };
 		A1AB86202A5B6C9C0084F93C /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB861F2A5B6C9C0084F93C /* AppState.swift */; };
 		A1BE40732A77115E0086160A /* FractalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE40722A77115E0086160A /* FractalState.swift */; };
-		A1BE40742A77115E0086160A /* FractalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE40722A77115E0086160A /* FractalState.swift */; };
 		A1BE40762A7749600086160A /* TextEntryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE40752A7749600086160A /* TextEntryDelegate.swift */; };
-		A1BE40772A7749600086160A /* TextEntryDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE40752A7749600086160A /* TextEntryDelegate.swift */; };
 		A1BE40792A774B5A0086160A /* SpellingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE40782A774B5A0086160A /* SpellingIndicator.swift */; };
-		A1BE407A2A774B5A0086160A /* SpellingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE40782A774B5A0086160A /* SpellingIndicator.swift */; };
 		A1BE407C2A7753320086160A /* EyeMovements.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE407B2A7753320086160A /* EyeMovements.swift */; };
-		A1BE407D2A7753320086160A /* EyeMovements.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE407B2A7753320086160A /* EyeMovements.swift */; };
 		A1BE407F2A787F5A0086160A /* DynamicCalibrationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE407E2A787F5A0086160A /* DynamicCalibrationDelegate.swift */; };
-		A1BE40802A787F5A0086160A /* DynamicCalibrationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE407E2A787F5A0086160A /* DynamicCalibrationDelegate.swift */; };
 		A1BE40812A7880440086160A /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EAE2A520FB700480362 /* KeyboardViewController.swift */; };
 		A1BE40832A7881310086160A /* SwipeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE40822A7881310086160A /* SwipeDirection.swift */; };
-		A1BE40842A7881310086160A /* SwipeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BE40822A7881310086160A /* SwipeDirection.swift */; };
 		A1D3A4072A7419BD001D5C42 /* EyeMovementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D3A4062A7419BD001D5C42 /* EyeMovementMonitor.swift */; };
-		A1D3A4082A7419BD001D5C42 /* EyeMovementMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D3A4062A7419BD001D5C42 /* EyeMovementMonitor.swift */; };
 		A1EC501B2A53734F000E900B /* EyeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC501A2A53734F000E900B /* EyeState.swift */; };
 		A1EC50212A537463000E900B /* Keyboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = A1EC50202A537463000E900B /* Keyboard.xib */; };
 		A1ED01472A565DA0008B32C9 /* ARKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE622A5258C9008FAEC3 /* ARKit.framework */; };
 		A1ED014A2A565DA2008B32C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE642A5258DC008FAEC3 /* Foundation.framework */; };
 		A1ED014C2A565DA3008B32C9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A184CE5E2A5258C0008FAEC3 /* UIKit.framework */; };
 		A1F69EAD2A520DEF00480362 /* KeyboardKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F69EAC2A520DEF00480362 /* KeyboardKey.swift */; };
-		A1F721F32A648DB5007966A1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17483142A51016F00978F0A /* ContentView.swift */; };
-		A1F721F42A648DBD007966A1 /* PredictiveTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE532A522AC2008FAEC3 /* PredictiveTextView.swift */; };
-		A1F721F52A648DBD007966A1 /* TextEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AB86152A5B6B0E0084F93C /* TextEntryView.swift */; };
-		A1F721F62A648DBD007966A1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11153BD2A5E985000524D65 /* SettingsView.swift */; };
-		A1F721F82A648DBD007966A1 /* LanguagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11153BB2A5E981E00524D65 /* LanguagePickerView.swift */; };
-		A1F721F92A648DBD007966A1 /* CalibrationProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1EC50362A537815000E900B /* CalibrationProgressView.swift */; };
-		A1F721FA2A648DBD007966A1 /* DynamicCalibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A184CE292A521BCC008FAEC3 /* DynamicCalibrationView.swift */; };
-		A1F721FB2A648DBD007966A1 /* SwipeToTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11153BF2A5E987B00524D65 /* SwipeToTypeView.swift */; };
 		A1F721FE2A64A423007966A1 /* GestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F721FD2A64A423007966A1 /* GestureRecognizer.swift */; };
-		A1F721FF2A64A423007966A1 /* GestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1F721FD2A64A423007966A1 /* GestureRecognizer.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A1F839062B1F92B900C8E90A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A17483072A51016F00978F0A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1F839002B1F92B900C8E90A;
+			remoteInfo = PKey;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		A1F838F92B1F8CD200C8E90A /* Embed Foundation Extensions */ = {
@@ -165,8 +116,6 @@
 		A146839A2B08778E0057DBB2 /* SpellingIndicatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpellingIndicatorDelegate.swift; sourceTree = "<group>"; };
 		A14D69992A54B2AB00D67BFC /* CalibrationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationDelegate.swift; sourceTree = "<group>"; };
 		A1619A5A2A6C6F0E00F3C1B8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
-		A16A711C2A63E44B00F8EA60 /* PheonixKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PheonixKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		A16A71202A63E44B00F8EA60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A16CE4E62A546E6E006C75EF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		A16CE4EC2A5485B6006C75EF /* GestureRecognitionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureRecognitionDelegate.swift; sourceTree = "<group>"; };
 		A174830F2A51016F00978F0A /* Pheonix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pheonix.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -237,16 +186,11 @@
 		A1F69EAC2A520DEF00480362 /* KeyboardKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyboardKey.swift; path = ../../Models/KeyboardKey.swift; sourceTree = "<group>"; };
 		A1F69EAE2A520FB700480362 /* KeyboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		A1F721FD2A64A423007966A1 /* GestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureRecognizer.swift; sourceTree = "<group>"; };
+		A1F839012B1F92B900C8E90A /* PKey.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PKey.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1F839052B1F92B900C8E90A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A16A71192A63E44B00F8EA60 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A174830C2A51016F00978F0A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -263,20 +207,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A1F838FE2B1F92B900C8E90A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A16A711D2A63E44B00F8EA60 /* PheonixKeyboard */ = {
-			isa = PBXGroup;
-			children = (
-				A16CE4E82A546FFD006C75EF /* Delegates */,
-				A1EC50122A537245000E900B /* Controllers */,
-				A1EC50152A537279000E900B /* Views */,
-				A16A71202A63E44B00F8EA60 /* Info.plist */,
-			);
-			path = PheonixKeyboard;
-			sourceTree = "<group>";
-		};
 		A16CE4E82A546FFD006C75EF /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,10 +245,10 @@
 				A1F69E9E2A511B1600480362 /* AppDelegate.swift */,
 				A18E405F2A65B965003D79AD /* main.swift */,
 				A184CE552A522AFD008FAEC3 /* SceneDelegate.swift */,
+				A1F839022B1F92B900C8E90A /* PKey */,
 				A184CE5D2A5258BF008FAEC3 /* Frameworks */,
 				A1EC50132A537254000E900B /* Models */,
 				A17483112A51016F00978F0A /* Pheonix */,
-				A16A711D2A63E44B00F8EA60 /* PheonixKeyboard */,
 				A17483102A51016F00978F0A /* Products */,
 				A1EC50142A53726B000E900B /* Services */,
 			);
@@ -318,7 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				A174830F2A51016F00978F0A /* Pheonix.app */,
-				A16A711C2A63E44B00F8EA60 /* PheonixKeyboard.appex */,
+				A1F839012B1F92B900C8E90A /* PKey.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -448,26 +388,20 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		A1F839022B1F92B900C8E90A /* PKey */ = {
+			isa = PBXGroup;
+			children = (
+				A16CE4E82A546FFD006C75EF /* Delegates */,
+				A1EC50122A537245000E900B /* Controllers */,
+				A1EC50152A537279000E900B /* Views */,
+				A1F839052B1F92B900C8E90A /* Info.plist */,
+			);
+			path = PKey;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A16A711B2A63E44B00F8EA60 /* PheonixKeyboard */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A16A71242A63E44B00F8EA60 /* Build configuration list for PBXNativeTarget "PheonixKeyboard" */;
-			buildPhases = (
-				A16A71182A63E44B00F8EA60 /* Sources */,
-				A16A71192A63E44B00F8EA60 /* Frameworks */,
-				A16A711A2A63E44B00F8EA60 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = PheonixKeyboard;
-			productName = PheonixKeyboard;
-			productReference = A16A711C2A63E44B00F8EA60 /* PheonixKeyboard.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		A174830E2A51016F00978F0A /* Pheonix */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A174831D2A51017100978F0A /* Build configuration list for PBXNativeTarget "Pheonix" */;
@@ -480,11 +414,29 @@
 			buildRules = (
 			);
 			dependencies = (
+				A1F839072B1F92B900C8E90A /* PBXTargetDependency */,
 			);
 			name = Pheonix;
 			productName = Pheonix;
 			productReference = A174830F2A51016F00978F0A /* Pheonix.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A1F839002B1F92B900C8E90A /* PKey */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1F839092B1F92B900C8E90A /* Build configuration list for PBXNativeTarget "PKey" */;
+			buildPhases = (
+				A1F838FD2B1F92B900C8E90A /* Sources */,
+				A1F838FE2B1F92B900C8E90A /* Frameworks */,
+				A1F838FF2B1F92B900C8E90A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PKey;
+			productName = PKey;
+			productReference = A1F839012B1F92B900C8E90A /* PKey.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -499,11 +451,11 @@
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
-					A16A711B2A63E44B00F8EA60 = {
-						CreatedOnToolsVersion = 14.3.1;
-					};
 					A174830E2A51016F00978F0A = {
 						CreatedOnToolsVersion = 14.3.1;
+					};
+					A1F839002B1F92B900C8E90A = {
+						CreatedOnToolsVersion = 15.0.1;
 					};
 				};
 			};
@@ -521,20 +473,12 @@
 			projectRoot = "";
 			targets = (
 				A174830E2A51016F00978F0A /* Pheonix */,
-				A16A711B2A63E44B00F8EA60 /* PheonixKeyboard */,
+				A1F839002B1F92B900C8E90A /* PKey */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A16A711A2A63E44B00F8EA60 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A1619A5C2A6C6F0E00F3C1B8 /* README.md in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		A174830D2A51016F00978F0A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -547,74 +491,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		A16A71182A63E44B00F8EA60 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
+		A1F838FF2B1F92B900C8E90A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1BE40842A7881310086160A /* SwipeDirection.swift in Sources */,
-				A16A71752A63F04E00F8EA60 /* TextEntryViewModel.swift in Sources */,
-				A16A71462A63EC8400F8EA60 /* Settings.swift in Sources */,
-				A16A71392A63EC5300F8EA60 /* EyeTrackingController.swift in Sources */,
-				A16A71412A63EC8400F8EA60 /* TextEntryService.swift in Sources */,
-				A16A712A2A63E5FC00F8EA60 /* KeyboardViewDelegateWrapper.swift in Sources */,
-				A16A71352A63EC4C00F8EA60 /* EyeTrackerDelegate.swift in Sources */,
-				A1F721F42A648DBD007966A1 /* PredictiveTextView.swift in Sources */,
-				A1BE407D2A7753320086160A /* EyeMovements.swift in Sources */,
-				A16A71452A63EC8400F8EA60 /* KeyboardInteraction.swift in Sources */,
-				A16A713D2A63EC8400F8EA60 /* PredictiveTextService.swift in Sources */,
-				A16A71342A63EC4C00F8EA60 /* SpellingIndicatorDelegateWrapper.swift in Sources */,
-				A1F721FB2A648DBD007966A1 /* SwipeToTypeView.swift in Sources */,
-				A1BE40742A77115E0086160A /* FractalState.swift in Sources */,
-				A16A71292A63E5F000F8EA60 /* KeyboardView.swift in Sources */,
-				A1BE40772A7749600086160A /* TextEntryDelegate.swift in Sources */,
-				A16A713A2A63EC5300F8EA60 /* SwipeToTypeController.swift in Sources */,
-				A16A71302A63EC4C00F8EA60 /* GazeDetectionDelegate.swift in Sources */,
-				A16A71722A63F04E00F8EA60 /* PredictiveTextViewModel.swift in Sources */,
-				A16A712D2A63EC4C00F8EA60 /* WordSuggestionDelegate.swift in Sources */,
-				A16A71332A63EC4C00F8EA60 /* BlinkGestureHandlerDelegate.swift in Sources */,
-				A16A71422A63EC8400F8EA60 /* DependencyInjection.swift in Sources */,
-				A16A71402A63EC8400F8EA60 /* EyeTracker.swift in Sources */,
-				A1BE40802A787F5A0086160A /* DynamicCalibrationDelegate.swift in Sources */,
-				A16A716C2A63F04E00F8EA60 /* TextEntryError.swift in Sources */,
-				A16A71282A63E5E700F8EA60 /* Keyboard.swift in Sources */,
-				A1F721F92A648DBD007966A1 /* CalibrationProgressView.swift in Sources */,
-				A16A712F2A63EC4C00F8EA60 /* KeyboardViewDelegate.swift in Sources */,
-				A1BE407A2A774B5A0086160A /* SpellingIndicator.swift in Sources */,
-				A1F721FF2A64A423007966A1 /* GestureRecognizer.swift in Sources */,
-				A1F721FA2A648DBD007966A1 /* DynamicCalibrationView.swift in Sources */,
-				A16A716D2A63F04E00F8EA60 /* KeyboardKey.swift in Sources */,
-				A16A716B2A63F04E00F8EA60 /* EyeState.swift in Sources */,
-				A16A71742A63F04E00F8EA60 /* KeyboardLayout.swift in Sources */,
-				A16A71772A63F04E00F8EA60 /* CalibrationResult.swift in Sources */,
-				A16A712E2A63EC4C00F8EA60 /* SwipeToTypeControllerDelegate.swift in Sources */,
-				A1F721F62A648DBD007966A1 /* SettingsView.swift in Sources */,
-				A1F721F82A648DBD007966A1 /* LanguagePickerView.swift in Sources */,
-				A16A71702A63F04E00F8EA60 /* KeyboardViewModel.swift in Sources */,
-				A16A71432A63EC8400F8EA60 /* DynamicCalibration.swift in Sources */,
-				A16A71712A63F04E00F8EA60 /* Language.swift in Sources */,
-				A16A713B2A63EC5300F8EA60 /* KeyboardViewController.swift in Sources */,
-				A1D3A4082A7419BD001D5C42 /* EyeMovementMonitor.swift in Sources */,
-				A1F721F52A648DBD007966A1 /* TextEntryView.swift in Sources */,
-				A16A71442A63EC8400F8EA60 /* GazeDetection.swift in Sources */,
-				A16A716E2A63F04E00F8EA60 /* KeyboardLayoutStyle.swift in Sources */,
-				A16A71382A63EC5300F8EA60 /* EyeGazeViewController.swift in Sources */,
-				A1F721F32A648DB5007966A1 /* ContentView.swift in Sources */,
-				A16A71362A63EC4C00F8EA60 /* KeyboardInteractionDelegate.swift in Sources */,
-				A16A71472A63EC8400F8EA60 /* BlinkGestureHandler.swift in Sources */,
-				A16A71762A63F04E00F8EA60 /* Key.swift in Sources */,
-				A16A71372A63EC4C00F8EA60 /* GestureRecognitionDelegate.swift in Sources */,
-				A16A716F2A63F04E00F8EA60 /* DynamicCalibrationModel.swift in Sources */,
-				A16A713F2A63EC8400F8EA60 /* WordSuggestion.swift in Sources */,
-				A16A71732A63F04E00F8EA60 /* AppState.swift in Sources */,
-				A16A713E2A63EC8400F8EA60 /* TextEntry.swift in Sources */,
-				A146839B2B08778E0057DBB2 /* SpellingIndicatorDelegate.swift in Sources */,
-				A16A71322A63EC4C00F8EA60 /* CalibrationDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
 		A174830B2A51016F00978F0A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -683,94 +569,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A1F838FD2B1F92B900C8E90A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		A1F839072B1F92B900C8E90A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1F839002B1F92B900C8E90A /* PKey */;
+			targetProxy = A1F839062B1F92B900C8E90A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
-		A16A71252A63E44B00F8EA60 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 8CUXCK3FDP;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PheonixKeyboard/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = PheonixKeyboard;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSCameraUsageDescription = "";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainStoryboardFile = "";
-				INFOPLIST_KEY_UIRequiredDeviceCapabilities = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
-				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = Cuptastrophe.Pheonix.PheonixKeyboard;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG DEBUG";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		A16A71262A63E44B00F8EA60 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 8CUXCK3FDP;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PheonixKeyboard/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = PheonixKeyboard;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSCameraUsageDescription = "";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainStoryboardFile = "";
-				INFOPLIST_KEY_UIRequiredDeviceCapabilities = "";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
-				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MARKETING_VERSION = 1.0;
-				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = Cuptastrophe.Pheonix.PheonixKeyboard;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		A174831B2A51017100978F0A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -905,7 +721,6 @@
 		A174831E2A51017100978F0A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
@@ -965,7 +780,6 @@
 		A174831F2A51017100978F0A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
@@ -1022,18 +836,66 @@
 			};
 			name = Release;
 		};
+		A1F8390A2B1F92B900C8E90A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 8CUXCK3FDP;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PKey/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PKey;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Cuptastrophe.Pheonix.PKey;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A1F8390B2B1F92B900C8E90A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8CUXCK3FDP;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PKey/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PKey;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Cuptastrophe.Pheonix.PKey;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A16A71242A63E44B00F8EA60 /* Build configuration list for PBXNativeTarget "PheonixKeyboard" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A16A71252A63E44B00F8EA60 /* Debug */,
-				A16A71262A63E44B00F8EA60 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
 		A174830A2A51016F00978F0A /* Build configuration list for PBXProject "Pheonix" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1048,6 +910,15 @@
 			buildConfigurations = (
 				A174831E2A51017100978F0A /* Debug */,
 				A174831F2A51017100978F0A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A1F839092B1F92B900C8E90A /* Build configuration list for PBXNativeTarget "PKey" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1F8390A2B1F92B900C8E90A /* Debug */,
+				A1F8390B2B1F92B900C8E90A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

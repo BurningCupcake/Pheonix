@@ -82,8 +82,8 @@
       launchAutomaticallySubstyle = "2">
       <RemoteRunnable
          runnableDebuggingMode = "1"
-         BundleIdentifier = "com.apple.Preferences"
-         RemotePath = "/Library/Developer/CoreSimulator/Volumes/iOS_21A342/Library/Developer/CoreSimulator/Profiles/Runtimes/iOS 17.0.simruntime/Contents/Resources/RuntimeRoot/Applications/Preferences.app">
+         BundleIdentifier = "Cuptastrophe.Pheonix"
+         RemotePath = "/Users/justinfortier/Library/Developer/CoreSimulator/Devices/2E675F07-CA74-4064-895C-5F23DE1014C8/data/Containers/Bundle/Application/879D2F1B-0862-4539-A9C1-6F4520DCF4DA/Pheonix.app">
       </RemoteRunnable>
       <MacroExpansion>
          <BuildableReference
