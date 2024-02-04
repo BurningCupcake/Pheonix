@@ -8,6 +8,7 @@ class DynamicCalibrationModel: ObservableObject {
     @Published var offset: CGSize = .zero
     @Published var complexity: CGFloat = 1.0 // Adjust as needed for fractal complexity
     @Published var highlightedAreas: [CGRect] = []
+    @Published var calibrationPoints: [CGPoint] = []
     
     private var isCalibrationInProgress = false
     private var gazeDataAnalyzer = GazeDataAnalyzer()
@@ -40,13 +41,23 @@ class DynamicCalibrationModel: ObservableObject {
     
     func stopCalibration() {
         isCalibrationInProgress = false
-        // Apply final calibration adjustments and conclude the calibration process
-        let isValid = CalibrationValidator().validate(calibrationResult: /* Provide the result */)
+        
+        // Assuming calculateCalibrationResult() provides the CalibrationResult you need to validate.
+        guard let calibrationResult = calculateCalibrationResult() else {
+            print("Failed to calculate calibration result.")
+            return
+        }
+        
+        // Now, properly call the validate method with the calibrationResult.
+        let isValid = CalibrationValidator().validate(calibrationResult: calibrationResult)
+        
         if isValid {
             print("Calibration successful and validated.")
+            // Apply the calibration result here or take necessary actions after successful validation.
         } else {
             print("Calibration failed validation.")
+            // Handle the invalid calibration case here.
         }
-        }
+    }
     // Additional methods as necessary...
 }

@@ -80,13 +80,10 @@ class KeyboardViewController: UIInputViewController {
     func dynamicCalibration(_ dynamicCalibration: DynamicCalibration, didUpdateEyeOffset eyeOffset: simd_float3) {
         // Handle the updated eye offset here, if applicable
     }
-    
-    @objc private func handleInputModeListButton(_ sender: UIButton) {
-        self.advanceToNextInputMode()
     }
     
     // Add other utility methods as necessary for your keyboard layout and functionality
-}
+
 
     
     // MARK: - Utility Methods

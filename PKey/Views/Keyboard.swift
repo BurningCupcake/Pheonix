@@ -146,6 +146,25 @@ class Keyboard: UIInputViewController {
     extension Keyboard: DynamicCalibrationDelegate {
         func dynamicCalibration(_ dynamicCalibration: DynamicCalibration, didUpdateEyeOffset eyeOffset: simd_float3) {
             // Update eye offset...
+            // Implementation as before
+        }
+        
+        func didStartCalibration() {
+            // Handle the start of calibration, e.g., showing a UI element or starting related processes
+            print("Calibration has started")
+            // Optionally, show the calibration view or make other UI adjustments
+        }
+        
+        func didCompleteCalibration(withResult result: CalibrationResult) {
+            // Handle the completion of calibration, e.g., updating the system with the new calibration result
+            print("Calibration completed successfully with result: \(result)")
+            // Optionally, apply the calibration result to your system
+        }
+        
+        func didFailCalibration(withError error: Error) {
+            // Handle a failure in the calibration process, e.g., showing an error message to the user
+            print("Calibration failed with error: \(error)")
+            // Optionally, inform the user of the failure and suggest retrying or provide help
         }
     }
     

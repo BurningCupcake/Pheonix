@@ -9,3 +9,4 @@ protocol DynamicCalibrationDelegate: AnyObject {
     func didCompleteCalibration(withResult result: CalibrationResult)
     func didFailCalibration(withError error: Error)
 }
+

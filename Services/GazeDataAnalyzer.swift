@@ -15,8 +15,11 @@ class GazeDataAnalyzer {
     
     // Calculates a smoothed gaze point from the recent collection of gaze points
     func getSmoothedGazePoint() -> CGPoint {
-        let sum = recentGazePoints.reduce(CGPoint.zero) { $0 + CGPoint(x: $1.x, y: $1.y) }
-        return CGPoint(x: sum.x / CGFloat(recentGazePoints.count), y: sum.y / CGFloat(recentGazePoints.count))
+        let sum = recentGazePoints.reduce(CGPoint.zero) { (result, point) -> CGPoint in
+            return CGPoint(x: result.x + point.x, y: result.y + point.y)
+        }
+        let count = CGFloat(recentGazePoints.count)
+        return CGPoint(x: sum.x / count, y: sum.y / count)
     }
     
     // Analyzes a gaze point against the fractal bounds and determines scale and offset adjustments
