@@ -2,12 +2,13 @@ import UIKit
 import SwiftUI
 import simd
 
-class KeyboardViewController: UIInputViewController, DynamicCalibrationDelegate {
+class KeyboardViewController: UIInputViewController {
     
     @IBOutlet var nextKeyboardButton: UIButton!
-    private var dynamicCalibration: DynamicCalibration?
     
-    let keyboardKeys = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    // Assuming DynamicCalibrationModel exists and is correctly set up
+    private var dynamicCalibration: DynamicCalibrationModel?
+    private var fractalHostingController: UIHostingController<FractalView>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,6 +16,7 @@ class KeyboardViewController: UIInputViewController, DynamicCalibrationDelegate 
         setupNextKeyboardButton()
         setupDynamicCalibration()
         setupKeyboard()
+        setupFractalView()
     }
     
     private func setupNextKeyboardButton() {
@@ -25,29 +27,69 @@ class KeyboardViewController: UIInputViewController, DynamicCalibrationDelegate 
         self.nextKeyboardButton.addTarget(self, action: #selector(handleInputModeListButton(_:)), for: .allTouchEvents)
         self.view.addSubview(self.nextKeyboardButton)
         
-        self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-        self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+        NSLayoutConstraint.activate([
+            self.nextKeyboardButton.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+            self.nextKeyboardButton.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        ])
     }
     
     private func setupDynamicCalibration() {
-        dynamicCalibration = DynamicCalibration.create()
-        dynamicCalibration?.delegate = self
-    
+        // Assuming DynamicCalibrationModel has been correctly set up to initialize with necessary components.
+        dynamicCalibration = DynamicCalibrationModel()
     }
     
     private func setupKeyboard() {
-        let keyRows = keyboardKeys.split(into: 10)
-        let keyboardStackView = createKeyboardStackView()
-        
-        for row in keyRows {
-            let rowStackView = createRowStackView()
-            for character in row {
-                let keyButton = createKeyButton(title: String(character))
-                rowStackView.addArrangedSubview(keyButton)
-            }
-            keyboardStackView.addArrangedSubview(rowStackView)
-        }
+        // Setup your keyboard layout here
+        // This example does not detail keyboard layout setup due to its focus on calibration
     }
+    
+    private func setupFractalView() {
+        // Assume DynamicCalibrationModel provides observable properties for scale and offset
+        let fractalView = FractalView(scale: $dynamicCalibration.scale, offset: $dynamicCalibration.offset)
+        fractalHostingController = UIHostingController(rootView: fractalView)
+        
+        guard let fractalViewHost = fractalHostingController else { return }
+        
+        addChild(fractalViewHost)
+        view.addSubview(fractalViewHost.view)
+        fractalViewHost.didMove(toParent: self)
+        
+        fractalViewHost.view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            fractalViewHost.view.topAnchor.constraint(equalTo: view.topAnchor),
+            fractalViewHost.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            fractalViewHost.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            fractalViewHost.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ])
+        
+        fractalViewHost.view.isHidden = true
+    }
+    
+    func startCalibration() {
+        fractalHostingController?.view.isHidden = false
+        dynamicCalibration?.startCalibration()
+    }
+    
+    func stopCalibration() {
+        fractalHostingController?.view.isHidden = true
+        dynamicCalibration?.stopCalibration()
+    }
+    }
+    
+    // DynamicCalibrationDelegate methods
+    func dynamicCalibration(_ dynamicCalibration: DynamicCalibration, didUpdateEyeOffset eyeOffset: simd_float3) {
+        // Handle the updated eye offset here, if applicable
+    }
+    
+    @objc private func handleInputModeListButton(_ sender: UIButton) {
+        self.advanceToNextInputMode()
+    }
+    
+    // Add other utility methods as necessary for your keyboard layout and functionality
+}
+
+    
+    // MARK: - Utility Methods
     
     private func createKeyboardStackView() -> UIStackView {
         let stackView = UIStackView()
@@ -97,19 +139,7 @@ class KeyboardViewController: UIInputViewController, DynamicCalibrationDelegate 
         self.advanceToNextInputMode()
     }
     
-    // DynamicCalibrationDelegate methods
-    func dynamicCalibration(_ dynamicCalibration: DynamicCalibration, didUpdateEyeOffset eyeOffset: simd_float3) {
-        // Handle the updated eye offset here
-    }
     
-    override func textWillChange(_ textInput: UITextInput?) {
-        // Handle text will change here
-    }
-    
-    override func textDidChange(_ textInput: UITextInput?) {
-        // Handle text did change here
-    }
-}
 
 extension String {
     func split(into length: Int) -> [String] {

@@ -1,50 +1,52 @@
-// Importing required Apple frameworks
 import Combine
 import SwiftUI
+import CoreGraphics
 
-// This class represents a view model for dynamic calibration, conforming to Swift's ObservableObject protocol for handling data that can be observed.
 class DynamicCalibrationModel: ObservableObject {
     
-    // This variable represents an array of calibration points and can be monitored for changes using the @Published property wrapper.
-    @Published var calibrationPoints: [CGPoint] = []
+    @Published var scale: CGFloat = 1.0
+    @Published var offset: CGSize = .zero
+    @Published var complexity: CGFloat = 1.0 // Adjust as needed for fractal complexity
+    @Published var highlightedAreas: [CGRect] = []
     
-    // This private variable is used to keep track of whether calibration is in progress to avoid unnecessary or multiple executions of the process.
     private var isCalibrationInProgress = false
+    private var gazeDataAnalyzer = GazeDataAnalyzer()
     
-    // This function is used to start the calibration process, checks if calibration is already in progress.
     func startCalibration() {
         guard !isCalibrationInProgress else { return }
         
         isCalibrationInProgress = true
-        simulateCalibrationDataCollection { [weak self] in
-            self?.callAfterDataCollection()
-            self?.isCalibrationInProgress = false
+        // Reset calibration parameters if necessary
+        scale = 1.0
+        offset = .zero
+        complexity = 1.0
+        highlightedAreas = []
+    }
+    
+    func adjustCalibrationParameters(basedOnGaze gazePoint: CGPoint) {
+        // Simplified fractal bounds; in practice, calculate this based on your fractal view size and position
+        let fractalBounds = CGRect(x: 0, y: 0, width: 100, height: 100)
+        gazeDataAnalyzer.addGazePoint(gazePoint)
+        let smoothedPoint = gazeDataAnalyzer.getSmoothedGazePoint()
+        
+        DispatchQueue.main.async {
+            let adjustments = self.gazeDataAnalyzer.analyzeGazePoint(smoothedPoint, fractalBounds: fractalBounds)
+            self.scale += adjustments.scaleAdjustment
+            self.offset = CGSize(width: self.offset.width + adjustments.offsetAdjustment.width,
+                                 height: self.offset.height + adjustments.offsetAdjustment.height)
+            self.highlightedAreas = self.gazeDataAnalyzer.detectInterestAreas()
         }
     }
     
-    // Helper function that handles operations after data collection.
-    private func callAfterDataCollection() {
-        guard let result = calculateCalibrationResult() else { return }
-        applyCalibrationResult(result)
-    }
-    
-    // This function simulates the data collection for calibration.
-    private func simulateCalibrationDataCollection(_ completion: @escaping () -> Void) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            self.calibrationPoints = [CGPoint(x: 100, y: 100), CGPoint(x: 200, y: 300), CGPoint(x: 300, y: 200)]
-            completion()
+    func stopCalibration() {
+        isCalibrationInProgress = false
+        // Apply final calibration adjustments and conclude the calibration process
+        let isValid = CalibrationValidator().validate(calibrationResult: /* Provide the result */)
+        if isValid {
+            print("Calibration successful and validated.")
+        } else {
+            print("Calibration failed validation.")
         }
-    }
-    
-    // This function calculates the calibration result and returns a CalibrationResult object if points are enough.
-    private func calculateCalibrationResult() -> CalibrationResult? {
-        guard calibrationPoints.count >= 3 else { return nil }
-        return CalibrationResult(calibrationPoints: calibrationPoints)
-    }
-    
-    // Applies the derived calibration result.
-    private func applyCalibrationResult(_ result: CalibrationResult) {
-        print("Applying calibration result: \(result)")
-    }
+        }
+    // Additional methods as necessary...
 }
-

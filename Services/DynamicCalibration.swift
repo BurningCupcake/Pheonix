@@ -1,6 +1,7 @@
 import UIKit
 import CoreGraphics
 import QuartzCore
+import simd
 
 /// A class to handle dynamic calibration.
 class DynamicCalibration: CalibrationDelegate {
@@ -11,15 +12,16 @@ class DynamicCalibration: CalibrationDelegate {
     /// The generated fractal image based on the calibration points
     internal var fractalImage: UIImage?
     
-    /// Default initializer.
-    init() {}
-    
-    /// add delegate
+    /// Delegate for handling dynamic calibration updates.
     weak var delegate: DynamicCalibrationDelegate?
     
-    /// Static function to create an instance of DynamicCalibration.
-    static func create() -> DynamicCalibration {
-        return DynamicCalibration()
+    /// The eye tracker instance.
+    var eyeTracker: EyeTracker?
+    
+    /// Default initializer.
+    init(eyeTracker: EyeTracker) {
+        self.eyeTracker = eyeTracker
+        self.eyeTracker?.delegate = self
     }
     
     /// Function to add a new calibration point.
@@ -83,80 +85,25 @@ class DynamicCalibration: CalibrationDelegate {
             }
         }
         
-        
-        return UIGraphicsGetImageFromCurrentImageContext()
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
     }
     
-    /// Function that adds a fractal layer, animates it, then removes it from the given view controller.
-    /// Reports completion to the provided completion closure when done.
-    func performCalibration(in viewController: UIViewController, completion: @escaping (Bool) -> Void) {
-        let fractalLayer = CALayer()
-        fractalLayer.frame = viewController.view.bounds
-        fractalLayer.backgroundColor = UIColor.white.cgColor
-        
-        let fractalImage = generateFractal(size: viewController.view.bounds.size)
-        fractalLayer.contents = fractalImage?.cgImage
-        
-        viewController.view.layer.insertSublayer(fractalLayer, at: 0)
-        
-        animateFractalGrowth(fractalLayer)
-        incorporateKeys(fractalLayer)
-        
-        animateColorShift(layer: fractalLayer, fromColor: .white, toColor: .red, duration: 3.0)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            fractalLayer.removeFromSuperlayer()
-            completion(true)
+    /// Function to start the calibration process.
+    func startCalibration() {
+        delegate?.didStartCalibration()
+        eyeTracker?.startTracking()
+    }
+    
+    /// Function to stop the calibration process.
+    func stopCalibration() {
+        eyeTracker?.stopTracking()
+        guard let result = calculateCalibrationResult() else {
+            delegate?.didFailCalibration(withError: CalibrationError.resultNotAvailable)
+            return
         }
-    }
-    
-    /// Function to animate the growth of a fractal.
-    func animateFractalGrowth(_ layer: CALayer) {
-        let growthAnimation = CABasicAnimation(keyPath: "transform.scale.y")
-        growthAnimation.fromValue = 0.0
-        growthAnimation.toValue = 1.0
-        growthAnimation.duration = 3.0
-        layer.add(growthAnimation, forKey: "transform.scale.y")
-    }
-    
-    /// Function to incorporate keys into a fractal layer.
-    func incorporateKeys(_ layer: CALayer) {
-        // For instance, if keys are images, you can add them as sublayers here.
-    }
-    
-    /// Function to animate a change in background color over the specified duration.
-    func animateColorShift(layer: CALayer, fromColor: UIColor, toColor: UIColor, duration: TimeInterval) {
-        let colorChangeAnimation = CABasicAnimation(keyPath: "backgroundColor")
-        colorChangeAnimation.fromValue = fromColor.cgColor
-        colorChangeAnimation.toValue = toColor.cgColor
-        colorChangeAnimation.duration = duration
-        layer.add(colorChangeAnimation, forKey: "backgroundColor")
-    }
-    
-    /// Function that finalizes the calibration process.
-    func finalizeCalibration() {
-        // Here you can finalize the calibration process, for example by saving the CalibrationData.
-    }
-    
-    /// Function to determine the point of interest from an array of eye movements and a fractal state.
-    /// Currently averages the eye movement positions to find the point of interest.
-    func determinePointOfInterest(eyeMovements: [EyeMovements], fractalState: FractalState) -> CGPoint {
-        let count = eyeMovements.count
-        if count == 0 {
-            return CGPoint.zero
-        }
-        
-        var sumX = 0.0
-        var sumY = 0.0
-        for movement in eyeMovements {
-            sumX += Double(movement.position.x)
-            sumY += Double(movement.position.y)
-        }
-        
-        let averageX = CGFloat(sumX / Double(count))
-        let averageY = CGFloat(sumY / Double(count))
-        
-        return CGPoint(x: averageX, y: averageY)
+        delegate?.didCompleteCalibration(withResult: result)
     }
     
     // MARK: - CalibrationDelegate methods
@@ -173,4 +120,32 @@ class DynamicCalibration: CalibrationDelegate {
     func didFailCalibration(withError error: Error) {
         print("Calibration failed with error: \(error)")
     }
+}
+
+// MARK: - EyeTrackerDelegate Extension
+
+extension DynamicCalibration: EyeTrackerDelegate {
+    
+    func eyeTracker(_ eyeTracker: EyeTracker, didTrackGazePoint gazePoint: CGPoint) {
+        addCalibrationPoint(gazePoint)
+        delegate?.dynamicCalibration(self, didUpdateEyeOffset: simd_float3(Float(gazePoint.x), Float(gazePoint.y), 0))
+    }
+    
+    func eyeTrackerDidStartTracking(_ eyeTracker: EyeTracker) {
+        // Handle the start of eye tracking if needed
+    }
+    
+    func eyeTrackerDidStopTracking(_ eyeTracker: EyeTracker) {
+        // Handle the stop of eye tracking if needed
+    }
+    
+    func eyeTrackerDidFailToStart(_ eyeTracker: EyeTracker) {
+        delegate?.didFailCalibration(withError: CalibrationError.trackerNotAvailable)
+    }
+}
+
+// Define any custom errors related to calibration
+enum CalibrationError: Error {
+    case resultNotAvailable
+    case trackerNotAvailable
 }
