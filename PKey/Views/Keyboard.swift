@@ -29,10 +29,26 @@ class Keyboard: UIInputViewController {
     
     // MARK: - Setup Methods
     private func setupComponents() {
-        dynamicCalibration = DynamicCalibration()
-        gazeDetection = GazeDetection(delegate: dynamicCalibration as! GazeDetectionDelegate)
-        keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout(), textEntryService: textEntryService)
+        // Ensure EyeTracker is initialized before it's needed for DynamicCalibration
         eyeTracker = EyeTracker()
+        
+        // Make sure to check if eyeTracker is not nil before using it
+        guard let eyeTracker = eyeTracker else {
+            fatalError("EyeTracker could not be initialized")
+        }
+        
+        // Initialize DynamicCalibration with the eyeTracker instance
+        dynamicCalibration = DynamicCalibration(eyeTracker: eyeTracker)
+        
+        let eyeGazeViewController = EyeGazeViewController()
+        
+        // Initialize GazeDetection with dynamicCalibration as its delegate
+        // Assuming dynamicCalibration conforms to GazeDetectionDelegate
+        if let dynamicCalibration = dynamicCalibration {
+            gazeDetection = GazeDetection(delegate: eyeGazeViewController)
+        }
+        
+        keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout(), textEntryService: textEntryService)
         swipeToTypeController = SwipeToTypeController()
     }
     
@@ -121,6 +137,17 @@ class Keyboard: UIInputViewController {
         }
     }
     
+extension KeyboardViewController: GazeDetectionDelegate {
+    func gazeDetection(_ gazeDetection: GazeDetection, didDetectGazeAt point: CGPoint) {
+        // Process gaze point...
+    }
+    
+    func currentInterfaceOrientation(for gazeDetection: GazeDetection) -> UIInterfaceOrientation {
+        // Correctly access the interface orientation from the view controller context
+        return self.view.window?.windowScene?.interfaceOrientation ?? .unknown
+    }
+}
+
     // MARK: - KeyboardInteractionDelegate
     extension Keyboard: KeyboardInteractionDelegate {
         func didSelectKey(_ key: String, textEntryService: TextEntryService) {

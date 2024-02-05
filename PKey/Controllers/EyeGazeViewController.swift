@@ -13,12 +13,19 @@ class EyeGazeViewController: UIViewController, EyeTrackerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Initialize dependencies
-        let dynamicCalibration = DynamicCalibration()
-        gazeDetection = GazeDetection(delegate: dynamicCalibration as! GazeDetectionDelegate)
-        eyeTracker = EyeTracker()
-        keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout(), textEntryService: textEntryService)
+        // Instantiate EyeTracker directly since it doesn't require parameters
+        let eyeTracker = EyeTracker()
+        self.eyeTracker = eyeTracker  // Assign to the class property if needed elsewhere
         
+        // Initialize DynamicCalibration with the EyeTracker instance
+        let dynamicCalibration = DynamicCalibration(eyeTracker: eyeTracker)
+        
+        // Ensure DynamicCalibration conforms to GazeDetectionDelegate
+        gazeDetection = GazeDetection(delegate: dynamicCalibration as! any GazeDetectionDelegate as GazeDetectionDelegate)
+
+        
+        // Continue with KeyboardInteraction initialization
+        keyboardInteraction = KeyboardInteraction(layout: KeyboardLayout.defaultLayout(), textEntryService: textEntryService)
         // Create bindings
         let textBinding = Binding<String>(
             get: { self.text },
@@ -57,17 +64,17 @@ class EyeGazeViewController: UIViewController, EyeTrackerDelegate {
         
         // Start gaze detection and eye tracking
         gazeDetection?.start()
-        eyeTracker?.startTracking()
+        eyeTracker.startTracking()  // Directly call since eyeTracker is guaranteed to be non-nil here
     }
 }
     // MARK: - GazeDetectionDelegate
     extension EyeGazeViewController: GazeDetectionDelegate {
         func gazeDetection(_ gazeDetection: GazeDetection, didDetectGazeAt point: CGPoint) {
-            // Handle gaze point detection
+            // Handle gaze point detection...
         }
         
         func currentInterfaceOrientation(for gazeDetection: GazeDetection) -> UIInterfaceOrientation {
             return view.window?.windowScene?.interfaceOrientation ?? .unknown
         }
-    }
+}
 

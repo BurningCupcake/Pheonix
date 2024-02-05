@@ -12,7 +12,11 @@ class DynamicCalibrationModel: ObservableObject {
     
     private var isCalibrationInProgress = false
     private var gazeDataAnalyzer = GazeDataAnalyzer()
+    private var dynamicCalibration: DynamicCalibration
     
+    init(dynamicCalibration: DynamicCalibration) {
+        self.dynamicCalibration = dynamicCalibration
+    }
     func startCalibration() {
         guard !isCalibrationInProgress else { return }
         
@@ -43,7 +47,7 @@ class DynamicCalibrationModel: ObservableObject {
         isCalibrationInProgress = false
         
         // Assuming calculateCalibrationResult() provides the CalibrationResult you need to validate.
-        guard let calibrationResult = calculateCalibrationResult() else {
+        guard let calibrationResult = dynamicCalibration.calculateCalibrationResult() else {
             print("Failed to calculate calibration result.")
             return
         }
@@ -59,5 +63,7 @@ class DynamicCalibrationModel: ObservableObject {
             // Handle the invalid calibration case here.
         }
     }
+    
+    
     // Additional methods as necessary...
 }

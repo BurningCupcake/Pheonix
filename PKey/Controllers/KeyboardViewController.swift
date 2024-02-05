@@ -10,6 +10,7 @@ class KeyboardViewController: UIInputViewController {
     private var dynamicCalibration: DynamicCalibrationModel?
     private var fractalHostingController: UIHostingController<FractalView>?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,9 +35,11 @@ class KeyboardViewController: UIInputViewController {
     }
     
     private func setupDynamicCalibration() {
-        // Assuming DynamicCalibrationModel has been correctly set up to initialize with necessary components.
-        dynamicCalibration = DynamicCalibrationModel()
+        let eyeTracker = EyeTracker() // Assuming EyeTracker does not require any parameters
+        let dynamicCalibration = DynamicCalibration(eyeTracker: eyeTracker)
+        self.dynamicCalibration = DynamicCalibrationModel(dynamicCalibration: dynamicCalibration)
     }
+
     
     private func setupKeyboard() {
         // Setup your keyboard layout here
@@ -44,8 +47,36 @@ class KeyboardViewController: UIInputViewController {
     }
     
     private func setupFractalView() {
-        // Assume DynamicCalibrationModel provides observable properties for scale and offset
-        let fractalView = FractalView(scale: $dynamicCalibration.scale, offset: $dynamicCalibration.offset)
+        guard let dynamicCalibration = dynamicCalibration else { return }
+        
+        // Create bindings
+        let scaleBinding = Binding<CGFloat>(
+            get: { dynamicCalibration.scale },
+            set: { dynamicCalibration.scale = $0 }
+        )
+        
+        let offsetBinding = Binding<CGSize>(
+            get: { dynamicCalibration.offset },
+            set: { dynamicCalibration.offset = $0 }
+        )
+        
+        let complexityBinding = Binding<CGFloat>(
+            get: { dynamicCalibration.complexity },
+            set: { dynamicCalibration.complexity = $0 }
+        )
+        
+        let highlightedAreasBinding = Binding<[CGRect]>(
+            get: { dynamicCalibration.highlightedAreas },
+            set: { dynamicCalibration.highlightedAreas = $0 }
+        )
+        
+        let fractalView = FractalView(
+            scale: scaleBinding,
+            offset: offsetBinding,
+            complexity: complexityBinding,
+            highlightedAreas: highlightedAreasBinding
+        )
+        
         fractalHostingController = UIHostingController(rootView: fractalView)
         
         guard let fractalViewHost = fractalHostingController else { return }
@@ -74,17 +105,17 @@ class KeyboardViewController: UIInputViewController {
         fractalHostingController?.view.isHidden = true
         dynamicCalibration?.stopCalibration()
     }
-    }
+    
     
     // DynamicCalibrationDelegate methods
     func dynamicCalibration(_ dynamicCalibration: DynamicCalibration, didUpdateEyeOffset eyeOffset: simd_float3) {
         // Handle the updated eye offset here, if applicable
     }
-    }
+    
     
     // Add other utility methods as necessary for your keyboard layout and functionality
-
-
+    
+    
     
     // MARK: - Utility Methods
     
@@ -137,18 +168,19 @@ class KeyboardViewController: UIInputViewController {
     }
     
     
-
-extension String {
-    func split(into length: Int) -> [String] {
-        var startIndex = self.startIndex
-        var results = [Substring]()
-        
-        while startIndex < self.endIndex {
-            let endIndex = self.index(startIndex, offsetBy: length, limitedBy: self.endIndex) ?? self.endIndex
-            results.append(self[startIndex..<endIndex])
-            startIndex = endIndex
-        }
-        
-        return results.map(String.init)
-    }
 }
+    extension String {
+        func split(into length: Int) -> [String] {
+            var startIndex = self.startIndex
+            var results = [Substring]()
+            
+            while startIndex < self.endIndex {
+                let endIndex = self.index(startIndex, offsetBy: length, limitedBy: self.endIndex) ?? self.endIndex
+                results.append(self[startIndex..<endIndex])
+                startIndex = endIndex
+            }
+            
+            return results.map(String.init)
+        }
+    }
+
