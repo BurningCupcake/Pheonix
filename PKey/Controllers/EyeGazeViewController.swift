@@ -21,7 +21,7 @@ class EyeGazeViewController: UIViewController, EyeTrackerDelegate {
         let dynamicCalibration = DynamicCalibration(eyeTracker: eyeTracker)
         
         // Ensure DynamicCalibration conforms to GazeDetectionDelegate
-        gazeDetection = GazeDetection(delegate: dynamicCalibration as! any GazeDetectionDelegate as GazeDetectionDelegate)
+        gazeDetection = GazeDetection(delegate: dynamicCalibration as any GazeDetectionDelegate as GazeDetectionDelegate)
 
         
         // Continue with KeyboardInteraction initialization

@@ -561,11 +561,9 @@
 				A1F356142B1F9F86001B30A2 /* EyeMovementMonitor.swift in Sources */,
 				A1F356152B1F9F86001B30A2 /* FractalState.swift in Sources */,
 				A1F356162B1F9F86001B30A2 /* SpellingIndicator.swift in Sources */,
-				A16B87D32B700A4B00D58E18 /* CalibrationValidator.swift in Sources */,
 				A1F356172B1F9F86001B30A2 /* EyeMovements.swift in Sources */,
 				A1F356182B1F9F86001B30A2 /* SwipeDirection.swift in Sources */,
 				A1F355EB2B1F9F7B001B30A2 /* SpellingIndicatorDelegateWrapper.swift in Sources */,
-				A16B87D12B70097E00D58E18 /* GazeDataAnalyzer.swift in Sources */,
 				A1F355EC2B1F9F7B001B30A2 /* BlinkGestureHandlerDelegate.swift in Sources */,
 				A1F355ED2B1F9F7B001B30A2 /* CalibrationDelegate.swift in Sources */,
 				A1F355EE2B1F9F7B001B30A2 /* EyeTrackerDelegate.swift in Sources */,
@@ -593,6 +591,8 @@
 				A1F356042B1F9F7C001B30A2 /* TextEntryView.swift in Sources */,
 				A1F356052B1F9F7C001B30A2 /* LanguagePickerView.swift in Sources */,
 				A1F356072B1F9F7C001B30A2 /* SwipeToTypeView.swift in Sources */,
+				A16B87D32B700A4B00D58E18 /* CalibrationValidator.swift in Sources */,
+				A16B87D12B70097E00D58E18 /* GazeDataAnalyzer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -879,6 +879,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Cuptastrophe.Pheonix.PKey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -909,6 +913,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Cuptastrophe.Pheonix.PKey;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
