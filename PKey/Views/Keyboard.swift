@@ -14,6 +14,7 @@ class Keyboard: UIInputViewController {
     private var eyeTracker: EyeTracker?
     private var swipeToTypeController: SwipeToTypeController?
     private var spellingIndicatorWrapper = SpellingIndicatorDelegateWrapper()
+    private var eyeGazeViewController: EyeGazeViewController?
     
     // SwiftUI View for Keyboard
     private var keyboardView: KeyboardView?
@@ -29,10 +30,8 @@ class Keyboard: UIInputViewController {
     
     // MARK: - Setup Methods
     private func setupComponents() {
-        // Ensure EyeTracker is initialized before it's needed for DynamicCalibration
         eyeTracker = EyeTracker()
         
-        // Make sure to check if eyeTracker is not nil before using it
         guard let eyeTracker = eyeTracker else {
             fatalError("EyeTracker could not be initialized")
         }
@@ -44,7 +43,7 @@ class Keyboard: UIInputViewController {
         
         // Initialize GazeDetection with dynamicCalibration as its delegate
         // Assuming dynamicCalibration conforms to GazeDetectionDelegate
-        if let dynamicCalibration = dynamicCalibration {
+        if let eyeGazeViewController = eyeGazeViewController {
             gazeDetection = GazeDetection(delegate: eyeGazeViewController)
         }
         
